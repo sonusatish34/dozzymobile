@@ -74,20 +74,20 @@ const FarmProductLPage = () => {
                     {filteredData?.map((item, index) => (
                         <React.Fragment key={index}>
                             <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col lg:w-72 w-[97%]  xs:w-[90%] md:w-80 h-96 lg:hover:scale-105">
-                                <div className="relative h-64">
+                                <div className="relative h-80">
                                     <Link href={`/${item.maker_model}`}>
                                         <Image
                                             src={item.car_image_car_right_view}
                                             alt="Car"
                                             layout="fill"
                                             objectFit="cover"
-                                            className="rounded-t-lg relative"
+                                            className="rounded-t-lg  h-48"
                                             priority
                                         />
                                     </Link>
                                 </div>
 
-                                <div className="px-2 pt-4 flex flex-col gap-4 p-1">
+                                <div className="px-2 pt-2 flex flex-col gap-4 p-1">
                                     <div className='flex items-baseline justify-between px-2'>
                                         {/* <Link href={`/${item.maker_model}`}>
                                             <p className="text-gray-700 cursor-pointer font-semibold text-sm hover:text-red-600 w-fit">{item.maker_model}</p>

@@ -27,8 +27,7 @@ const CareGuests = () => {
                 <div className='py-6'>
                     <p className='font-bold pb-3'>Book With Just 3 Easy Steps</p>
                     <div className='flex items-center'>
-                        <div className='w-56 h-24 relative'>
-
+                        <div className='w-56 h-24 relative rounded-md'>
                             <Image
                                 src={steps}
                                 alt='steps'
