@@ -18,20 +18,21 @@ const Footer = () => {
                     <ul className='text-xs'>
                         <li className='text-lg'>Your All-In-One App  Dozzy</li>
                         <li>Head Office:</li>
-                        <li>Dozzy Private Limited 5th Floor, Sigma Tech Park Whitefield, Bangalore</li>
+                        <li className='w-[70%]'>Dozzy Private Limited 5th Floor, Sigma Tech Park Whitefield, Bangalore</li>
                         <li>9111-9111-62</li>
-                        <li className='flex'>
+                        <li className='text-red-400 font-semibold'>App Launching Soon</li>
+                        <li className='flex gap-2 pt-2'>
                             <Image
                                 src={gplay}
                                 width={80}
                                 height={80}
-                                className=''
+                                className='w-10 h-4'
                             />
                             <Image
                                 src={appstore}
                                 width={100}
                                 height={100}
-                                className=''
+                                className='w-10 h-4'
                             />
 
                         </li>

@@ -10,7 +10,7 @@ const HomeBanner = () => {
     return (
         <div>
         <div className='flex justify-between'>
-            <div className='pl-5 lg:pl-20 lg:pt-44 pt-12 flex flex-col gap-3 lg:gap-8 '>
+            <div className='pl-5 md:pl-12 lg:pl-20 lg:pt-44 pt-12 flex flex-col gap-3 lg:gap-8 '>
                 <p className='text-[8px] text-[#556EE6] font-bold lg:text-xl'>Most Affordable Farmhouse in India</p>
                 <h2 className='text-lg font-extrabold lg:font-bold flex flex-col lg:gap-2 lg:text-6xl'><span>Farmhouses</span> <span>In Hyderabad</span></h2>
                 <div className='flex gap-1 text-white lg:pt-6 pb-16'>
