@@ -38,7 +38,7 @@ const FarmProductLPage = () => {
             price_24_hours: 13000,
             farm_image: farm3,
             weekdays: { oneday: "13000", twoday: "25000" },
-            weekends: { oneday: "18000", twoday: "35000" }
+            weekends: { oneday: "18000", twoday: "35000" },
 
         },
         {
@@ -46,7 +46,7 @@ const FarmProductLPage = () => {
             price_24_hours: 8000,
             farm_image: farm4,
             weekdays: { oneday: "8000", twoday: "15000" },
-            weekends: { oneday: "13000", twoday: "25000" }
+            weekends: { oneday: "13000", twoday: "25000" },
         },
         {
             farm_name: 'Zoo Zoo',
