@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import bgsvg from '../../images/traveller.svg'
-import farmhouse from '../../images/kk.png'
+import farmhouse from '../../images/kk.jpg'
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
 import Link from 'next/link';
@@ -11,7 +11,7 @@ const HomeBanner = () => {
         <div>
         <div className='flex justify-between'>
             <div className='pl-5 md:pl-12 lg:pl-20 lg:pt-44 pt-12 flex flex-col gap-3 lg:gap-8 '>
-                <p className='text-[8px] text-[#556EE6] font-bold lg:text-xl'>Most Affordable Farmhouse in India</p>
+                <p className='text-[8px] text-[#556EE6] font-bold lg:text-xl'>Most Affordable Farmhouses in India</p>
                 <h2 className='text-lg font-extrabold lg:font-bold flex flex-col lg:gap-2 lg:text-6xl'><span>Farmhouses</span> <span>In Hyderabad</span></h2>
                 <div className='flex gap-1 text-white lg:pt-6 pb-16'>
                     <button className='bg-green-500 rounded-full py-1 px-2 lg:px-5'>
@@ -39,9 +39,9 @@ const HomeBanner = () => {
             <Image
             src={farmhouse}
             alt='farmhouse'
-            height={400}
-            width={400}
-            className='w-full'
+            // height={400}
+            // width={400}
+            className='w-full h-full'
             />
         </div>
         </div>

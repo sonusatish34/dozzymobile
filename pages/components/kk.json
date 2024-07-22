@@ -1,6 +1,6 @@
 {
  "cheritan farm house": {
-      "id": "Cheritan Farm house",
+      "id": "Cheritan",
       "car_owner_id": 5,
       "car_number": "TS28Q1467",
       "price_24_hours": 1500,
@@ -26,7 +26,7 @@
       "subdesc" : "Over the last several decades, urban investors have developed an interest in purchasing rural acreage and converting it into holiday homes or lavish resorts with plenty of greenery and scenic views. Since the vertical rise of structures in urban centres leaves little room for greenery and open space, demand for such housing choices has surged. As a result, individuals have begun investing actively in property in distant places. A farmhouse is one of these housing types since it enables the investor to possess both property and privacy."
   },
  "srinivasa farm house": {
-      "id": "Srinivasa Farm house",
+      "id": "Srinivasa",
       "car_owner_id": 5,
       "car_number": "TS28Q1467",
       "price_24_hours": 1500,
@@ -39,7 +39,7 @@
       "subdesc" : "Over the last several decades, urban investors have developed an interest in purchasing rural acreage and converting it into holiday homes or lavish resorts with plenty of greenery and scenic views. Since the vertical rise of structures in urban centres leaves little room for greenery and open space, demand for such housing choices has surged. As a result, individuals have begun investing actively in property in distant places. A farmhouse is one of these housing types since it enables the investor to possess both property and privacy."
   },
  "urban farm house": {
-      "id": "Urban Farm house",
+      "id": "Urban",
       "car_owner_id": 5,
       "car_number": "TS28Q1467",
       "price_24_hours": 1500,
