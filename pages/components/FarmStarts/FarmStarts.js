@@ -7,7 +7,7 @@ import Link from 'next/link';
 const FarmStarts = () => {
     return (
         <div className='py-6 px-4 md:px-12'>
-            <p className='pb-2 font-bold text-2xl md:pb-7'>Farmhouses Starts At  ₹ 5999/Day</p>
+            <p className='pb-4 font-bold text-xl lg:text-3xl pt-4 lg:pt-14 md:pb-7 font-opensans'>Farmhouses Starts At  ₹ 5999/Day</p>
             <div className='flex'>
                 <div >
                     <Image
@@ -26,7 +26,7 @@ const FarmStarts = () => {
 
                     <div className='flex gap-1 text-white pt-3 md:pt-6 pl-4'>
                         <button className='bg-green-500 rounded-full py-1 px-2 md:px-4 md:py-2'>
-                            <Link href="https://api.whatsapp.com/send?phone=+9666677405&text=Hi%21" target='_blank'>
+                        <Link href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking." target='_blank'>
                                 <p className=' flex gap-1 lg:gap-2 items-center text-[10px] lg:text-lg'><span><FaWhatsapp className='lg:size-6' size={10} /></span> <span>Whatsapp</span></p>
                             </Link>
                         </button>

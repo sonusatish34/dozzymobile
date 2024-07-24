@@ -6,7 +6,7 @@ import CareGuests from "./components/CareGuests/CareGuests";
 const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
-    <div className="">
+    <div className="text-black">
       <HomeBanner/>
       <FarmStarts/>
       <FarmProductLPage/>

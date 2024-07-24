@@ -7,7 +7,7 @@ const  Header = () => {
       <div>
 
       <p className='lg:text-3xl text-sm  text-[#556EE6]'>For Booking help</p>
-      <p className='lg:text-3xl'>9111-9111-62</p>
+      <p className='lg:text-3xl text-black'>9111-9111-62</p>
       </div>
     </div>
   )
