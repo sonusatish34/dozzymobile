@@ -14,6 +14,7 @@ const FarmStarts = () => {
                         src={grpfarm}
                         alt='farmhouse'
                         className=''
+                        priority
                     />
                 </div>
                 <div className='w-2/3 lg:pl-10'>
