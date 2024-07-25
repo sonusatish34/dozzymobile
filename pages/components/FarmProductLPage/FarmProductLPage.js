@@ -1,7 +1,4 @@
 import React from "react";
-import { BsFuelPump } from "react-icons/bs";
-import { TbManualGearbox } from "react-icons/tb";
-import { MdOutlineAirlineSeatReclineExtra } from "react-icons/md";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -14,13 +11,7 @@ import farm4 from "../../images/farmhouse/Urban.jpg";
 import farm5 from "../../images/farmhouse/zozo.jpeg";
 import farm6 from "../../images/farmhouse/shan.jpeg";
 const FarmProductLPage = () => {
-    const [visibleItems, setVisibleItems] = useState(7);
-    const replaceText = (str) => {
-        return str?.replace(
-            "https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls3",
-            "https://d10uth61hedy2t.cloudfront.net"
-        );
-    };
+
     const filteredData = [
         {
             farm_name: "Cheritan",
@@ -65,7 +56,7 @@ const FarmProductLPage = () => {
             weekends: { oneday: "15000", twoday: "29000" },
         },
     ];
-    // console.log(filteredData[0].weekdays.oneday);
+
     return (
         <div>
             <div className="text-sm pl-4 py-4 md:px-12 lg:py-16">
@@ -90,6 +81,7 @@ const FarmProductLPage = () => {
                                             objectFit="cover"
                                             className="rounded-t-lg relative"
                                             priority
+                                            
                                         />
                                     </Link>
                                 </div>
@@ -105,7 +97,7 @@ const FarmProductLPage = () => {
                                             </p>
                                         </Link>
                                     </div>
-                                    
+
                                     <div className="font-semibold">
                                         <div className="flex items-baseline justify-between px-2">
                                             <p className="text-black">Mon-Thu</p>

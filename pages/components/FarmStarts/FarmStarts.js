@@ -23,7 +23,6 @@ const FarmStarts = () => {
                         Only To View More</p>
                     <p  className='text-[11px] font-semibold pl-3  md:text-xl lg:text-3xl pt-3 lg:w-[65%] '>To View More</p>
                     
-
                     <div className='flex gap-1 text-white pt-3 md:pt-6 pl-4'>
                         <button className='bg-green-500 rounded-full py-1 px-2 md:px-4 md:py-2'>
                         <Link href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking." target='_blank'>
