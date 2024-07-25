@@ -113,7 +113,7 @@ const FarmProductLPage = () => {
                                     </div>
                                     <div className="flex justify-between gap-1 text-white ">
                                         <ul className="text-black flex w-full justify-between gap-3">
-                                            <li className="bg-green-400 w-full p-2 rounded-bl-md text-center text-white border-[1px] border-black">
+                                            <li className="bg-green-500 w-full p-2 rounded-bl-md text-center text-white border-[1px] border-black">
                                                 {" "}
                                                 <Link
                                                     href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
@@ -127,7 +127,7 @@ const FarmProductLPage = () => {
                                                     </p>
                                                 </Link>
                                             </li>
-                                            <li className="bg-blue-400 w-full p-2 rounded-br-md text-white border-[1px] border-black">
+                                            <li className="bg-blue-500 w-full p-2 rounded-br-md text-white border-[1px] border-black">
                                                 {" "}
                                                 <Link href="tel:9666677405" target="_blank">
                                                     <p className=" flex gap-1 text-sm justify-center">

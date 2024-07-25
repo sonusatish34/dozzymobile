@@ -166,7 +166,7 @@ const CarDetails = () => {
           </ul>
         </div>
         <h2 className='font-bold text-2xl lg:text-3xl border-l-2 border-red-900 mb-3 mt-4 font-manrope' >Description</h2>
-        <p className='font-light p-1 text-[14px] lg:text-xl leading-6 font-jakarta pb-8'>
+        <p className='font-normal p-1 text-[14px] lg:text-xl leading-6 font-poppins pb-8'>
           {customData[farmproduct?.toLowerCase()]?.desc}
         </p>
 

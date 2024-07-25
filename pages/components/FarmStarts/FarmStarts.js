@@ -7,7 +7,7 @@ import Link from 'next/link';
 const FarmStarts = () => {
     return (
         <div className='py-6 px-4 md:px-12'>
-            <p className='pb-4 font-bold text-xl lg:text-3xl pt-4 lg:pt-14 md:pb-7 font-opensans'>Farmhouses Starts At  ₹ 5999/Day</p>
+            <p className='pb-4 font-bold text-xl lg:text-3xl pt-4 lg:pt-14 md:pb-7 font-opensans'>Farmhouses Starts At ₹5999/Day</p>
             <div className='flex'>
                 <div >
                     <Image
@@ -17,9 +17,9 @@ const FarmStarts = () => {
                     />
                 </div>
                 <div className='w-2/3 lg:pl-10'>
-                    <p className='text-[11px] font-semibold pl-3  md:text-xl lg:text-3xl lg:w-[65%] '>Dozzy Has 10,000+ Attached
+                    <p className='text-[10px] font-semibold pl-3  md:text-xl lg:text-3xl lg:w-[65%] '>Dozzy Has 10,000+ Attached
                         Farmhouses From Basic - Luxury
-                        It's Just Starting At  ₹ 5999/Day
+                        It's Just Starting At  ₹5999/Day
                         Only To View More</p>
                     <p  className='text-[11px] font-semibold pl-3  md:text-xl lg:text-3xl pt-3 lg:w-[65%] '>To View More</p>
                     

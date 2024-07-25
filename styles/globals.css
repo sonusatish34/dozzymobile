@@ -65,13 +65,20 @@ body {
   background: white
 }
 .carousel .slide {
-  background: #556ee6 !important;
-  
+  background: white !important;
 }
+
+.selected > div {
+    /* border: 4px solid firebrick; */
+    /* scale: 1.; */
+    /* background-color: lightgoldenrodyellow; */
+
+}
+
 .carousel.carousel-slider .control-arrow {
-  background: #556ee6 !important;
+  /* background: #556ee6 !important;
   z-index: 10 !important;
-  color: yellow !important;
+  color: yellow !important; */
 }
 
 
