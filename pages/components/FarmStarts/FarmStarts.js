@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import grpfarm from '../../images/farmgroup.svg'
+import grpfarm from '../../images/farmgroup.webp'
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
 import Link from 'next/link';
@@ -14,7 +14,6 @@ const FarmStarts = () => {
                         src={grpfarm}
                         alt='farmhouse'
                         className=''
-                        priority
                     />
                 </div>
                 <div className='w-2/3 lg:pl-10'>

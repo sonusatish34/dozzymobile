@@ -9,7 +9,7 @@ const HomeBanner = () => {
     return (
         <div>
             <div className='flex justify-between'>
-                <div className='pl-5 md:pl-12 lg:pl-20 lg:pt-44 pt-12 flex flex-col gap-3 lg:gap-8 '>
+                <div className='pl-5 pt-6 md:pl-12 lg:pl-20 lg:pt-44  flex flex-col gap-3 lg:gap-8 '>
                     <p className='text-[8px] text-[#556EE6] font-bold lg:text-xl'>Most Affordable Farmhouses in India</p>
                     <h2 className='text-lg font-extrabold lg:font-bold flex flex-col lg:gap-2 lg:text-6xl'><span>Farmhouses</span> <span>In Hyderabad</span></h2>
                     <div className='flex gap-1 text-white lg:pt-6 pb-16'>
@@ -29,12 +29,15 @@ const HomeBanner = () => {
                     <Image
                         priority
                         src={bgsvg}
-                        alt="Follow us on Twitter"
-                        className='w-56 h-52 lg:w-[701px] lg:h-[684px] lg:relative lg:bottom-10 lg:right-28'
+                        alt="women with luggage"
+                        className='lg:w-[701px] lg:h-[684px] max lg:relative lg:bottom-10 lg:right-28'
+                        // layout='responsive'
+                        height={200}
+                        width={200}
                     />
                 </div>
             </div>
-            <div className='... bg-[url("/kk.jpg")] bg-cover bg-no-repeat lg:bg-center '>
+            <div className='... bg-[url("/kk.webp")] bg-cover bg-no-repeat lg:bg-center '>
 
                 <div className='pt-40 lg:pt-[550px]'>
                     <ul className='text-white flex bg-black opacity-60 items-center justify-center text-xs lg:text-lg lg:font-bold text-center'>

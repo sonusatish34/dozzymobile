@@ -81,7 +81,6 @@ const FarmProductLPage = () => {
                                             objectFit="cover"
                                             className="rounded-t-lg relative"
                                             priority
-                                            
                                         />
                                     </Link>
                                 </div>
@@ -89,7 +88,7 @@ const FarmProductLPage = () => {
                                 <div className="px-2 pt-4 flex flex-col gap-4 p-1">
                                     <div className="flex items-baseline justify-between px-2">
                                         <Link href={`/${item.farm_name.toLowerCase()}`}>
-                                            <p className="text-[#556EE6] text-sm">Dozzy Farm House</p>
+                                            <p className="text-[#556EE6] font-bold text-sm">Dozzy Farm House</p>
                                         </Link>
                                         <Link href={`/${item.farm_name.toLowerCase()}`}>
                                             <p className="text-gray-700 cursor-pointer font-semibold text-xl hover:text-red-600 w-fit">

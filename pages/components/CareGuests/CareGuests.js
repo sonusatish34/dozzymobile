@@ -4,7 +4,7 @@ import steps from "../../images/steps.svg";
 import { SlCalender } from "react-icons/sl";
 import { MdOutlineFindReplace } from "react-icons/md";
 import { GiConfirmed } from "react-icons/gi";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
 import { Carousel } from "react-responsive-carousel";
 import { HiCurrencyRupee } from "react-icons/hi2";
 import { PiInfinityBold } from "react-icons/pi";
@@ -23,7 +23,7 @@ const CareGuests = () => {
               infiniteLoop={true}
               autoPlay={true}
               interval={2000}
-              showArrows={true}
+              showArrows={false}
               showStatus={false} 
               showIndicators={false}
               centerMode={true}
@@ -32,10 +32,10 @@ const CareGuests = () => {
               partialVisible={false}
               itemsToShow={1}
             >
-              <div className="flex gap-4 items-center justify-center lg:mx-24 mx-2 lg-w[70%] lg-w[70%] border-2 border-gray-200 rounded-md p-1 px-4 lg:p-3 bg-white">
+              <div className="flex gap-4 h-[96px] w-[260px] lg:h-full lg:w-full items-center justify-center lg:mx-24 mx-2 lg-w[70%] lg-w[70%] border-2 border-gray-200 rounded-md p-1 lg:p-3 bg-white">
                 <HiCurrencyRupee className="bg-[#556EE6] text-white p-1 w-16 h-12 rounded lg:w-16 lg:h-14" />
                 <div className="text-left">
-                  <p className="font-semibold md:text-base text-sm  lg:text-2xl text-[#556ee6] underline">
+                  <p className="font-semibold md:text-base text-[12px]  lg:text-2xl text-[#556ee6] underline">
                     Zero Deposit
                   </p>
                   <p className="text-[12px] md:text-xs lg:text-xl">
@@ -43,24 +43,24 @@ const CareGuests = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-4 items-center justify-center lg:mx-24 mx-2 lg-w[70%] lg-w[70%] border-2 border-gray-200 rounded-md p-1 px-4 lg:p-3 bg-white">
+              <div className="flex gap-4 h-[90px] w-[260px] lg:h-full lg:w-full items-center justify-center lg:mx-24 mx-2 lg-w[70%] lg-w[70%] border-2 border-gray-200 rounded-md p-1  lg:p-3 bg-white">
                 <PiInfinityBold className="bg-[#556EE6] text-white p-1 w-16 h-12 rounded lg:w-16 lg:h-14" />
                 <div className="text-left">
-                  <p className="font-semibold md:text-base text-sm  lg:text-2xl text-[#556ee6] underline">
+                  <p className="font-semibold md:text-base text-[12px]  lg:text-2xl text-[#556ee6] underline">
                     Unlimited Persons
                   </p>
-                  <p className="text-[12px] md:text-xs lg:text-xl">
+                  <p className="text-[10px] md:text-xs lg:text-xl">
                     Dozzy has no limit on no of persons. Enjoy Unlimited Entries
                   </p>
                 </div>
               </div>
-              <div className="flex gap-4 items-center justify-center lg:mx-24 mx-2 lg-w[70%] lg-w[70%] border-2 border-gray-200 rounded-md p-1 px-4 lg:p-3 bg-white">
+              <div className="flex gap-3 h-[90px] w-[260px] lg:h-full lg:w-full items-center justify-center lg:mx-24 mx-2 lg-w[70%] lg-w[70%] border-2 border-gray-200 rounded-md p-1 lg:p-3 bg-white">
                 <BiSolidOffer className="bg-[#556EE6] text-white p-1 w-16 h-12 rounded lg:w-16 lg:h-14" />
                 <div className="text-left">
-                  <p className="font-semibold md:text-base text-sm  lg:text-2xl text-[#556ee6] underline">
-                  Best-in-market Discounts
+                  <p className="font-semibold md:text-base text-[12px]  lg:text-2xl text-[#556ee6] underline">
+                  Best in market Discounts
                   </p>
-                  <p className="text-[12px] md:text-xs lg:text-xl">
+                  <p className="text-[10px] md:text-xs lg:text-xl">
                   Dozzy Discounts applicable on weekdays and weekends.
                   </p>
                 </div>
