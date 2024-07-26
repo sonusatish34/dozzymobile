@@ -67,13 +67,16 @@ body {
 .carousel .slide {
   background: white !important;
 }
-
-.selected > div {
-    /* border: 4px solid firebrick; */
-    /* scale: 1.; */
-    /* background-color: lightgoldenrodyellow; */
-
+.imgcrsl .carousel .slide img {
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
 }
+
+ .imgcrsl .carousel .slider-wrapper.axis-horizontal .slide {
+  height: 320px;
+}
+
 
 .carousel.carousel-slider .control-arrow {
   /* background: #556ee6 !important;

@@ -44,8 +44,10 @@ module.exports = {
       'jakarta': ['Plus Jakarta Sans', 'sans-serif'],
       'dmsans': ['DM Sans', 'sans-serif'],
       'manrope': ['Manrope', 'sans-serif'],
-      'opensans': ['Open Sans', 'sans-serif'],
-      'poppins':["Poppins", 'sans-serif']
+      'opensans': ['Open Sans', 'sans-serif'],  
+      'poppins':["Poppins", 'sans-serif'],
+      'Montserrat':["Montserrat",'sans-serif'],
+      'Quicksand':["Quicksand",'sans-serif']
     },
     extend: {
       animation: {
