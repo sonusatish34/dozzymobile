@@ -38,9 +38,8 @@
   font-display: swap;
 }
 body {
-  font-family: 'ui-sans-serif', 'system-ui';
+  font-family: "ui-sans-serif", "system-ui";
 }
-
 
 @tailwind base;
 @tailwind components;
@@ -62,7 +61,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: white
+  background: white;
 }
 .carousel .slide {
   background: white !important;
@@ -73,19 +72,26 @@ body {
   height: 100% !important;
 }
 
- .imgcrsl .carousel .slider-wrapper.axis-horizontal .slide {
-  height: 320px;
+.imgcrsl .carousel .slider-wrapper.axis-horizontal .slide {
+  height: 400px;
 }
 
-
-.carousel.carousel-slider .control-arrow {
-  /* background: #556ee6 !important;
-  z-index: 10 !important;
-  color: yellow !important; */
+.crsldetails .carousel .slider-wrapper.axis-horizontal .slide img {
+  height: 420px;
+  object-fit: cover;
 }
 
-
-
+/* @media screen and (min-width: 1024px) {
+    .crsldetails .carousel .slider-wrapper .slide  {
+    width: 90% !important;
+  }
+  } */
+.roboto-text {
+  font-family: "Roboto", sans-serif;
+}
+.mont-text {
+  font-family: "Montserrat", sans-serif;
+}
 
 @layer utilities {
   .text-balance {

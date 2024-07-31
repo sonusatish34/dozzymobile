@@ -84,7 +84,7 @@ const FarmProductLPage = () => {
                 <p className="font-semibold md:text-xl lg:text-5xl font-poppins">
                     Farm Houses In Hyderbad
                 </p>
-                <p className="md:py-4 lg:text-2xl lg:pb-4">
+                <p className="md:py-4 lg:text-2xl lg:pb-4 mont-text">
                     Get Very Low prices Compared To Others
                 </p>
             </div>

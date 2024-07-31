@@ -18,7 +18,7 @@ const FarmStarts = () => {
                     />
                 </div>
                 <div className='w-3/5 lg:pl-10'>
-                    <p className='text-[10px] font-normal pl-3  md:text-xl lg:text-2xl'>Dozzy Has 10,000+ Attached Farmhouses From Basic - Luxury It's Just Starting At  ₹5999/Day </p>
+                    <p className='text-[10px] font-normal pl-3  md:text-xl lg:text-2xl lg:w-[70%] mont-text'>Dozzy Has 10,000+ Attached Farmhouses From Basic - Luxury It's Just Starting At  ₹5999/Day </p>
                     <p className='text-[11px] font-semibold pl-3  md:text-xl lg:text-3xl pt-1 lg:pt-8'>To View More</p>
 
                     <div className='flex gap-1 lg:gap-3 text-white pt-2  md:pt-6 pl-1'>

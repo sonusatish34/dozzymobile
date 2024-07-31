@@ -16,6 +16,15 @@ import { IoWifi } from "react-icons/io5";
 import { GiBatteryPack } from "react-icons/gi";
 import { MdOutlineWaterDamage } from "react-icons/md";
 import { BiCameraMovie } from "react-icons/bi";
+import { FaKitchenSet } from "react-icons/fa6";
+import { GiBarbecue } from "react-icons/gi";
+import { IoIosBonfire } from "react-icons/io";
+import { BiSolidSpeaker } from "react-icons/bi";
+import { MdSportsEsports } from "react-icons/md";
+import { MdOutlineSportsVolleyball } from "react-icons/md";
+
+import { MdSportsHandball } from "react-icons/md";
+
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
@@ -63,7 +72,7 @@ const CarDetails = () => {
     "saketh vanam": {
       farm_name: 'Saketh Vanam',
       price_24_hours: 13000,
-      farm_image: { c1: skfarm1, 2: skfarm2, c3: skfarm3, },
+      farm_image: { c1: skfarm1, c2: skfarm2, c3: skfarm3, },
       weekdays: { oneday: "13000", twoday: "25000" },
       weekends: { oneday: "18000", twoday: "35000" },
       desc: "Traditionally Farmhouses are simply homes built on agricultural lands to house and protect who owned or worked the land. The term Farmhouse isn't necessarily connected to a particular style identified by a fixed set of features, but a setting for a way of life. This is most likely why its appeal seems to be timeless."
@@ -103,33 +112,33 @@ const CarDetails = () => {
   }
 
   return (
-    <div className='bg-white text-black'>
-      <div className=' lg:px-2 mx-auto lg:mx-20 xl:mx-16 lg:p-4 xs:px-5 px-2 py-2'>
-        <div className='flex flex-col md:mt-2 lg:mt-2 md:flex-row p-2 border-2 border-[#556EE6] rounded-md xl:w-[79%]'>
-          <div className="rounded-lg overflow-hidden">
+    <div className='bg-white text-black mont-text'>
+      <div className=' lg:px-2 mx-auto lg:mx-16 xl:mx-16 lg:p-4 xs:px-5 px-2 py-2'>
+        <div className='flex flex-col md:flex-row md:mt-2 lg:mt-2 lg:gap-16  p-2 border-2 border-[#556EE6] rounded-md'>
+          <div className="crsldetails rounded-lg overflow-hidden lg:w-[45%]">
             <Carousel
               showThumbs={false}
               showArrows={true}
               showStatus={false}
               showIndicators={false}
               infiniteLoop={true}
-              autoPlay={true}
+              // autoPlay={true}
               interval={5000}
               stopOnHover={true}
-              className="w-full"
+              className=""
             >
               {<Image src={customData[farmproduct?.toLowerCase()]?.farm_image.c1} alt={"1"} />}
               {<Image src={customData[farmproduct?.toLowerCase()]?.farm_image.c2} alt={"2"} />}
               {<Image src={customData[farmproduct?.toLowerCase()]?.farm_image.c3} alt={"3"} />}
             </Carousel>
           </div>
-          <div className='flex flex-col pt-4 pl-4'>
+          <div className='flex flex-col pt-4'>
             <div>
-              <h2 className='p-1 font-bold font-manrope text-lg lg:text-2xl lg: capitalize'>{customData[farmproduct?.toLowerCase()]?.farm_name} from <span className='text-blue-400'> {customData[farmproduct?.toLowerCase()]?.price_24_hours}/day</span>
+              <h2 className='p-1 font-bold  text-lg lg:text-2xl lg: capitalize'>{customData[farmproduct?.toLowerCase()]?.farm_name} Farm House <p className='text-blue-400 pt-3'> {customData[farmproduct?.toLowerCase()]?.price_24_hours}/day</p>
               </h2>
             </div>
             <div className=''>
-              <h2 className='font-semibold text-xl font-manrope pb-2 lg:pt-8'>Contact Us By</h2>
+              <h2 className='font-semibold text-xl pb-2 xl:pt-8 lg:pt-3'>Contact Us By</h2>
               <div className='flex justify-start gap-2 lg:gap-5 xl:gap-8 xl:pt-4 pb-2 xs:gap-2 xs:pt-2 text-white'>
                 <button className='bg-green-500 rounded-md p-2 lg:p-3'>
                   <Link href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking." target='_blank'>
@@ -142,14 +151,14 @@ const CarDetails = () => {
                   </Link>
                 </button>
               </div>
-              <div className="grid grid-cols-2 gap-2 lg:pt-12 xl:pt-8 pt-4 text-xs
+              <div className="grid grid-cols-2 gap-2 xl:pt-12 pt-4 text-xs
                      font-semibold lg:text-base xs: lg:w-full">
                 <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
-                  <HiCurrencyRupee className="bg-orange-200 rounded-md p-1 text-xs" size={40} />
+                  <HiCurrencyRupee className="bg-[#556ee6] rounded-md p-1 text-white text-xs" size={40} />
                   <p className="ml-1">Zero Deposit</p>
                 </div>
                 <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
-                  <FaPeopleLine className="bg-orange-200 rounded px-[4px]" size={40} />
+                  <FaPeopleLine className="bg-[#556ee6] text-white rounded px-[4px]" size={40} />
                   <p className="ml-1">Unlimited Persons</p>
                 </div>
               </div>
@@ -157,47 +166,86 @@ const CarDetails = () => {
           </div>
         </div>
         <div className='overview pt-10'>
-          <h2 className='font-bold text-2xl lg:text-3xl border-l-2 border-red-900 mb-4 font-manrope'>Our Amenities</h2>
+          <h2 className='font-bold text-2xl lg:text-3xl border-l-2 border-red-900 mb-4  '>Our Amenities</h2>
           <ul className='my-2 flex-wrap pb-4 grid grid-cols-2 gap-y-3 lg:flex justify-center lg:justify-normal'>
-            <li className='w-36 lg:w-40 flex flex-col justify-center gap-2 items-center border-[1px] border-gray-100 py-2   '>
-              <FaSwimmingPool size={30} className='text-green-700 lg:size-16' />
-              <p className='font text-xs lg:text-lg '>Swimming Pool</p>
+            <li className='w-36 lg:w-36 flex flex-col justify-center gap-2 items-center border-[1px] border-gray-100 py-2   '>
+              <FaSwimmingPool size={20} className='text-green-700 lg:size-10' />
+              <p className='font text-xs lg:text-base text-center '>Swimming Pool</p>
             </li>
-            <li className='w-36 lg:w-40 w- flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
-              <TbAirConditioning size={30} className={`text-${caritem?.vehicle_color}-400 lg:size-16`} />
-              <p className='font text-xs lg:text-lg'>Air Conditioner</p>
+            <li className='w-36 lg:w-36 w- flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
+              <TbAirConditioning size={20} className='text-blue-700 lg:size-10' />
+              <p className='font text-xs lg:text-base text-center'>Air Conditioner</p>
             </li>
-            <li className='w-36 lg:w-40 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
-              <IoWifi size={30} className='text-amber-900 lg:size-16' />
-              <p className='font text-xs lg:text-lg'>Wifi Connection</p>
+            <li className='w-36 lg:w-36 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
+              <IoWifi size={20} className='text-amber-900 lg:size-10' />
+              <p className='font text-xs lg:text-base text-center'>Wifi Connection</p>
             </li>
-            <li className='w-36 lg:w-40 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
-              <GiBatteryPack size={30} className='text-orange-500 lg:size-16' />
-              <p className='font text-xs lg:text-lg'>Power Backup</p>
+            <li className='w-36 lg:w-36 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
+              <GiBatteryPack size={20} className='text-orange-500 lg:size-10' />
+              <p className='font text-xs lg:text-base text-center'>Power Backup</p>
             </li>
-            <li className='w-36 lg:w-40 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
-              <MdOutlineWaterDamage size={30} className='text-yellow-500 lg:size-16' />
-              <p className='font text-xs lg:text-lg text-center'>Water Purifier + Gyser</p>
+            <li className='w-36 lg:w-36 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
+              <MdOutlineWaterDamage size={20} className='text-yellow-500 lg:size-10' />
+              <p className='font text-xs lg:text-base text-center'>Water Purifier + Gyser</p>
             </li>
-            <li className='w-36 lg:w-40 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
-              <BiCameraMovie size={30} className='text-blue-500 lg:size-16' />
-              <p className='font text-xs lg:text-lg'>Tv / Projector</p>
+            
+          </ul>
+          <ul className='my-2 flex-wrap pb-4 grid grid-cols-2 gap-y-3 lg:flex justify-center lg:justify-normal'>
+            <li className='w-36 lg:w-36 flex flex-col justify-center gap-2 items-center border-[1px] border-gray-100 py-2   '>
+              <FaKitchenSet size={20} className='text-gray-600 lg:size-10' />
+              <p className='font text-xs lg:text-base text-center '>Private Kitchen</p>
             </li>
+            <li className='w-36 lg:w-36 w- flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
+              <GiBarbecue size={20} className={`text-${caritem?.vehicle_color}-400 lg:size-10`} />
+              <p className='font text-xs lg:text-base text-center'>Barbeque</p>
+            </li>
+            <li className='w-36 lg:w-36 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
+              <IoIosBonfire size={20} className='text-orange-700 lg:size-10' />
+              <p className='font text-xs lg:text-base text-center'>Bonfire</p>
+            </li>
+            <li className='w-36 lg:w-36 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
+              <BiCameraMovie size={20} className='text-black lg:size-10' />
+              <p className='font text-xs lg:text-base text-center'>Tv / Projector</p>
+            </li>
+            <li className='w-36 lg:w-36 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
+              <MdOutlineSportsVolleyball size={20} className='text-purple-500 lg:size-10' />
+              <p className='font text-xs lg:text-base text-center'>In & Out-Door Games</p>
+            </li>
+          
+
           </ul>
         </div>
         <div>
-          <p className='font-bold text-2xl lg:text-3xl border-l-2 border-red-900 mb-3 mt-4 font-manrope'>Property Rules</p>
-          <ul className='p-4 text-sm font-normaltext-[14px] lg:text-xl leading-6 font-poppins'>
-            <li className='list-disc'><p>Check in after 1pm | Check Out before 12pm </p></li>
-            <li className='list-disc'><p>Alcohol Consumption Is Allowed</p></li>
-            <li className='list-disc'><p>Pets are allowed </p></li>
-            <li className='list-disc'><p>Guests are responsible for their safety and belongings</p></li>
-            <li className='list-disc'><p>Cooking and Barbequee available on demand chargeable</p></li>
-          </ul>
+          <p className='font-bold text-2xl lg:text-3xl border-l-2 border-red-900 mb-3 mt-4  '>Property Rules</p>
+          <div className='flex flex-wrap'>
+            <ul className='p-4 text-sm font-normaltext-[14px] lg:text-lg leading-6 font-poppins'>
+              <li className='list-disc'><p>Check in after 1pm | Check Out before 12pm </p></li>
+              <li className='list-disc'><p>Alcohol Consumption Is Allowed</p></li>
+              <li className='list-disc'><p>Pets are allowed </p></li>
+              <li className='list-disc'><p>Guests are responsible for their safety and belongings</p></li>
+              <li className='list-disc'><p>Cooking and Barbequee available on demand</p></li>
+              {/* <li className='list-disc'><p></p></li> */}
+              <li className='list-disc'><p>Aadhar photo is compulsory for each & every person</p></li>
+              <li className='list-disc'><p>No delay in Checkout We have Another Booking</p></li>
+              <li className='list-disc'><p>Any Damage Customer has to Pay</p></li>
+              {/* <li className='list-disc'><p></p></li>
+              <li className='list-disc'><p></p></li>
+              <li className='list-disc'><p></p></li> */}
+            </ul>
+            <ul className='p-4 text-sm font-normaltext-[14px] lg:text-lg leading-6 font-poppins capitalize'>
+            <p className='font-bold text-xl lg:text-xl   text-gray-500 underline pb-2'>Additional Charges</p>
+              <li className='list-disc'><p>Self Cooking Acess - 500</p></li>
+              <li className='list-disc'><p>barbecue Setup - 500</p></li>
+              <li className='list-disc'>bonfire Setup - 500<p></p></li>
+              <li className='list-disc'><p>Cleaning charges - 500</p></li>
+              <li className='list-disc'><p>extra per person - 500</p></li>
+            </ul>
+
+          </div>
 
         </div>
-        <h2 className='font-bold text-2xl lg:text-3xl border-l-2 border-red-900 mb-3 mt-4 font-manrope' >Description</h2>
-        <p className='font-normal p-1 text-[14px] lg:text-xl leading-6 font-poppins pb-8 lg:w-[50%]'>
+        <h2 className='font-bold text-2xl lg:text-3xl border-l-2 border-red-900 mb-3 mt-4  ' >Description</h2>
+        <p className='font-normal p-1 text-[14px] lg:text-lg leading-6 font-poppins pb-8 lg:w-[50%]'>
           {customData[farmproduct?.toLowerCase()]?.desc}
         </p>
 
