@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-
 import { useState } from 'react';
 import customData from './components/kk.json';
 import { PiCarFill } from "react-icons/pi";
@@ -11,7 +10,6 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FaPeopleLine } from "react-icons/fa6";
 
 import { HiCurrencyRupee } from "react-icons/hi2";
-
 import { FaSwimmingPool } from "react-icons/fa";
 import { TbAirConditioning } from "react-icons/tb";
 import { IoWifi } from "react-icons/io5";
@@ -19,6 +17,8 @@ import { GiBatteryPack } from "react-icons/gi";
 import { MdOutlineWaterDamage } from "react-icons/md";
 import { BiCameraMovie } from "react-icons/bi";
 import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
 import cfarm1 from "./images/cheritan/1.jpeg"
 import cfarm2 from "./images/cheritan/2.jpeg"
 import cfarm3 from "./images/cheritan/4.jpeg"
@@ -49,7 +49,7 @@ const CarDetails = () => {
   const router = useRouter();
   const [caritem, setCarItem] = useState('')
   const { farmproduct } = router.query;
-  console.log(farmproduct, "fp");
+
   const customData = {
     "cheritan": {
       farm_name: 'Cheritan',
@@ -102,42 +102,26 @@ const CarDetails = () => {
     }
   }
 
-  // console.log(customData, "jjss");
-
   return (
     <div className='bg-white text-black'>
       <div className=' lg:px-2 mx-auto lg:mx-20 xl:mx-16 lg:p-4 xs:px-5 px-2 py-2'>
         <div className='flex flex-col md:mt-2 lg:mt-2 md:flex-row p-2 border-2 border-[#556EE6] rounded-md xl:w-[79%]'>
-          {/* <div className="relative md:w-2/3 w-full p-1 xl:pt-6 xs:pt-8 border-1 border-gray-300 h-[434px]">
-            <Image
-              src={customData[farmproduct?.toLowerCase()]?.farm_image}
-              alt="farm houses"
-              style={{ objectFit: "cover" }}
-              className="relative"
-              fill
-            />
-          </div> */}
           <div className="rounded-lg overflow-hidden">
-            <div className='lg:w-[600px]'>
-              <Carousel
-                showArrows={true}
-                showStatus={false}
-                showIndicators={false}
-                infiniteLoop={true}
-                // autoPlay={true}
-                interval={2000}
-                stopOnHover={true}
-
-              // className="w-full"
-              >
-
-                {<Image src={customData[farmproduct?.toLowerCase()]?.farm_image.c1} alt={"1"} />}
-                {<Image src={customData[farmproduct?.toLowerCase()]?.farm_image.c2} alt={"2"} />}
-                {<Image src={customData[farmproduct?.toLowerCase()]?.farm_image.c3} alt={"3"} />}
-               
-              </Carousel>
-            </div>
-
+            <Carousel
+              showThumbs={false}
+              showArrows={true}
+              showStatus={false}
+              showIndicators={false}
+              infiniteLoop={true}
+              autoPlay={true}
+              interval={5000}
+              stopOnHover={true}
+              className="w-full"
+            >
+              {<Image src={customData[farmproduct?.toLowerCase()]?.farm_image.c1} alt={"1"} />}
+              {<Image src={customData[farmproduct?.toLowerCase()]?.farm_image.c2} alt={"2"} />}
+              {<Image src={customData[farmproduct?.toLowerCase()]?.farm_image.c3} alt={"3"} />}
+            </Carousel>
           </div>
           <div className='flex flex-col pt-4 pl-4'>
             <div>
@@ -153,39 +137,25 @@ const CarDetails = () => {
                   </Link>
                 </button>
                 <button className='bg-blue-500 rounded-md p-2 lg:p-3 lg:px-7'>
-                  <Link href="tel:9111911162text" target='_blank'>
+                  <Link href="tel:9111911162" target='_blank'>
                     <p className=' flex items-center gap-1 text-sm'><span><BiPhoneCall className='xl:size-6' /></span> <span>Call Us</span></p>
                   </Link>
                 </button>
               </div>
               <div className="grid grid-cols-2 gap-2 lg:pt-12 xl:pt-8 pt-4 text-xs
                      font-semibold lg:text-base xs: lg:w-full">
-            <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
-              <HiCurrencyRupee className="bg-orange-200 rounded-md p-1 text-xs" size={40} />
-              <p className="ml-1">Zero Deposit</p>
-            </div>
-            <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
-              <FaPeopleLine className="bg-orange-200 rounded px-[4px]" size={40} />
-              <p className="ml-1">Unlimited Persons</p>
-            </div>
-          </div>
+                <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
+                  <HiCurrencyRupee className="bg-orange-200 rounded-md p-1 text-xs" size={40} />
+                  <p className="ml-1">Zero Deposit</p>
+                </div>
+                <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
+                  <FaPeopleLine className="bg-orange-200 rounded px-[4px]" size={40} />
+                  <p className="ml-1">Unlimited Persons</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* <div className='lg:w-3/5'>
-          <div className="grid grid-cols-2 gap-2 lg:pt-12 xl:pt-8 pt-4 text-xs
-                     font-semibold lg:text-base xs: lg:w-full">
-            <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
-              <HiCurrencyRupee className="bg-orange-200 rounded-md p-1 text-xs" size={40} />
-              <p className="ml-1">Zero Deposit</p>
-            </div>
-            <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
-              <FaPeopleLine className="bg-orange-200 rounded px-[4px]" size={40} />
-              <p className="ml-1">Unlimited Persons</p>
-            </div>
-          </div>
-        </div> */}
         <div className='overview pt-10'>
           <h2 className='font-bold text-2xl lg:text-3xl border-l-2 border-red-900 mb-4 font-manrope'>Our Amenities</h2>
           <ul className='my-2 flex-wrap pb-4 grid grid-cols-2 gap-y-3 lg:flex justify-center lg:justify-normal'>

@@ -3,11 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { BsStarFill } from "react-icons/bs";
-
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
-
-
 import cfarm1 from "../../images/cheritan/1.jpeg"
 import cfarm2 from "../../images/cheritan/2.jpeg"
 import cfarm3 from "../../images/cheritan/4.jpeg"
@@ -99,23 +96,19 @@ const FarmProductLPage = () => {
                                 <Link href={`/${item.farm_name.toLowerCase()}`}>
                                     <div className="imgcrsl rounded-lg overflow-hidden">
                                         <Carousel
+                                            showThumbs={false}
                                             showArrows={true}
                                             showStatus={false}
                                             showIndicators={false}
                                             infiniteLoop={true}
-                                            // autoPlay={true}
+                                            autoPlay={true}
                                             interval={5000}
                                             stopOnHover={true}
                                             className="w-full"
-
                                         >
                                             {<Image src={item.farm_image.c1} alt={"1"} />}
                                             {<Image src={item.farm_image.c2} alt={"2"} />}
                                             {<Image src={item.farm_image.c3} alt={"3"} />}
-                                            {/* {images.map((image, index) => (
-                                            <div key={index}>
-                                            </div>
-                                        ))} */}
                                         </Carousel>
                                     </div>
                                 </Link>
@@ -136,20 +129,8 @@ const FarmProductLPage = () => {
                                             <BsStarFill className="text-[#FFD700]" />
                                             <p>4.4</p>
                                         </div>
-
-
                                     </div>
-                                    {/* 
-                                    <div className="font-semibold">
-                                        <div className="flex items-baseline gap-2 px-2">
-                                            <p className="text-[#556EE6]">₹ {item.weekdays.oneday} /Day </p>
-                                            <p className="text-black text-[10px]"> from Mon-Thu</p>
-                                        </div>
-                                        <div className="flex items-baseline gap-1 px-2 text-xs">
-                                            <p className="text-[#556EE6]">₹ {item.weekends.oneday} /Day</p>
-                                            <p className="text-black text-[10px]">In Weekends</p>
-                                        </div>
-                                    </div> */}
+
                                     <div className="font-normal text-sm">
                                         <div className="flex items-baseline justify-between px-2">
                                             <p className="text-black">Mon-Thu</p>

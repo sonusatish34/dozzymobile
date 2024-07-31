@@ -27,10 +27,10 @@ const Footer = () => {
 
                         </li>
                         <li className='flex lg:flex-row flex-col'>
-                            <div className='pr-3'> 
-                            <p>Contact Us</p>
-                            {/* <p className='text-sm font-bold lg:text-lg'>9111-9111-62</p> */}
-                            <Link className='lg:text-3xl text-white font-bold text-sm' href="tel:9111911162" target='_blank'>9111-9111-62</Link>
+                            <div className='pr-3'>
+                                <p>Contact Us</p>
+                                {/* <p className='text-sm font-bold lg:text-lg'>9111-9111-62</p> */}
+                                <Link className='lg:text-3xl text-white font-bold text-sm' href="tel:9111911162" target='_blank'>9111-9111-62</Link>
                             </div>
                             <div className='pt-2 lg:pt-4 lg:'>
                                 <p className='text-blue-700 font-semibold py-1 lg:py-0 lg:'><span className='bg-white p-[2px] lg:p-2 rounded-sm lg:rounded-lg lg:text-2xl'>App Launching Soon</span></p>
@@ -40,14 +40,14 @@ const Footer = () => {
                                         alt='google play'
                                         width={100}
                                         height={100}
-                                        className='w-12 h-6 lg:w-28 lg:h-12'
+                                        className='w-14 h-6 lg:w-28 lg:h-12'
                                     />
                                     <Image
                                         src={appstore}
                                         alt='apple store'
                                         width={100}
                                         height={100}
-                                        className='w-12 h-4 lg:w-24 lg:h-8 rounded-md'
+                                        className='w-12 h-4 lg:w-24 lg:h-8 rounded-sm'
                                     />
                                 </p>
                             </div>

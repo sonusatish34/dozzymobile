@@ -20,6 +20,7 @@ const CareGuests = () => {
           </p>
           <div className="bg-white rounded-md">
             <Carousel
+              showThumbs={false}
               infiniteLoop={true}
               autoPlay={true}
               interval={2000}
@@ -32,7 +33,6 @@ const CareGuests = () => {
               partialVisible={false}
               itemsToShow={1}
             >
-
               <div className="bg-blue-100 flex gap-4 h-[90px] lg:h-full   items-center justify-center lg:mx-24 mx-2 lg-w[70%] lg-w[50%] border-2 border-gray-200 rounded-lg p-1 px-3  lg:p-3">
                 <HiCurrencyRupee className="bg-[#556EE6] text-white p-1 w-12 h-10 rounded lg:w-16 lg:h-14" />
                 <div className="text-left">
@@ -84,7 +84,6 @@ const CareGuests = () => {
                 fill
                 objectFit="cover"
                 className="rounded-lg "
-
               />
             </div>
             <ul className="pl-2 lg:pl-10 flex flex-col lg:gap-5">
