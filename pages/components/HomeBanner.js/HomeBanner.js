@@ -11,23 +11,33 @@ const HomeBanner = () => {
             <div className='flex justify-between'>
                 <div className='pl-5 pt-6 md:pl-12 lg:pl-20 lg:pt-44  flex flex-col gap-3 lg:gap-8 '>
                     <p className='text-[8px] text-[#556EE6] font-bold lg:text-xl'>Most Affordable Farmhouses in India</p>
+<<<<<<< HEAD
                     <h2 className='text-lg font-bold lg:font-bold flex flex-col lg:gap-2 lg:text-6xl'><span>Farmhouses</span> <span>In Hyderabad</span></h2>
                     <div className='flex gap-2 text-white lg:pt-6 pb-16'>
-                        <button className='bg-green-500 rounded-lg py-1 px-2 lg:px-5'>
+                        <button className='bg-green-500 rounded-lg py-1 px-2 lg:px-5 w-20 lg:w-40'>
+=======
+                    <h2 className='text-lg font-extrabold lg:font-bold flex flex-col lg:gap-2 lg:text-6xl'><span>Farmhouses</span> <span>In Hyderabad</span></h2>
+                    <div className='flex gap-1 text-white lg:pt-6 pb-16'>
+                        <button className='bg-green-500 rounded-full py-1 px-2 lg:px-5'>
+>>>>>>> parent of b8cc898 (added images and farmproduct page)
                             <Link href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking." target='_blank'>
                                 <p className=' flex gap-1 items-center text-[10px] lg:text-lg'><span><FaWhatsapp className='lg:size-6' size={10} /></span> <span>Whatsapp</span></p>
                             </Link>
                         </button>
-                        <button className='bg-blue-500 rounded-lg py-1 px-2 lg:px-5'>
-                            <Link href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking." target='_blank'>
-                                <p className=' flex gap-1 items-center text-[10px] lg:text-lg'><span><BiPhoneCall className='lg:size-6' size={10} /></span> <span>Call US</span></p>
+<<<<<<< HEAD
+                        <button className='bg-blue-500 rounded-lg py-1 px-2 lg:px-5 w-20 lg:w-40'>
+                            <Link href="tel:9111911162" target='_blank'>
+                                <p className='flex gap-1 items-center text-[10px] lg:text-lg'><span><BiPhoneCall className='lg:size-6' size={10} /></span> <span>Call US</span></p>
                             </Link>
                         </button>
-                        {/* <button className='bg-blue-500 rounded-md py-1 px-2 w-16 lg:w-32 lg:px-5'>
-                            <Link href="tel:9111911162" target='_blank'>
-                                <p className='flex gap-1 items-center text-[10px] lg:text-lg'><span><BiPhoneCall className='lg:size-6' size={10} /></span> <p>Call Us</p></p>
+
+=======
+                        <button className='bg-blue-500 rounded-full py-1 px-2 w-16 lg:w-32 lg:px-5'>
+                            <Link href="tel:9666677405" target='_blank'>
+                                <p className='flex gap-1 items-center text-[10px] lg:text-lg'><span><BiPhoneCall className='lg:size-6' size={10} /></span> <span>Call Us</span></p>
                             </Link>
-                        </button> */}
+                        </button>
+>>>>>>> parent of b8cc898 (added images and farmproduct page)
                     </div>
                 </div>
                 <div className='... bg-[url("/bgdoz.svg")] bg-cover bg-no-repeat lg: '>
@@ -37,8 +47,8 @@ const HomeBanner = () => {
                         alt="women with luggage"
                         className='lg:w-[701px] lg:h-[684px] max lg:relative lg:bottom-10 lg:right-28'
                         // layout='responsive'
-                        height={1000}
-                        width={1000}
+                        height={200}
+                        width={200}
                     />
                 </div>
             </div>
