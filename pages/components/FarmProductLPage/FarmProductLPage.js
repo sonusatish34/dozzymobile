@@ -2,9 +2,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { BsStarFill } from "react-icons/bs";
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
-<<<<<<< HEAD
 import cfarm1 from "../../images/cheritan/1.webp"
 import cfarm2 from "../../images/cheritan/2.webp"
 import cfarm3 from "../../images/cheritan/4.webp"
@@ -31,56 +31,48 @@ import zfarm3 from "../../images/zoozoo/3.webp"
 
 
 import { Carousel } from "react-responsive-carousel";
-=======
-import farm1 from "../../images/farmhouse/shan.jpg";
-import farm2 from "../../images/farmhouse/cheritanfarmhouse.jpg";
-import farm3 from "../../images/farmhouse/Sakethvanam.jpg";
-import farm4 from "../../images/farmhouse/Urban.jpg";
-import farm5 from "../../images/farmhouse/zozo.jpeg";
-import farm6 from "../../images/farmhouse/shan.jpeg";
->>>>>>> parent of b8cc898 (added images and farmproduct page)
 const FarmProductLPage = () => {
 
     const filteredData = [
         {
             farm_name: "Cheritan",
             price_24_hours: 5900,
-            farm_image: farm1,
+            farm_image: { c1: cfarm1, c2: cfarm2, c3: cfarm3, },
             weekdays: { oneday: "5900", twoday: "6800" },
             weekends: { oneday: "7900", twoday: "10800" },
         },
         {
             farm_name: "Saketh Vanam",
             price_24_hours: 13000,
-            farm_image: farm2,
+            farm_image: { c1: skfarm1, c2: skfarm2, c3: skfarm3, },
             weekdays: { oneday: "13000", twoday: "25000" },
             weekends: { oneday: "18000", twoday: "35000" },
         },
         {
             farm_name: "Srinivasa",
             price_24_hours: 13000,
-            farm_image: farm3,
+            farm_image: { c1: srfarm1, c2: srfarm2, c3: srfarm3, },
             weekdays: { oneday: "13000", twoday: "25000" },
             weekends: { oneday: "18000", twoday: "35000" },
         },
         {
             farm_name: "Urban",
             price_24_hours: 8000,
-            farm_image: farm4,
+            farm_image: { c1: ufarm1, c2: ufarm2, c3: ufarm3, },
             weekdays: { oneday: "8000", twoday: "15000" },
             weekends: { oneday: "13000", twoday: "25000" },
         },
         {
             farm_name: "Zoo Zoo",
             price_24_hours: 8000,
-            farm_image: farm5,
+            farm_image: { c1: zfarm1, c2: zfarm2, c3: zfarm3, },
             weekdays: { oneday: "8000", twoday: "15000" },
             weekends: { oneday: "13000", twoday: "25000" },
         },
         {
             farm_name: "Shan",
             price_24_hours: 10000,
-            farm_image: farm6,
+            farm_image: { c1: shfarm1, c2: shfarm2, c3: shfarm3, },
             weekdays: { oneday: "10000", twoday: "19000" },
             weekends: { oneday: "15000", twoday: "29000" },
         },
@@ -89,10 +81,10 @@ const FarmProductLPage = () => {
     return (
         <div>
             <div className="text-sm pl-4 py-4 md:px-12 lg:py-16">
-                <p className="font-bold md:text-xl lg:text-5xl font-poppins">
+                <p className="font-semibold md:text-xl lg:text-5xl font-poppins">
                     Farm Houses In Hyderbad
                 </p>
-                <p className="md:py-4 lg:text-2xl lg:pb-4">
+                <p className="md:py-4 lg:text-2xl lg:pb-4 mont-text">
                     Get Very Low prices Compared To Others
                 </p>
             </div>
@@ -101,32 +93,45 @@ const FarmProductLPage = () => {
                     {filteredData?.map((item, index) => (
                         <React.Fragment key={index}>
                             <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col lg:w-[454px] w-[97%] md:w-80 h-full lg:hover:scale-105">
-                                <div className="relative h-96">
-                                    <Link href={`/${item.farm_name.toLowerCase()}`}>
-                                        <Image
-                                            src={item.farm_image}
-                                            alt="Car"
-                                            layout="fill"
-                                            objectFit="cover"
-                                            className="rounded-t-lg relative"
-                                            priority
-                                        />
-                                    </Link>
-                                </div>
+                                <Link href={`/${item.farm_name.toLowerCase()}`}>
+                                    <div className="imgcrsl rounded-lg overflow-hidden">
+                                        <Carousel
+                                            showThumbs={false}
+                                            showArrows={true}
+                                            showStatus={false}
+                                            showIndicators={false}
+                                            infiniteLoop={true}
+                                            autoPlay={true}
+                                            interval={5000}
+                                            stopOnHover={true}
+                                            className="w-full"
+                                        >
+                                            {<Image src={item.farm_image.c1} alt={"1"} />}
+                                            {<Image src={item.farm_image.c2} alt={"2"} />}
+                                            {<Image src={item.farm_image.c3} alt={"3"} />}
+                                        </Carousel>
+                                    </div>
+                                </Link>
 
-                                <div className="px-2 pt-4 flex flex-col gap-4 p-1">
+                                <div className="px-2 flex flex-col gap-4 p-1">
                                     <div className="flex items-baseline justify-between px-2">
-                                        <Link href={`/${item.farm_name.toLowerCase()}`}>
-                                            <p className="text-[#556EE6] font-bold text-sm">Dozzy Farm House</p>
-                                        </Link>
-                                        <Link href={`/${item.farm_name.toLowerCase()}`}>
-                                            <p className="text-gray-700 cursor-pointer font-semibold text-xl hover:text-red-600 w-fit">
-                                                {item.farm_name}
-                                            </p>
-                                        </Link>
+                                        <div>
+                                            <Link href={`/${item.farm_name.toLowerCase()}`}>
+                                                <p className="text-gray-700 font-medium text-sm lg:text-md opacity-75 font-Montserrat">Dozzy Farm House</p>
+                                            </Link>
+                                            <Link href={`/${item.farm_name.toLowerCase()}`}>
+                                                <p className=" text-[#556EE6] cursor-pointer font-semibold text-2xl hover:text-red-600 w-fit">
+                                                    {item.farm_name}
+                                                </p>
+                                            </Link>
+                                        </div>
+                                        <div className="flex gap-2 items-center">
+                                            <BsStarFill className="text-[#FFD700]" />
+                                            <p>4.4</p>
+                                        </div>
                                     </div>
 
-                                    <div className="font-semibold">
+                                    <div className="font-normal text-sm">
                                         <div className="flex items-baseline justify-between px-2">
                                             <p className="text-black">Mon-Thu</p>
                                             <p className="text-[#556EE6]">₹ {item.weekdays.oneday} /Day</p>

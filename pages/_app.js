@@ -14,13 +14,8 @@ function MyApp({ Component, pageProps }) {
     
     <Layout>
        <Head>
-<<<<<<< HEAD
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Other global head elements */}
-=======
-        {/* <link rel="icon" href="/sdcnew.png" /> */}
-        {/* <link rel="canonical" href="https://selfdrivecarshyderabad.com/"/> */}
->>>>>>> parent of b8cc898 (added images and farmproduct page)
       </Head>
       <Component {...pageProps} />
     </Layout>

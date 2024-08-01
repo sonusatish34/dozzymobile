@@ -38,9 +38,8 @@
   font-display: swap;
 }
 body {
-  font-family: 'ui-sans-serif', 'system-ui';
+  font-family: "ui-sans-serif", "system-ui";
 }
-
 
 @tailwind base;
 @tailwind components;
@@ -62,27 +61,26 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: white
+  background: white;
 }
 .carousel .slide {
   background: white !important;
 }
-
-.selected > div {
-    /* border: 4px solid firebrick; */
-    /* scale: 1.; */
-    /* background-color: lightgoldenrodyellow; */
-
+.imgcrsl .carousel .slide img {
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
-.carousel.carousel-slider .control-arrow {
-  /* background: #556ee6 !important;
-  z-index: 10 !important;
-  color: yellow !important; */
+.imgcrsl .carousel .slider-wrapper.axis-horizontal .slide {
+  height: 400px;
 }
 
+.crsldetails .carousel .slider-wrapper.axis-horizontal .slide img {
+  height: 420px;
+  object-fit: cover;
+}
 
-<<<<<<< HEAD
 @media screen and (min-width: 1024px) {
     .crsldetails .carousel .slider-wrapper.axis-horizontal .slide img  {
       height: 520px;
@@ -94,9 +92,6 @@ body {
 .mont-text {
   font-family: "Montserrat", sans-serif;
 }
-=======
-
->>>>>>> parent of b8cc898 (added images and farmproduct page)
 
 @layer utilities {
   .text-balance {
