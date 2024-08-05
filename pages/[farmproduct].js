@@ -19,11 +19,7 @@ import { BiCameraMovie } from "react-icons/bi";
 import { FaKitchenSet } from "react-icons/fa6";
 import { GiBarbecue } from "react-icons/gi";
 import { IoIosBonfire } from "react-icons/io";
-import { BiSolidSpeaker } from "react-icons/bi";
-import { MdSportsEsports } from "react-icons/md";
 import { MdOutlineSportsVolleyball } from "react-icons/md";
-
-import { MdSportsHandball } from "react-icons/md";
 
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';

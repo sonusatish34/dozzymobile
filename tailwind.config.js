@@ -19,15 +19,9 @@ module.exports = {
       'serif': ['ui-serif', 'Georgia'],
       'mono': ['ui-monospace', 'SFMono-Regular'],
       'display': ['Oswald'],
-      'body': ['"Open Sans"'],
-      // 'newfont': ['Arial'],
-      'jakarta': ['Plus Jakarta Sans', 'sans-serif'],
-      'dmsans': ['DM Sans', 'sans-serif'],
-      'manrope': ['Manrope', 'sans-serif'],
-      'opensans': ['Open Sans', 'sans-serif'],  
+      'body': ['"Open Sans"'],    
       'poppins':["Poppins", 'sans-serif'],
       'Montserrat':["Montserrat",'sans-serif'],
-      'Quicksand':["Quicksand",'sans-serif']
     },
     extend: {
       animation: {
