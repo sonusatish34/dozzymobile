@@ -46,11 +46,10 @@ const HomeBanner = () => {
             {/* <div className='... bg-[url("/kk.webp")] bg-cover bg-no-repeat lg:bg-center '> */}
             <div>
                 <Image
-                    priority
+                    loading='lazy'
                     src={bgfarm}
                     alt="farm house"
-                    className=' w-screen lg:h-[700px]'
-                    // layout='responsive'
+                    className=' w-screen lg:h-[700px] object-cover'
                     height={1000}
                     width={1000}
                 />
