@@ -133,11 +133,10 @@ const FarmProductLPage = () => {
                     {filteredData?.map((item, index) => (
                         <React.Fragment key={index}>
                             <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col lg:w-[400px] w-[97%] md:w-80 h-full lg:hover:scale-105">
-                                {/* <Link href={`/${item.farm_name.toLowerCase()}`}> */}
                                 <div
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
-                                    className="relative crsldetails rounded-lg overflow-hidden">
+                                    className="relative crsldetails rounded-lg overflow-hidden hide-on-mobile">
                                     <Carousel
                                         autoPlay={autoPlay}
                                         interval={2000}
@@ -161,7 +160,6 @@ const FarmProductLPage = () => {
                                         }}>
                                             <Image src={item.farm_image.c3}></Image>
                                         </div>
-
                                     </Carousel>
 
                                 </div>
