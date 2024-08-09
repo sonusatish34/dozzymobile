@@ -30,6 +30,13 @@ import zfarm1 from "../../images/zoozoo/1.webp"
 import zfarm2 from "../../images/zoozoo/2.webp"
 import zfarm3 from "../../images/zoozoo/3.webp"
 
+import srvf1 from '../../images/sravan/1.webp'
+import srvf2 from '../../images/sravan/2.webp'
+import srvf3 from '../../images/sravan/3.webp'
+
+import pf1 from '../../images/pandu/1.webp'
+import pf2 from '../../images/pandu/2.webp'
+import pf3 from '../../images/pandu/3.webp'
 
 import { Carousel } from "react-responsive-carousel";
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -92,6 +99,20 @@ const FarmProductLPage = () => {
             weekdays: { oneday: "10000", twoday: "19000" },
             weekends: { oneday: "15000", twoday: "29000" },
         },
+        {
+            farm_name: "Sravan",
+            price_24_hours: 17000,
+            farm_image: { c1: srvf1, c2: srvf2, c3: srvf3, },
+            weekdays: { oneday: "17000", twoday: "34000" },
+            weekends: { oneday: "17000", twoday: "34000" },
+        },
+        {
+            farm_name: "Pandu",
+            price_24_hours: 10000,
+            farm_image: { c1: pf1, c2: pf2, c3: pf3, },
+            weekdays: { oneday: "10000", twoday: "20000" },
+            weekends: { oneday: "10000", twoday: "20000" },
+        },
     ];
     const handleImageClick = (url) => {
 
@@ -99,7 +120,7 @@ const FarmProductLPage = () => {
     };
     return (
         <div>
-            <div className="text-sm pl-4 py-4 md:px-12 lg:py-16">
+            <div className="text-sm pl-4 py-4 md:px-20 lg:py-16">
                 <p className="font-semibold md:text-xl lg:text-5xl font-poppins">
                     Farm Houses In Hyderbad
                 </p>
@@ -108,7 +129,7 @@ const FarmProductLPage = () => {
                 </p>
             </div>
             <div>
-                <div className="flex flex-wrap gap-x-8 gap-y-8 lg:items-start pl-12 items-center">
+                <div className="flex flex-wrap gap-x-8 gap-y-8 lg:items-start justify-center lg:pl-12 items-center">
                     {filteredData?.map((item, index) => (
                         <React.Fragment key={index}>
                             <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col lg:w-[400px] w-[97%] md:w-80 h-full lg:hover:scale-105">
@@ -178,7 +199,7 @@ const FarmProductLPage = () => {
                                         For Booking
                                     </div>
                                     <div className="flex justify-between gap-1 text-white ">
-                                        <ul className="text-black flex w-full justify-between gap-3">
+                                        <ul className="text-black flex w-full justify-between gap-5">
                                             <li className="bg-green-500 w-full p-2 rounded-bl-md text-center text-white border-[1px] border-black">
                                                 {" "}
                                                 <Link

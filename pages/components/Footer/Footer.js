@@ -51,7 +51,7 @@ const Footer = () => {
                             <li>
                                 <div className='xl:pl-32 lg:pl-12 lg:pr-1 xl:pr-16 py-2'>
                                     <p className='lg:pb-2'>Contact Us</p>
-                                    <Link className='lg:text-3xl font-bold text-sm flex items-center gap-1 lg:gap-2' href="tel:9111911162" target='_blank'><span><FiPhoneCall className='size-3 lg:size-6' /></span>9111-9111-62<span></span></Link>
+                                    <Link className='lg:text-3xl font-bold text-base flex items-center gap-1 lg:gap-2' href="tel:9111911162" target='_blank'><span><FiPhoneCall className='size-3 lg:size-6' /></span>9111-9111-62<span></span></Link>
                                 </div>
 
                             </li>

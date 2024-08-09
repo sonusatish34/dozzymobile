@@ -6,7 +6,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import Link from 'next/link';
 const FarmStarts = () => {
     return (
-        <div className='py-6 px-4 md:px-12'>
+        <div className='py-6 px-4 md:px-20'>
             <p className='pb-4 font-semibold text-xl lg:text-3xl pt-4 lg:pt-14 md:pb-7 font-opensans'>Farmhouses Starts At ₹5999/Day</p>
             <div className='flex'>
                 <div >
