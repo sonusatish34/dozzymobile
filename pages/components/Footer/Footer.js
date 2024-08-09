@@ -3,19 +3,18 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FiPhoneCall } from "react-icons/fi";
 import phone from '../../images/onePlus10t.webp'
-import gplay from '../../images/ggle.webp'
-import appstore from '../../images/apple.webp'
+import gplay from '../../images/ppp.png'
+import appstore from '../../images/ooo.svg'
 const Footer = () => {
     return (
         <div className='... bg-[url("/mld.jpg")] lg:bg-center  bg-cover z-0'>
             <div className='flex items-center text-white lg:pt-24 lg:pl-40 py-4 px-2'>
                 <Image
                     src={phone}
-                    alt='phone'
+                    alt='dozzy farmhouse phone'
                     width={1000}
                     height={1000}
                     className='w-24 lg:w-56 lg'
-                    priority
                 />
                 <div className='relative p-2 rounded-md'>
                     <div className='absolute inset-0 bg-black opacity-60 rounded-md z-0'></div>
@@ -32,13 +31,13 @@ const Footer = () => {
                                 <p className='text-blue-700 font-semibold py-1 lg:py-0 lg:'>
                                     <span className='bg-white p-[2px] lg:p-2 rounded-sm lg:rounded-lg lg:text-2xl'>App Launching Soon</span>
                                 </p>
-                                <p className='flex gap-2 pt-1 items-center lg:pt-2'>
+                                <p className='flex gap-2 pt-1 items-center lg:pt-6'>
                                     <Image
                                         src={gplay}
                                         alt='google play'
                                         width={1000}
                                         height={1000}
-                                        className='w-14 h-6 lg:w-28 lg:h-12'
+                                        className='w-12 h-4 lg:w-24 lg:h-8 rounded-sm'
                                     />
                                     <Image
                                         src={appstore}

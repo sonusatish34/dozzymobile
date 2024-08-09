@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import { BsStarFill } from "react-icons/bs";
 import { BiPhoneCall } from "react-icons/bi";
@@ -32,12 +32,23 @@ import zfarm3 from "../../images/zoozoo/3.webp"
 
 
 import { Carousel } from "react-responsive-carousel";
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+
 const FarmProductLPage = () => {
     const router = useRouter();
-    // const handleImageClick = (e) => {
-    //     e.stopPropagation();
-    //     router.push(`/${item.farm_name.toLowerCase()}`);
-    // };
+    const [autoPlay, setAutoPlay] = useState(false);
+
+    const handleMouseEnter = useCallback(() => {
+        setAutoPlay(true);
+        console.log("------------entered");
+
+    }, []);
+
+    const handleMouseLeave = useCallback(() => {
+        setAutoPlay(false);
+        console.log("left ---------");
+
+    }, []);
     const filteredData = [
         {
             farm_name: "Cheritan",
@@ -83,10 +94,8 @@ const FarmProductLPage = () => {
         },
     ];
     const handleImageClick = (url) => {
-        console.log(url, "img clicked");
 
-        // window.location.href = url;
-        router.push(`/${farm.toLowerCase()}`);
+        router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
     };
     return (
         <div>
@@ -99,34 +108,35 @@ const FarmProductLPage = () => {
                 </p>
             </div>
             <div>
-                <div className="flex flex-wrap justify-center gap-x-8 gap-y-8 items-center xs:justify-center">
+                <div className="flex flex-wrap gap-x-8 gap-y-8 lg:items-start pl-12 items-center">
                     {filteredData?.map((item, index) => (
                         <React.Fragment key={index}>
-                            <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col lg:w-[454px] w-[97%] md:w-80 h-full lg:hover:scale-105">
+                            <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col lg:w-[400px] w-[97%] md:w-80 h-full lg:hover:scale-105">
                                 {/* <Link href={`/${item.farm_name.toLowerCase()}`}> */}
-                                <div className="relative crsldetails rounded-lg overflow-hidden">
+                                <div
+                                    onMouseEnter={handleMouseEnter}
+                                    onMouseLeave={handleMouseLeave}
+                                    className="relative crsldetails rounded-lg overflow-hidden">
                                     <Carousel
-                                        showThumbs={false}
-                                        showArrows={true}
-                                        showStatus={false}
-                                        showIndicators={false}
+                                        autoPlay={autoPlay}
+                                        interval={2000}
                                         infiniteLoop={true}
-                                        autoPlay={true}
-                                        interval={5000}
-                                        stopOnHover={true}
+                                        showThumbs={false}
+                                        showStatus={false}
+                                        showArrows={true}
                                     >
                                         <div onClick={() => {
-                                            router.push(`/${item.farm_name.toLowerCase()}`)
+                                            router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                                         }}>
                                             <Image src={item.farm_image.c1}></Image>
                                         </div>
                                         <div onClick={() => {
-                                            router.push(`/${item.farm_name.toLowerCase()}`)
+                                            router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                                         }}>
                                             <Image src={item.farm_image.c2}></Image>
                                         </div>
                                         <div onClick={() => {
-                                            router.push(`/${item.farm_name.toLowerCase()}`)
+                                            router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
                                         }}>
                                             <Image src={item.farm_image.c3}></Image>
                                         </div>
@@ -134,7 +144,6 @@ const FarmProductLPage = () => {
                                     </Carousel>
 
                                 </div>
-                                {/* </Link> */}
 
                                 <div className="px-2 flex flex-col gap-4 p-1">
                                     <div className="flex items-baseline justify-between px-2">

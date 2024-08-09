@@ -19,7 +19,7 @@ module.exports = {
       'serif': ['ui-serif', 'Georgia'],
       'mono': ['ui-monospace', 'SFMono-Regular'],
       'display': ['Oswald'],
-      'body': ['"Open Sans"'],    
+      'body': ['"Open Sans"'],
       'poppins':["Poppins", 'sans-serif'],
       'Montserrat':["Montserrat",'sans-serif'],
     },
