@@ -38,6 +38,10 @@ import pf1 from '../../images/pandu/1.webp'
 import pf2 from '../../images/pandu/2.webp'
 import pf3 from '../../images/pandu/3.webp'
 
+import ty1 from '../../images/tyb/1.webp'
+import ty2 from '../../images/tyb/2.webp'
+import ty3 from '../../images/tyb/3.webp'
+
 import { Carousel } from "react-responsive-carousel";
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
@@ -47,14 +51,10 @@ const FarmProductLPage = () => {
 
     const handleMouseEnter = useCallback(() => {
         setAutoPlay(true);
-        console.log("------------entered");
-
     }, []);
 
     const handleMouseLeave = useCallback(() => {
         setAutoPlay(false);
-        console.log("left ---------");
-
     }, []);
     const filteredData = [
         {
@@ -77,13 +77,6 @@ const FarmProductLPage = () => {
             farm_image: { c1: srfarm1, c2: srfarm2, c3: srfarm3, },
             weekdays: { oneday: "13000", twoday: "25000" },
             weekends: { oneday: "18000", twoday: "35000" },
-        },
-        {
-            farm_name: "Urban",
-            price_24_hours: 8000,
-            farm_image: { c1: ufarm1, c2: ufarm2, c3: ufarm3, },
-            weekdays: { oneday: "8000", twoday: "15000" },
-            weekends: { oneday: "13000", twoday: "25000" },
         },
         {
             farm_name: "Zoo Zoo",
@@ -113,11 +106,14 @@ const FarmProductLPage = () => {
             weekdays: { oneday: "10000", twoday: "20000" },
             weekends: { oneday: "10000", twoday: "20000" },
         },
+        {
+            farm_name: "TYB",
+            price_24_hours: 1000,
+            farm_image: { c1: ty1, c2: ty2, c3: ty3, },
+            weekdays: { oneday: "12000", twoday: "24000" },
+            weekends: { oneday: "12000", twoday: "24000" },
+        },
     ];
-    const handleImageClick = (url) => {
-
-        router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
-    };
     return (
         <div>
             <div className="text-sm pl-4 py-4 md:px-20 lg:py-16">
@@ -132,12 +128,11 @@ const FarmProductLPage = () => {
                 <div className="flex flex-wrap gap-x-8 gap-y-8 lg:items-start justify-center lg:pl-12 items-center">
                     {filteredData?.map((item, index) => (
                         <React.Fragment key={index}>
-                            <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col lg:w-[400px] w-[97%] md:w-80 h-full lg:hover:scale-105">
-                                {/* <Link href={`/${item.farm_name.toLowerCase()}`}> */}
+                            <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col lg:w-[400px] w-[97%] md:w-80 h-full">
                                 <div
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
-                                    className="relative crsldetails rounded-lg overflow-hidden">
+                                    className="relative crsldetails rounded-lg overflow-hidden cursor-pointer">
                                     <Carousel
                                         autoPlay={autoPlay}
                                         interval={2000}
@@ -145,6 +140,7 @@ const FarmProductLPage = () => {
                                         showThumbs={false}
                                         showStatus={false}
                                         showArrows={true}
+                                        transitionTime={1000}
                                     >
                                         <div onClick={() => {
                                             router.push(`/${item.farm_name.toLowerCase().replace(/ /g, "-")}`)
@@ -161,7 +157,6 @@ const FarmProductLPage = () => {
                                         }}>
                                             <Image src={item.farm_image.c3}></Image>
                                         </div>
-
                                     </Carousel>
 
                                 </div>
@@ -173,7 +168,7 @@ const FarmProductLPage = () => {
                                                 <p className="text-gray-700 font-medium text-sm lg:text-md opacity-75 font-Montserrat">Dozzy Farm House</p>
                                             </Link>
                                             <Link href={`/${item.farm_name.toLowerCase()}`}>
-                                                <p className=" text-[#556EE6] cursor-pointer font-semibold text-2xl hover:text-red-600 w-fit">
+                                                <p className=" text-[#556EE6] font-semibold text-2xl hover:text-red-600 w-fit">
                                                     {item.farm_name}
                                                 </p>
                                             </Link>
@@ -203,7 +198,7 @@ const FarmProductLPage = () => {
                                             <li className="bg-green-500 w-full p-2 rounded-bl-md text-center text-white border-[1px] border-black">
                                                 {" "}
                                                 <Link
-                                                    href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
+                                                    href="https://api.whatsapp.com/send?phone=+9111911162&text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
                                                     target="_blank"
                                                 >
                                                     <p className=" flex gap-1 text-sm justify-center">

@@ -19,7 +19,7 @@ const HomeBanner = () => {
                     <h2 className='text-lg font-bold lg:font-bold flex flex-col lg:gap-2 lg:text-6xl'><span>Farmhouses</span> <span>In Hyderabad</span></h2>
                     <div className='flex gap-2 text-white lg:pt-6 pb-16'>
                         <button className='bg-green-500 rounded-lg py-1 px-2 lg:px-5 w-20 lg:w-40'>
-                            <Link href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking." target='_blank'>
+                            <Link href="https://api.whatsapp.com/send?phone=+9111911162&text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking." target='_blank'>
                                 <p className=' flex gap-1 items-center text-[10px] lg:text-lg'><span><FaWhatsapp className='lg:size-6' size={10} /></span> <span>Whatsapp</span></p>
                             </Link>
                         </button>
@@ -53,8 +53,8 @@ const HomeBanner = () => {
                     width={1000}
                 />
                 <div className=''>
-                    <ul className='text-white flex bg-black opacity-90 items-center justify-center text-[10px] lg:text-lg lg:font-bold text-center'>
-                        <li className='w-full p-1 border-r-2 border-white flex flex-col '><p>1000+</p><p>Total Dozzy Farmhouses</p></li>
+                    <ul className='text-gray-400 flex bg-black opacity-90 items-center justify-center text-[10px] lg:text-lg lg:font-bold text-center'>
+                        <li className='w-full p-1 lg:border-r-2 border-r-[1px] border-gray-500 flex flex-col '><p>1000+</p><p>Total Dozzy Farmhouses</p></li>
                         <li className='w-full p-1 flex flex-col '><p>30</p><p >Dozzy Available Cities</p></li>
                     </ul>
                 </div>

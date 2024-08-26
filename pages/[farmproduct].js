@@ -89,14 +89,6 @@ const CarDetails = () => {
       weekends: { oneday: "18000", twoday: "35000" },
       desc: "SRINIVASA Farmhouse, nestled amidst the natural beauty, provides a serene escape from the city's hustle and bustle. Tailored for both relaxation and fun, our farmhouse guarantees a memorable experience for you and your loved ones. It features a refreshing swimming pool/baby pool, 12 acres of mango trees, a banyan tree, a fish pond, a fully equipped kitchen with bowls and plates, and a barbecue setup for delightful meals. For entertainment, there's a Bluetooth music system, a 100-inch big projector, WiFi, and access to Netflix, Prime, Hotstar, Aha, ZEE5, and YouTube. Game enthusiasts can indulge in cricket, shuttle, carroms, and chess, promising endless enjoyment for everyone. "
     },
-    "urban": {
-      farm_name: 'Urban',
-      price_24_hours: 8000,
-      farm_image: { c1: ufarm1, c2: ufarm2, c3: ufarm3, },
-      weekdays: { oneday: "8000", twoday: "15000" },
-      weekends: { oneday: "13000", twoday: "25000" },
-      desc: "A tranquil haven from the bustle of the city, URBAN Farmhouse is tucked away in the picturesque surroundings. Our farmhouse, designed for your enjoyment and relaxation, ensures that you and your loved ones will have an unforgettable experience. Along with a fish pond, 12 acres of mango and banyan trees, a fully stocked kitchen with dishes and bowls, and a grill area for delicious dinners, it has a refreshing swimming pool and baby pool. There is a 100-inch large projector, WiFi, a Bluetooth audio system, and access to Netflix, Prime, Hotstar, Aha, ZEE5, and YouTube for entertainment. Chess, carroms, shuttle, cricket, and shuttle are available for game lovers to enjoy, with guaranteed fun for everybody."
-    },
     "zoo zoo": {
       farm_name: 'Zoo Zoo',
       price_24_hours: 8000,
@@ -115,10 +107,10 @@ const CarDetails = () => {
     },
     "sravan": {
       farm_name: "Sravan",
-            price_24_hours: 17000,
-            farm_image: { c1: srvf1, c2: srvf2, c3: srvf3, },
-            weekdays: { oneday: "17000", twoday: "34000" },
-            weekends: { oneday: "17000", twoday: "34000" },
+      price_24_hours: 17000,
+      farm_image: { c1: srvf1, c2: srvf2, c3: srvf3, },
+      weekdays: { oneday: "17000", twoday: "34000" },
+      weekends: { oneday: "17000", twoday: "34000" },
     },
     "pandu": {
 
@@ -151,27 +143,27 @@ const CarDetails = () => {
               {<Image className='rounded-md' src={customData[mdfyFarmProduct?.toLowerCase()]?.farm_image.c3} alt={"3"} />}
             </Carousel>
           </div>
-          <div className='flex flex-col lg:gap-20 gap-4 lg:pt-20 pt-2'>
+          <div className='flex flex-col lg:gap-14 gap-4 lg:pt-10 pt-2'>
             <div>
               <h2 className='p-1 font-bold  text-xl lg:text-3xl lg: capitalize'>{customData[mdfyFarmProduct?.toLowerCase()]?.farm_name} Farm House <p className='text-blue-600 pt-3'>₹ {customData[mdfyFarmProduct?.toLowerCase()]?.price_24_hours}/day</p>
-              <p className='text-blue-600 opacity-70 text-xs pl-1'>₹ {customData[mdfyFarmProduct?.toLowerCase()]?.weekends.oneday}/day <span className='text-black'>on weekends</span></p>
+                <p className='text-blue-600 opacity-70 text-xs pl-1'>₹ {customData[mdfyFarmProduct?.toLowerCase()]?.weekends.oneday}/day <span className='text-black'>(Fri-Sun)</span></p>
               </h2>
             </div>
-            <div className="grid grid-cols-2 gap-4  text-xs font-semibold lg:text-base xs: lg:w-full">
-                <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
-                  <HiCurrencyRupee className="bg-[#556ee6] rounded-md p-1 text-white text-xs" size={30} />
-                  <p className="ml-1">Zero Deposit</p>
-                </div>
-                <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
-                  <FaPeopleLine className="bg-[#556ee6] text-white rounded px-[4px]" size={30} />
-                  <p className="ml-1">Unlimited Persons</p>
-                </div>
+            <div className="grid grid-cols-2 gap-4 lg:flex lg:flex-col  text-xs font-semibold lg:text-base xs: lg:w-full">
+              <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
+                <HiCurrencyRupee className="bg-[#556ee6] rounded-md p-1 text-white text-xs" size={30} />
+                <p className="ml-1">Zero Deposit</p>
               </div>
+              <div className="flex items-center gap-1 p-2 bg-[#ffffff] border-[1px] border-black rounded-md">
+                <FaPeopleLine className="bg-[#556ee6] text-white rounded px-[4px]" size={30} />
+                <p className="ml-1">Unlimited Persons</p>
+              </div>
+            </div>
             <div className=''>
               <h2 className='font-semibold text-xl'>Contact Us By</h2>
               <div className='flex justify-start gap-4 lg:gap-5 xl:gap-8 xl:pt-4 pb-2 pt-2 text-white'>
                 <button className='bg-green-500 rounded-md p-2 lg:p-3'>
-                  <Link href="https://api.whatsapp.com/send?phone=+9111911162text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking." target='_blank'>
+                  <Link href="https://api.whatsapp.com/send?phone=+9111911162&text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking.." target='_blank'>
                     <p className=' flex items-center gap-1 text-sm'><span><FaWhatsapp className='xl:size-6' /></span> <span>Whatsapp</span></p>
                   </Link>
                 </button>
@@ -181,14 +173,13 @@ const CarDetails = () => {
                   </Link>
                 </button>
               </div>
-              
             </div>
           </div>
         </div>
         <div className='overview pt-10 px-5 lg:px-0'>
-          <h2 className='font-bold text-2xl lg:text-3xl border-l-2 border-red-900 mb-4  '>Our Amenities</h2>
-          <ul className='my-2 flex-wrap pb-4 grid grid-cols-2 gap-y-3 lg:flex lg:w-[83%] xl:w-[60%] justify-center lg:justify-normal'>
-            <li className='w-36 lg:w-36 flex flex-col justify-center gap-2 items-center border-[1px] border-gray-100 py-2   '>
+          <h2 className='font-bold text-2xl lg:text-3xl border-l-4 pl-2 border-red-900 mb-4  '>Our Amenities</h2>
+          <ul className='my-2 flex-wrap pb-4 grid grid-cols-2 gap-y-3 md:flex lg:w-[83%] xl:w-[60%] justify-center lg:justify-normal'>
+            <li className='w-36 md:w-28 lg:w-36 flex flex-col justify-center gap-2 items-center border-[1px] border-gray-100 py-2   '>
               <FaSwimmingPool size={30} className='text-green-700 lg:size-10' />
               <p className='font text-xs lg:text-base text-center '>Swimming Pool</p>
             </li>
@@ -231,7 +222,7 @@ const CarDetails = () => {
           </ul>
         </div>
         <div className='px-5 lg:px-0'>
-          <p className='font-bold text-2xl lg:text-3xl border-l-2 border-red-900 mt-4  '>Property Rules</p>
+          <p className='font-bold text-2xl lg:text-3xl border-l-4 pl-2 border-red-900 md:my-6 my-2 '>Property Rules</p>
           <div className='flex flex-wrap flex-col'>
             <ul className='p-4 text-sm font-normaltext-[14px] lg:text-lg leading-6 font-poppins'>
               <li className='list-disc'><p>Check in after 1pm | Check Out before 12pm </p></li>
@@ -242,30 +233,23 @@ const CarDetails = () => {
               <li className='list-disc'><p>Aadhar photo is compulsory for each & every person</p></li>
               <li className='list-disc'><p>No delay in Checkout We have Another Booking</p></li>
               <li className='list-disc'><p>Any Damage Customer has to Pay</p></li>
-              
+              <li className='list-disc'><p>Drugs/Hookah Not Allowed </p></li>
             </ul>
-              <p className='font-bold text-2xl lg:text-3xl border-l-2 border-red-900 mt-4  '>Additional Charges</p>
+            <p className='font-bold text-2xl lg:text-3xl border-l-4 pl-2 border-red-900 md:my-6 my-2 '>Additional Charges</p>
             <ul className='p-4 text-sm font-normaltext-[14px] lg:text-lg leading-6 font-poppins capitalize'>
-              {/* <li className='list-decimal'><p className='flex justify-between'><span>Self Cooking Access </span><span> 500</span></p> </li> */}
-              <li className='list-decimal'><p className='flex justify-between'><span>Self Cooking Access  </span><span> 500</span></p> </li>
-              <li className='list-decimal'><p className='flex justify-between'><span>barbecue Setup </span><span> 500</span></p> </li>
-              <li className='list-decimal'><p className='flex justify-between'><span>bonfire Setup</span><span> 500</span></p> </li>
-              <li className='list-decimal'><p className='flex justify-between'><span>Cleaning charges </span><span> 500</span></p> </li>
-              <li className='list-decimal'><p className='flex justify-between'><span>extra per person </span><span> 500</span></p> </li>
-              {/* <li className='list-disc flex justify-between'><p>barbecue Setup </p><p> 500</p></li>
-              <li className='list-disc flex justify-between'>bonfire Setup <p></p><p> 500</p></li>
-              <li className='list-disc flex justify-between'><p>Cleaning charges </p> <p>500</p></li>
-              <li className='list-disc flex justify-between'><p>extra per person </p><p> 500</p></li> */}
+              <li className='list-decimal md:w-72'><p className='flex justify-between'><span>Self Cooking Access  </span><span> 500</span></p> </li>
+              <li className='list-decimal md:w-72'><p className='flex justify-between'><span>barbecue Setup </span><span> 500</span></p> </li>
+              <li className='list-decimal md:w-72'><p className='flex justify-between'><span>bonfire Setup</span><span> 500</span></p> </li>
+              <li className='list-decimal md:w-72'><p className='flex justify-between'><span>Cleaning charges </span><span> 500</span></p> </li>
+              <li className='list-decimal md:w-72'><p className='flex justify-between'><span>extra per person </span><span> 500</span></p> </li>
             </ul>
-
           </div>
-
         </div>
         <div className='px-5 lg:px-0'>
-        <h2 className='font-bold text-2xl lg:text-3xl border-l-2 border-red-900 mb-3 mt-4 ' >Description</h2>
-        <p className='font-normal p-1 text-[14px] lg:text-lg leading-6 font-poppins pb-8 lg:w-[50%]'>
-          {customData[mdfyFarmProduct?.toLowerCase()]?.desc}
-        </p>
+          <h2 className='font-bold text-2xl lg:text-3xl border-l-4 pl-2 border-red-900 md:my-6 my-2' >Description</h2>
+          <p className='font-normal p-1 text-[14px] lg:text-lg leading-6 font-poppins pb-8 lg:w-[50%]'>
+            {customData[mdfyFarmProduct?.toLowerCase()]?.desc}
+          </p>
         </div>
 
       </div>
