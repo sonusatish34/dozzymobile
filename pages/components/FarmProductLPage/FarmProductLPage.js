@@ -198,7 +198,7 @@ const FarmProductLPage = () => {
                                             <li className="bg-green-500 w-full p-2 rounded-bl-md text-center text-white border-[1px] border-black">
                                                 {" "}
                                                 <Link
-                                                    href="https://api.whatsapp.com/send?phone=+9111911162&text=Hi%0AI%20am%20looking%20for%20a%farmhouse%20booking."
+                                                    href="https://api.whatsapp.com/send?phone=+9111911162&text=Hi%0AI%20am%20looking%20for%20a%20farmhouse%20booking."
                                                     target="_blank"
                                                 >
                                                     <p className=" flex gap-1 text-sm justify-center">
