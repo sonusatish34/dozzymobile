@@ -1,42 +1,41 @@
-
 @font-face {
-  font-family: 'HVFont'; /* You can name this whatever you like */
-  src: url('/fonts/helveticaneue.woff') format('woff');
+  font-family: "HVFont"; /* You can name this whatever you like */
+  src: url("/fonts/helveticaneue.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'georgia'; /* You can name this whatever you like */
-  src: url('/fonts/Georgia.woff') format('woff');
+  font-family: "georgia"; /* You can name this whatever you like */
+  src: url("/fonts/Georgia.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'kievitot'; /* You can name this whatever you like */
-  src: url('/fonts/KievitOT-Regular.woff') format('woff');
+  font-family: "kievitot"; /* You can name this whatever you like */
+  src: url("/fonts/KievitOT-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'buch'; /* You can name this whatever you like */
-  src: url('/fonts/buch.otf') format('otf');
+  font-family: "buch"; /* You can name this whatever you like */
+  src: url("/fonts/buch.otf") format("otf");
   font-weight: normal;
   font-style: normal;
 }
 
 /* Apply the custom font globally */
 .helvetica-font {
-  font-family: 'HVFont', sans-serif;
+  font-family: "HVFont", sans-serif;
 }
 
 .georgia-font {
-  font-family: 'georgia', sans-serif;
+  font-family: "georgia", sans-serif;
 }
 .buch-font {
-  font-family: 'buch', sans-serif;
+  font-family: "buch", sans-serif;
 }
 .kievitot-font {
-  font-family: 'kievitot', sans-serif;
+  font-family: "kievitot", sans-serif;
 }
 body {
   font-family: "Poppins", sans-serif;
@@ -75,20 +74,23 @@ body {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-
 
 .shimmer {
   color: white;
- 
-  
+
   /* Shimmer effect */
   mask: linear-gradient(-60deg, #000 30%, #0005, #000 70%) right/350% 100%;
-  -webkit-mask: linear-gradient(-60deg, #000 30%, #0005, #000 70%) right/350% 100%;
-  
-  animation: shimmer 2.0s infinite;
+  -webkit-mask: linear-gradient(-60deg, #000 30%, #0005, #000 70%) right/350%
+    100%;
+
+  animation: shimmer 2s infinite;
 }
 
 @keyframes shimmer {
@@ -98,7 +100,6 @@ body {
   }
 }
 
-
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -107,7 +108,6 @@ body {
   }
 }
 
-
 body {
   color: rgb(var(--foreground-rgb));
   background: white;
@@ -115,26 +115,28 @@ body {
 .carousel .slide {
   background: white !important;
 }
-.imgcrsl .carousel .slide img {
-  object-fit: cover !important;
-  width: 100% !important;
-  height: 100% !important;
-}
 
-.imgcrsl .carousel .slider-wrapper.axis-horizontal .slide {
-  height: 400px;
-}
 
 .crsldetails .carousel .slider-wrapper.axis-horizontal .slide img {
-  height: 420px;
+  height: 300px;
   object-fit: cover;
 }
-
 @media screen and (min-width: 1024px) {
-    .crsldetails .carousel .slider-wrapper.axis-horizontal .slide img  {
-      height: 520px;
+  .crsldetails .carousel .slider-wrapper.axis-horizontal .slide img {
+    height: 520px;
   }
+}
+.lpcarousal .carousel .slider-wrapper.axis-horizontal .slide img {
+  height: 300px;
+  object-fit: cover;
+}
+@media screen and (min-width: 1024px) {
+  .lpcarousal .carousel .slider-wrapper.axis-horizontal .slide img {
+    height: 440px;
   }
+}
+
+
 .grotesk-text {
   font-family: "Space Grotesk", sans-serif;
 }
@@ -184,7 +186,6 @@ body {
     transform: scale(1);
   }
 }
-  
 
 .card:hover {
   transform: translate3d(0px);
@@ -193,16 +194,14 @@ body {
 .animate-fadeIn {
   animation: fadeIn 0.5s forwards; /* Adjust the duration as needed */
 }
-.blog-carousal .slick-track
-{
+.blog-carousal .slick-track {
   /* background-color: red; */
   display: flex;
-  gap:8px
+  gap: 8px;
 }
-.blog-carousal  .slick-arrow::before {
+.blog-carousal .slick-arrow::before {
   color: black;
   background-color: white;
   display: flex;
   align-items: center;
 }
-

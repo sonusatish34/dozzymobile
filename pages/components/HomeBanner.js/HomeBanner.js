@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import bgsvg from '../../images/traveller.webp'
+import bgsvg from '../../images/dozzy cover image.webp'
 import bgfarm from '../../../public/kk.webp'
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
@@ -31,12 +31,12 @@ const HomeBanner = () => {
 
                     </div>
                 </div>
-                <div className='... bg-[url("/bgdoz.svg")] bg-cover bg-no-repeat lg: '>
+                <div className=' '>
                     <Image
                         priority
                         src={bgsvg}
                         alt="from houses near hyderabad "
-                        className='lg:w-[701px] lg:h-[684px] max lg:relative lg:bottom-10 lg:right-28'
+                        className='object-cover'
                         // layout='responsive'
                         height={1000}
                         width={1000}

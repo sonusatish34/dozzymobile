@@ -40,24 +40,12 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
   const [loading, setLoading] = useState(true);
   const [fmDetail, setFmDetail] = useState(null);
 
-  useEffect(() => {
-    // Simulate a loading delay or async operation
-    const loadData = async () => {
-      // Set loading to true to show the loader
-      setLoading(true);
-      // Simulate delay (e.g., with a timeout or actual async operation)
-      await new Promise(resolve => setTimeout(resolve, 200));
-      // Set loading to false after data has loaded
-      setLoading(false);
-    };
-    loadData();
-  }, []); // Add dependencies if needed
+
 
   useEffect(() => {
     async function fetchCarDetails() {
-      // setLoading(true);
       try {
-        const response = await fetch(`https://api.dozzy.com/customer/approved_properties?lat=0.0&long=0.0&program_id=1&property_capacity=1000`);
+        const response = await fetch(`https://api.dozzy.com/customer/approved_properties?lat=17.387140&long=78.491684&program_id=1&property_capacity=1000`);
         const requestOptions = {
           method: "GET",
           redirect: "follow"
@@ -73,7 +61,7 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
       } catch (error) {
         console.error(error);
       } finally {
-        // setLoading(false);
+        setLoading(false);
       }
     }
 
@@ -96,42 +84,7 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
       imageMap["night_garden_pic_1"],
     ];
   };
-  const customData = {
-    "bgy-farm": {
-      desc: "--- Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
-    },
-    "bgy farm": {
-      desc: "hyphen Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
-    },
-    "box-serenity": {
-      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
-    },
-    "bgy": {
-      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
-    },
-    "bgy": {
-      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
-    },
-    "bgy": {
-      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
-    },
-    "bgy": {
-      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
-    },
-    "bgy": {
-      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
-    },
-    "bgy": {
-      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
-    },
-    "bgy": {
-      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
-    },
-    "bgy": {
-      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
-    },
-
-  }
+  
 
   return (
     <div className='bg-white text-black mont-text'>
@@ -376,10 +329,7 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
             {customData[mdfyFarmProduct?.toLowerCase()]?.desc}
           </p>
           <p className='font-normal p-1 text-[14px] lg:text-lg leading-6 font-poppins pb-8 lg:w-[50%]'>
-            {customData[mdfyFarmProduct?.toLowerCase()]?.desc1}
-          </p>
-          <p className='font-normal p-1 text-[14px] lg:text-lg leading-6 font-poppins pb-8 lg:w-[50%]'>
-            {customData[mdfyFarmProduct?.toLowerCase()]?.desc2}
+            {customData[mdfyFarmProduct?.toLowerCase()]?.subdesc}
           </p>
         </div>
         {loading && <div className="text-center py-4">
@@ -408,7 +358,7 @@ export async function getServerSideProps({ req }) {
 
   try {
     // Fetching the approved properties data
-    const response = await fetch("https://api.dozzy.com/customer/approved_properties?lat=0.0&long=0.0&program_id=1&property_capacity=1000", requestOptions);
+    const response = await fetch("https://api.dozzy.com/customer/approved_properties?lat=17.387140&long=78.491684&program_id=1&property_capacity=1000", requestOptions);
     const result = await response.json();
 
     // Return both data objects as props

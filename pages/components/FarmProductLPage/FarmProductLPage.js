@@ -190,7 +190,9 @@ import Head from "next/head";
 
 import { Carousel } from "react-responsive-carousel";
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
+const generateRandomRating = () => {
+    return (Math.random() * (5 - 4) + 4).toFixed(1); // Generates a random number between 3 and 5, and fixes it to one decimal place
+};
 const FarmProductLPage = ({ count, FHList }) => {
 
     const [mobileC, setMobileC] = useState(false)
@@ -244,6 +246,17 @@ const FarmProductLPage = ({ count, FHList }) => {
         };
     }, [router]);
 
+    function capitalizeFirstLetter(input) {
+        return input
+          .split(' ') // Split the string into words
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize the first letter of each word
+          .join(' '); // Join the words back together with spaces
+      }
+      
+      let result = capitalizeFirstLetter("hi iam robot");
+      console.log(result,"imrorororo");  // Output: "Hi Iam Robot"
+      
+
     const handleStoreRedirect = () => {
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
@@ -265,130 +278,7 @@ const FarmProductLPage = ({ count, FHList }) => {
         }
     };
 
-    const filteredData = [
-
-        // {
-        //     property_name: "SSK",
-        //     price_24_hours: 17000,
-        //     farm_image: { c1: sskf1, c2: sskf2, c3: sskf3, c4: sskf4, c5: sskf5, c6: sskf6, c7: sskf7, c8: sskf8, },
-        //     weekdays: { oneday: "17000", twoday: "34000" },
-        //     weekends: { oneday: "17000", twoday: "34000" },
-        //     rating: "4.6",
-        //     no_bed: "2",
-        // },
-
-        {
-            property_name: "Arush Agri",
-            price_24_hours: 20000,
-            farm_image: { c1: arush1, c2: arush2, c3: arush3, c4: arush4, c5: arush5, c6: arush6, c7: arush7, c8: arush8, },
-            weekdays: { oneday: "10000", twoday: "20000" },
-            weekends: { oneday: "20000", twoday: "40000" },
-            rating: "4.8",
-            alt: "Luxury Farmhouses in Shamshabad ",
-            no_bed: "3",
-        },
-
-        {
-            property_name: "Saketh Vanam",
-            price_24_hours: 17000,
-            farm_image: { c1: skfarm1, c2: skfarm2, c3: skfarm3, c4: skfarm4, c5: skfarm5, c6: skfarm6, c7: skfarm7, c8: skfarm8, },
-            weekdays: { oneday: "10000", twoday: "20000" },
-            weekends: { oneday: "17000", twoday: "34000" },
-            rating: "4.5",
-            alt: "Luxury Farmhouses in Shamshabad ",
-            no_bed: "3",
-        },
-
-        {
-            property_name: "BGY",
-            price_24_hours: 17000,
-            farm_image: { c1: bgy1, c2: bgy2, c3: bgy3, c4: bgy4, c5: bgy5, c6: bgy6, c7: bgy7, c8: bgy8, },
-            weekdays: { oneday: "12000", twoday: "24000" },
-            weekends: { oneday: "17000", twoday: "34000" },
-            rating: "4.6",
-            alt: "Luxury Farmhouses in Shamshabad ",
-            no_bed: "2",
-        },
-
-        {
-            property_name: "BOXED SERENITY",
-            price_24_hours: 20000,
-            farm_image: { c1: box1, c2: box2, c3: box3, c4: box4, c5: box5, c6: box6, c7: box7, c8: box8, },
-            weekdays: { oneday: "10000", twoday: "20000" },
-            weekends: { oneday: "20000", twoday: "40000" },
-            rating: "4.8",
-            alt: "Luxury Farmhouses in Shamshabad  ",
-            no_bed: "3",
-        },
-
-        {
-            property_name: "SB Farmhouse",
-            price_24_hours: 15000,
-            farm_image: { c1: sb1, c2: sb2, c3: sb3, c4: sb4, c5: sb5, c6: sb6, c7: sb7, c8: sb8, },
-            weekdays: { oneday: "10000", twoday: "20000" },
-            weekends: { oneday: "15000", twoday: "30000" },
-            rating: "4.6",
-            alt: "Luxury Farmhouses in MOINABAD  ",
-            no_bed: "4",
-        },
-
-        {
-            property_name: "PB Farmhouse",
-            price_24_hours: 15000,
-            farm_image: { c1: pb1, c2: pb2, c3: pb3, c4: pb4, c5: pb5, c6: pb6, c7: pb7, c8: pb8, },
-            weekdays: { oneday: "10000", twoday: "20000" },
-            weekends: { oneday: "15000", twoday: "30000" },
-            rating: "4.6",
-            alt: "Luxury Farmhouses in Shamshabad  ",
-            no_bed: "2",
-        },
-
-        {
-            property_name: "Holiday",
-            price_24_hours: 10000,
-            farm_image: { c1: holiday1, c2: holiday2, c3: holiday3, c4: holiday4, c5: holiday5, c6: holiday6, c7: holiday7, c8: holiday8, },
-            weekdays: { oneday: "6000", twoday: "12000" },
-            weekends: { oneday: "10000", twoday: "20000" },
-            rating: "4.3",
-            alt: "Luxury Farmhouses in  Moinabad",
-            no_bed: "2",
-        },
-
-        {
-            property_name: "svr peacock view",
-            price_24_hours: 12000,
-            farm_image: { c1: svr1, c2: svr2, c3: svr3, c4: svr4, c5: svr5, c6: svr6, c7: svr7, c8: svr8, },
-            weekdays: { oneday: "8000", twoday: "16000" },
-            weekends: { oneday: "12000", twoday: "24000" },
-            rating: "4.6",
-            no_bed: "2",
-        },
-
-        {
-            property_name: "ASN Farmhouse",
-            price_24_hours: 12000,
-            farm_image: { c1: asn1, c2: asn2, c3: asn3, c4: asn4, c5: asn5, c6: asn6, c7: asn7, c8: asn8, },
-            weekdays: { oneday: "6000", twoday: "12000" },
-            weekends: { oneday: "10000", twoday: "20000" },
-            rating: "4.6",
-            no_bed: "2",
-        },
-
-        {
-            property_name: "PY Farmhouse",
-            price_24_hours: 12000,
-            farm_image: { c1: py1, c2: py2, c3: py3, c4: py4, c5: py5, c6: py6, c7: py7, c8: py8, },
-            weekdays: { oneday: "8000", twoday: "16000" },
-            weekends: { oneday: "12000", twoday: "24000" },
-            rating: "4.3",
-            alt: "Luxury Farmhouses in  Moinabad",
-            no_bed: "2",
-        },
-
-
-
-
-    ];
+    
     const getOrderedImages = (attributes) => {
         const imageMap = {};
         attributes.forEach((attr) => {
@@ -404,6 +294,7 @@ const FarmProductLPage = ({ count, FHList }) => {
         ];
     };
 
+
     return (
         <div>
             <div className="text-sm pl-4 py-4 md:px-20 lg:py-16 text-black">
@@ -416,14 +307,14 @@ const FarmProductLPage = ({ count, FHList }) => {
                 </p>
             </div>
             <div>
-                <div className="flex flex-wrap gap-x-16 gap-y-14 lg:items-start justify-center lg:justify-normal lg:px-20 items-center">
+                <div className="flex flex-wrap xl:gap-x-12 xl:gap-y-12 lg:gap-x-8 lg:gap-y-8 lg:items-start justify-center lg:justify-normal lg:px-20 items-center">
                     {FHList?.slice(0, count ? FHList?.length : mobileC ? 4 : 6).map((item, index) => (
                         <React.Fragment key={index}>
-                            <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col xl:w-[400px] w-[97%] md:w-80 h-full">
+                            <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col xl:w-[400px] w-[97%] md:w-80 h-3/4">
                                 <div
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
-                                    className="relative crsldetails rounded-lg overflow-hidden cursor-pointer">
+                                    className="relative lpcarousal rounded-lg overflow-hidden cursor-pointer">
                                     <Carousel
                                         autoPlay={autoPlay}
                                         interval={2000}
@@ -442,7 +333,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                         onClick={(e) => LinkCall(e, `/${item.property_name.replace('_Dozzy_', ' ').replace(/\d/g, '')}`)}
                                                         href={`/${item.property_name.toLowerCase().replace(/ /g, "-")}`}
                                                     >
-                                                        <Image height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc}></Image>
+                                                        <Image className="h-[500px]" height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc}></Image>
                                                     </div>
                                                 );
                                             }
@@ -459,18 +350,17 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                 <p className="text-gray-900 font-medium text-sm lg:text-md opacity-75 font-Montserrat">Dozzy Farm House</p>
                                             </Link>
                                             <Link
-                                                className="text-[#556EE6] text-2xl font-semibold capitalize" href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
+                                                className="text-[#556EE6] text-2xl font-semibold" href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
                                             >
                                                 {/* Display only the farmhouse name */}
-                                                {item.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim()}
+                                                {capitalizeFirstLetter(item.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())}
                                             </Link>
                                         </div>
-                                        <div className="pt-2">
-                                            <div className="flex gap-2 items-center">
+                                        <div>
+                                            <div className="flex gap-2 items-center pt-2">
                                                 <IoBedSharp size={20} className="text-[#935732]" />
                                                 <p className="text-black">{item?.no_of_bedrooms} BHK</p>
                                             </div>
-
                                         </div>
                                     </div>
                                     <div className="font-normal text-sm">
@@ -483,7 +373,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                             <p className="text-[#556EE6]">₹ {item.weekend_price} /Day</p>
                                         </div>
                                     </div>
-                                    <div className="text-black text-xl font-semibold flex justify-center font-semibold">
+                                    <div className="text-black text-xl font-semibold flex justify-center ">
                                         For Booking
                                     </div>
                                     <div className="flex flex-col justify-between  text-white">
@@ -491,7 +381,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                             <li className="bg-green-500 w-full py-2  text-center lg:rounded-none">
                                                 {" "}
                                                 <Link
-                                                    href={`https://api.whatsapp.com/send?phone=+91${"phoneno"}&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking.`}
+                                                    href={`https://api.whatsapp.com/send?phone=+9666655973&text=Hi%0AI%20am%20looking%20for%20a%20farmhouse%20booking.`}
                                                     target="_blank"
                                                 >
                                                     <p className=" flex gap-1 lg:text-sm text-lg justify-center items-center">
@@ -502,8 +392,8 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                     </p>
                                                 </Link>
                                             </li>
-                                            <li className="bg-[#363b37] w-full py-2 lg:rounded-none">
-                                                <Link href={`tel:${"phoneno"}`} target="_blank">
+                                            <li className="bg-blue-500 w-full py-2 lg:rounded-none">
+                                                <Link href={`tel:9666655973`} target="_blank">
                                                     <p className=" flex gap-1 lg:text-sm text-lg justify-center items-center">
                                                         <span>
                                                             <BiPhoneCall size={20} />
@@ -513,10 +403,9 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                 </Link>
                                             </li>
                                         </ul>
-
                                         <div
                                             onClick={handleStoreRedirect}
-                                            className="cursor-pointer bg-gradient-to-r from-fuchsia-400 to-cyan-400  py-4 lg:py-2 rounded-b-lg lg:rounded-b-lg  shimmer "
+                                            className="cursor-pointer bg-[#001f3d]  py-4 lg:py-2 rounded-b-lg lg:rounded-b-lg  shimmer "
                                         >
                                             <div className="flex justify-around place-items-center   ">
                                                 <span className="flex  ">

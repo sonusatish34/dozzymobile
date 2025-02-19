@@ -1,54 +1,86 @@
 {
- "cheritan farm house": {
-      "id": "Cheritan",
-      "car_owner_id": 5,
-      "car_number": "TS28Q1467",
-      "price_24_hours": 1500,
-      "car_image_car_right_view": "https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls/9000222449/images/car_image_car_right_view_072c12e6d8544e419a0810ba0fb4bff6.jpeg",
-      "fuel_type": "Petrol",
-      "transmission_type": "Manual",
-      "seater": "5",
-      "vehicle_color": "Blue",
-      "desc" : "Cheritan Farmhouse, tucked away in the peaceful middle of the forest, provides a dreamlike haven from the bustling city life. Our farmhouse is set up to provide a perfect balance of leisure and enjoyment, guaranteeing you and your loved ones a memorable stay. Special features of Cheritan Farmhouse include a wonderful garden area, a cool swimming pool, a fully stocked kitchen with dishes and bowls, and a barbeque area for delicious meals. A 43-inch TV, WiFi, a Bluetooth audio system, and access to Netflix, Prime, Hotstar, Aha, and ZEE5 provide plenty of entertainment options. Play games like chess, carroms, shuttle, cricket, and shuttle to make sure everyone has a good time.",
-      "subdesc" : "Over the last several decades, urban investors have developed an interest in purchasing rural acreage and converting it into holiday homes or lavish resorts with plenty of greenery and scenic views. Since the vertical rise of structures in urban centres leaves little room for greenery and open space, demand for such housing choices has surged. As a result, individuals have begun investing actively in property in distant places. A farmhouse is one of these housing types since it enables the investor to possess both property and privacy."
+  "cheritan": {
+    "desc": "Cheritan Farmhouse, tucked away in the peaceful middle of the forest, provides a dreamlike haven from the bustling city life. Our farmhouse is set up to provide a perfect balance of leisure and enjoyment, guaranteeing you and your loved ones a memorable stay. Special features of Cheritan Farmhouse include a wonderful garden area, a cool swimming pool, a fully stocked kitchen with dishes and bowls, and a barbeque area for delicious meals. A 43-inch TV, WiFi, a Bluetooth audio system, and access to Netflix, Prime, Hotstar, Aha, and ZEE5 provide plenty of entertainment options. Play games like chess, carroms, shuttle, cricket, and shuttle to make sure everyone has a good time.",
+    "subdesc": "Over the last several decades, urban investors have developed an interest in purchasing rural acreage and converting it into holiday homes or lavish resorts with plenty of greenery and scenic views. Since the vertical rise of structures in urban centres leaves little room for greenery and open space, demand for such housing choices has surged. As a result, individuals have begun investing actively in property in distant places. A farmhouse is one of these housing types since it enables the investor to possess both property and privacy."
   },
- "saketh vanam": {
-      "id": "Saketh Vanam",
-      "car_owner_id": 5,
-      "car_number": "TS28Q1467",
-      "price_24_hours": 1500,
-      "car_image_car_right_view": "https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls/9000222449/images/car_image_car_right_view_072c12e6d8544e419a0810ba0fb4bff6.jpeg",
-      "fuel_type": "Petrol",
-      "transmission_type": "Manual",
-      "seater": "5",
-      "vehicle_color": "Blue",
-      "desc" : "TRADITIONALLY FARMHOUSES are simply homes built on agricultural lands to house and protect who owned or worked the land. The term Farmhouse isn't necessarily connected to a particular style identified by a fixed set of features, but a setting for a way of life. This is most likely why its appeal seems to be timeless.",
-      "subdesc" : "Over the last several decades, urban investors have developed an interest in purchasing rural acreage and converting it into holiday homes or lavish resorts with plenty of greenery and scenic views. Since the vertical rise of structures in urban centres leaves little room for greenery and open space, demand for such housing choices has surged. As a result, individuals have begun investing actively in property in distant places. A farmhouse is one of these housing types since it enables the investor to possess both property and privacy."
+  "sakethavanam": {
+    "desc": "TRADITIONALLY FARMHOUSES are simply homes built on agricultural lands to house and protect who owned or worked the land. The term Farmhouse isn't necessarily connected to a particular style identified by a fixed set of features, but a setting for a way of life. This is most likely why its appeal seems to be timeless.",
+    "subdesc": "Over the last several decades, urban investors have developed an interest in purchasing rural acreage and converting it into holiday homes or lavish resorts with plenty of greenery and scenic views. Since the vertical rise of structures in urban centres leaves little room for greenery and open space, demand for such housing choices has surged. As a result, individuals have begun investing actively in property in distant places. A farmhouse is one of these housing types since it enables the investor to possess both property and privacy."
   },
- "srinivasa farm house": {
-      "id": "Srinivasa",
-      "car_owner_id": 5,
-      "car_number": "TS28Q1467",
-      "price_24_hours": 1500,
-      "car_image_car_right_view": "https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls/9000222449/images/car_image_car_right_view_072c12e6d8544e419a0810ba0fb4bff6.jpeg",
-      "fuel_type": "Petrol",
-      "transmission_type": "Manual",
-      "seater": "5",
-      "vehicle_color": "Blue",
-      "desc" : "SRINIVASA Farmhouse, nestled amidst the natural beauty, provides a serene escape from the city's hustle and bustle. Tailored for both relaxation and fun, our farmhouse guarantees a memorable experience for you and your loved ones. It features a refreshing swimming pool/baby pool, 12 acres of mango trees, a banyan tree, a fish pond, a fully equipped kitchen with bowls and plates, and a barbecue setup for delightful meals. For entertainment, there's a Bluetooth music system, a 100-inch big projector, WiFi, and access to Netflix, Prime, Hotstar, Aha, ZEE5, and YouTube. Game enthusiasts can indulge in cricket, shuttle, carroms, and chess, promising endless enjoyment for everyone. ",
-      "subdesc" : "Over the last several decades, urban investors have developed an interest in purchasing rural acreage and converting it into holiday homes or lavish resorts with plenty of greenery and scenic views. Since the vertical rise of structures in urban centres leaves little room for greenery and open space, demand for such housing choices has surged. As a result, individuals have begun investing actively in property in distant places. A farmhouse is one of these housing types since it enables the investor to possess both property and privacy."
+  "psr-farm": {
+    "desc": "Dozzy showcases some of the best farmhouses in Hyderabad, ideal for peaceful retreats. One of our premier properties, PSR FARM Stays, is nestled in lush greenery and offers a serene escape. With a delightful swimming pool, it’s perfect for cooling off and spending quality time with loved ones.",
+    "subdesc": "Rooms are well-furnished with king-size beds, air conditioning, and essential amenities to ensure your comfort. Additional features like TVs and fridges provide convenience during your stay. For a special touch, take advantage of the BBQ setup and enjoy an evening of outdoor dining and stargazing."
   },
- "urban farm house": {
-      "id": "Urban",
-      "car_owner_id": 5,
-      "car_number": "TS28Q1467",
-      "price_24_hours": 1500,
-      "car_image_car_right_view": "https://s3.ap-south-2.amazonaws.com/ld-prod-image-urls/9000222449/images/car_image_car_right_view_072c12e6d8544e419a0810ba0fb4bff6.jpeg",
-      "fuel_type": "Petrol",
-      "transmission_type": "Manual",
-      "seater": "5",
-      "vehicle_color": "Blue",
-      "desc" : "A tranquil haven from the bustle of the city, URBAN Farmhouse is tucked away in the picturesque surroundings. Our farmhouse, designed for your enjoyment and relaxation, ensures that you and your loved ones will have an unforgettable experience. Along with a fish pond, 12 acres of mango and banyan trees, a fully stocked kitchen with dishes and bowls, and a grill area for delicious dinners, it has a refreshing swimming pool and baby pool. There is a 100-inch large projector, WiFi, a Bluetooth audio system, and access to Netflix, Prime, Hotstar, Aha, ZEE5, and YouTube for entertainment. Chess, carroms, shuttle, cricket, and shuttle are available for game lovers to enjoy, with guaranteed fun for everybody.",
-      "subdesc" : "Over the last several decades, urban investors have developed an interest in purchasing rural acreage and converting it into holiday homes or lavish resorts with plenty of greenery and scenic views. Since the vertical rise of structures in urban centres leaves little room for greenery and open space, demand for such housing choices has surged. As a result, individuals have begun investing actively in property in distant places. A farmhouse is one of these housing types since it enables the investor to possess both property and privacy."
+  "v-farmhouse": {
+    "desc": "Dozzy brings you some of the most exquisite farmhouses in Hyderabad, offering tranquil spaces for a relaxing escape. One of the highlights is the V FARMHOUSE_Dozzy_1560 Farm Stays, a charming property nestled in lush greenery, providing a perfect natural retreat. A swimming pool on-site ensures guests can unwind and enjoy fun moments with loved ones.",
+    "subdesc": "The farmhouse features rooms designed for ultimate comfort, with king-size beds, air conditioning, and other essential amenities. TVs and fridges in the rooms provide added convenience, making your stay effortless. For evenings, enjoy a BBQ setup where you can grill and dine beneath the beautiful night sky."
+  },
+  "little-nest": {
+    "desc": "Planning a farmhouse getaway in Hyderabad? Boxed Serenity in Shamshabad by Dozzy Farmhouses awaits you. Nestled in greenery and featuring a stunning swimming pool, it’s perfect for family or friends’ vacations. Comfortable rooms with king-size beds, AC, TVs, and fridges provide a cozy stay. Evenings get better with a BBQ setup and bonfire pit, offering a fun and unforgettable outdoor dining experience beneath the stars.",
+    "subdesc": ""
+  },
+  "nk-farmhouse": {
+    "desc": "Dozzy presents some of the finest farmhouses in and around Hyderabad, ideal for a peaceful getaway or hosting memorable events with loved ones. Among them, the NK FARMHOUSE_Dozzy_1569 Farmhouse stands out, surrounded by lush greenery to offer a tranquil escape close to nature.",
+    "subdesc": "This charming farmhouse features a sparkling swimming pool, perfect for relaxation or fun-filled activities. Each room is designed for comfort, equipped with air conditioning, king-size beds, a TV, a fridge, and ample storage. The farmhouse also boasts BBQ facilities for delightful outdoor cooking and dining experiences. Thoughtfully added amenities ensure every convenience for your stay. With its serene surroundings, cozy interiors, and excellent amenities, NK FARMHOUSE_Dozzy_1569 Farmhouse is an ideal retreat near Hyderabad for relaxation, celebrations, or reconnecting with nature."
+  },
+  "kvp": {
+    "desc": "Discover the best farmhouses in Hyderabad with Dozzy, your go-to destination for peaceful getaways. kvp_Dozzy_1583 Farm Stays, one of our standout properties, is surrounded by lush greenery and features a refreshing swimming pool, perfect for leisure and fun with loved ones.",
+    "subdesc": "Designed for maximum comfort, the farmhouse rooms come with king-size beds, air conditioning, and essential amenities for a relaxing stay. TVs and fridges are also included to make your experience more convenient. Plus, enjoy evenings outdoors with our BBQ setup, ideal for memorable gatherings under the stars."
+  },
+  "amrpalli": {
+    "desc": "Dozzy brings you top-notch farmhouses near Hyderabad, ideal for peaceful retreats or hosting special events with friends and family. One of our most popular options is the Amrapali farmhouse, nestled in greenery to create a serene ambiance close to nature.",
+    "subdesc": "This farmhouse features a stunning swimming pool, perfect for relaxing and creating fun memories. Rooms are equipped with air conditioning, king-size beds, TVs, fridges, and plenty of storage, ensuring a stress-free stay.Enjoy outdoor cooking with the provided BBQ facilities, making your visit even more delightful. With a serene location, stylish interiors, and premium amenities, Amrapali Farmhouse is a top choice for getaways, celebrations, or a peaceful escape from the city."
+  },
+  "canaan": {
+    "desc": "Dozzy curates some of the best farmhouses in Hyderabad, offering perfect escapes for relaxation or family events. Among them, Canaan Farmhouse stands out, surrounded by greenery and designed to provide a serene, natural retreat.",
+    "subdesc": "This picturesque farmhouse features a well-maintained swimming pool, great for leisure and fun moments. Each room includes air conditioning, king-sized beds, TVs, fridges, and ample storage to make your stay comfortable and convenient. A BBQ setup adds to the fun, enabling outdoor dining and grilling experiences. With peaceful surroundings, thoughtful interiors, and excellent amenities, Canaan Farmhouse is an ideal getaway for relaxation, celebrations, or reconnecting with nature near Hyderabad."
+  },
+  "varahi": {
+    "desc": "Dozzy Farmhouse’s Varahi Farmhouse in Hyderabad offers a peaceful retreat surrounded by greenery and includes a stunning swimming pool. Perfect for family vacations or weekend getaways, it features luxurious rooms with king-size beds, air conditioning, TVs, fridges, and more. A BBQ setup and bonfire pit add to the charm of a fun and memorable outdoor experience.",
+    "subdesc": ""
+  },
+  "lm-farmhouse": {
+    "desc": "Experience relaxation with Dozzy’s farmhouses near Hyderabad, designed for peaceful retreats or special occasions. LM Farmhouse is one of the top picks, offering a serene ambiance amidst greenery.The farmhouse includes a refreshing swimming pool, while rooms are thoughtfully equipped with AC, king-size beds, TVs, fridges, and ample storage to meet all your needs.",
+    "subdesc": "BBQ facilities make outdoor cooking an enjoyable experience. Combining natural beauty, modern interiors, and great amenities, LM Farmhouse is a must-visit destination for a perfect getaway or celebration."
+  },
+  "white-house": {
+    "desc": "White house Farmhouse offers a serene forest retreat, ideal for a relaxing escape from the city's rush. The property features a lush garden, a refreshing pool, and a fully stocked kitchen, including dishes and BBQ amenities, for your convenience.",
+    "subdesc": "Enjoy a 43-inch TV, WiFi, Bluetooth sound system, and access to streaming platforms like Netflix, Prime, Hotstar, Aha, and ZEE5. Engage in fun activities with games like carrom, cricket, shuttle, and chess for a memorable stay."
+  },
+  "han's": {
+    "desc": "Nestled in a peaceful forest, Han's Farmhouse is the perfect getaway for unwinding and spending quality time. With a well-kept garden, sparkling pool, and a fully equipped kitchen, complete with a barbecue setup, your comfort is assured.",
+    "subdesc": "Stay entertained with a 43-inch TV, WiFi, Bluetooth speakers, and streaming apps like Netflix, Prime, Hotstar, Aha, and ZEE5. Add excitement to your stay with games like shuttle, chess, cricket, and carrom."
+  },
+  "sb-farm": {
+    "desc": "SB Farm brings you a beautiful farmhouse near Hyderabad, perfect for a relaxing getaway or celebrating special occasions with loved ones. One of the standout options is the SB Farm farmhouse, surrounded by lush greenery that offers a peaceful, natural setting.",
+    "subdesc": "This farmhouse is equipped with a spacious swimming pool, ideal for unwinding and creating unforgettable moments. The rooms come with modern amenities such as air conditioning, comfortable king-size beds, televisions, fridges, and ample storage space, ensuring a cozy and hassle-free stay for all guests."
+  },
+  "holiday": {
+    "desc": "Holiday Farmhouse offers a tranquil escape just outside Hyderabad, perfect for those seeking a peaceful retreat or a venue to host memorable celebrations. Nestled in the heart of nature, this farmhouse is designed to provide a relaxing atmosphere away from the hustle and bustle of city life.",
+    "subdesc": "With a large swimming pool, guests can enjoy a refreshing dip while soaking in the surrounding beauty. The rooms are thoughtfully designed with all the comforts you need, including air conditioning, luxurious king-size beds, televisions, fridges, and generous storage space, ensuring a pleasant and relaxing stay for everyone."
+  },
+  "arush-agri": {
+    "desc": "Arush Agri Farmhouse offers a serene and picturesque escape just outside Hyderabad, ideal for those seeking a peaceful getaway or a venue for intimate gatherings. Surrounded by lush greenery and open fields, the farmhouse is perfect for reconnecting with nature and unwinding in a calm environment.",
+    "subdesc": "The property features a spacious outdoor area where guests can explore and enjoy a range of activities, from nature walks to barbecues under the stars. The rooms are designed for comfort and relaxation, with modern amenities including air conditioning, queen-size beds, a television, mini-fridge, and ample wardrobe space, making your stay both comfortable and enjoyable."
+  },
+  "box-serenity": {
+    "desc": "Box Serenity Farmhouse provides a peaceful sanctuary just a short drive from Hyderabad, offering a perfect escape for those looking to rejuvenate and unwind. With its expansive green lawns and tranquil surroundings, it’s an ideal location for nature lovers, families, or small groups seeking a break from city life.",
+    "subdesc": "Guests can enjoy the spacious outdoor area, perfect for leisurely strolls, outdoor games, or simply relaxing in the calm environment. The farmhouse is equipped with all the necessary comforts, including well-appointed rooms with air conditioning, cozy double beds, a flat-screen TV, a mini-fridge, and plenty of storage space, ensuring a stress-free and restful stay."
+  },
+  "asn-farm": {
+    "desc": "ASN Farm Farmhouse offers an inviting retreat just outside Hyderabad, where you can enjoy a perfect blend of relaxation and adventure. Surrounded by scenic landscapes and lush greenery, it’s a haven for those who seek both peace and exploration, making it an ideal destination for families, friends, or corporate getaways.",
+    "subdesc": "The farmhouse boasts wide open spaces, perfect for outdoor activities, picnics, and evening bonfires, allowing guests to truly experience the beauty of nature. Inside, the rooms are designed for ultimate comfort, featuring modern amenities such as air conditioning, king-size beds, LED televisions, mini-fridges, and ample closet space, ensuring a delightful and memorable stay for everyone."
+  },
+  "bgy-farm": {
+    "desc": "BGY Farmhouse is a serene retreat located just a short drive from Hyderabad, offering a refreshing break from the hustle and bustle of city life. Surrounded by lush greenery and peaceful landscapes, it's the perfect getaway for nature enthusiasts, families, or groups looking to relax and recharge.",
+    "subdesc": "The farmhouse features a spacious outdoor setting where guests can enjoy morning walks, indulge in outdoor sports, or simply unwind amidst the calming atmosphere. Inside, the farmhouse offers modern amenities such as comfortable air-conditioned rooms, plush double beds, a flat-screen TV, a mini-fridge, and ample storage space, ensuring every guest has a relaxing and enjoyable stay. Whether you're here for a short break or a weekend getaway, BGY Farmhouse provides the ideal environment to connect with nature and rejuvenate."
+  },
+  "pb-farmhouse": {
+    "desc": "PB Farmhouse offers a tranquil escape just outside Hyderabad, nestled in the heart of nature. This peaceful sanctuary is the perfect destination for those seeking a quiet retreat away from the city's noise. Whether you're a solo traveler, a couple, or a group, PB Farmhouse provides a serene environment to relax, unwind, and recharge.",
+    "subdesc": "The expansive outdoor area allows guests to enjoy leisurely walks through lush greenery, partake in outdoor activities, or simply bask in the calm ambiance of the surroundings. Inside, the farmhouse is designed for comfort, featuring cozy, air-conditioned rooms with double beds, a flat-screen TV, a mini-fridge, and generous storage space, ensuring a cozy and relaxing stay. PB Farmhouse is the ideal location for anyone wanting to reconnect with nature and experience peaceful relaxation."
+  },
+  "": {
+    "desc": "",
+    "subdesc": ""
   }
 }
