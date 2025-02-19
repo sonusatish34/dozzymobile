@@ -69,7 +69,7 @@ const Footer = () => {
                 </div>
             </div>
                 <div className='bg-black py-1 lg:px-20 text-center text-white lg:text-lg text-[10px]'>
-                    <p>© 2024 LDCars India Private Limited. All Rights Reserved.</p>
+                    <p>© 2025 LDCars India Private Limited. All Rights Reserved.</p>
                     {/* <Link href={'/blog.html'}>blogs</Link> */}
                 </div>
         </div>

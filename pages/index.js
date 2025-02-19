@@ -15,10 +15,8 @@ export default function Home({ canonicalUrl, approvedProperties }) {
 const arr=[]
 approvedProperties?.data.results?.forEach(element => {
   arr.push(element.property_name)
-  console.log(element.property_name,"customer_night_prices");
   
 });
-console.log(arr,"kkkk");
 
   return (
     <div className="text-black font-poppins">

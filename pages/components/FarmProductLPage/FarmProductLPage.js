@@ -8,7 +8,9 @@ import { BsStarFill } from "react-icons/bs";
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoBedSharp } from "react-icons/io5";
-
+import { FaGooglePlay } from "react-icons/fa";
+import { FaAppStoreIos } from "react-icons/fa";
+import { RxSlash } from "react-icons/rx";
 
 
 import skfarm1 from "../../images/saketh/1.webp"
@@ -242,6 +244,26 @@ const FarmProductLPage = ({ count, FHList }) => {
         };
     }, [router]);
 
+    const handleStoreRedirect = () => {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            // Redirect to App Store if iOS
+            window.open(
+                "https://apps.apple.com/in/app/long-drive-cars/id6466695391",
+                "_blank"
+            );
+        } else if (/android/i.test(userAgent)) {
+            // Redirect to Play Store if Android
+            window.open(
+                "https://play.google.com/store/search?q=long+drive+cars&c=apps",
+                "_blank"
+            );
+        } else {
+            // Optional: Provide a message for non-mobile devices
+            alert("App is available only on mobile devices.");
+        }
+    };
 
     const filteredData = [
 
@@ -378,7 +400,6 @@ const FarmProductLPage = ({ count, FHList }) => {
             imageMap["building_outside_pic_1"],
             imageMap["swimming_pool_pic_1"],
             imageMap["bedroom_1_0"],
-            imageMap["night_bedroom_1_0"],
             imageMap["night_garden_pic_1"],
         ];
     };
@@ -395,15 +416,14 @@ const FarmProductLPage = ({ count, FHList }) => {
                 </p>
             </div>
             <div>
-                <div className="flex flex-wrap gap-x-8 gap-y-8 lg:items-start justify-center lg:pl-12 items-center">
+                <div className="flex flex-wrap gap-x-16 gap-y-14 lg:items-start justify-center lg:justify-normal lg:px-20 items-center">
                     {FHList?.slice(0, count ? FHList?.length : mobileC ? 4 : 6).map((item, index) => (
                         <React.Fragment key={index}>
-                            <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col lg:w-[400px] w-[97%] md:w-80 h-full">
+                            <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col xl:w-[400px] w-[97%] md:w-80 h-full">
                                 <div
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
                                     className="relative crsldetails rounded-lg overflow-hidden cursor-pointer">
-
                                     <Carousel
                                         autoPlay={autoPlay}
                                         interval={2000}
@@ -413,29 +433,37 @@ const FarmProductLPage = ({ count, FHList }) => {
                                         showArrows={true}
                                         transitionTime={1000}
                                     >
-                                        {getOrderedImages(item?.images).map(
-                                            (imageSrc, index) => (
-                                                <div key={index} onClick={(e) => LinkCall(e, `/${item.property_name.replace('_Dozzy_', ' ').replace(/\d/g, '')}`)} href={`/${item.property_name.toLowerCase().replace(/ /g, "-")}`}>
-                                                    {<Image height={1000} width={1000} alt={"Farm Houses In Hyderbad"} src={imageSrc} ></Image>}
-                                                </div>
-                                            )
-                                        )}
-
+                                        {getOrderedImages(item?.images).map((imageSrc, index) => {
+                                            // Check if imageSrc is valid
+                                            if (imageSrc) {
+                                                return (
+                                                    <div
+                                                        key={index}
+                                                        onClick={(e) => LinkCall(e, `/${item.property_name.replace('_Dozzy_', ' ').replace(/\d/g, '')}`)}
+                                                        href={`/${item.property_name.toLowerCase().replace(/ /g, "-")}`}
+                                                    >
+                                                        <Image height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc}></Image>
+                                                    </div>
+                                                );
+                                            }
+                                            // Return null if imageSrc is not valid (i.e., null or empty)
+                                            return null;
+                                        })}
                                     </Carousel>
+
                                 </div>
-                                <div className="px-2 flex flex-col gap-4 p-1">
+                                <div className="px- flex flex-col gap-4">
                                     <div className="flex items-baseline justify-between px-2">
                                         <div>
                                             <Link onClick={(e) => LinkCall(e, `/${item.property_name.replace('_Dozzy_', '').replace(/\d/g, '')}-${item.property__id}`)} href={`${item.property_name.replace('_Dozzy_', '').replace(/\d/g, '')}-${item.property__id} `}>
                                                 <p className="text-gray-900 font-medium text-sm lg:text-md opacity-75 font-Montserrat">Dozzy Farm House</p>
                                             </Link>
                                             <Link
-                                                className="text-blue-500" href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
+                                                className="text-[#556EE6] text-2xl font-semibold capitalize" href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
                                             >
                                                 {/* Display only the farmhouse name */}
-                                                {item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}
+                                                {item.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim()}
                                             </Link>
-
                                         </div>
                                         <div className="pt-2">
                                             <div className="flex gap-2 items-center">
@@ -455,19 +483,18 @@ const FarmProductLPage = ({ count, FHList }) => {
                                             <p className="text-[#556EE6]">₹ {item.weekend_price} /Day</p>
                                         </div>
                                     </div>
-                                    <div className="text-black flex justify-center font-semibold">
+                                    <div className="text-black text-xl font-semibold flex justify-center font-semibold">
                                         For Booking
                                     </div>
-                                    <div className="flex justify-between gap-1 text-white ">
-                                        <ul className="text-black flex w-full justify-between gap-5">
-                                            <li className="bg-green-500 w-full p-2 rounded-bl-md text-center text-white border-[1px] border-black">
+                                    <div className="flex flex-col justify-between  text-white">
+                                        <ul className="flex w-full justify-between">
+                                            <li className="bg-green-500 w-full py-2  text-center lg:rounded-none">
                                                 {" "}
                                                 <Link
-                                                    onClick={(e) => LinkCall(e, "https://api.whatsapp.com/send?phone=+9666655973&text=Hi%0AI%20am%20looking%20for%20a%20farmhouse%20booking.")}
-                                                    href="https://api.whatsapp.com/send?phone=+9666655973&text=Hi%0AI%20am%20looking%20for%20a%20farmhouse%20booking."
+                                                    href={`https://api.whatsapp.com/send?phone=+91${"phoneno"}&text=Hi%0AI%20am%20looking%20for%20a%20car%20booking.`}
                                                     target="_blank"
                                                 >
-                                                    <p className=" flex gap-1 text-sm justify-center">
+                                                    <p className=" flex gap-1 lg:text-sm text-lg justify-center items-center">
                                                         <span>
                                                             <FaWhatsapp size={20} />
                                                         </span>{" "}
@@ -475,10 +502,9 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                     </p>
                                                 </Link>
                                             </li>
-                                            <li className="bg-blue-500 w-full p-2 rounded-br-md text-white border-[1px] border-black">
-                                                {" "}
-                                                <Link onClick={(e) => LinkCall(e, "tel:9666655973")} href="tel:9666655973" target="_blank">
-                                                    <p className=" flex gap-1 text-sm justify-center">
+                                            <li className="bg-[#363b37] w-full py-2 lg:rounded-none">
+                                                <Link href={`tel:${"phoneno"}`} target="_blank">
+                                                    <p className=" flex gap-1 lg:text-sm text-lg justify-center items-center">
                                                         <span>
                                                             <BiPhoneCall size={20} />
                                                         </span>{" "}
@@ -487,7 +513,25 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                 </Link>
                                             </li>
                                         </ul>
+
+                                        <div
+                                            onClick={handleStoreRedirect}
+                                            className="cursor-pointer bg-gradient-to-r from-fuchsia-400 to-cyan-400  py-4 lg:py-2 rounded-b-lg lg:rounded-b-lg  shimmer "
+                                        >
+                                            <div className="flex justify-around place-items-center   ">
+                                                <span className="flex  ">
+                                                    <FaGooglePlay className="lg:size-6" size={25} />{" "}
+                                                    <RxSlash className="lg:size-5" size={30} />{" "}
+                                                    <FaAppStoreIos className="lg:size-6" size={25} />
+                                                </span>
+                                                <p className=" text-center  font-semibold text-2xl lg:text-xl tracking-wide  ">
+                                                    {" "}
+                                                    Download App{" "}
+                                                </p>
+                                            </div>
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
                         </React.Fragment>
@@ -495,7 +539,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                 </div>
             </div>
 
-            <div className={`${count?.length ? 'hidden' : 'block'} text-center px-6 pb-10 pt-8`}>
+            <div className={`${count?.length ? 'hidden' : 'block'} text-center py-12 px-2 `}>
 
                 <button className="bg-[#4508a6] spinner-border text-xl font-bold text-white w-full lg:w-96 py-4 rounded-full">
                     <Link

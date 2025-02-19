@@ -34,9 +34,8 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
   const [caritem, setCarItem] = useState('')
   const { farmproduct } = router.query;
   // console.log(propertyid, "propertyid");
-  console.log(approvedProperties, "approvedProperties");
 
-  const mdfyFarmProduct = farmproduct?.toLowerCase().replace(/-/g, " ");
+  const mdfyFarmProduct = farmproduct;
 
   const [loading, setLoading] = useState(true);
   const [fmDetail, setFmDetail] = useState(null);
@@ -64,13 +63,11 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
           redirect: "follow"
         };
         const items = await response.json();
-        console.log(items, "ieejskms pahni");
 
         const cars = items?.data?.results;
         const car = cars?.find(i => i?.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-') === mdfyFarmProduct);
         // setCarItem(car);
         // item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')
-        console.log(car, "car");
         setFmDetail(car)
 
       } catch (error) {
@@ -96,10 +93,45 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
       imageMap["building_outside_pic_1"],
       imageMap["swimming_pool_pic_1"],
       imageMap["bedroom_1_0"],
-      imageMap["night_bedroom_1_0"],
       imageMap["night_garden_pic_1"],
     ];
   };
+  const customData = {
+    "bgy-farm": {
+      desc: "--- Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
+    },
+    "bgy farm": {
+      desc: "hyphen Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
+    },
+    "box-serenity": {
+      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
+    },
+    "bgy": {
+      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
+    },
+    "bgy": {
+      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
+    },
+    "bgy": {
+      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
+    },
+    "bgy": {
+      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
+    },
+    "bgy": {
+      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
+    },
+    "bgy": {
+      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
+    },
+    "bgy": {
+      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
+    },
+    "bgy": {
+      desc: "Dozzy offers some of the best farmhouse experiences in and around Hyderabad, providing a serene escape from the city. Our beautiful BHY  farmhouse is located in a lush, green environment, perfect for unwinding with family and friends. Each room is designed with comfort in mind, featuring air conditioning, king-size beds, and premium amenities for a cozy stay.",
+    },
+
+  }
 
   return (
     <div className='bg-white text-black mont-text'>
@@ -211,6 +243,7 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
                 (imageSrc, index) => (
                   <div key={index} onClick={(e) => LinkCall(e, `/${fmDetail?.property_name.replace('_Dozzy_', ' ').replace(/\d/g, '')}`)} href={`/${fmDetail?.property_name.toLowerCase().replace(/ /g, "-")}`}>
                     {<Image height={1000} width={1000} alt={"Farm Houses In Hyderbad"} src={imageSrc} ></Image>}
+                    {console.log(getOrderedImages(fmDetail?.images), "imageSrc")}
                   </div>
                 )
               )}
