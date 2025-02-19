@@ -3,7 +3,7 @@ import React from 'react'
 export default function privacy_policy() {
   return (
     <div className='text-black lg:px-20 px-6 grotesk-text lg:leading-8 lg:text-sm text-xs leading-6'>
-      <h2 className='text-center font-bold text-lg py-6'>PRIVACY POLICY</h2>
+      <p className='text-center font-bold text-lg py-6'>PRIVACY POLICY</p>
       <ol className='pl-6'>
         <li className='list-decimal'>THIS PRIVACY POLICY IS AN ELECTRONIC RECORD IN THE FORM OF AN ELECTRONIC CONTRACT FORMED UNDER THE INFORMATION TECHNOLOGY ACT, 2000 AND THE RULES MADE THEREUNDER AND THE AMENDED PROVISIONS PERTAINING TO ELECTRONIC DOCUMENTS / RECORDS IN VARIOUS STATUTES AS AMENDED BY THE INFORMATION TECHNOLOGY ACT, 2000. THIS PRIVACY POLICY DOES NOT REQUIRE ANY PHYSICAL, ELECTRONIC OR DIGITAL SIGNATURE.</li>
         <li>THIS PRIVACY POLICY IS A LEGALLY BINDING DOCUMENT BETWEEN YOU AND DOZZY (BOTH TERMS DEFINED ABOVE).
