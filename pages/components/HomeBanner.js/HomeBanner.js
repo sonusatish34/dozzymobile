@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import bgsvg from '../../images/dosts.webp'
+import bgsvg from '../../images/qwqwq.webp'
 import bgfarm from '../../../public/kk.webp'
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
@@ -28,7 +28,6 @@ const HomeBanner = () => {
                                 <p className='flex gap-1 items-center text-[10px] lg:text-lg'><span><BiPhoneCall className='lg:size-6' size={10} /></span> <span>Call US</span></p>
                             </Link>
                         </button>
-
                     </div>
                 </div>
                 <div className=' '>
@@ -36,7 +35,7 @@ const HomeBanner = () => {
                         priority
                         src={bgsvg}
                         alt="from houses near hyderabad "
-                        className='lg:object-cover xl:w-[700px] lg:w-[450px] w-[300px] h'
+                        className='lg:object-cover xl:w-[800px] lg:w-[450px] w-[300px] h'
                         // layout='responsive'
                         height={1500}
                         width={1500}
