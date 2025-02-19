@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import steps from "../../images/steps.webp";
+import steps from "../../images/water.webp";
 import { SlCalender } from "react-icons/sl";
 import { MdOutlineFindReplace } from "react-icons/md";
 import { GiConfirmed } from "react-icons/gi";
@@ -75,7 +75,7 @@ const CareGuests = () => {
             Book With Just 3 Easy Steps
           </p>
           <div className="flex items-center">
-            <div className="w-[60%] h-24 lg:w-[50%] lg:h-80 rounded-lg relative">
+            <div className="w-[60%] h-24 lg:w-[50%] lg:h-80 rounded-lg relative  border2 border-black">
               <Image
                 src={steps}
                 alt="farm house in hyderabad"

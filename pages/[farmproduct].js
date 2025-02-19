@@ -203,9 +203,9 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
 
             </Carousel>
           </div>
-          <div className='flex flex-col lg:gap-14 gap-4 lg:pt-10 pt-2'>
+          <div className='flex flex-col xl:gap-14 lg:gap-6 gap-4 xl:pt-10 pt-2'>
             <div>
-              <div className='p-1 font-bold  text-xl lg:text-3xl lg: capitalize'>{fmDetail?.property_name} Farm House ({fmDetail?.no_of_bedrooms} BHK) <p className='text-blue-600 pt-3'>₹ {fmDetail?.property_price}/day</p>
+              <div className='p-1 font-bold  text-xl xl:text-3xl lg:text-xl lg: capitalize'>{fmDetail?.property_name} Farm House ({fmDetail?.no_of_bedrooms} BHK) <p className='text-blue-600 pt-3'>₹ {fmDetail?.property_price}/day</p>
                 <p className='text-blue-600 opacity-70 text-sm pl-1 pt-2'>₹{fmDetail?.weekend_price}/day <span className='text-black'>(Fri-Sun)</span></p>
               </div>
             </div>

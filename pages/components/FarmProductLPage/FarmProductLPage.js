@@ -307,10 +307,10 @@ const FarmProductLPage = ({ count, FHList }) => {
                 </p>
             </div>
             <div>
-                <div className="flex flex-wrap xl:gap-x-12 xl:gap-y-12 lg:gap-x-8 lg:gap-y-8 lg:items-start justify-center lg:justify-normal lg:px-20 items-center">
+                <div className="flex flex-wrap xl:gap-x-12 xl:gap-y-12 lg:gap-x-8 lg:gap-y-8 gap-y-8 lg:items-start justify-center lg:justify-normal lg:px-20 items-center">
                     {FHList?.slice(0, count ? FHList?.length : mobileC ? 4 : 6).map((item, index) => (
                         <React.Fragment key={index}>
-                            <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col xl:w-[400px] w-[97%] md:w-80 h-3/4">
+                            <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col xl:w-[380px] lg:w-[260px] w-[97%] md:w-80 h-3/4">  
                                 <div
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
@@ -350,7 +350,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                 <p className="text-gray-900 font-medium text-sm lg:text-md opacity-75 font-Montserrat">Dozzy Farm House</p>
                                             </Link>
                                             <Link
-                                                className="text-[#556EE6] text-2xl font-semibold" href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
+                                                className="text-[#556EE6] xl:text-2xl lg:text-lg font-semibold" href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
                                             >
                                                 {/* Display only the farmhouse name */}
                                                 {capitalizeFirstLetter(item.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())}

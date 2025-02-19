@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import grpfarm from '../../images/farmgroup.webp'
+import grpfarm from '../../images/secions.webp'
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
 import Link from 'next/link';

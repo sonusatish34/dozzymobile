@@ -121,7 +121,7 @@ body {
   height: 300px;
   object-fit: cover;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
   .crsldetails .carousel .slider-wrapper.axis-horizontal .slide img {
     height: 520px;
   }
@@ -132,7 +132,7 @@ body {
 }
 @media screen and (min-width: 1024px) {
   .lpcarousal .carousel .slider-wrapper.axis-horizontal .slide img {
-    height: 440px;
+    height: 400px;
   }
 }
 
