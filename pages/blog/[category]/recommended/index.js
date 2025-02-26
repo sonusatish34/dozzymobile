@@ -20,7 +20,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Head from 'next/head';
 
-const ComponentName = ( { canonicalUrl }) => {
+const ComponentName = ({ canonicalUrl }) => {
     const [categories, setCategories] = useState([]);
     const router = useRouter();
     const { category } = router.query; // Get the category name from the URL
@@ -169,11 +169,14 @@ const ComponentName = ( { canonicalUrl }) => {
     return (
         <BlogLayout onSearch={setSearchQuery} catg={category} recommended={true}>
             <Head>
-                <title> No Deposit & Unlimited km - Self-Drive Car Rentals In vizag</title>
-                <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta property="og:title" content=" No Deposit & Unlimited km - Self-Drive Car Rentals In vizag" />
-                <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+                <title>Private Farmhouse for Rent in Hyderabad</title>
+                <meta name="robots" content="index, follow" />
+                <meta name="keywords" content="farmhouses in Hyderabad, cheapest farmhouse rentals, farmhouses near me, farmhouse rentals, top farmhouses in Hyderabad, private farmhouses for rent, rent a farmhouse, farmhouses for celebrations" />
+                <meta name="description" content="Top Rated Farmhouses in Hyderabad for Weddings, Haldhi, Mehndi, Parties and More. Enjoy Scenic Venues with Beautiful Setups for your Special Celebrations." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta property="og:title" content="Private Farmhouse for Rent in Hyderabad" />
+                <meta name="og:description" content="Top Rated Farmhouses in Hyderabad for Weddings, Haldhi, Mehndi, Parties and More. Enjoy Scenic Venues with Beautiful Setups for your Special Celebrations." />
 
                 <link rel="canonical" href={canonicalUrl} />
             </Head>
@@ -260,7 +263,7 @@ const ComponentName = ( { canonicalUrl }) => {
                                             <li className="flex items-center gap-1">
                                                 <span><BiCategory className="text-blue-400" /></span>
                                                 <span>{post?.categoryname[0]}</span>
-                                            </li>                
+                                            </li>
                                             <li className="hidden lg:block">{StaticData(post?.time?.seconds)}</li>
 
                                             <li>

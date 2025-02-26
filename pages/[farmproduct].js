@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import customData from './components/kk.json';
-import { PiCarFill } from "react-icons/pi";
 import { BiPhoneCall } from "react-icons/bi";
 import Link from 'next/link';
 import { FaWhatsapp } from "react-icons/fa";
@@ -19,28 +18,28 @@ import { FaKitchenSet } from "react-icons/fa6";
 import { GiBarbecue } from "react-icons/gi";
 import { IoIosBonfire } from "react-icons/io";
 import { MdOutlineSportsVolleyball } from "react-icons/md";
-
 import { FaIndianRupeeSign } from "react-icons/fa6";
-
-
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
 import LinkCall from './components/LinkCall';
 
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import 'swiper/css/autoplay';
 const CarDetails = ({ canonicalUrl, approvedProperties }) => {
 
   const router = useRouter();
   const [caritem, setCarItem] = useState('')
   const { farmproduct } = router.query;
-  // console.log(propertyid, "propertyid");
-
   const mdfyFarmProduct = farmproduct;
 
   const [loading, setLoading] = useState(true);
   const [fmDetail, setFmDetail] = useState(null);
-
-
 
   useEffect(() => {
     async function fetchCarDetails() {
@@ -76,15 +75,23 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
       imageMap[attr.attribute_name] = attr.attribute_value;
     });
 
+    // Return only valid image sources (non-null, non-undefined)
     return [
       imageMap["farmhouse_front_view"],
       imageMap["building_outside_pic_1"],
       imageMap["swimming_pool_pic_1"],
       imageMap["bedroom_1_0"],
-      imageMap["night_garden_pic_1"],
-    ];
+      imageMap["outdoor_indoor_pic_1"],
+    ].filter(imageSrc => imageSrc); // Remove any null/undefined images
   };
-  
+  function capitalizeFirstLetter(input) {
+    return input
+      .split(' ') // Split the string into words
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize the first letter of each word
+      .join(' '); // Join the words back together with spaces
+  }
+
+
 
   return (
     <div className='bg-white text-black mont-text'>
@@ -180,32 +187,34 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
           />
         </noscript>
         <div className='flex flex-col md:flex-row md:mt-2 lg:mt-2 lg:gap-16  p-2 border-2 border-[#556EE6] rounded-md'>
-          <div className="crsldetails rounded-lg xl:w-[45%] lg:w-[70%]">
-            <Carousel
-              showThumbs={false}
-              showArrows={true}
-              showStatus={false}
-              showIndicators={false}
-              infiniteLoop={true}
-              autoPlay={true}
-              interval={3000}
-              stopOnHover={true}
-              className=""
+          <div className="crsldetails rounded-lg xl:w-[45%] lg:w-[70%] overflow-hidden">
+            <Swiper
+              modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+              spaceBetween={50}
+              slidesPerView={1}
+              navigation
+              pagination={{ clickable: true }}
+              scrollbar={{ draggable: true }}
+              onSwiper={(swiper) => console.log(swiper)}
+              onSlideChange={() => console.log('slide change')}
+              loop={true}
+              autoplay={{
+                delay: 2000, // Adjust the delay between slides (in milliseconds)
+                disableOnInteraction: false, // Keeps autoplay running even after user interacts
+              }}
             >
-              {getOrderedImages(fmDetail?.images).map(
-                (imageSrc, index) => (
-                  <div key={index} onClick={(e) => LinkCall(e, `/${fmDetail?.property_name.replace('_Dozzy_', ' ').replace(/\d/g, '')}`)} href={`/${fmDetail?.property_name.toLowerCase().replace(/ /g, "-")}`}>
-                    {<Image height={1000} width={1000} alt={"Farm Houses In Hyderbad"} src={imageSrc} ></Image>}
-                    {console.log(getOrderedImages(fmDetail?.images), "imageSrc")}
-                  </div>
+              {getOrderedImages(fmDetail?.images).map((imageSrc, index) => (
+                imageSrc && (
+                  <SwiperSlide key={index}>
+                    <Image className='h-[500px] object-cover' height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc} />
+                  </SwiperSlide>
                 )
-              )}
-
-            </Carousel>
+              ))}
+            </Swiper>
           </div>
           <div className='flex flex-col xl:gap-14 lg:gap-6 gap-4 xl:pt-10 pt-2'>
             <div>
-              <div className='p-1 font-bold  text-xl xl:text-3xl lg:text-xl lg: capitalize'>{fmDetail?.property_name} Farm House ({fmDetail?.no_of_bedrooms} BHK) <p className='text-blue-600 pt-3'>₹ {fmDetail?.property_price}/day</p>
+              <div className='p-1 font-bold  text-xl xl:text-3xl lg:text-xl lg: capitalize'>{fmDetail?.property_name ? capitalizeFirstLetter(fmDetail?.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase()) : null} Farm House ({fmDetail?.no_of_bedrooms} BHK) <p className='text-blue-600 pt-3'>₹ {fmDetail?.property_price}/day</p>
                 <p className='text-blue-600 opacity-70 text-sm pl-1 pt-2'>₹{fmDetail?.weekend_price}/day <span className='text-black'>(Fri-Sun)</span></p>
               </div>
             </div>
@@ -235,7 +244,10 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
               </div>
             </div>
           </div>
+
+          {/* Rest of your component */}
         </div>
+
         <div className='overview pt-10 px-5 lg:px-0'>
           <h2 className='font-bold text-2xl lg:text-3xl border-l-4 pl-2 border-red-900 mb-4  '>Our Amenities</h2>
           <ul className='my-2 flex-wrap pb-4 grid grid-cols-2 gap-y-3 md:flex lg:w-[83%] xl:w-[60%] justify-center lg:justify-normal'>
@@ -346,11 +358,13 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
 export default CarDetails;
 
 
-export async function getServerSideProps({ req }) {
+export async function getServerSideProps({ req, query }) {
+  const { farmproduct } = query;
+
   const host = req.headers.host;
   const canonicalUrl = host.includes('.in')
-    ? 'https://www.dozzy.in'
-    : 'https://www.dozzy.com';
+    ? `https://www.dozzy.in/${farmproduct}`
+    : `https://www.dozzy.com/${farmproduct}`;
   const requestOptions = {
     method: "GET",
     redirect: "follow"
@@ -374,7 +388,7 @@ export async function getServerSideProps({ req }) {
     return {
       props: {
         approvedProperties: null,
-
+        canonicalUrl
       }
     };
   }

@@ -92,8 +92,8 @@ export default exploreallfarmhouses;
 export async function getServerSideProps({ req }) {
   const host = req.headers.host;
   const canonicalUrl = host.includes('.in')
-    ? 'https://www.dozzy.in'
-    : 'https://www.dozzy.com';
+    ? 'https://www.dozzy.in/explore-all-farmhouses-in-hyderabad'
+    : 'https://www.dozzy.com/explore-all-farmhouses-in-hyderabad';
   const requestOptions = {
     method: "GET",
     redirect: "follow"
@@ -101,7 +101,7 @@ export async function getServerSideProps({ req }) {
 
   try {
     // Fetching the approved properties data
-    const response = await fetch("https://api.dozzy.com/customer/approved_properties?lat=17.387140&long=78.491684&program_id=1&property_capacity=1000", requestOptions);
+    const response = await fetch("https://api.dozzy.com/customer/approved_properties?lat=0.0&long=0.0&program_id=1&property_capacity=1000", requestOptions);
     const result = await response.json();
 
     // Return both data objects as props

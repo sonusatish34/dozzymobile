@@ -15,7 +15,7 @@ const FarmStarts = () => {
                         src={grpfarm}
                         alt='farm house in hyderabad '
                         // className='object-cover '
-                        className='lg:w-[666px] w-[333px] h-auto'
+                        className='lg:w-[666px] w-[333px] h-auto scale-105'
                         height={1000}
                         width={1000}
                     />

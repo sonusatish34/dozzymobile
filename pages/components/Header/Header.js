@@ -5,7 +5,7 @@ import { FiPhoneCall } from "react-icons/fi";
 import LinkCall from '../LinkCall';
 import { useState, useEffect, useRef } from 'react';
 
-const Header = (locname ) => {
+const Header = (locname) => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
@@ -32,17 +32,17 @@ const Header = (locname ) => {
 
   return (
     
-    <div className="font-bold text-lg px-5 md:px-12 lg:px-20 py-4 flex justify-between lg:items-center">
+    <div className="font-bold text-lg px-5 md:px-12 lg:px-20 py-4 flex justify-between lg:items-center ">
       <Link href="/">
         <p className="text-3xl lg:text-5xl text-[#556EE6]">Dozzy</p>
       </Link>
-      <div className='lg:w-fit text-black lg:mt-2  xl:pl-56'>
+      <div className='lg:w-fit text-black lg:mt-2 xl:pl-56'>
         <div className={`${isOpen ? "hidden" : 'block'} hidden lg:block`}>
           <ul className='font-semibold xl:text-lg lg:text-base flex gap-8 xl:gap-12'>
             <li><Link className='hover:text-blue-400 hover:underline' href={`${locname?.length ? `/${locname}` : '/'}`}>Home</Link></li>
             <li><Link target='_blank' className='hover:text-blue-400 hover:underline' href={`${locname?.length ? `/blog` : 'blog'}`}>Blog</Link></li>
-            <li className='hover:text-blue-400 hover:underline'>About Us</li>
-            <li className='hover:text-blue-400 hover:underline'>Contact Us</li>
+            <li><Link className='hover:text-blue-400 hover:underline' href="/">About Us</Link></li>
+            <li><Link className='hover:text-blue-400 hover:underline' href="/">Contact Us</Link></li>
           </ul>
         </div>
       </div>
@@ -65,7 +65,7 @@ const Header = (locname ) => {
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
-          <svg className="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <svg className="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path fillRule="evenodd" clipRule="evenodd" d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z" />
           </svg>
         </button>
@@ -90,7 +90,7 @@ const Header = (locname ) => {
           <li className="w-32 text-start"><Link href={'/'}>Home</Link></li>
           <li className="w-32 text-start">Contact Us</li>
           <li className="w-32 text-start">About Us</li>
-          <li className="w-32 text-start"><Link  href={'/blog'} target='_blank'>Blog</Link></li>
+          <li className="w-32 text-start"><Link href={'/blog'} target='_blank'>Blog</Link></li>
         </ul>
         <div className="flex flex-col border-t-2 text-blue-500 border-gray-200 text-left gap-2 pl-6 pt-4 justify-center">
           <p className=' lg:text-3xl text-xl text-[#556EE6]'>For Booking Help Call</p>
@@ -98,8 +98,8 @@ const Header = (locname ) => {
             <ul>
               <li className="font-bold text-2xl text-black">
                 <Link
-                onClick={(e) => LinkCall(e, "tel:9666655973")}
-                href="tel:9000478478" target='_blank'>96666-559-73</Link>
+                  onClick={(e) => LinkCall(e, "tel:9666655973")}
+                  href="tel:9666655973" target='_blank'>96666-559-73</Link>
               </li>
             </ul>
           </div>

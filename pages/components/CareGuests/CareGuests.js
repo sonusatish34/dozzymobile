@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import steps from "../../images/water.webp";
+import steps from "../../images/varahi3.webp";
 import { SlCalender } from "react-icons/sl";
 import { MdOutlineFindReplace } from "react-icons/md";
 import { GiConfirmed } from "react-icons/gi";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { HiCurrencyRupee } from "react-icons/hi2";
 import { PiInfinityBold } from "react-icons/pi";
@@ -75,16 +75,16 @@ const CareGuests = () => {
             Book With Just 3 Easy Steps
           </p>
           <div className="flex items-center">
-            <div className="w-[60%] h-24 lg:w-[50%] lg:h-80 rounded-lg relative  border2 border-black">
+            <div className="rounded-lg relative lg:h-[300px] lg:w-[600px] mxs:w-[350px] mxs:h-[142px] h-[120px] w-[300px]">
               <Image
                 src={steps}
                 alt="farm house in hyderabad"
-                // width={170}
-                // height={100}
-                fill
-                className="rounded-lg bg-cover"
+                width={1000}
+                height={1000}
+                className="rounded-lg object-cover object-right w-full h-full"
               />
             </div>
+
             <ul className="pl-2 lg:pl-10 flex flex-col lg:gap-5">
               <li className="flex items-center text-xs gap-2 p-1">
                 <SlCalender className="bg-[#556EE6] text-white p-1 w-8 h-7 rounded lg:w-16 lg:h-14" />
@@ -101,10 +101,10 @@ const CareGuests = () => {
                 <MdOutlineFindReplace className="bg-[#556EE6] text-white p-1 w-8 h-7 rounded lg:w-16 lg:h-14" />
                 <div>
                   <p className="font-bold text-[8px] lg:text-xl">
-                  Choose Place & Pay
+                    Choose Place & Pay
                   </p>
                   <p className="text-[8px] leading-3 lg:text-base">
-                  Pick Your Place And Pay Its That Simple As It Its
+                    Pick Your Place And Pay Its That Simple As It Its
                   </p>
                 </div>
               </li>
@@ -112,10 +112,10 @@ const CareGuests = () => {
                 <GiConfirmed className="bg-[#556EE6] size-2 text-white p-1 w-[27px] h-7 rounded lg:w-16 lg:h-14" />
                 <div>
                   <p className="font-bold text-[8px] lg:text-xl">
-                  Booking Confirmed
+                    Booking Confirmed
                   </p>
                   <p className="text-[8px] leading-3 lg:text-base">
-                   Congrats Your Booking Confirmed
+                    Congrats Your Booking Confirmed
                   </p>
                 </div>
               </li>

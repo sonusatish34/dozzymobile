@@ -2,20 +2,20 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FiPhoneCall } from "react-icons/fi";
-import phone from '../../images/onePlus10t.webp'
+import phone from '../../images/newddss.webp'
 import gplay from '../../images/ppp.png'
 import appstore from '../../images/ooo.svg'
 import LinkCall from '../LinkCall';
 const Footer = () => {
     return (
         <div className='... bg-[url("/mld.jpg")] lg:bg-center  bg-cover z-0'>
-            <div className='flex items-center text-white lg:pt-24 lg:pl-40 py-4 px-2'>
+            <div className='flex items-center gap-8 text-white lg:pt-24 lg:pl-32 py-4 px-2'>
                 <Image
                     src={phone}
                     alt='from houses near hyderabad'
                     width={1000}
                     height={1000}
-                    className='w-24 lg:w-56 lg'
+                    className='w-24 h-full scale-75 relative lg:top-8 lg:w-56 lg lg:rounded-[2rem] rounded-2xl'
                 />
                 <div className='relative p-2 rounded-md'>
                     <div className='absolute inset-0 bg-black opacity-60 rounded-md z-0'></div>
@@ -70,7 +70,6 @@ const Footer = () => {
             </div>
                 <div className='bg-black py-1 lg:px-20 text-center text-white lg:text-lg text-[10px]'>
                     <p>© 2025 LDCars India Private Limited. All Rights Reserved.</p>
-                    {/* <Link href={'/blog.html'}>blogs</Link> */}
                 </div>
         </div>
     )

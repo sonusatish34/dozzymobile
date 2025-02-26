@@ -1,5 +1,6 @@
 import Head from "next/head";
 import dynamic from 'next/dynamic';
+import { useEffect } from "react";
 
 const HomeBanner = dynamic(() => import('./components/HomeBanner.js/HomeBanner'));
 const FarmStarts = dynamic(() => import('./components/FarmStarts/FarmStarts'));
@@ -7,17 +8,6 @@ const FarmProductLPage = dynamic(() => import('./components/FarmProductLPage/Far
 const CareGuests = dynamic(() => import('./components/CareGuests/CareGuests'));
 
 export default function Home({ canonicalUrl, approvedProperties }) {
-  // console.log(FHList,"FHList");
-//  approvedProperties?.data.results.map((item)=>(
-//   console.log(item.FHList);
-  
-//   ), "-----------------");
-const arr=[]
-approvedProperties?.data.results?.forEach(element => {
-  arr.push(element.property_name)
-  
-});
-
   return (
     <div className="text-black font-poppins">
       <Head>
@@ -104,29 +94,14 @@ approvedProperties?.data.results?.forEach(element => {
       </Head>
 
       <HomeBanner />
+      <FarmProductLPage FHList={approvedProperties?.data.results} />
       <FarmStarts />
-      <FarmProductLPage FHList={approvedProperties?.data.results}/>
       <CareGuests />
     </div>
   );
 }
-// export async function getServerSideProps({ req }) {
-//   const response = await fetch('https://staging.dozzy.com/customer/approved_properties?lat=0.0&long=0.0&program_id=1&property_capacity=1000"');
-//   const items = await response.json();
-//   const FHList = items?.data?.results;
-//   const host = req.headers.host;
-//   const canonicalUrl = host.includes('.in')
-//     ? 'https://www.dozzy.in'
-//     : 'https://www.dozzy.com';
 
-//   return {
-//     props: {
-//       // cars,
-//       canonicalUrl,
-//     },
-//   };
-// }
-export async function getServerSideProps({req}) {
+export async function getServerSideProps({ req }) {
   const host = req.headers.host;
   const canonicalUrl = host.includes('.in')
     ? 'https://www.dozzy.in'
@@ -138,14 +113,14 @@ export async function getServerSideProps({req}) {
 
   try {
     // Fetching the approved properties data
-    const response = await fetch("https://api.dozzy.com/customer/approved_properties?lat=17.387140&long=78.491684&program_id=1&property_capacity=1000", requestOptions);
+    const response = await fetch("https://api.dozzy.com/customer/approved_properties?lat=0.0&long=0.0&program_id=1&property_capacity=1000", requestOptions);
     const result = await response.json();
 
     // Return both data objects as props
     return {
       props: {
         approvedProperties: result,
-        canonicalUrl:canonicalUrl
+        canonicalUrl: canonicalUrl
       }
     };
   } catch (error) {

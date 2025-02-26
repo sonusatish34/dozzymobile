@@ -7,7 +7,7 @@ const Loading = () => {
         <Image
           className="lg:w-80 w-20"
           src={load}
-          alt="Long Drive Cars"
+          alt="Dozzy"
           width={500}
           height={500}
         // placeholder="blur"

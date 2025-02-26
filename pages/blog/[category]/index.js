@@ -156,11 +156,14 @@ const CategoryPage = ({ canonicalUrl }) => {
     return (
         <div>
             <Head>
-                <title> No Deposit & Unlimited km - Self-Drive Car Rentals </title>
-                <meta name="description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book clDzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta property="og:title" content=" No Deposit & Unlimited km - Self-Drive Car Rentals" />
-                <meta property="og:description" content="Self-drive cars start at 62/hr, We offer Long Drive Cars for the best prices with unlimited km , Book Dzire @ ₹83/hr, Baleno @ ₹91/hr, Ertiga @ ₹124/hr, Swift @ ₹83/hr, Thar @ ₹208/hr." />
+                <title>Private Farmhouse for Rent in Hyderabad</title>
+                <meta name="robots" content="index, follow" />
+                <meta name="keywords" content="farmhouses in Hyderabad, cheapest farmhouse rentals, farmhouses near me, farmhouse rentals, top farmhouses in Hyderabad, private farmhouses for rent, rent a farmhouse, farmhouses for celebrations" />
+                <meta name="description" content="Top Rated Farmhouses in Hyderabad for Weddings, Haldhi, Mehndi, Parties and More. Enjoy Scenic Venues with Beautiful Setups for your Special Celebrations." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta property="og:title" content="Private Farmhouse for Rent in Hyderabad" />
+                <meta name="og:description" content="Top Rated Farmhouses in Hyderabad for Weddings, Haldhi, Mehndi, Parties and More. Enjoy Scenic Venues with Beautiful Setups for your Special Celebrations." />
                 <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div >
