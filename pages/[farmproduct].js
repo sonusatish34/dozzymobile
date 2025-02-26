@@ -23,14 +23,6 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import LinkCall from './components/LinkCall';
 
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import 'swiper/css/autoplay';
 const CarDetails = ({ canonicalUrl, approvedProperties }) => {
 
   const router = useRouter();
@@ -188,29 +180,18 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
         </noscript>
         <div className='flex flex-col md:flex-row md:mt-2 lg:mt-2 lg:gap-16  p-2 border-2 border-[#556EE6] rounded-md'>
           <div className="crsldetails rounded-lg xl:w-[45%] lg:w-[70%] overflow-hidden">
-            <Swiper
-              modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-              spaceBetween={50}
-              slidesPerView={1}
-              navigation
-              pagination={{ clickable: true }}
-              scrollbar={{ draggable: true }}
-              onSwiper={(swiper) => console.log(swiper)}
-              onSlideChange={() => console.log('slide change')}
-              loop={true}
-              autoplay={{
-                delay: 2000, // Adjust the delay between slides (in milliseconds)
-                disableOnInteraction: false, // Keeps autoplay running even after user interacts
-              }}
+            <Carousel
+              infiniteLoop={true}
             >
               {getOrderedImages(fmDetail?.images).map((imageSrc, index) => (
                 imageSrc && (
-                  <SwiperSlide key={index}>
-                    <Image className='h-[500px] object-cover' height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc} />
-                  </SwiperSlide>
+                  <div key={index}>
+                    <Image height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc} />
+                  </div>
                 )
               ))}
-            </Swiper>
+            </Carousel>
+
           </div>
           <div className='flex flex-col xl:gap-14 lg:gap-6 gap-4 xl:pt-10 pt-2'>
             <div>
