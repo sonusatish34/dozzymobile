@@ -77,7 +77,7 @@ function exploreallfarmhouses({ canonicalUrl, approvedProperties }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `gtag('config', 'AW-16797121033/PPdfCKqh7_AZEIn0vsk-', {
-                          'phone_conversion_number': '96666-559-73'
+                          'phone_conversion_number': '9111-9111-62'
                               });`,
           }}
         />

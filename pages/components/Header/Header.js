@@ -50,11 +50,11 @@ const Header = (locname) => {
         <div className={`${isOpen ? "hidden" : 'block'} hidden lg:block py-2 text-black`}>
           <p className="lg:text-3xl text-sm text-[#556EE6]">For Booking help</p>
           <div
-            onClick={(e) => LinkCall(e, "tel:9666655973")}
+            onClick={(e) => LinkCall(e, "tel:9111911162")}
             className="lg:text-3xl lg:pt-2 pt-1 font-bold text-sm flex items-center gap-1 lg:gap-2 cursor-pointer"
           >
             <FiPhoneCall className="size-3 lg:size-6" />
-            96666-559-73
+            9111-9111-62
           </div>
         </div>
       </div>
@@ -98,8 +98,8 @@ const Header = (locname) => {
             <ul>
               <li className="font-bold text-2xl text-black">
                 <Link
-                  onClick={(e) => LinkCall(e, "tel:9666655973")}
-                  href="tel:9666655973" target='_blank'>96666-559-73</Link>
+                  onClick={(e) => LinkCall(e, "tel:9111911162")}
+                  href="tel:9111911162" target='_blank'>9111-9111-62</Link>
               </li>
             </ul>
           </div>

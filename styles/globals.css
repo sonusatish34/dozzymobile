@@ -125,7 +125,7 @@ body {
   height: 400px;
 }
 
-.crsldetails .carousel .slider-wrapper.axis-horizontal .slide img {
+.crsldetails  {
   height: 420px;
   object-fit: cover;
 }
@@ -206,3 +206,16 @@ body {
   align-items: center;
 }
 
+@keyframes gradient-animation {
+  10% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 100%;
+  animation: gradient-animation 5s ease infinite;
+}

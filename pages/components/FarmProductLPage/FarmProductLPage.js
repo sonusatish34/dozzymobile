@@ -9,10 +9,19 @@ import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
 import { IoBedSharp } from "react-icons/io5";
 import { FaGooglePlay } from "react-icons/fa";
-import { FaAppStoreIos } from "react-icons/fa";
 import { RxSlash } from "react-icons/rx";
 import apple from '../../images/343reee.webp'
-import google from '../../images/ggle.webp'
+import dzyqr from '../../images/dzyqr.png'
+import { FaTentArrowDownToLine } from "react-icons/fa6";
+import { IoIosBed } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
+import { FaAppStore } from "react-icons/fa";
+
+import { BiLogoPlayStore } from "react-icons/bi";
+
+import { RiArrowDownWideLine } from "react-icons/ri";
+
+
 
 
 import Head from "next/head";
@@ -119,6 +128,10 @@ const FarmProductLPage = ({ count, FHList }) => {
             imageMap["garden_pic_1"]
         ];
     };
+    const [showDown, setShowDown] = useState(false)
+    // function handletoggledownload() {
+    //     setShowProof(showDown)
+    // }
 
     return (
         <div>
@@ -182,7 +195,15 @@ const FarmProductLPage = ({ count, FHList }) => {
                                         </div>
                                         <div>
                                             <div className="flex gap-2 items-center pt-2">
-                                                <IoBedSharp size={20} className="text-[#935732]" />
+                                                <IoIosBed size={20} className="text-black" />
+                                                {/* <Image
+                                                    height={1000}
+                                                    width={1000}
+                                                    alt="apple"
+                                                    className="w-7 h-7 scale-105 mxs:scale-100 object-cover"
+                                                    src={bed}
+                                                    priority={true}
+                                                /> */}
                                                 <p className="text-black">{item?.no_of_bedrooms} BHK</p>
                                             </div>
                                         </div>
@@ -197,18 +218,18 @@ const FarmProductLPage = ({ count, FHList }) => {
                                             <p className="text-[#556EE6]">₹ {item.weekend_price} /Day</p>
                                         </div>
                                     </div>
-                                    <div className="text-black text-xl font-semibold flex justify-center ">
+                                    <div className="text-black text-sm font-semibold flex justify-center ">
                                         For Booking
                                     </div>
                                     <div className="flex flex-col justify-between  text-white">
-                                        <ul className="flex w-full justify-between">
-                                            <li className="bg-green-500 w-full py-1  text-center lg:rounded-none">
+                                        <ul className="flex justify-center gap-x-8 w-ful px-3">
+                                            <li className="bg-green-500 w-32 py-2  text-center rounded-md ">
                                                 {" "}
                                                 <Link
-                                                    href={`https://api.whatsapp.com/send?phone=+9666655973&text=Hi%0AI%20am%20looking%20for%20a%20farmhouse%20booking.`}
+                                                    href={`https://api.whatsapp.com/send/?phone=919111911162&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0`}
                                                     target="_blank"
                                                 >
-                                                    <p className=" flex gap-1 lg:text-sm text-base justify-center items-center">
+                                                    <p className=" flex gap-1 lg:text-sm text-sm justify-center items-center">
                                                         <span>
                                                             <FaWhatsapp size={20} />
                                                         </span>{" "}
@@ -216,9 +237,9 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                     </p>
                                                 </Link>
                                             </li>
-                                            <li className="bg-blue-500 w-full py-1 lg:rounded-none">
-                                                <Link href={`tel:9666655973`} target="_blank">
-                                                    <p className=" flex gap-1 lg:text-sm text-base justify-center items-center">
+                                            <li className="bg-blue-500 w-32 py-2 rounded-md ">
+                                                <Link href={`tel:9111911162`} target="_blank">
+                                                    <p className=" flex gap-1 lg:text-sm text-sm justify-center items-center">
                                                         <span>
                                                             <BiPhoneCall size={20} />
                                                         </span>{" "}
@@ -227,18 +248,66 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                 </Link>
                                             </li>
                                         </ul>
-                                        <div onClick={handleStoreRedirect} className="flex justify-center lg:justify-normal items-center h- cursor-pointer">
-                                            <Image
+                                        <div onClick={handleStoreRedirect} className="flex lg:hidden justify-center items-center cursor-pointer text-black py-4 text-lg font-semibold">
+                                            {/* <Image
                                                 height={500}
                                                 width={500}
                                                 alt="apple"
                                                 className="w-full h-10 scale-105 mxs:scale-100 object-cover"
                                                 src={apple}
                                                 priority={true}
-                                            />
+                                            /> */}
+                                            {/* <p className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">Download Dozzy App</p> */}
+                                            <p class="bg-gradient-to-r from-green-600 via-[#556ee6] to-indigo-400 inline-block text-transparent bg-clip-text animate-gradient border-[1px] border-[#5566ee] p-2 rounded-md">
+                                                Download Dozzy App
+                                            </p>
 
                                         </div>
+                                        <div onClick={() => { setShowDown(true) }} className="flex  justify-center items-center cursor-pointer text-black py-4 text-lg font-semibold">
+                                            <p class="bg-gradient-to-r from-green-600 via-[#556ee6] to-indigo-400 text-transparent bg-clip-text animate-gradient border-[1px] border-[#5566ee] p-2 rounded-md lg:block hidden">
+                                                Download Dozzy App
+                                            </p>
+                                        </div>
+                                        {showDown && (
+                                            <div >
+                                                <div className='text-black fixed inset-0 backdrop-blur-0 bg-[#1f1f1f] bg-opacity-5 z-50  h-'>
+                                                    <div className='flex justify-center items-center '>
+                                                        <div className='bg-white absolute top-20 h-[500px] lg:h-[300px] transition-all duration-300 ease-in-out p-8 rounded-lg shadow-md max-w-lg lg:w-[800px] w-[500px]'>
+                                                            <button
+                                                                onClick={() => {
+                                                                    setShowDown(false)
+                                                                }}
+                                                                className='relative lg:left-96 rounded-full bg-white lg:bottom-20 text-black py-2 px-4 text-xl border-2 border-gray-300 w-10 h-10'
+                                                            >
+                                                                <span className="relative bottom-1 right-[1px] ">x</span>
+                                                            </button>
+                                                            <div className="flex gap-3">
+                                                                <div>
+                                                                    <h2 className="text-base font-semibold text-gray-900">
+                                                                        Download the Dozzy App and Book Your Preferred Farmhouse
+                                                                    </h2>
+                                                                    <ul className="mt-2 text-gray-600">
+                                                                        <li>Scan the QR code to get the app from the Play Store or App Store.</li>
+                                                                        <li className="flex gap-x-3 pt-3"><FaAppStore className="text-black" size={30} /> <BiLogoPlayStore className="text-black" size={30} /></li>
+                                                                    </ul>
 
+                                                                </div>
+
+                                                                <Image
+                                                                    src={dzyqr}
+                                                                    height={1000}
+                                                                    width={1000}
+                                                                    alt='dozzy farmhouse logo'
+                                                                    className='w-full h-44 object-contain'
+                                                                />
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
+                                        {/* <h1 class="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">hello world</h1> */}
                                     </div>
 
                                 </div>
@@ -247,16 +316,15 @@ const FarmProductLPage = ({ count, FHList }) => {
                     ))}
                 </div>
             </div>
-
-            <div className={`${count?.length ? 'hidden' : 'block'} text-center py-12 lg:px-2 px-10 `}>
-
-                <button className="bg-[#4508a6] spinner-border lg:text-xl font-bold text-white w-full lg:w-96 py-4 rounded-full">
+            <div className={`${count?.length ? 'hidden' : 'block'} text-center py-4 lg:px-2 px-10 flex justify-center items-center`}>
+                <button className="flex flex-col items-center spinner-border text-lg lg:text-2xl font-bold text-[#556ee6] w-full lg:w-96 py-8 rounded-full capitalize">
                     <Link
                         onClick={(e) => LinkCall(e, "/explore-all-farmhouses-in-hyderabad")}
                         href="/explore-all-farmhouses-in-hyderabad"
+                        className=""
                     >View all farm houses</Link>
+                    <RiArrowDownWideLine className="animate-pulse text-black" size={40} />
                 </button>
-
             </div>
             {loading && <div className="text-center py-4">
                 <div className="fixed inset-0 bg-white flex items-center justify-center z-50 opacity-90">

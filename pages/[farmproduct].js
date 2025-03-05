@@ -23,14 +23,6 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import LinkCall from './components/LinkCall';
 
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import 'swiper/css/autoplay';
 const CarDetails = ({ canonicalUrl, approvedProperties }) => {
 
   const router = useRouter();
@@ -170,7 +162,7 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
         <script
           dangerouslySetInnerHTML={{
             __html: `gtag('config', 'AW-16797121033/PPdfCKqh7_AZEIn0vsk-', {
-                         'phone_conversion_number': '96666-559-73'
+                         'phone_conversion_number': '9111-9111-62'
                          });`,
           }}
         />
@@ -187,30 +179,19 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
           />
         </noscript>
         <div className='flex flex-col md:flex-row md:mt-2 lg:mt-2 lg:gap-16  p-2 border-2 border-[#556EE6] rounded-md'>
-          <div className="crsldetails rounded-lg xl:w-[45%] lg:w-[70%] overflow-hidden">
-            <Swiper
-              modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-              spaceBetween={50}
-              slidesPerView={1}
-              navigation
-              pagination={{ clickable: true }}
-              scrollbar={{ draggable: true }}
-              onSwiper={(swiper) => console.log(swiper)}
-              onSlideChange={() => console.log('slide change')}
-              loop={true}
-              autoplay={{
-                delay: 2000, // Adjust the delay between slides (in milliseconds)
-                disableOnInteraction: false, // Keeps autoplay running even after user interacts
-              }}
+          <div className="rounded-lg xl:w-[45%] lg:w-[70%] overflow-hidden">
+            <Carousel
+              infiniteLoop={true}
             >
               {getOrderedImages(fmDetail?.images).map((imageSrc, index) => (
                 imageSrc && (
-                  <SwiperSlide key={index}>
-                    <Image className='h-[500px] object-cover' height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc} />
-                  </SwiperSlide>
+                  <div key={index}>
+                    <Image height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc} />
+                  </div>
                 )
               ))}
-            </Swiper>
+            </Carousel>
+
           </div>
           <div className='flex flex-col xl:gap-14 lg:gap-6 gap-4 xl:pt-10 pt-2'>
             <div>
@@ -232,12 +213,12 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
               <h2 className='font-semibold text-xl'>Contact Us By</h2>
               <div className='flex justify-start gap-4 lg:gap-5 xl:gap-8 xl:pt-4 pb-2 pt-2 text-white'>
                 <button className='bg-green-500 rounded-md p-2 lg:p-3'>
-                  <Link onClick={(e) => LinkCall(e, "https://api.whatsapp.com/send?phone=+9666655973&text=Hi%0AI%20am%20looking%20for%20a%20farmhouse%20booking.")} href="https://api.whatsapp.com/send?phone=+9666655973&text=Hi%0AI%20am%20looking%20for%20a%20farmhouse%20booking.">
+                  <Link onClick={(e) => LinkCall(e, "https://api.whatsapp.com/send/?phone=919111911162&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0")} href="https://api.whatsapp.com/send/?phone=919111911162&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0">
                     <p className=' flex items-center gap-1 text-sm'><span><FaWhatsapp className='xl:size-6' /></span> <span>Whatsapp</span></p>
                   </Link>
                 </button>
                 <button className='bg-blue-500 rounded-md p-2 lg:p-3 lg:px-7'>
-                  <Link onClick={(e) => LinkCall(e, "tel:9666655973")} href="tel:9666655973" target='_blank'>
+                  <Link onClick={(e) => LinkCall(e, "tel:9111911162")} href="tel:9111911162" target='_blank'>
                     <p className=' flex items-center gap-1 text-sm'><span><BiPhoneCall className='xl:size-6' /></span> <span>Call Us</span></p>
                   </Link>
                 </button>

@@ -8,7 +8,7 @@ const fetchCatAndPosts = async () => {
     try {
         const postsQueryNew = query(collection(fireDb, "blogPost"),
             where("blog_state", "==", "active"),
-            where("blogfor", "==", "LDC")
+            where("blogfor", "==", "Dozzy")
         );
         const postsQuerySnapshotNew = await getDocs(postsQueryNew);
         const postsnew = postsQuerySnapshotNew.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -32,11 +32,13 @@ function generateSiteMap(FHList, cars) {
             <changefreq>monthly</changefreq>
             <priority>0.9</priority>
         </url>
-        
-
+        <url>
+            <loc>https://www.dozzy.com/privacy-policy</loc>
+            <changefreq>monthly</changefreq>
+            <priority>0.9</priority>
+        </url>
        ${FHList?.map((item) => {
         return `
-
         <url>
             <loc>${`https://www.dozzy.com/${item?.property_name.replaceAll(' ', '-').toLowerCase()}`}</loc>
             <lastmod>${new Date().toISOString()}</lastmod>
