@@ -9,7 +9,7 @@ import { Carousel } from "react-responsive-carousel";
 import { HiCurrencyRupee } from "react-icons/hi2";
 import { PiInfinityBold } from "react-icons/pi";
 import { BiSolidOffer } from "react-icons/bi";
-
+import Link from "next/link";
 const CareGuests = () => {
   return (
     <div className="lg:px-20 py-4">
@@ -121,6 +121,30 @@ const CareGuests = () => {
               </li>
             </ul>
           </div>
+        </div>
+      </div>
+      <div className={`flex pl-10 py-5 md:justify-between text-white xl:px-28 lg:py-14 flex-wrap bg-[#556ee6] rounded-md my-3 items-center`}>
+        <div className=' xl:text-left xl:text-base text-left text-xs font-semibold'>
+          <ul className='lg:gap-x-12 lg:gap-y-3 gap-2 grid lg:grid-cols-3 grid-cols-1 capitalize'>
+            <li className='hover:scale-105'><Link href={'/self-drive-car-rental/gachibowli'}>Self drive car rental in Gachibowli</Link></li>
+            <li className='hover:scale-105'><Link href={'/self-drive-car-rental/medipally'}>Self drive car rental in Medipally</Link></li>
+            <li className='hover:scale-105 '><Link href={'/self-drive-car-rental/miyapur'}>Self drive car rental in Miyapur</Link></li>
+            <li className='hover:scale-105'><Link href={'/self-drive-car-rental/ramanthapur'}>Self drive car rental in Ramanthapur</Link></li>
+            <li className='hover:scale-105'><Link href={'/self-drive-car-rental/secunderabad'}>Self drive car rental in Secunderabad</Link></li>
+            <li className='hover:scale-105'><Link href={'/self-drive-car-rental/shamshabad'}>Self drive car rental in Shamshabad</Link></li>
+            <li className='hover:scale-105'><Link href={'/branches/hyderabad-rental-car'}>Car rental services in Hyderabad</Link></li>
+            <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-kukatpally'}>Car rental services in Kukatpally</Link></li>
+            <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-lbnagar-kothapet'}>Car rental services in LB Nagar</Link></li>
+            <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-madhapur'}>Car rental services in Madhapur</Link></li>
+            <li className='hover:scale-105'> <Link href={'/self-drive-car-rental/dilshuknagar'}>Self drive car rental in Dilshuknagar</Link></li>
+            <li className='hover:scale-105'><Link href={'/self-drive-car-rental/madhapur'}>Self drive car rental in Madhapur</Link></li>
+            <li className='hover:scale-105'><Link href={'/self-drive-car-rental/kukatpally'}>Self drive car rental in Kukatapally</Link></li>
+            <li className='hover:scale-105'><Link href={'/self-drive-car-rental/ameerpet'}>Self drive car rental in Ameerpet</Link></li>
+            {/* <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-bengaluru'}>Car rental services in Bangalore</Link></li> */}
+            <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-warangal'}>Car rental services in Warangal</Link></li>
+            <li className='hover:scale-105'><Link href={'/branches/self-drive-cars-uppal-medipally'}>Car rental services in Uppal Medipally</Link></li>
+            <li className='hover:scale-105'><Link href={'/self-drive-car-rental/ecil'}>Self drive car rental in ECIL</Link></li>
+          </ul>
         </div>
       </div>
     </div>

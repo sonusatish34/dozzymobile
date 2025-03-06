@@ -61,7 +61,7 @@ const Header = (locname) => {
       <div className='lg:hidden block pt-2 '>
         <button
           ref={buttonRef}
-          className="top-[2.5rem] right-5 z-40 text-[#0456e8] flex items-center"
+          className="top-[2.5rem] right-5 z-40 text-[#556ee6] flex items-center"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -81,7 +81,7 @@ const Header = (locname) => {
           <div className='flex gap-3 cursor-pointer items-center pl-4 pb-2'>
             <div className='w-48 text-black 2xl:w-full lg:w-96 lg:mt-2'>
               <p className='text-xl font-bold'>
-                <span className='text-[#0456e8]'>Dozzy</span>
+                <span className='text-[#556ee6]'>Dozzy</span>
               </p>
             </div>
           </div>

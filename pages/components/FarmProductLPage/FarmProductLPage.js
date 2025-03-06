@@ -16,7 +16,9 @@ import { FaTentArrowDownToLine } from "react-icons/fa6";
 import { IoIosBed } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaAppStore } from "react-icons/fa";
-
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { BiLogoPlayStore } from "react-icons/bi";
 
 import { RiArrowDownWideLine } from "react-icons/ri";
@@ -152,33 +154,35 @@ const FarmProductLPage = ({ count, FHList }) => {
                                 <div
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
-                                    className="relative lpcarousal rounded- overflow-hidden cursor-pointer">
-                                    <Carousel
-                                        autoPlay={autoPlay}
-                                        interval={2000}
-                                        infiniteLoop={true}
-                                        showThumbs={false}
-                                        showStatus={false}
-                                        showArrows={true}
-                                        transitionTime={1000}
-                                    >
-                                        {getOrderedImages(item?.images).map((imageSrc, index) => {
-                                            // Check if imageSrc is valid
-                                            if (imageSrc) {
-                                                return (
-                                                    <div
-                                                        key={index}
-                                                        onClick={(e) => LinkCall(e, `/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`)}
-                                                        href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
-                                                    >
-                                                        <Image className="xl:h-[450px] lg:h-[370px] h-[400px]" height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc}></Image>
-                                                    </div>
-                                                );
-                                            }
-                                            // Return null if imageSrc is not valid (i.e., null or empty)
-                                            return null;
-                                        })}
-                                    </Carousel>
+                                    className="relative lpcarousal rounded- overflow-hidden cursor-pointer slidermakermodel">
+                                    <Slider
+                                    dots={false}
+                                    infinite={true}
+                                    speed={500}
+                                    slidesToShow={1}
+                                    slidesToScroll={1}
+                                    arrows={true}
+                                    // autoplay={true}
+                                    swipeToSlide={true}
+                                    className="lg:rounded-md"
+                                >
+                                    {getOrderedImages(item?.images).map((imageSrc, index) => {
+                                        // Check if imageSrc is valid
+                                        if (imageSrc) {
+                                            return (
+                                                <div
+                                                    key={index}
+                                                    onClick={(e) => LinkCall(e, `/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`)}
+                                                    href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
+                                                >
+                                                    <Image className="xl:h-[450px] lg:h-[370px] h-[400px]" height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc}></Image>
+                                                </div>
+                                            );
+                                        }
+                                        // Return null if imageSrc is not valid (i.e., null or empty)
+                                        return null;
+                                    })}
+                                </Slider>
 
                                 </div>
                                 <div className="px- flex flex-col gap-4">
