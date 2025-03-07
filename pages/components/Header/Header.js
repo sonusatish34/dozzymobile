@@ -32,7 +32,7 @@ const Header = (locname) => {
 
   return (
     
-    <div className="font-bold text-lg px-5 md:px-12 lg:px-20 py-4 flex justify-between lg:items-center ">
+    <div className="font-bold  text-lg px-5 md:px-12 lg:px-20 py-4 flex justify-between lg:items-center border-b-2 border-gray-200">
       <Link href="/">
         <p className="text-3xl lg:text-5xl text-[#556EE6]">Dozzy</p>
       </Link>

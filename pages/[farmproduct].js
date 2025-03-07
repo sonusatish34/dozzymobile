@@ -192,8 +192,6 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
           />
         </noscript>
         {/* End Meta Pixel Code */}
-
-
       </Head>
       <div className=' lg:px-2 lg:mx-16 xl:mx-16 lg:p-4  px-2 py-2'>
         <noscript>
@@ -208,6 +206,8 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
           <div className="crsldetails rounded-lg xl:w-[45%] lg:w-[70%] overflow-hidden">
             <Carousel
               infiniteLoop={true}
+              showIndicators={false}
+              showStatus={false}
             >
               {getOrderedImages(fmDetail?.images).map((imageSrc, index) => (
                 imageSrc && (
@@ -217,7 +217,6 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
                 )
               ))}
             </Carousel>
-
           </div>
           <div className='flex flex-col xl:gap-14 lg:gap-6 gap-4 xl:pt-10 pt-2'>
             <div>

@@ -219,29 +219,3 @@ body {
   background-size: 200% 100%;
   animation: gradient-animation 5s ease infinite;
 }
-
-.slidermakermodel .slick-next
-{
-  right: 5px;
-  height:33px ;
-  width: 33px;
-  /* background-color: aqua; */
-}
-
-.slidermakermodel .slick-prev
-{
-  left: 5px;
-  height:33px ;
-  width: 33px;
-  /* background-color: aqua; */
-  z-index: 10;
-}
-.slidermakermodel .slick-prev  ::before
-{
-  opacity: 1;
-}
-/* .slidermakermodel .slick-next ::before
-{
-  right: 5px;
-  height:33px ;
-} */

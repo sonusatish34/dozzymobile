@@ -1,7 +1,5 @@
 import Head from "next/head";
 import dynamic from 'next/dynamic';
-import { useEffect } from "react";
-
 const HomeBanner = dynamic(() => import('./components/HomeBanner.js/HomeBanner'));
 const FarmStarts = dynamic(() => import('./components/FarmStarts/FarmStarts'));
 const FarmProductLPage = dynamic(() => import('./components/FarmProductLPage/FarmProductLPage'));
@@ -43,7 +41,6 @@ export default function Home({ canonicalUrl, approvedProperties }) {
                       `,
           }}
         />
-
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16698821101"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -89,8 +86,6 @@ export default function Home({ canonicalUrl, approvedProperties }) {
                          });`,
           }}
         />
-
-        {/* Meta Pixel Code */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -115,11 +110,7 @@ export default function Home({ canonicalUrl, approvedProperties }) {
             src="https://www.facebook.com/tr?id=951887287035030&ev=PageView&noscript=1"
           />
         </noscript>
-        {/* End Meta Pixel Code */}
-    
-
       </Head>
-
       <HomeBanner />
       <FarmProductLPage FHList={approvedProperties?.data.results} />
       <FarmStarts />
@@ -156,7 +147,6 @@ export async function getServerSideProps({ req }) {
     return {
       props: {
         approvedProperties: null,
-
       }
     };
   }

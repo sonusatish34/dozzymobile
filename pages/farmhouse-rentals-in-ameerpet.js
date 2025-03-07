@@ -1,19 +1,18 @@
 import React from 'react'
-
 import Image from 'next/image';
 import Head from 'next/head';
-
+import Link from 'next/link';
 function Ameerpet() {
     return (
         <div className='bg-white'>
             <Head>
-                <title>  No Deposit & Unlimited km - Self-Drive Car Rentalss In Hyderabad</title>
-                <meta name="description" content="Stop here if you are searching for Self Drive Cars Warangal" />
+                <title>  No Deposit & Unlimited Members - Private Farmhouse for Rent Near Ameerpet</title>
+                <meta name="description" content="No Deposit & Unlimited Members - Private Farmhouse for Rent Near Ameerpet" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta property="og:title" content="  No Deposit & Unlimited km - Self-Drive Car Rentalss In Hyderabad" />
-                <meta property="og:description" content="Stop here if you are searching for Self Drive Cars Warangal" />
+                <meta property="og:title" content="No Deposit & Unlimited Members - Private Farmhouse for Rent Near Ameerpet" />
+                <meta property="og:description" content="No Deposit & Unlimited Members - Private Farmhouse for Rent Near Ameerpet" />
             </Head>
-            <div className='text-black lg:px-20 lg:pb-16 px-4 leading-9 lg:leading-10 pt-36 lg:pt-16'>
+            <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
                 <p className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near Ameerpet</p>
                 <div>
                 </div>
@@ -35,7 +34,7 @@ function Ameerpet() {
                 <p>Dozzy's Boxed Serenity Farmhouse is the perfect choice for those looking for a peaceful escape in Hyderabad's picturesque outskirts. Among our top choices is the Boxed Serenity Farmhouse, a haven surrounded by lush greenery, perfect for escaping the hustle of city life. This beautiful property features spacious, well-appointed rooms equipped with air conditioning, tidy beds, TVs, and refrigerators to ensure your comfort throughout the day. Whether you're planning a family reunion, a group vacation, or a peaceful retreat, Boxed Serenity Farmhouse delivers an unforgettable experience.</p>
                 <p className='font-bold text-lg py-2'>Conclusion</p>
                 <p>Ready for a weekend to remember? Book your private farmhouse for rent near Ameerpet today!</p>
-                <p>For Dozzy Farmhouses, download the app from the Play Store or App Store, or visit the website: <a href="https://www.dozzy.com" className='text-blue-500 underline'>https://www.dozzy.com</a>.</p>
+                <p>For Dozzy Farmhouses, download the app from the <Link className='text-blue-700 underline' href='https://play.google.com/store/apps/details?id=com.dozzy_customer'>Play Store</Link> or <Link className='text-blue-700 underline' href='https://apps.apple.com/in/app/dozzy-farmhouse-rental/id6670319530'>App Store</Link> , or visit the website: <a href="https://www.dozzy.com" className='text-blue-500 underline'>https://www.dozzy.com</a>.</p>
             </div>
         </div>
     )
