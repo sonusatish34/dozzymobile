@@ -112,7 +112,7 @@ export default function Home({ canonicalUrl, approvedProperties }) {
         </noscript>
       </Head>
       <HomeBanner />
-      {/* <FarmProductLPage FHList={approvedProperties?.data.results} /> */}
+      <FarmProductLPage FHList={approvedProperties?.data.results} />
       <FarmStarts />
       <CareGuests />
     </div>
