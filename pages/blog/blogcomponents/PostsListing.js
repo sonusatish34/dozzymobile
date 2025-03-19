@@ -235,7 +235,7 @@ const PostsListing = ({ data, catg }) => {
           onClick={() => {
             setShowAll(true);
           }}
-          className={`capitalize text-white bg-[#1859c9] rounded-md p-1 px-4 text-xl `}
+          className={`capitalize text-white bg-[#556ee6] rounded-md p-1 px-4 text-xl `}
         >
           see more {catg} posts
         </button>
@@ -245,7 +245,7 @@ const PostsListing = ({ data, catg }) => {
           onClick={() => {
             setShowAll(false);
           }}
-          className={`text-white bg-[#1859c9] rounded-md p-1 px-4 text-xl`}
+          className={`text-white bg-[#556ee6] rounded-md p-1 px-4 text-xl`}
         >
           Show Less Posts
         </button>

@@ -186,7 +186,7 @@ const CategoryPage = ({ canonicalUrl }) => {
 
                     <div className=" py-2 pb-9 lg:py-5 flex flex-row lg:pl-36 pl-4 helvetica-font text-white">
                         <Link href={`/blog/${category ? category + '/' : ''}recommended`} className="flex space-x-2">
-                            <span className="border-2 rounded-full p-2 bg-[#1859c9] text-sm flex items-center space-x-2">
+                            <span className="border-2 rounded-full p-2 bg-[#556ee6] text-sm flex items-center space-x-2">
                                 <span>See more</span>
                                 <MdExpandMore className="text-lg" />
                             </span>

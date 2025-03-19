@@ -22,7 +22,9 @@ import { FaIndianRupeeSign } from "react-icons/fa6";
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import LinkCall from './components/LinkCall';
+import Slider from 'react-slick';
 
+<<<<<<< HEAD
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -31,6 +33,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/autoplay';
+=======
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+>>>>>>> 3534c74404afec1c11dc74ad34c7b2bc68586739
 const CarDetails = ({ canonicalUrl, approvedProperties }) => {
 
   const router = useRouter();
@@ -90,6 +96,11 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
       .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize the first letter of each word
       .join(' '); // Join the words back together with spaces
   }
+  const replaceText = (str) => {
+    return str?.includes("cdn")
+      ? str
+      : str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
+  };
 
 
 
@@ -174,8 +185,32 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
                          });`,
           }}
         />
-
-
+        {/* Meta Pixel Code */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod ?
+              n.callMethod.apply(n, arguments) : n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '951887287035030');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: 'none' }}
+            src="https://www.facebook.com/tr?id=951887287035030&ev=PageView&noscript=1"
+          />
+        </noscript>
+        {/* End Meta Pixel Code */}
       </Head>
       <div className=' lg:px-2 lg:mx-16 xl:mx-16 lg:p-4  px-2 py-2'>
         <noscript>
@@ -187,6 +222,7 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
           />
         </noscript>
         <div className='flex flex-col md:flex-row md:mt-2 lg:mt-2 lg:gap-16  p-2 border-2 border-[#556EE6] rounded-md'>
+<<<<<<< HEAD
           <div className="crsldetails rounded-lg xl:w-[45%] lg:w-[70%] overflow-hidden">
             <Swiper
               modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
@@ -202,6 +238,13 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
                 delay: 2000, // Adjust the delay between slides (in milliseconds)
                 disableOnInteraction: false, // Keeps autoplay running even after user interacts
               }}
+=======
+          {/* <div className="crsldetails rounded-lg xl:w-[45%] lg:w-[70%] overflow-hidden">
+            <Carousel
+              infiniteLoop={true}
+              showIndicators={false}
+              showStatus={false}
+>>>>>>> 3534c74404afec1c11dc74ad34c7b2bc68586739
             >
               {getOrderedImages(fmDetail?.images).map((imageSrc, index) => (
                 imageSrc && (
@@ -210,7 +253,32 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
                   </SwiperSlide>
                 )
               ))}
+<<<<<<< HEAD
             </Swiper>
+=======
+            </Carousel>
+          </div> */}
+          <div className="relative md:w-2/3 xl:w-[525px] lg:w-[424px]  w-full p-1 xl:pt-6 pt-8 border-1  border-gray-300 lg:h-[634px] overflow-hidden">
+            <Slider
+              dots={true}
+              infinite={true}
+              speed={500}
+              slidesToShow={1}
+              slidesToScroll={1}
+              arrows={true}
+              autoplay={true}
+              swipeToSlide={true}
+              className="relative bottom-[4.5rem] lg:rounded-md"
+            >
+              {getOrderedImages(fmDetail?.images).map((imageSrc, index) => (
+                imageSrc && (
+                  <div key={index}>
+                    <Image height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc} />
+                  </div>
+                )
+              ))}
+            </Slider>
+>>>>>>> 3534c74404afec1c11dc74ad34c7b2bc68586739
           </div>
           <div className='flex flex-col xl:gap-14 lg:gap-6 gap-4 xl:pt-10 pt-2'>
             <div>
@@ -232,7 +300,7 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
               <h2 className='font-semibold text-xl'>Contact Us By</h2>
               <div className='flex justify-start gap-4 lg:gap-5 xl:gap-8 xl:pt-4 pb-2 pt-2 text-white'>
                 <button className='bg-green-500 rounded-md p-2 lg:p-3'>
-                  <Link onClick={(e) => LinkCall(e, "https://api.whatsapp.com/send?phone=+9666655973&text=Hi%0AI%20am%20looking%20for%20a%20farmhouse%20booking.")} href="https://api.whatsapp.com/send?phone=+9666655973&text=Hi%0AI%20am%20looking%20for%20a%20farmhouse%20booking.">
+                  <Link onClick={(e) => LinkCall(e, "https://api.whatsapp.com/send/?phone=919666655973&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0")} href="https://api.whatsapp.com/send/?phone=919666655973&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0">
                     <p className=' flex items-center gap-1 text-sm'><span><FaWhatsapp className='xl:size-6' /></span> <span>Whatsapp</span></p>
                   </Link>
                 </button>

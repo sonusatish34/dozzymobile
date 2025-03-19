@@ -1,7 +1,5 @@
 import Head from "next/head";
 import dynamic from 'next/dynamic';
-import { useEffect } from "react";
-
 const HomeBanner = dynamic(() => import('./components/HomeBanner.js/HomeBanner'));
 const FarmStarts = dynamic(() => import('./components/FarmStarts/FarmStarts'));
 const FarmProductLPage = dynamic(() => import('./components/FarmProductLPage/FarmProductLPage'));
@@ -43,7 +41,6 @@ export default function Home({ canonicalUrl, approvedProperties }) {
                       `,
           }}
         />
-
         <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16698821101"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -85,14 +82,35 @@ export default function Home({ canonicalUrl, approvedProperties }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `gtag('config', 'AW-16797121033/PPdfCKqh7_AZEIn0vsk-', {
-                         'phone_conversion_number': '96666-559-73'
+                         'phone_conversion_number': '9111-9111-62'
                          });`,
           }}
         />
-
-
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              !function(f,b,e,v,n,t,s)
+              {if(f.fbq)return;n=f.fbq=function(){n.callMethod ?
+              n.callMethod.apply(n, arguments) : n.queue.push(arguments)};
+              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+              n.queue=[];t=b.createElement(e);t.async=!0;
+              t.src=v;s=b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t,s)}(window, document,'script',
+              'https://connect.facebook.net/en_US/fbevents.js');
+              fbq('init', '951887287035030');
+              fbq('track', 'PageView');
+            `,
+          }}
+        />
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: 'none' }}
+            src="https://www.facebook.com/tr?id=951887287035030&ev=PageView&noscript=1"
+          />
+        </noscript>
       </Head>
-
       <HomeBanner />
       <FarmProductLPage FHList={approvedProperties?.data.results} />
       <FarmStarts />
@@ -129,7 +147,6 @@ export async function getServerSideProps({ req }) {
     return {
       props: {
         approvedProperties: null,
-        
       }
     };
   }

@@ -413,7 +413,7 @@ function SinglePost({ canonicalUrl }) {
             </div>
             <div className=" py-6 lg:mt-12 flex flex-row xl:mx-96 lg:mx-56 mx-1.5 px-4 lg:px-0 text-white">
               <Link href={`/blog/${cat ? cat[0] + '/' : ''}recommended`} className="flex  space-x-2">
-                <span className="border-2 bg-[#1859c9] rounded-full p-2 text-sm flex items-center space-x-2">
+                <span className="border-2 bg-[#556ee6] rounded-full p-2 text-sm flex items-center space-x-2">
                   <span>See more</span>
                   <MdExpandMore size={20} className="text-lg" />
                 </span>

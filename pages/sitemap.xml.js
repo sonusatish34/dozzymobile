@@ -1,5 +1,4 @@
 
-const EXTERNAL_DATA_URL = 'https://api.longdrivecarz.in/site/cars-info?location=hyderabad';
 import { fireDb } from '@/public/firebase';
 import { getDocs, collection, query, where } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
@@ -8,7 +7,7 @@ const fetchCatAndPosts = async () => {
     try {
         const postsQueryNew = query(collection(fireDb, "blogPost"),
             where("blog_state", "==", "active"),
-            where("blogfor", "==", "LDC")
+            where("blogfor", "==", "Dozzy")
         );
         const postsQuerySnapshotNew = await getDocs(postsQueryNew);
         const postsnew = postsQuerySnapshotNew.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -32,24 +31,63 @@ function generateSiteMap(FHList, cars) {
             <changefreq>monthly</changefreq>
             <priority>0.9</priority>
         </url>
-        
-
+        <url>
+            <loc>https://www.dozzy.com/privacy-policy</loc>
+            <changefreq>monthly</changefreq>
+            <priority>0.9</priority>
+        </url>
        ${FHList?.map((item) => {
         return `
-
         <url>
-            <loc>${`https://www.dozzy.com/${item?.property_name.replaceAll(' ', '-').toLowerCase()}`}</loc>
+            <loc>${`https://www.dozzy.com/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').trim().replaceAll(/ /g, '-')}`}</loc>
             <lastmod>${new Date().toISOString()}</lastmod>
             <changefreq>weekly</changefreq>
             <priority>0.9</priority>
+        </url>`;
+
+    }).join(' ')}
+        <url>
+            <loc>https://www.dozzy.com/farmhouse-rentals-in-ameerpet</loc>
+            <changefreq>monthly</changefreq>
+            <priority>0.9</priority>
         </url>
-       `;
-    })}
-    
-            
+        <url>
+            <loc>https://www.dozzy.com/farmhouse-rentals-in-ecil</loc>
+            <changefreq>monthly</changefreq>
+            <priority>0.9</priority>
+        </url>
+        <url>
+            <loc>https://www.dozzy.com/farmhouse-rentals-in-gachibowli</loc>
+            <changefreq>monthly</changefreq>
+            <priority>0.9</priority>
+        </url>
+        <url>
+            <loc>https://www.dozzy.com/farmhouse-rentals-in-kukatpally</loc>
+            <changefreq>monthly</changefreq>
+            <priority>0.9</priority>
+        </url>
+        <url>
+            <loc>https://www.dozzy.com/farmhouse-rentals-in-lb-nagar</loc>
+            <changefreq>monthly</changefreq>
+            <priority>0.9</priority>
+        </url>
+        <url>
+            <loc>https://www.dozzy.com/farmhouse-rentals-in-secunderabad</loc>
+            <changefreq>monthly</changefreq>
+            <priority>0.9</priority>
+        </url>
+        <url>
+            <loc>https://www.dozzy.com/farmhouse-rentals-in-shadnagar</loc>
+            <changefreq>monthly</changefreq>
+            <priority>0.9</priority>
+        </url>
+        <url>
+            <loc>https://www.dozzy.com/farmhouse-rentals-in-uppal</loc>
+            <changefreq>monthly</changefreq>
+            <priority>0.9</priority>
+        </url>
             ${cars?.map((item) => {
         return `
-        
                 <url>
                     <loc>${`https://www.dozzy.com/blog/posts/${item?.slug}`}</loc>
                     <lastmod>${new Date().toISOString()}</lastmod>
@@ -58,7 +96,7 @@ function generateSiteMap(FHList, cars) {
                 </url>
                `;
     })
-            .join('')}
+            .join(' ')}
      </urlset>
    `;
 }
