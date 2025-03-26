@@ -136,80 +136,18 @@ const FarmProductLPage = ({ count, FHList }) => {
                     {sortedData?.slice(0, count ? sortedData?.length : mobileC ? 10 : 12).map((item, index) => (
                         <React.Fragment key={index}>
                             <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col xl:w-[360px] lg:w-[260px] w-[97%] md:w-80 h-3/4">
-                                <div
-                                    onMouseEnter={handleMouseEnter}
-                                    onMouseLeave={handleMouseLeave}
-                                    className="relative bg-r lpcarousal bg- rounded- overflow-hidden cursor-pointer sliderarrows">
-                                    <Slider
-                                        dots={false}
-                                        infinite={true}
-                                        speed={500}
-                                        slidesToShow={1}
-                                        slidesToScroll={1}
-                                        arrows={true}
-                                        swipeToSlide={true}
-                                        className="lg:rounded-md"
-                                        lazyLoad="ondemand"
-                                        responsive={[
-                                            {
-                                                breakpoint: 1024, // for tablets and above
-                                                settings: {
-                                                    slidesToShow: 1,  // Shows 2 slides on medium screens
-                                                    slidesToScroll: 1,
-                                                    infinite: true,
-                                                    dots: true
-                                                }
-                                            },
-                                            {
-                                                breakpoint: 768, // for smaller tablets and below
-                                                settings: {
-                                                    slidesToShow: 1,  // Shows 1 slide on smaller screens
-                                                    slidesToScroll: 1,
-                                                    infinite: true,
-                                                    dots: true,
-                                                }
-                                            },
-                                            {
-                                                breakpoint: 480, // for mobile phones
-                                                settings: {
-                                                    slidesToShow: 1,  // Shows 1 slide on mobile screens
-                                                    slidesToScroll: 1,
-                                                    infinite: true,
-                                                    dots: true,
-                                                    arrows: false
-                                                }
-                                            }
-                                        ]}
+                                <div>
+                                    <Image
+                                        className="xl:h-[450px] lg:h-[370px] h-[400px] mxs:h-[450px]"
+                                        height={600}
+                                        width={400}
+                                        alt={"Farm Houses In Hyderabad"}
+                                        src={item.images[0]}
+                                        fetchPriority={index == 0 ? "high" : "low"}
+                                        loading={index == 0 ? "eager" : "lazy"}
+                                        sizes="(max-width: 200px) 100vw, 50vw"
                                     >
-
-                                        {(item?.images).map((imageSrc, index) => {
-                                            // Check if imageSrc is valid
-                                            if (imageSrc) {
-                                                return (
-                                                    <div
-                                                        key={index}
-                                                        onClick={(e) => LinkCall(e, `/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`)}
-                                                        href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
-                                                    >
-                                                        <Image
-                                                            className="xl:h-[450px] lg:h-[370px] h-[400px] mxs:h-[450px]"
-                                                            height={600}
-                                                            width={400}
-                                                            alt={"Farm Houses In Hyderabad"}
-                                                            src={imageSrc}
-                                                            fetchPriority={index == 0 ? "high" : "low"}
-                                                            loading={index == 0 ? "eager" : "lazy"}
-                                                            sizes="(max-width: 200px) 100vw, 50vw"
-                                                        >
-
-                                                        </Image>
-                                                    </div>
-                                                );
-                                            }
-                                            // Return null if imageSrc is not valid (i.e., null or empty)
-                                            return null;
-                                        })}
-                                    </Slider>
+                                    </Image>
                                 </div>
                                 <div className="px- flex flex-col justify-center  gap-4">
                                     <div className="flex items-baseline justify-between px-2">
@@ -240,11 +178,11 @@ const FarmProductLPage = ({ count, FHList }) => {
                                     </div>
                                     <div className="font-normal text-sm">
                                         <div className="flex items-baseline justify-between px-2">
-                                            <p className="text-black">Other Days</p>
+                                            <p className="text-black">Sun - Thu</p>
                                             <p className="text-[#556EE6]">₹ {item.property_price} /Day</p>
                                         </div>
                                         <div className="flex items-baseline justify-between px-2">
-                                            <p className="text-black">Saturday</p>
+                                            <p className="text-black">Fri - Sat</p>
                                             <p className="text-[#556EE6]">₹ {item.weekend_price} /Day</p>
                                         </div>
                                     </div>
