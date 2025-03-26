@@ -227,7 +227,7 @@ const ComponentName = ({ canonicalUrl }) => {
                                 >
                                     {/* Post Content */}
                                     <div className="lg:w-3/4 w-4/6">
-                                        <h5 className=" mb-2 font-bold text-lg text lg:text-2xl hover:text-orange-400">
+                                        <h5 className=" mb-2 font-bold text-lg text lg:text-2xl hover:text-[#556ee6]">
                                             <Link
                                                 href={`/blog/posts/${post.slug
                                                     .toLowerCase()
@@ -264,7 +264,7 @@ const ComponentName = ({ canonicalUrl }) => {
                                                 <span><BiCategory className="text-blue-400" /></span>
                                                 <span>{post?.categoryname[0]}</span>
                                             </li>
-                                            <li className="hidden lg:block">{StaticData(post?.time?.seconds)}</li>
+                                            {i<5 ?<li className="">{StaticData(post?.time?.seconds)}</li>:<li>{post.date.slice(0,12)}</li>}
 
                                             <li>
                                                 <div className="lg:flex gap-8 hidden">

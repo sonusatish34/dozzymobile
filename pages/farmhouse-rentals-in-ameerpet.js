@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
+import ameerpet from './images/places/ameerpet.webp'
 function Ameerpet() {
     return (
         <div className='bg-white'>
@@ -14,6 +15,15 @@ function Ameerpet() {
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
                 <p className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near Ameerpet</p>
+                <div>
+                    <Image
+                        src={ameerpet}
+                        height={2000}
+                        width={2000}
+                        className='py-3 object-cover w-full'
+                        alt="Private Farmhouse for Rent Near Ameerpet"
+                    />
+                </div>
                 <div>
                 </div>
                 <p>Ameerpet, located in the heart of Hyderabad, has earned its reputation as a go-to destination for technical education and skill enhancement.</p>

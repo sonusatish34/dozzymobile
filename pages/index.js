@@ -1,11 +1,11 @@
 import Head from "next/head";
 import dynamic from 'next/dynamic';
-const HomeBanner = dynamic(() => import('./components/HomeBanner.js/HomeBanner'));
-const FarmStarts = dynamic(() => import('./components/FarmStarts/FarmStarts'));
+const HomeBanner = dynamic(() => import('./components/HomeBanner.js/HomeBanner'), { ssr: false });
+const FarmStarts = dynamic(() => import('./components/FarmStarts/FarmStarts'), { ssr: false });
 const FarmProductLPage = dynamic(() => import('./components/FarmProductLPage/FarmProductLPage'));
-const CareGuests = dynamic(() => import('./components/CareGuests/CareGuests'));
+const CareGuests = dynamic(() => import('./components/CareGuests/CareGuests'), { ssr: false });
+export default function Home({ canonicalUrl, filteredFHs }) {
 
-export default function Home({ canonicalUrl, approvedProperties }) {
   return (
     <div className="text-black font-poppins">
       <Head>
@@ -82,7 +82,7 @@ export default function Home({ canonicalUrl, approvedProperties }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `gtag('config', 'AW-16797121033/PPdfCKqh7_AZEIn0vsk-', {
-                         'phone_conversion_number': '9111-9111-62'
+                         'phone_conversion_number': '96666-559-73'
                          });`,
           }}
         />
@@ -111,8 +111,8 @@ export default function Home({ canonicalUrl, approvedProperties }) {
           />
         </noscript>
       </Head>
+      <FarmProductLPage FHList={filteredFHs} />
       <HomeBanner />
-      <FarmProductLPage FHList={approvedProperties?.data.results} />
       <FarmStarts />
       <CareGuests />
     </div>
@@ -128,22 +128,40 @@ export async function getServerSideProps({ req }) {
     method: "GET",
     redirect: "follow"
   };
+  const getOrderedImages = (attributes) => {
+    const imageMap = {};
+    attributes.forEach((attr) => {
+      imageMap[attr.attribute_name] = attr.attribute_value;
+    });
+
+    return [
+      imageMap["farmhouse_front_view"],
+      imageMap["swimming_pool_pic_1"],
+      imageMap["building_outside_pic_1"],
+      imageMap["bedroom_1_0"],
+      imageMap["garden_pic_1"]
+    ];
+  };
 
   try {
-    // Fetching the approved properties data
     const response = await fetch("https://api.dozzy.com/customer/approved_properties?lat=0.0&long=0.0&program_id=1&property_capacity=1000", requestOptions);
     const result = await response.json();
 
-    // Return both data objects as props
+    const filteredFHs = result.data.results?.map(car => ({
+      property_name: car.property_name,
+      property_price: car.property_price,
+      weekend_price: car.weekend_price,
+      no_of_bedrooms: car.no_of_bedrooms,
+      images: getOrderedImages(car.images)
+    }));
     return {
       props: {
-        approvedProperties: result,
-        canonicalUrl: canonicalUrl
+        canonicalUrl: canonicalUrl,
+        filteredFHs: filteredFHs
       }
     };
   } catch (error) {
     console.error(error);
-    // Handle the error if the fetches fail, return an empty array or appropriate fallback
     return {
       props: {
         approvedProperties: null,

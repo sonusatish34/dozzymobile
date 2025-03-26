@@ -15,9 +15,9 @@ import { GiPartyHat } from "react-icons/gi";
 const ImageChange = ({ locname }) => {
 
     return (
-        <div className='xl:mt-0 lg:mt-0 xl:pl-16 lg:pl-4 px-2 py-2 pb-5'>
+        <div className='xl:mt-0 lg:mt-0 xl:pl-20 lg:pl-4 px-2 py-2 pb-5'>
             <div className='bg-white'>
-                <div className='lg:flex lg:flex-row-reverse flex flex-col justify-center items-center lg:px-6 xl:px-0 '>
+                <div className='lg:flex lg:flex-row-reverse flex flex-col justify-center items-center lg:pl-10 xl:px-0 '>
                     <Image
                         src={homebanner}
                         alt="Dozzy app"

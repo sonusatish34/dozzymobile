@@ -32,30 +32,31 @@ const PostsListing = ({ data, catg }) => {
   };
   const [showall, setShowAll] = useState(false);
   return (
-    <div className="lg:pt-6 border-t-2 border-gray-300 pt-8 px-3">
+    <div className="lg:pt-6 border-t-2 border-gray-300 pt-8 px-3 lg:px-0">
       {/* <p className="text-xs lg:text-2xl pb-6 font-semibold">Recommended Stories</p> */}
 
       {/* First Section: Two Main Posts */}
       <p className="text-left text-3xl text-gray-900 font-semibold py-4">
         Recent stories
       </p>
-      <div className="grid lg:grid-cols-2 grid-cols-1 gap-x-8 gap-y-10 xl:h-[700px]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:gap-x-20 lg:gap-x-14 w-full xl:h-[650px] ">
         {data?.length > 0 ? (
           data.slice(0, 2).map((post, i) => (
-            <div
+            <Link
               key={`key-${i}`}
-              className="w-full lg:w-[400px] xl:w-full lg:h-[600px]  xl:h-[610px] h-auto flex flex-col gap-y-3  lg:px-0"
+              href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`}
+              className="w-full lg:h-[450px]  xl:h-[610px] h-auto flex flex-col gap-y-1 lg:px-0"
             >
               {/* Image */}
               <Link
                 href={`/blog/posts/${post.slug
                   .toLowerCase()
                   .replace(/ /g, "-")}`}
-                className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left pt-4 tracking-tight "
+                className="block hover:text-[#556ee6] font-bold text-lg xl:text-2xl text-left pt-4 tracking-tight "
               >
                 {post?.coverimages && (
                   <Image
-                    className="rounded-md w-full lg:h-[350px] h-auto"
+                    className="rounded-md w-full xl:h-[350px] lg:h-[260px] h-auto"
                     src={
                       post?.coverimages?.length
                         ? replaceText(post?.coverimages)
@@ -69,23 +70,23 @@ const PostsListing = ({ data, catg }) => {
                 )}
               </Link>
               {/* Content Section */}
-              <div className="flex-1">
+              <div>
                 <h5 className="mb-1">
                   <Link
                     href={`/blog/posts/${post.slug
                       .toLowerCase()
                       .replace(/ /g, "-")}`}
-                    className="block hover:text-orange-500  text-lg xl:text-2xl text-left pt-4 tracking-tight helvetica-font"
+                    className="block hover:text-[#556ee6]  text-lg xl:text-2xl text-left pt-4 helvetica-font"
                   >
-                    <p className="h-20 overflow-hidden font-extrabold">
-                      {post?.title && post?.title.slice(0, 80)}
+                    <p className="h-14 xl:h-16 overflow-hidden font-bold tracking-normal">
+                      {post?.title && post?.title.slice(0, 60)}..
                     </p>
-                    <p className="text-left text-[#6B6B6B] text-base pt-4 tracking-wide leading-6 lg:block hidden">
-                      {ParseP(post?.content) &&
-                        ParseP(post?.content).slice(0, 300)}
+                    <p className="text-left text-[#6B6B6B] text-base pt-4 tracking-normal leading-6 lg:block hidden">
+                      {(post?.description) &&
+                        (post?.description).slice(0, 300)}
                       ...
                     </p>
-                    <p className="text-left text-[#6B6B6B] text-sm lowercase tracking-wide font-light leading-5 lg:hidden block">
+                    <p className="text-left text-[#6B6B6B] text-sm lowercase tracking-normal font-light leading-5 lg:hidden block">
                       {ParseP(post?.content) &&
                         ParseP(post?.content).slice(0, 140)}
                       ...
@@ -127,7 +128,7 @@ const PostsListing = ({ data, catg }) => {
                   </div>
                 </li>
               </ul>
-            </div>
+            </Link>
           ))
         ) : (
           <p>No posts available for this category.</p>
@@ -136,22 +137,19 @@ const PostsListing = ({ data, catg }) => {
       {/* Second Section: Remaining Posts */}
 
       <div
-        className={`${
-          showall ? "" : "hidden"
-        } grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-4 xl:gap-10 lg:mt-2 px-3 lg:px-0 pt-10`}
+        className={`${showall ? "" : "hidden"
+          } grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8  xl:mt-2 lg:mt-6 lg:px-0 pt-10`}
       >
         {data?.length > 0 ? (
           data.slice(2, 8).map((post, i) => (
-            <div key={`key-${i}`} className="lg:px-0  w-full">
+            <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} key={`key-${i}`} className="lg:px-0  w-full">
               <Link
-                href={`/blog/posts/${post.slug
-                  .toLowerCase()
-                  .replace(/ /g, "-")}`}
-                className="block hover:text-orange-500 font-extrabold text-lg xl:text-2xl text-left tracking-tight"
+                href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`}
+                className="block hover:text-[#556ee6] font-bold text-lg xl:text-2xl text-left tracking-normal"
               >
                 {post?.coverimages && (
                   <Image
-                    className="rounded-md  lg:h-[200px] h-[100px] object-cover"
+                    className="rounded-md lg:h-[160px] xl:h-[220px] h-[80px] mxs:h-[100px] object-cover"
                     src={
                       post?.coverimages?.length
                         ? post?.coverimages
@@ -164,7 +162,7 @@ const PostsListing = ({ data, catg }) => {
                   />
                 )}
               </Link>
-              <p className=" lg:pb-3 hover:text-orange-400 font-bold lg:text-lg text-sm text-left pt-4 h-16 lg:h-20 block lg:hidden">
+              <p className=" lg:pb-3 hover:text-[#556ee6] font-bold xl:text-lg lg:text-base text-sm text-left pt-4 h-16 lg:h-20 block lg:hidden">
                 <Link
                   href={`/blog/posts/${post.slug
                     .toLowerCase()
@@ -174,31 +172,31 @@ const PostsListing = ({ data, catg }) => {
                   {post?.title && post?.title.slice(0, 35)}..
                 </Link>
               </p>
-              <p className=" lg:pb-3 hover:text-orange-400 font-bold lg:text-lg text-xs text-left pt-4 h-10 lg:h-20 lg:block hidden">
+              <p className=" lg:pb-3 hover:text-[#556ee6] font-bold xl:text-lg lg:text-base text-xs text-left pt-4 h-10 lg:h-24 lg:block hidden">
                 <Link
                   href={`/blog/posts/${post.slug
                     .toLowerCase()
                     .replace(/ /g, "-")}`}
                   className="block hover:text-primary"
                 >
-                  {post?.title && post?.title.slice(0, 135)}..
+                  {post?.title && post?.title.slice(0, 115)}..
                 </Link>
               </p>
               {/* <p className="text-left lg:text-xs text-xs h-12 lg:h-14 pt-3 lg:hidden block">
                             {ParseP(post?.content) && ParseP(post?.content).slice(0, 40)}...
                         </p> */}
-              <p className="text-left text-[#6B6B6B] text-xs pt-4 tracking-wide leading-5 lowercase lg:hidden block  h-28">
-                {ParseP(post?.content) && ParseP(post?.content).slice(0, 70)}...
+              <p className="text-left text-[#6B6B6B] text-xs pt-1 tracking-normal leading-5 lowercase lg:hidden block xl:h-24 lg:h-32">
+                { post?.description.slice(0, 50)}...
               </p>
-              <p className="text-left text-[#6B6B6B] text-base pt-4 tracking-wide leading-6  lg:block hidden h-28">
-                {ParseP(post?.content) && ParseP(post?.content).slice(0, 160)}
-                ...
+              <p className="text-left text-[#6B6B6B] text-base pt-1 tracking-normal leading-6  lg:block hidden xl:h-28 lg:h-32">
+                {post?.description.slice(0, 150)}...
               </p>
 
               {/* <p>{ParseP(post?.content)}</p> */}
 
-              <ul className="mb-4 mt-auto flex flex-wrap justify-items-center lg:space-x-4 text-[10px] lg:text-sm pt-4">
-                <li className="hidden lg:block">{StaticData(post?.time?.seconds)}</li>
+              <ul className="mb-4 mt-auto flex flex-wrap justify-items-center lg:space-x-4 text-[10px] xl:text-sm lg:text-xs pt-4">
+                {/* <li className="hidden lg:block">{StaticData(post?.time?.seconds)}</li> */}
+                <li className="hidden lg:block"><p>{post?.date.slice(0, 12)}</p></li>
                 <li className="flex items-center gap-1">
                   <span>
                     <BiCategory className="text-blue-400" />
@@ -224,18 +222,18 @@ const PostsListing = ({ data, catg }) => {
                   </div>
                 </li>
               </ul>
-            </div>
+            </Link>
           ))
         ) : (
           <p>No posts available for this category.</p>
         )}
       </div>
-      <div className={`${showall ? "hidden" : ""} py-8`}>
+      <div className={`${showall ? "hidden" : ""} py-8 lg:pt-20 xl:pt-1`}>
         <button
           onClick={() => {
             setShowAll(true);
           }}
-          className={`capitalize text-white bg-[#556ee6] rounded-md p-1 px-4 text-xl `}
+          className={`capitalize text-white bg-[#556ee6] rounded p-1 px-4 lg:text-xl text-base `}
         >
           see more {catg} posts
         </button>

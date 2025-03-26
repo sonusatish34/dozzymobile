@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
-
+import gac from './images/places/gachibowli.webp'
 function Gachibowli() {
     return (
         <div className='bg-white'>
@@ -15,6 +15,15 @@ function Gachibowli() {
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
                 <p className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near Gachibowli</p>
+                <div>
+                    <Image
+                        src={gac}
+                        height={2000}
+                        width={2000}
+                        className='py-3 object-cover w-full'
+                        alt="Private Farmhouse for Rent Near Gachibowli"
+                    />
+                </div>
                 <div>
                 </div>
                 <p>Gachibowli, located in the western part of Hyderabad, has evolved into a bustling suburb, especially popular among IT and finance professionals due to its close proximity to HITECH City, which is only 5 kilometers away. Over the last 20 years, Gachibowli has seen impressive growth in infrastructure and commerce, with global corporations like Microsoft, Amazon, Infosys, and Wipro establishing their presence in its IT parks and corporate centers.</p>

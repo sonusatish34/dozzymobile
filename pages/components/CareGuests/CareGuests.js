@@ -81,7 +81,7 @@ const CareGuests = () => {
                 alt="farm house in hyderabad"
                 width={1000}
                 height={1000}
-                className="rounded-lg object-cover object-right w-full h-full"
+                className="rounded-lg object-cover object-right w-full h-full border-t-[1px] lg:border-t-0 border-t-gray-400"
               />
             </div>
 

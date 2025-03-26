@@ -1,8 +1,7 @@
 import React from 'react'
 import Image from 'next/image';
 import Head from 'next/head';
-import Link from 'next/link';
-
+import secunderabad from './images/places/secunderabad.webp'
 function Secunderabad() {
     return (
         <div className='bg-white'>
@@ -15,6 +14,15 @@ function Secunderabad() {
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
                 <p className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near Secunderabad</p>
+                <div>
+                    <Image
+                        src={secunderabad}
+                        height={2000}
+                        width={2000}
+                        className='py-3 object-cover w-full'
+                        alt="Private Farmhouse for Rent Near Secunderabad"
+                    />
+                </div>
                 <div>
                 </div>
                 <p>Secunderabad, a sister city to Hyderabad, shares the city’s historic charm while standing apart as a vibrant and bustling area. Originally established as a British cantonment, Secunderabad has grown into a thriving center for trade, IT, and tourism. Divided from Hyderabad by the picturesque Hussain Sagar Lake, Secunderabad offers a unique blend of history, culture, and modern living.</p>

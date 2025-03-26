@@ -1,7 +1,7 @@
 
 @font-face {
   font-family: 'HVFont'; /* You can name this whatever you like */
-  src: url('/fonts/helveticaneue.woff') format('woff');
+  src: url('/fonts/Helvetica-Light.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -218,4 +218,39 @@ body {
 .animate-gradient {
   background-size: 200% 100%;
   animation: gradient-animation 5s ease infinite;
+}
+.sliderarrows .slick-prev
+{
+  left: 1px !important;
+  z-index: 10 !important;
+  /* background-color: black !important; */
+  height: 100% !important;
+  
+}
+.sliderarrows .slick-next
+{
+  right: 1px !important;
+  z-index: 10 !important;
+  height: 100% !important;
+}
+.sliderarrows .slick-arrow:hover
+{
+  opacity: 0.3 !important;
+  background-color: black !important;
+}
+
+@media screen and (min-width: 1000px) {
+  .sliderarrows .slick-prev::before
+  {
+    /* color: black !important; */
+    font-size: 15px !important;
+
+  }
+  .sliderarrows .slick-next::before
+  {
+    /* color: black !important; */
+    font-size: 15px !important;
+
+  }
+
 }

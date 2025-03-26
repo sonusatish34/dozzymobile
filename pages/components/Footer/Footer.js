@@ -9,18 +9,19 @@ import LinkCall from '../LinkCall';
 const Footer = () => {
     return (
         <>
-            <div className='xl:px-20 xl:py-20 lg:py-12 lg:px-20 px-4 py-4'>
+            <div className='xl:px-24 lg:px-24 xl:py-20 lg:py-12 px-4 py-4'>
                 <div className={` flex py-5 justify-center text-white bg-[#556ee6] rounded-md items-center`}>
                     <div className=' xl:text-left xl:text-base text-xs font-semibold'>
-                        <ul className='xl:gap-x-32 lg:gap-x-2 lg:gap-y-5 gap-y-4 grid justify-center pl-4 lg:grid-cols-3 grid-cols-1 py-7 capitalize'>
-                            <li className='hover:scale-105'><Link href={'/farmhouse-rentals-in-ameerpet'}>Farmhouse Rentals around Ameerpet</Link></li>
-                            <li className='hover:scale-105'><Link href={'/farmhouse-rentals-in-ecil'}>Farmhouse Rentals around Ecil</Link></li>
-                            <li className='hover:scale-105'><Link href={'/farmhouse-rentals-in-gachibowli'}>Farmhouse Rentals around Gachibowli</Link></li>
-                            <li className='hover:scale-105'><Link href={'/farmhouse-rentals-in-kukatpally'}>Farmhouse Rentals around Kukatpally</Link></li>
-                            <li className='hover:scale-105'><Link href={'/farmhouse-rentals-in-lb-nagar'}>Farmhouse Rentals around Lb Nagar</Link></li>
-                            <li className='hover:scale-105'><Link href={'/farmhouse-rentals-in-secunderabad'}>Farmhouse Rentals around Secunderabad</Link></li>
-                            <li className='hover:scale-105'><Link href={'/farmhouse-rentals-in-shadnagar'}>Farmhouse Rentals around Shadnagar</Link></li>
-                            <li className='hover:scale-105'><Link href={'/farmhouse-rentals-in-uppal'}>Farmhouse Rentals around Uppal</Link></li>
+                        <ul className='xl:gap-x-16 lg:gap-x-2 lg:gap-y-5 gap-y-4 grid justify-center pl-4 lg:grid-cols-3 grid-cols-1 py-7 capitalize'>
+                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-ameerpet'}>Farmhouse Rentals around Ameerpet</Link></li>
+                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-ecil'}>Farmhouse Rentals around Ecil</Link></li>
+                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-gachibowli'}>Farmhouse Rentals around Gachibowli</Link></li>
+                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-kukatpally'}>Farmhouse Rentals around Kukatpally</Link></li>
+                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-lb-nagar'}>Farmhouse Rentals around Lb Nagar</Link></li>
+                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-secunderabad'}>Farmhouse Rentals around Secunderabad</Link></li>
+                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-shadnagar'}>Farmhouse Rentals around Shadnagar</Link></li>
+                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-shamshabad'}>Farmhouse Rentals around Shamshabad</Link></li>
+                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-uppal'}>Farmhouse Rentals around Uppal</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -54,7 +55,7 @@ const Footer = () => {
                                                 alt='google play'
                                                 width={1000}
                                                 height={1000}
-                                                className='w-12 h-4 lg:w-24 lg:h-8 rounded-sm lg:hover:scale-105'
+                                                className='w-12 h-4 lg:w-24 lg:h-8 rounded-sm lg:hover:scale-95'
                                             />
                                         </Link>
                                         <Link onClick={(e) => LinkCall(e, "https://apps.apple.com/in/app/dozzy-farmhouse-rental/id6670319530")} href={'https://apps.apple.com/in/app/dozzy-farmhouse-rental/id6670319530'}>
@@ -63,7 +64,7 @@ const Footer = () => {
                                                 alt='apple store'
                                                 width={1000}
                                                 height={1000}
-                                                className='w-12 h-4 lg:w-24 lg:h-8 rounded-sm lg:hover:scale-105'
+                                                className='w-12 h-4 lg:w-24 lg:h-8 rounded-sm lg:hover:scale-95'
                                             />
                                         </Link>
 
@@ -73,12 +74,21 @@ const Footer = () => {
                                 <li>
                                     <div className='xl:pl-32 lg:pl-4 lg:pr-1 xl:pr-16 py-2 xl:text-lg lg:text-sm'>
                                         <div className='flex flex-col gap-2 lg:flex-row lg:gap-4'>
-                                            <p className='lg:pb-2'><span>Contact Us</span><span><Link className='xl:text-3xl lg:text-xl font-bold text-base flex items-center gap-1 lg:gap-2 lg:pt-2' href="tel:9111911162" target='_blank'><span><FiPhoneCall className='size-3 lg:size-6' /></span>
-                                                <span onClick={(e) => LinkCall(e, "tel:9111911162")}>9111-9111-62</span></Link>
+                                            <p className='lg:pb-2'><span>Contact Us</span><span><Link className='xl:text-3xl lg:text-xl font-bold text-base flex items-center gap-1 lg:gap-2 lg:pt-2' href="tel:9666655973" target='_blank'><span><FiPhoneCall className='size-3 lg:size-6' /></span>
+                                                <span onClick={(e) => LinkCall(e, "tel:9666655973")}>96666-559-73</span></Link>
                                             </span>
                                             </p>
-                                            <p className='lg:pb-2'><Link target='_blank' className='hover:text-blue-400' href={'/blog'}>Blog</Link></p>
-                                            <p className='lg:pb-2'><Link className='hover:text-blue-400' href={'/privacy-policy'}>Privacy Policy</Link></p>
+                                            <div className='flex flex-col gap-1 lg:text-base text-xs lg:pl-4'>
+                                                {/* <p className=''><Link target='_blank' className='hover:text-blue-400 hover:underline ' href={'/blog'}>Blog</Link></p> */}
+                                                <p className=''><Link className='hover:text-blue-400 hover:underline' href={'/privacy-policy'}>Privacy Policy</Link></p>
+                                                <p className=''><Link className='hover:text-blue-400 hover:underline' href={'/terms-and-conditions'}>Terms and Conditions
+                                                </Link></p>
+                                                <p className=''><Link className='hover:text-blue-400 hover:underline' href={'/cancellation-and-refund'}>Cancellation and Refund
+                                                </Link></p>
+                                                <p className=''><Link className='hover:text-blue-400 hover:underline' href={'/shipping-and-delivery'}>Shipping and Delivery
+                                                </Link></p>
+                                                {/* <p className=''><Link className='hover:text-blue-400 hover:underline' href={'/privacy-policy'}>Privacy Policy</Link></p> */}
+                                            </div>
                                         </div>
                                     </div>
                                 </li>

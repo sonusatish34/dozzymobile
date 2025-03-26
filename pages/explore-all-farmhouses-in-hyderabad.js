@@ -1,7 +1,7 @@
 import React from 'react'
 import FarmProductLPage from './components/FarmProductLPage/FarmProductLPage'
 import Head from 'next/head';
-function exploreallfarmhouses({ canonicalUrl, approvedProperties }) {
+function exploreallfarmhouses({ canonicalUrl, filteredFHS }) {
   return (
     <div className='pb-6'>
       <Head>
@@ -77,7 +77,7 @@ function exploreallfarmhouses({ canonicalUrl, approvedProperties }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `gtag('config', 'AW-16797121033/PPdfCKqh7_AZEIn0vsk-', {
-                          'phone_conversion_number': '9111-9111-62'
+                          'phone_conversion_number': '96666-559-73'
                               });`,
           }}
         />
@@ -109,7 +109,7 @@ function exploreallfarmhouses({ canonicalUrl, approvedProperties }) {
         </noscript>
         {/* End Meta Pixel Code */}
       </Head>
-      <FarmProductLPage count='all' FHList={approvedProperties?.data.results} />
+      <FarmProductLPage count='all' FHList={filteredFHS} />
     </div>
   )
 }
@@ -125,17 +125,36 @@ export async function getServerSideProps({ req }) {
     method: "GET",
     redirect: "follow"
   };
+  const getOrderedImages = (attributes) => {
+    const imageMap = {};
+    attributes.forEach((attr) => {
+      imageMap[attr.attribute_name] = attr.attribute_value;
+    });
+
+    return [
+      imageMap["farmhouse_front_view"],
+      imageMap["building_outside_pic_1"],
+      imageMap["swimming_pool_pic_1"],
+      imageMap["bedroom_1_0"],
+      imageMap["garden_pic_1"]
+    ];
+  };
 
   try {
     // Fetching the approved properties data
     const response = await fetch("https://api.dozzy.com/customer/approved_properties?lat=0.0&long=0.0&program_id=1&property_capacity=1000", requestOptions);
     const result = await response.json();
-
-    // Return both data objects as props
+    const filteredFHS = result.data.results?.map(car => ({
+      property_name: car.property_name,
+      property_price: car.property_price,
+      weekend_price: car.weekend_price,
+      no_of_bedrooms: car.no_of_bedrooms,
+      images: getOrderedImages(car.images)
+    }));
     return {
       props: {
-        approvedProperties: result,
-        canonicalUrl: canonicalUrl
+        canonicalUrl: canonicalUrl,
+        filteredFHS: filteredFHS
       }
     };
   } catch (error) {
@@ -144,7 +163,6 @@ export async function getServerSideProps({ req }) {
     return {
       props: {
         approvedProperties: null,
-
       }
     };
   }

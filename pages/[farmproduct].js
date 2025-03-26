@@ -23,20 +23,8 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import LinkCall from './components/LinkCall';
 import Slider from 'react-slick';
-
-<<<<<<< HEAD
-import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import 'swiper/css/autoplay';
-=======
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
->>>>>>> 3534c74404afec1c11dc74ad34c7b2bc68586739
 const CarDetails = ({ canonicalUrl, approvedProperties }) => {
 
   const router = useRouter();
@@ -62,7 +50,6 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
         // setCarItem(car);
         // item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')
         setFmDetail(car)
-
       } catch (error) {
         console.error(error);
       } finally {
@@ -81,29 +68,21 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
       imageMap[attr.attribute_name] = attr.attribute_value;
     });
 
-    // Return only valid image sources (non-null, non-undefined)
     return [
       imageMap["farmhouse_front_view"],
       imageMap["building_outside_pic_1"],
       imageMap["swimming_pool_pic_1"],
       imageMap["bedroom_1_0"],
-      imageMap["outdoor_indoor_pic_1"],
-    ].filter(imageSrc => imageSrc); // Remove any null/undefined images
+      imageMap["garden_pic_1"]
+    ].filter(imageSrc => imageSrc);
   };
   function capitalizeFirstLetter(input) {
     return input
-      .split(' ') // Split the string into words
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize the first letter of each word
-      .join(' '); // Join the words back together with spaces
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
   }
-  const replaceText = (str) => {
-    return str?.includes("cdn")
-      ? str
-      : str?.replace('https://ldcars.blr1.', 'https://ldcars.blr1.cdn.');
-  };
-
-
-
+ 
   return (
     <div className='bg-white text-black mont-text'>
       <Head>
@@ -222,63 +201,57 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
           />
         </noscript>
         <div className='flex flex-col md:flex-row md:mt-2 lg:mt-2 lg:gap-16  p-2 border-2 border-[#556EE6] rounded-md'>
-<<<<<<< HEAD
-          <div className="crsldetails rounded-lg xl:w-[45%] lg:w-[70%] overflow-hidden">
-            <Swiper
-              modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-              spaceBetween={50}
-              slidesPerView={1}
-              navigation
-              pagination={{ clickable: true }}
-              scrollbar={{ draggable: true }}
-              onSwiper={(swiper) => console.log(swiper)}
-              onSlideChange={() => console.log('slide change')}
-              loop={true}
-              autoplay={{
-                delay: 2000, // Adjust the delay between slides (in milliseconds)
-                disableOnInteraction: false, // Keeps autoplay running even after user interacts
-              }}
-=======
-          {/* <div className="crsldetails rounded-lg xl:w-[45%] lg:w-[70%] overflow-hidden">
-            <Carousel
-              infiniteLoop={true}
-              showIndicators={false}
-              showStatus={false}
->>>>>>> 3534c74404afec1c11dc74ad34c7b2bc68586739
-            >
-              {getOrderedImages(fmDetail?.images).map((imageSrc, index) => (
-                imageSrc && (
-                  <SwiperSlide key={index}>
-                    <Image className='h-[500px] object-cover' height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc} />
-                  </SwiperSlide>
-                )
-              ))}
-<<<<<<< HEAD
-            </Swiper>
-=======
-            </Carousel>
-          </div> */}
-          <div className="relative md:w-2/3 xl:w-[525px] lg:w-[424px]  w-full p-1 xl:pt-6 pt-8 border-1  border-gray-300 lg:h-[634px] overflow-hidden">
+
+          <div className="relative md:w-2/3 xl:w-[525px] lg:w-[424px] rounded-md  w-full p-1 lg:h-[534px]  mxs:h-[455px] h-[400px]  overflow-hidden sliderarrows">
             <Slider
-              dots={true}
+              dots={false}
               infinite={true}
               speed={500}
               slidesToShow={1}
               slidesToScroll={1}
               arrows={true}
-              autoplay={true}
+              // autoplay={true}
+              responsive={[
+                {
+                    breakpoint: 1024, // for tablets and above
+                    settings: {
+                        slidesToShow: 1,  // Shows 2 slides on medium screens
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 768, // for smaller tablets and below
+                    settings: {
+                        slidesToShow: 1,  // Shows 1 slide on smaller screens
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: true,
+                    }
+                },
+                {
+                    breakpoint: 480, // for mobile phones
+                    settings: {
+                        slidesToShow: 1,  // Shows 1 slide on mobile screens
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: true,
+                        arrows: false
+                    }
+                }
+            ]}
               swipeToSlide={true}
-              className="relative bottom-[4.5rem] lg:rounded-md"
+              className="relative lg:rounded-md sliderclass"
             >
               {getOrderedImages(fmDetail?.images).map((imageSrc, index) => (
                 imageSrc && (
                   <div key={index}>
-                    <Image height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc} />
+                    <Image className='object-cover object-center lg:h-[534px] h-[355px] mxs:h-[455px]' height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc} />
                   </div>
                 )
               ))}
             </Slider>
->>>>>>> 3534c74404afec1c11dc74ad34c7b2bc68586739
           </div>
           <div className='flex flex-col xl:gap-14 lg:gap-6 gap-4 xl:pt-10 pt-2'>
             <div>
@@ -406,10 +379,11 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
         <div className='px-5 lg:px-0 pt-2'>
           <h2 className='font-bold text-2xl lg:text-3xl border-l-4 pl-2 border-red-900 md:my-6 my-2' >Description</h2>
           <p className='font-normal p-1 text-[14px] lg:text-lg leading-6 font-poppins pb-8 lg:w-[50%]'>
-            {customData[mdfyFarmProduct?.toLowerCase()]?.desc}
+            {customData[mdfyFarmProduct?.toLowerCase()]?.desc ? customData[mdfyFarmProduct?.toLowerCase()].desc : ` ${fmDetail?.property_name && capitalizeFirstLetter(fmDetail?.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())} offers a tranquil escape just outside the city, nestled in the heart of nature. This peaceful sanctuary is the perfect destination for those seeking a quiet retreat away from the hustle and bustle. Whether you're a solo traveler, a couple, or a group, ${fmDetail?.property_name && capitalizeFirstLetter(fmDetail?.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())} provides a serene environment to relax, unwind, and recharge.`}
           </p>
           <p className='font-normal p-1 text-[14px] lg:text-lg leading-6 font-poppins pb-8 lg:w-[50%]'>
-            {customData[mdfyFarmProduct?.toLowerCase()]?.subdesc}
+            {/* {customData[mdfyFarmProduct?.toLowerCase()]?.subdesc} */}
+            {`The expansive outdoor area allows guests to enjoy leisurely walks through lush greenery, partake in outdoor activities, or simply bask in the calm ambiance of the surroundings. Inside, the farmhouse is designed for comfort, featuring cozy, air-conditioned rooms with double beds, a flat-screen TV, a mini-fridge, and generous storage space, ensuring a cozy and relaxing stay. ${fmDetail?.property_name && capitalizeFirstLetter(fmDetail?.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())} is the ideal location for anyone wanting to reconnect with nature and experience peaceful relaxation.`}
           </p>
         </div>
         {loading && <div className="text-center py-4">

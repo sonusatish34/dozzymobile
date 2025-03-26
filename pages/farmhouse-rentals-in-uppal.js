@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
-
+import uppal from './images/places/uppal.webp'
 function Uppal() {
     return (
         <div className='bg-white'>
@@ -15,6 +15,15 @@ function Uppal() {
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
                 <p className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near Uppal</p>
+                <div>
+                    <Image
+                        src={uppal}
+                        height={2000}
+                        width={2000}
+                        className='py-3 object-cover w-full'
+                        alt="Private Farmhouse for Rent Near Uppal"
+                    />
+                </div>
                 <div>
                 </div>
                 <p>Uppal, a prominent neighborhood in Hyderabad, is well known for its connectivity, educational institutions, and proximity to several key areas in the city. It's a hub for families, students, and professionals alike.</p>

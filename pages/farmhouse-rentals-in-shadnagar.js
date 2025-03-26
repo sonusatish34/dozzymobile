@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
-
+import shadnagar from './images/places/shadnagar.webp'
 function Shadnagar() {
     return (
         <div className='bg-white'>
@@ -15,6 +15,15 @@ function Shadnagar() {
             </Head>
             <div className='text-black lg:px-20 lg:pb-16 px-4 leading-9 lg:leading-10 pt-10 lg:pt-16'>
                 <p className='font-bold text-xl lg:text-3xl py-2'>Farmhouse for Rent Around Shadnagar</p>
+                <div>
+                    <Image
+                        src={shadnagar}
+                        height={2000}
+                        width={2000}
+                        className='py-3 object-cover w-full'
+                        alt="Private Farmhouse for Rent Near Shadnagar"
+                    />
+                </div>
                 <p>Shadnagar, located in the rapidly growing industrial hub of Hyderabad, is quickly gaining attention due to its booming economy. Major global companies such as Amazon, Procter & Gamble, Johnson & Johnson, and Asian Paints have established their presence here, fueling the town's growth and boosting real estate demand. Furthermore, the Indian Space Research Organization's National Remote Sensing Centre adds to Shadnagar's strategic significance.</p>
                 <p className='font-bold text-lg py-2'>Why Shadnagar?</p>
                 <p>Shadnagar is not just an industrial center; it’s also becoming a key investment hub with exciting developments on the horizon. The Telangana government has announced significant infrastructure projects such as Pharma City, Electronic City, and an amusement park, making Shadnagar an attractive place to live and work. Residents enjoy access to top-notch facilities, including schools, hospitals, malls, and entertainment venues, with healthcare provided by reputable institutions such as Vijaya Jyothi Multispecialty Hospital and Amrutha Children Hospital.</p>

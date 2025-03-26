@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
-
+import ecil from './images/places/ecil.webp'
 function ECIL() {
     return (
         <div className='bg-white'>
@@ -15,6 +15,15 @@ function ECIL() {
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
                 <p className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near ECIL</p>
+                <div>
+                    <Image
+                        src={ecil}
+                        height={2000}
+                        width={2000}
+                        className='py-3 object-cover w-full'
+                        alt="Private Farmhouse for Rent Near Ecil"
+                    />
+                </div>
                 <div>
                 </div>
                 <p>ECIL (Electronics Corporation of India Limited), established in 1967, is a renowned public sector company located in Hyderabad under the Department of Atomic Energy. It is known for its significant contributions to the Indian electronics and nuclear sectors. ECIL has formed partnerships with some of India's most prestigious scientific establishments, including Bhabha Atomic Research Center (BARC), Nuclear Power Corporation of India Limited (NPCIL), and the Indira Gandhi Centre for Atomic Research (IGCAR).</p>

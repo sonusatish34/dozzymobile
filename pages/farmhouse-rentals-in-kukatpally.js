@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import kukatpally from './images/places/kukatpally.webp'
 function Kukatpally() {
     return (
         <div className='bg-white'>
@@ -14,6 +15,15 @@ function Kukatpally() {
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
                 <p className='font-bold text-xl lg:text-3xl py-2'>Farmhouses for Rent Near Kukatpally</p>
+                <div>
+                    <Image
+                        src={kukatpally}
+                        height={2000}
+                        width={2000}
+                        className='py-3 object-cover w-full'
+                        alt="Private Farmhouse for Rent Near Kukatpally"
+                    />
+                </div>
                 <p>Kukatpally, a lively suburb of Hyderabad, offers a unique blend of cultural vibrancy, modern infrastructure, and historical charm. Once a quiet village, it has transformed into one of the city’s most desirable neighborhoods since merging with Hyderabad in 2007. With a population of over 8.5 lakh residents, Kukatpally is now a thriving hub of activity, attracting a diverse mix of people.</p>
                 <p className='font-bold text-lg py-2'>Why Kukatpally?</p>
                 <p>Kukatpally is strategically located near HITEC City, the city’s IT and business center, making it a highly sought-after location for professionals. The area boasts modern malls, hotels, shopping centers, and entertainment hubs, providing everything you need for an exciting and comfortable lifestyle. The blend of tradition and modernity allows you to experience the best of both worlds.</p>

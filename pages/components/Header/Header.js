@@ -41,8 +41,8 @@ const Header = (locname) => {
           <ul className='font-semibold xl:text-lg lg:text-base flex gap-8 xl:gap-12'>
             <li><Link className='hover:text-blue-400 hover:underline' href={`${locname?.length ? `/${locname}` : '/'}`}>Home</Link></li>
             <li><Link target='_blank' className='hover:text-blue-400 hover:underline' href={`${locname?.length ? `/blog` : 'blog'}`}>Blog</Link></li>
-            <li><Link className='hover:text-blue-400 hover:underline' href="/">About Us</Link></li>
-            <li><Link className='hover:text-blue-400 hover:underline' href="/">Contact Us</Link></li>
+            <li><Link className='hover:text-blue-400 hover:underline' href="/about">About Us</Link></li>
+            <li><Link className='hover:text-blue-400 hover:underline' href="/contact-us">Contact Us</Link></li>
           </ul>
         </div>
       </div>
@@ -50,11 +50,11 @@ const Header = (locname) => {
         <div className={`${isOpen ? "hidden" : 'block'} hidden lg:block py-2 text-black`}>
           <p className="lg:text-3xl text-sm text-[#556EE6]">For Booking help</p>
           <div
-            onClick={(e) => LinkCall(e, "tel:9111911162")}
+            onClick={(e) => LinkCall(e, "tel:9666655973")}
             className="lg:text-3xl lg:pt-2 pt-1 font-bold text-sm flex items-center gap-1 lg:gap-2 cursor-pointer"
           >
             <FiPhoneCall className="size-3 lg:size-6" />
-            9111-9111-62
+            96666-559-73
           </div>
         </div>
       </div>
@@ -88,8 +88,8 @@ const Header = (locname) => {
         </Link>
         <ul className="pl-6 pt-1 pb-1 border-t-2 border-gray-200 font-semibold flex flex-col gap-2 items-start text-black">
           <li className="w-32 text-start"><Link href={'/'}>Home</Link></li>
-          <li className="w-32 text-start">Contact Us</li>
-          <li className="w-32 text-start">About Us</li>
+          <li className="w-32 text-start"><Link href={'/contact-us'}>Contact Us</Link></li>
+          <li className="w-32 text-start"><Link href={'/about'}>About Us</Link></li>
           <li className="w-32 text-start"><Link href={'/blog'} target='_blank'>Blog</Link></li>
         </ul>
         <div className="flex flex-col border-t-2 text-blue-500 border-gray-200 text-left gap-2 pl-6 pt-4 justify-center">
@@ -98,8 +98,8 @@ const Header = (locname) => {
             <ul>
               <li className="font-bold text-2xl text-black">
                 <Link
-                  onClick={(e) => LinkCall(e, "tel:9111911162")}
-                  href="tel:9111911162" target='_blank'>9111-9111-62</Link>
+                  onClick={(e) => LinkCall(e, "tel:9666655973")}
+                  href="tel:9666655973" target='_blank'>96666-559-73</Link>
               </li>
             </ul>
           </div>

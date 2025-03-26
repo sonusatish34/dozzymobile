@@ -72,13 +72,13 @@ const BlogLayout = ({
                 breakpoint: 2000,
                 settings: {
                     slidesToShow: 4,
-                    slidesToScroll: 4,
+                    slidesToScroll: 1,
                 },
             },
             {
                 breakpoint: 1120,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 2,
                     slidesToScroll: 1,
                 },
             },
@@ -117,7 +117,7 @@ const BlogLayout = ({
 
     return (
         <div>
-            <div className="xl:px-14  py-1 lg:border-8 lg:border-blue-100 ">
+            <div className="xl:px-14 lg:px-10  py-1 lg:border-8 lg:border-blue-100 ">
                 <div className="flex flex-col lg:flex-row lg:items-center xl:gap-24 lg:gap-20 gap-2">
                     <div className="flex justify-between px-4 mxs:px-6 py-3 lg:py-4 lg:items-center border-8 border-blue-100 lg:border-none">
                         <Link href={`/blog`} className="">
@@ -125,7 +125,7 @@ const BlogLayout = ({
                         </Link>
                         <div className="flex items-center">
                             <p className="relative left-8">
-                                <CiSearch className="size-5" />
+                                <CiSearch className="text-black size-5" />
                             </p>
                             <input
                                 value={search}
@@ -133,7 +133,7 @@ const BlogLayout = ({
                                 placeholder="Search"
                                 onChange={handleSearch}
                                 maxLength={10}
-                                className="lg:rounded-full xl:w-56 w-32 border-none bg-gray-100   rounded-full lg:py-2 pl-10"
+                                className="lg:rounded-full xl:w-56 w-32 border-none text-xs py-1 bg-gray-100 text-black  rounded-full lg:py-2 pl-10"
                             />
                         </div>
                     </div>
@@ -147,7 +147,7 @@ const BlogLayout = ({
                                 <span className=" hidden lg:block text-sm text-white lg:pr-2 ">Explore Topics</span>
                             </div>
                         </Link>
-                        <div className='xl:w-[500px] lg:w-[320px] w-[215px] sm:w-64 mxs:w-60 text-center'>
+                        <div className='xl:w-[500px] lg:w-[250px] w-[215px] sm:w-64 mxs:w-60 text-center'>
                             <Slider
                                 key={JSON.stringify(cList)}
                                 {...settings}

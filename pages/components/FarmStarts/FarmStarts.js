@@ -7,7 +7,7 @@ import Link from 'next/link';
 import LinkCall from '../LinkCall';
 const FarmStarts = () => {
     return (
-        <div className='py-6 px-4 md:px-20'>
+        <div className='py-6 lg:py-16 px-4 md:px-20'>
             <p className='pb-4 font-semibold text-xl lg:text-3xl pt-4 lg:pt-1 md:pb-7 font-opensans'>Farmhouses Starts At 10,000/Day</p>
             <div className='flex'>
                 <div>
@@ -25,12 +25,12 @@ const FarmStarts = () => {
                     <p className='text-[11px] font-semibold pl-3  md:text-xl lg:text-3xl pt-1 lg:pt-8'>To View More</p>
                     <div className='flex gap-1 lg:gap-3 text-white pt-2  md:pt-6 pl-1'>
                         <button className='bg-green-500 rounded-md py-1 px-1 md:px-4 md:py-2'>
-                            <Link onClick={(e) => LinkCall(e,"https://api.whatsapp.com/send/?phone=919111911162&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0")} href="https://api.whatsapp.com/send/?phone=919111911162&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0" target='_blank'>
+                            <Link onClick={(e) => LinkCall(e,"https://api.whatsapp.com/send/?phone=919666655973&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0")} href="https://api.whatsapp.com/send/?phone=919666655973&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0" target='_blank'>
                                 <p className=' flex gap-1 lg:gap-2 items-center text-[8px] lg:text-lg'><span><FaWhatsapp className='lg:size-6' size={10} /></span> <span>Whatsapp</span></p>
                             </Link>
                         </button>
                         <button className='bg-blue-500 rounded-md py-1 px-1 w-16 lg:w-28'>
-                            <Link onClick={(e) => LinkCall(e,"tel:9111911162")} href="tel:9111911162" target='_blank'>
+                            <Link onClick={(e) => LinkCall(e,"tel:9666655973")} href="tel:9666655973" target='_blank'>
                                 <p className='flex gap-1 items-center text-[8px] lg:text-lg'><span><BiPhoneCall className='lg:size-6' size={10} /></span> <span>Call Us</span></p>
                             </Link>
                         </button>

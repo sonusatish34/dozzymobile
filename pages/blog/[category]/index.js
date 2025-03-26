@@ -168,23 +168,22 @@ const CategoryPage = ({ canonicalUrl }) => {
             </Head>
             <div >
                 <BlogLayout onSearch={setSearchQuery} catg={category}>
-                    <div className='xl:px-32 lg:px-12 text-black flex items-center helvetica-font'>
-                        <div className='lg:py-10 py-5 justify-center sm:justify-items-center px-[6px]'>
+                    <div className='xl:px-24 lg:px-20 text-black flex items-center helvetica-font'>
+                        <div className='lg:py-10 py-5  px-[6px]'>
                             <p className="capitalize text-4xl text-center font-semibold lg:pt-3 pb-3 buch-font">{category}</p>
                             <ul className='flex justify-center items-center pt-2 gap-3'>
                                 <li>Topic</li>
                                 <li><GoDotFill /></li>
                                 <li>{postlist?.length} stories</li>
                             </ul>
-                            <div className='text-center flex justify-center pt-10'>
+                            <div className='text-center pt-10'>
                                 <PostsListing catg={category} data={filteredPosts} />
                             </div>
                             {/* <p>kjo</p> */}
                             <RandomPosts data={randomPostlist} />
                         </div>
                     </div>
-
-                    <div className=" py-2 pb-9 lg:py-5 flex flex-row lg:pl-36 pl-4 helvetica-font text-white">
+                    <div className=" py-2 pb-9 lg:py-5 flex flex-row xl:pl-28 lg:pl-24 pl-4 helvetica-font text-white">
                         <Link href={`/blog/${category ? category + '/' : ''}recommended`} className="flex space-x-2">
                             <span className="border-2 rounded-full p-2 bg-[#556ee6] text-sm flex items-center space-x-2">
                                 <span>See more</span>
@@ -194,7 +193,6 @@ const CategoryPage = ({ canonicalUrl }) => {
                     </div>
                 </BlogLayout>
             </div>
-
         </div>
     );
 };
@@ -206,7 +204,6 @@ export async function getServerSideProps(context) {
     const host = req.headers.host || 'localhost';
     const category = params?.category || 'default-category'; // Example fallback for category
 
-    // Ensure that the category is lowercase, as it's used in the URL
     const canonicalUrl = host.includes('.in')
         ? `https://www.dozzy.in/blog/${category}`
         : `https://www.dozzy/blog/${category}`;

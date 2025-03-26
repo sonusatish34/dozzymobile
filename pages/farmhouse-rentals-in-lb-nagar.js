@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
-
+import lbnagar from './images/places/lbnagar.webp'
 function LBNagar() {
     return (
         <div className='bg-white'>
@@ -15,6 +15,15 @@ function LBNagar() {
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
                 <p className='font-bold text-xl lg:text-3xl py-2'>Farmhouses for Rent Near LB Nagar</p>
+                <div>
+                    <Image
+                        src={lbnagar}
+                        height={2000}
+                        width={2000}
+                        className='py-3 object-cover w-full'
+                        alt="Private Farmhouse for Rent Near LB Nagar"
+                    />
+                </div>
                 <p>LB Nagar, located in the eastern part of Hyderabad, is quickly emerging as one of the city’s most vibrant localities. Known for its key landmarks such as Kamineni Hospitals and LB Nagar Shopping Mall, this area offers easy access to other parts of the city through the L.B Nagar Metro Station. The locality has a mix of residential apartments and independent houses, attracting both working professionals and families. With ongoing development, LB Nagar is set to become a thriving hub for growth and convenience.</p>
                 <p className='font-bold text-lg py-2'>Why LB Nagar?</p>
                 <p>LB Nagar is conveniently located close to top schools, colleges, and healthcare institutions, ensuring a balanced and convenient lifestyle for residents. The locality also has great prospects for real estate investment, given its proximity to thriving business zones and technology hubs. Whether you’re looking for a place to live or a spot for a relaxing retreat, LB Nagar offers it all.</p>

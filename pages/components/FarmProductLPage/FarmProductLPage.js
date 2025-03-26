@@ -16,7 +16,9 @@ import { FaTentArrowDownToLine } from "react-icons/fa6";
 import { IoIosBed } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaAppStore } from "react-icons/fa";
-
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { BiLogoPlayStore } from "react-icons/bi";
 
 import { RiArrowDownWideLine } from "react-icons/ri";
@@ -113,21 +115,6 @@ const FarmProductLPage = ({ count, FHList }) => {
         }
     };
 
-
-    const getOrderedImages = (attributes) => {
-        const imageMap = {};
-        attributes.forEach((attr) => {
-            imageMap[attr.attribute_name] = attr.attribute_value;
-        });
-
-        return [
-            imageMap["farmhouse_front_view"],
-            imageMap["building_outside_pic_1"],
-            imageMap["swimming_pool_pic_1"],
-            imageMap["bedroom_1_0"],
-            imageMap["garden_pic_1"]
-        ];
-    };
     const [showDown, setShowDown] = useState(false)
     // function handletoggledownload() {
     //     setShowProof(showDown)
@@ -138,31 +125,63 @@ const FarmProductLPage = ({ count, FHList }) => {
             <div className="text-sm pl-4 py-4 md:px-20 lg:py-16 text-black">
 
                 <p className="font-semibold text-base mxs:text-lg lg:text-5xl font-poppins">
-                    Top Farm Houses In Hyderbad
+                    Top Farm Houses In Hyderabad
                 </p>
                 <p className="md:py-4 py-1 text-sm mxs:text-base lg:text-2xl lg:pb-4 mont-text pt-1">
                     Get Very Low prices Compared To Others
                 </p>
             </div>
             <div>
-                <div className="flex flex-wrap xl:gap-x-12 xl:gap-y-12 lg:gap-x-8 lg:gap-y-8 gap-y-8 lg:items-start justify-center  lg:px-20 items-center">
+                <div className="flex flex-wrap xl:gap-x-12 xl:gap-y-12 md:gap-x-8 md:gap-y-8 gap-y-8 lg:items-start justify-center  lg:px-20 items-center">
                     {sortedData?.slice(0, count ? sortedData?.length : mobileC ? 10 : 12).map((item, index) => (
                         <React.Fragment key={index}>
                             <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col xl:w-[360px] lg:w-[260px] w-[97%] md:w-80 h-3/4">
                                 <div
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
-                                    className="relative lpcarousal rounded- overflow-hidden cursor-pointer">
-                                    <Carousel
-                                        autoPlay={autoPlay}
-                                        interval={2000}
-                                        infiniteLoop={true}
-                                        showThumbs={false}
-                                        showStatus={false}
-                                        showArrows={true}
-                                        transitionTime={1000}
+                                    className="relative bg-r lpcarousal bg- rounded- overflow-hidden cursor-pointer sliderarrows">
+                                    <Slider
+                                        dots={false}
+                                        infinite={true}
+                                        speed={500}
+                                        slidesToShow={1}
+                                        slidesToScroll={1}
+                                        arrows={true}
+                                        swipeToSlide={true}
+                                        className="lg:rounded-md"
+                                        responsive={[
+                                            {
+                                                breakpoint: 1024, // for tablets and above
+                                                settings: {
+                                                    slidesToShow: 1,  // Shows 2 slides on medium screens
+                                                    slidesToScroll: 1,
+                                                    infinite: true,
+                                                    dots: true
+                                                }
+                                            },
+                                            {
+                                                breakpoint: 768, // for smaller tablets and below
+                                                settings: {
+                                                    slidesToShow: 1,  // Shows 1 slide on smaller screens
+                                                    slidesToScroll: 1,
+                                                    infinite: true,
+                                                    dots: true,
+                                                }
+                                            },
+                                            {
+                                                breakpoint: 480, // for mobile phones
+                                                settings: {
+                                                    slidesToShow: 1,  // Shows 1 slide on mobile screens
+                                                    slidesToScroll: 1,
+                                                    infinite: true,
+                                                    dots: true,
+                                                    arrows: false
+                                                }
+                                            }
+                                        ]}
                                     >
-                                        {getOrderedImages(item?.images).map((imageSrc, index) => {
+
+                                        {(item?.images).map((imageSrc, index) => {
                                             // Check if imageSrc is valid
                                             if (imageSrc) {
                                                 return (
@@ -171,15 +190,25 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                         onClick={(e) => LinkCall(e, `/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`)}
                                                         href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
                                                     >
-                                                        <Image className="xl:h-[450px] lg:h-[370px] h-[400px]" height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc}></Image>
+                                                        <Image
+                                                            className="xl:h-[450px] lg:h-[370px] h-[400px] mxs:h-[450px]"
+                                                            height={600}
+                                                            width={400}
+                                                            alt={"Farm Houses In Hyderabad"}
+                                                            src={imageSrc}
+                                                            fetchPriority={index == 0 ? "high" : "low"}
+                                                            loading={index == 0 ? "eager" : "lazy"}
+                                                            sizes="(max-width: 200px) 100vw, 50vw"
+                                                        >
+
+                                                        </Image>
                                                     </div>
                                                 );
                                             }
                                             // Return null if imageSrc is not valid (i.e., null or empty)
                                             return null;
                                         })}
-                                    </Carousel>
-
+                                    </Slider>
                                 </div>
                                 <div className="px- flex flex-col gap-4">
                                     <div className="flex items-baseline justify-between px-2">
@@ -188,7 +217,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                 <p className="text-gray-900 font-medium text-sm lg:text-md opacity-75 font-Montserrat">Dozzy Farm House</p>
                                             </Link>
                                             <Link
-                                                className="text-[#556EE6] xl:text-2xl lg:text-lg font-semibold" href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
+                                                className="text-[#556EE6] xl:text-2xl lg:text-lg text-base font-semibold" href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
                                             >
                                                 {capitalizeFirstLetter(item.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())}
                                             </Link>
@@ -226,7 +255,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                             <li className="bg-green-500 w-32 py-2  text-center rounded-md ">
                                                 {" "}
                                                 <Link
-                                                    href={`https://api.whatsapp.com/send/?phone=919111911162&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0`}
+                                                    href={`https://api.whatsapp.com/send/?phone=919666655973&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0`}
                                                     target="_blank"
                                                 >
                                                     <p className=" flex gap-1 lg:text-sm text-sm justify-center items-center">
@@ -238,7 +267,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                 </Link>
                                             </li>
                                             <li className="bg-blue-500 w-32 py-2 rounded-md ">
-                                                <Link href={`tel:9111911162`} target="_blank">
+                                                <Link href={`tel:9666655973`} target="_blank">
                                                     <p className=" flex gap-1 lg:text-sm text-sm justify-center items-center">
                                                         <span>
                                                             <BiPhoneCall size={20} />
@@ -258,13 +287,13 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                 priority={true}
                                             /> */}
                                             {/* <p className="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">Download Dozzy App</p> */}
-                                            <p class="bg-gradient-to-r from-green-600 via-[#556ee6] to-indigo-400 inline-block text-transparent bg-clip-text animate-gradient border-[1px] border-[#5566ee] p-2 rounded-md">
+                                            <p className="bg-gradient-to-r from-green-600 via-[#556ee6] to-indigo-400 inline-block text-transparent bg-clip-text animate-gradient border-[1px] border-[#5566ee] p-2 rounded-md">
                                                 Download Dozzy App
                                             </p>
 
                                         </div>
                                         <div onClick={() => { setShowDown(true) }} className="flex  justify-center items-center cursor-pointer text-black py-4 text-lg font-semibold">
-                                            <p class="bg-gradient-to-r from-green-600 via-[#556ee6] to-indigo-400 text-transparent bg-clip-text animate-gradient border-[1px] border-[#5566ee] p-2 rounded-md lg:block hidden">
+                                            <p className="bg-gradient-to-r from-green-600 via-[#556ee6] to-indigo-400 text-transparent bg-clip-text animate-gradient border-[1px] border-[#5566ee] p-2 rounded-md lg:block hidden">
                                                 Download Dozzy App
                                             </p>
                                         </div>
@@ -307,7 +336,6 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                 </div>
                                             </div>
                                         )}
-                                        {/* <h1 class="bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text">hello world</h1> */}
                                     </div>
 
                                 </div>
@@ -317,14 +345,13 @@ const FarmProductLPage = ({ count, FHList }) => {
                 </div>
             </div>
             <div className={`${count?.length ? 'hidden' : 'block'} text-center py-4 lg:px-2 px-10 flex justify-center items-center`}>
-                <button className="flex flex-col items-center spinner-border text-lg lg:text-2xl font-bold text-[#556ee6] w-full lg:w-96 py-8 rounded-full capitalize">
-                    <Link
-                        onClick={(e) => LinkCall(e, "/explore-all-farmhouses-in-hyderabad")}
-                        href="/explore-all-farmhouses-in-hyderabad"
+                <Link onClick={(e) => LinkCall(e, "/explore-all-farmhouses-in-hyderabad")}
+                    href="/explore-all-farmhouses-in-hyderabad" className="flex flex-col items-center spinner-border text-lg lg:text-2xl font-bold text-[#556ee6] w-full lg:w-96 py-8 rounded-full capitalize">
+                    <p
                         className=""
-                    >View all farm houses</Link>
+                    >View all farm houses</p>
                     <RiArrowDownWideLine className="animate-pulse text-black" size={40} />
-                </button>
+                </Link>
             </div>
             {loading && <div className="text-center py-4">
                 <div className="fixed inset-0 bg-white flex items-center justify-center z-50 opacity-90">
