@@ -131,8 +131,8 @@ export default function Home({ canonicalUrl, filteredFHs }) {
           />
         </noscript>
       </Head>
-      <FarmProductLPage FHList={filteredFHs} />
       <HomeBanner />
+      <FarmProductLPage FHList={filteredFHs} />
       <FarmStarts />
       <CareGuests />
     </div>
