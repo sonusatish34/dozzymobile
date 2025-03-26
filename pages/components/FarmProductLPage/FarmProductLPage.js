@@ -211,7 +211,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                         })}
                                     </Slider>
                                 </div>
-                                <div className="px- flex flex-col gap-4">
+                                <div className="px- flex flex-col justify-center  gap-4">
                                     <div className="flex items-baseline justify-between px-2">
                                         <div>
                                             <Link onClick={(e) => LinkCall(e, `/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`)} href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}>

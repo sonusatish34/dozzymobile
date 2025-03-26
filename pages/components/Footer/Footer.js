@@ -27,7 +27,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className='... bg-[url("/mld.jpg")] lg:bg-center  bg-cover z-0'>
+            <div className='... bg-[url("/mld.webp")] lg:bg-center  bg-cover z-0'>
                 <div className='flex items-center gap-8 text-white lg:pt-24 lg:pl-32 py-4 px-2'>
                     <Image
                         src={phone}
