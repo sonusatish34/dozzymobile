@@ -4,7 +4,9 @@ const HomeBanner = dynamic(() => import('./components/HomeBanner.js/HomeBanner')
 const FarmStarts = dynamic(() => import('./components/FarmStarts/FarmStarts'), { ssr: false });
 const FarmProductLPage = dynamic(() => import('./components/FarmProductLPage/FarmProductLPage'));
 const CareGuests = dynamic(() => import('./components/CareGuests/CareGuests'), { ssr: false });
+import Script from "next/script";
 export default function Home({ canonicalUrl, filteredFHs }) {
+
 
   return (
     <div className="text-black font-poppins">
@@ -19,36 +21,56 @@ export default function Home({ canonicalUrl, filteredFHs }) {
         <meta name="og:description" content="Top Rated Farmhouses in Hyderabad for Weddings, Haldhi, Mehndi, Parties and More. Enjoy Scenic Venues with Beautiful Setups for your Special Celebrations." />
         <link rel="canonical" href={canonicalUrl} />
 
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-04YJBDK2VX"></script>
-        <script
+        {/* Google Tag Manager */}
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-            __html: `
-                         window.dataLayer = window.dataLayer || [];
-                         function gtag(){dataLayer.push(arguments);}
-                         gtag('js', new Date());
-                         gtag('config', 'G-04YJBDK2VX');
-                        `,
+            __html: `(function(w,d,s,l,i){
+              w[l]=w[l]||[]; 
+              w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+              var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),
+              dl=l!='dataLayer'?'&l='+l:'';
+              j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+              f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-NFJZZ34X');`,
           }}
         />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16698821101"></script>
-        <script
+
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-04YJBDK2VX"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-                        gtag('config', 'AW-16698821101');
-                      `,
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-04YJBDK2VX');
+            `,
           }}
         />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16698821101"></script>
-        <script
+
+        {/* Google Ads */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16698821101"
+        />
+        <Script
+          id="google-ads"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'AW-16698821101');
+              
               function gtag_report_conversion(url) {
                 var callback = function () {
                   if (typeof(url) != 'undefined') {
@@ -66,27 +88,24 @@ export default function Home({ canonicalUrl, filteredFHs }) {
             `,
           }}
         />
-        <script
+
+        {/* Phone Conversion */}
+        <Script
+          id="phone-conversion"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){
-                w[l]=w[l]||[]; 
-                w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-                var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),
-                dl=l!='dataLayer'?'&l='+l:'';
-                j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-                f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-NFJZZ34X');`,
+            __html: `
+              gtag('config', 'AW-16797121033/PPdfCKqh7_AZEIn0vsk-', {
+                'phone_conversion_number': '96666-559-73'
+              });
+            `,
           }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `gtag('config', 'AW-16797121033/PPdfCKqh7_AZEIn0vsk-', {
-                         'phone_conversion_number': '96666-559-73'
-                         });`,
-          }}
-        />
-        <script
+
+        {/* Facebook Pixel */}
+        <Script
+          id="fb-pixel"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
@@ -102,6 +121,7 @@ export default function Home({ canonicalUrl, filteredFHs }) {
             `,
           }}
         />
+
         <noscript>
           <img
             height="1"
