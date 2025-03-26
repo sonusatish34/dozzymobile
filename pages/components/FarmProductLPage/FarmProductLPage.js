@@ -149,6 +149,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                         arrows={true}
                                         swipeToSlide={true}
                                         className="lg:rounded-md"
+                                        lazyLoad="ondemand"
                                         responsive={[
                                             {
                                                 breakpoint: 1024, // for tablets and above
