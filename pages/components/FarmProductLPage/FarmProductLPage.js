@@ -13,7 +13,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { BiLogoPlayStore } from "react-icons/bi";
 import { RiArrowDownWideLine } from "react-icons/ri";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import 'swiper/css';
 import PopUp from "../Popup";
 const FarmProductLPage = ({ count, FHList }) => {
 
@@ -203,9 +205,21 @@ const FarmProductLPage = ({ count, FHList }) => {
                                             />
                                         </div>
                                     }
-                                    <Slider {...settings} ref={sliderRef}>
+                                    <Swiper
+                                                modules={[Autoplay]}
+                                                loop={true}
+                                                autoplay={{
+                                                    delay: 2500,
+                                                    disableOnInteraction: false,
+                                                    pauseOnMouseEnter: true,
+                                                }}
+                                                slidesPerView={1}
+                                                onTouchStart={(swiper) => swiper.autoplay.stop()}
+                                                onTouchEnd={(swiper) => swiper.autoplay.start()}
+                                                style={{ maxWidth: "800px", margin: "auto" }}
+                                            >
                                         {groupByPrice[priceKey].map((item, index) => (
-                                            <div key={index}>
+                                            <SwiperSlide key={index}>
                                                 <React.Fragment >
                                                     <div className="bg-red-2 rounded-lg shadow-lg overflow-hidden flex justify-center flex-col xl:w-[360px] lg:w-[260px] w-[100%] px-1 md:w-80 h-[670px] ">
                                                         <div
@@ -404,9 +418,9 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                     </div>
 
                                                 </React.Fragment>
-                                            </div>
+                                            </SwiperSlide>
                                         ))}
-                                    </Slider>
+                                    </Swiper>
                                 </div> :
                                 groupByPrice[priceKey].map((item, index) => (
                                     <React.Fragment key={index}>
