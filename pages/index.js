@@ -1,76 +1,61 @@
 import Head from "next/head";
 import dynamic from 'next/dynamic';
-const HomeBanner = dynamic(() => import('./components/HomeBanner.js/HomeBanner'), { ssr: false });
+import { useEffect, useState } from "react";
+const HomeBanner = dynamic(() => import('./components/HomeBanner.js/HomeBanner'));
 const FarmStarts = dynamic(() => import('./components/FarmStarts/FarmStarts'), { ssr: false });
-const FarmProductLPage = dynamic(() => import('./components/FarmProductLPage/FarmProductLPage'));
+const FHLPage = dynamic(() => import('./components/FarmProductLPage/FHLPage'), { ssr: false });
+const FarmProductLPage = dynamic(() => import('./components/FarmProductLPage/FarmProductLPage'), { ssr: false });
 const CareGuests = dynamic(() => import('./components/CareGuests/CareGuests'), { ssr: false });
-import Script from "next/script";
 export default function Home({ canonicalUrl, filteredFHs }) {
-
-
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    if (filteredFHs?.length >= 1) {
+      setLoading(false)
+    }
+  }, [filteredFHs])
   return (
-    <div className="text-black font-poppins">
+    <div className="text-black ">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Private Farmhouse for Rent in Hyderabad</title>
+        <title>Private Farmhouse Rental @ 6K/Day - Cheapest FarmStay Near U</title>
         <meta name="robots" content="index, follow" />
         <meta name="keywords" content="farmhouses in Hyderabad, cheapest farmhouse rentals, farmhouses near me, farmhouse rentals, top farmhouses in Hyderabad, private farmhouses for rent, rent a farmhouse, farmhouses for celebrations" />
-        <meta name="description" content="Top Rated Farmhouses in Hyderabad for Weddings, Haldhi, Mehndi, Parties and More. Enjoy Scenic Venues with Beautiful Setups for your Special Celebrations." />
+        <meta name="description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends – Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="Private Farmhouse for Rent in Hyderabad" />
-        <meta name="og:description" content="Top Rated Farmhouses in Hyderabad for Weddings, Haldhi, Mehndi, Parties and More. Enjoy Scenic Venues with Beautiful Setups for your Special Celebrations." />
+        <meta property="og:title" content="Private Farmhouse Rental @ 6K/Day - Cheapest FarmStay Near U" />
+        <meta name="og:description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends – Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
         <link rel="canonical" href={canonicalUrl} />
 
-        {/* Google Tag Manager */}
-        <Script
-          id="gtm-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){
-              w[l]=w[l]||[]; 
-              w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-              var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),
-              dl=l!='dataLayer'?'&l='+l:'';
-              j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-              f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-NFJZZ34X');`,
-          }}
-        />
-
-        {/* Google Analytics */}
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-04YJBDK2VX"
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-04YJBDK2VX"></script>
+        <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-04YJBDK2VX');
-            `,
+                         window.dataLayer = window.dataLayer || [];
+                         function gtag(){dataLayer.push(arguments);}
+                         gtag('js', new Date());
+                         gtag('config', 'G-04YJBDK2VX');
+                        `,
           }}
         />
-
-        {/* Google Ads */}
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=AW-16698821101"
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16698821101"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'AW-16698821101');
+                      `,
+          }}
         />
-        <Script
-          id="google-ads"
-          strategy="afterInteractive"
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16698821101"></script>
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'AW-16698821101');
-              
               function gtag_report_conversion(url) {
                 var callback = function () {
                   if (typeof(url) != 'undefined') {
@@ -88,24 +73,27 @@ export default function Home({ canonicalUrl, filteredFHs }) {
             `,
           }}
         />
-
-        {/* Phone Conversion */}
-        <Script
-          id="phone-conversion"
-          strategy="afterInteractive"
+        <script
           dangerouslySetInnerHTML={{
-            __html: `
-              gtag('config', 'AW-16797121033/PPdfCKqh7_AZEIn0vsk-', {
-                'phone_conversion_number': '96666-559-73'
-              });
-            `,
+            __html: `(function(w,d,s,l,i){
+                w[l]=w[l]||[]; 
+                w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+                var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),
+                dl=l!='dataLayer'?'&l='+l:'';
+                j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+                f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-NFJZZ34X');`,
           }}
         />
-
-        {/* Facebook Pixel */}
-        <Script
-          id="fb-pixel"
-          strategy="afterInteractive"
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `gtag('config', 'AW-16797121033/PPdfCKqh7_AZEIn0vsk-', {
+                         'phone_conversion_number': '96666-559-73'
+                         });`,
+          }}
+        />
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
@@ -121,7 +109,6 @@ export default function Home({ canonicalUrl, filteredFHs }) {
             `,
           }}
         />
-
         <noscript>
           <img
             height="1"
@@ -131,10 +118,17 @@ export default function Home({ canonicalUrl, filteredFHs }) {
           />
         </noscript>
       </Head>
-      <FarmProductLPage FHList={filteredFHs} />
+      <div className="lg:block hidden"><FHLPage FHList={filteredFHs} /></div>
+      <div className="lg:hidden block"><FarmProductLPage FHList={filteredFHs} /></div>
+      
       <HomeBanner />
       <FarmStarts />
       <CareGuests />
+      {loading && <div className="text-center py-4">
+        <div className="fixed inset-0 bg-white flex items-center justify-center z-50 opacity-90">
+          <div className="spinner-border animate-spin border-t-4 border-blue-500 border-solid rounded-full w-16 h-16"></div>
+        </div>
+      </div>}
     </div>
   );
 }
@@ -156,6 +150,17 @@ export async function getServerSideProps({ req }) {
 
     return [
       imageMap["farmhouse_front_view"],
+    ];
+  };
+  const getOrderedImagesAll = (attributes) => {
+    const imageMap = {};
+    attributes.forEach((attr) => {
+      imageMap[attr.attribute_name] = attr.attribute_value;
+    });
+
+    return [
+      
+      imageMap["farmhouse_front_view"],
       imageMap["swimming_pool_pic_1"],
       imageMap["building_outside_pic_1"],
       imageMap["bedroom_1_0"],
@@ -167,12 +172,14 @@ export async function getServerSideProps({ req }) {
     const response = await fetch("https://api.dozzy.com/customer/approved_properties?lat=0.0&long=0.0&program_id=1&property_capacity=1000", requestOptions);
     const result = await response.json();
 
-    const filteredFHs = result.data.results?.map(car => ({
+    const filteredFHs = result?.data?.results?.map(car => ({
       property_name: car.property_name,
       property_price: car.property_price,
       weekend_price: car.weekend_price,
       no_of_bedrooms: car.no_of_bedrooms,
-      images: getOrderedImages(car.images)
+      customer_night_prices: car.customer_night_prices,
+      images: getOrderedImages(car.images),
+      allimages: getOrderedImagesAll(car.images)
     }));
     return {
       props: {

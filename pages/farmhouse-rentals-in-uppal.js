@@ -3,18 +3,19 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
 import uppal from './images/places/uppal.webp'
-function Uppal() {
+function Uppal({ canonicalUrl }) {
     return (
         <div className='bg-white'>
             <Head>
                 <title> No Deposit & Unlimited Members - Private Farmhouse for Rent Near Uppal</title>
-                <meta name="description" content="No Deposit & Unlimited Members - Private Farmhouse for Rent Near Uppal" />
+                <meta name="description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends - Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
+                <meta name="og:description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends - Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta property="og:title" content=" No Deposit & Unlimited Members - Private Farmhouse for Rent Near Uppal" />
-                <meta property="og:description" content="No Deposit & Unlimited Members - Private Farmhouse for Rent Near Uppal" />
+                <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
-                <p className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near Uppal</p>
+                <h1 className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near Uppal</h1>
                 <div>
                     <Image
                         src={uppal}
@@ -47,3 +48,16 @@ function Uppal() {
 }
 
 export default Uppal;
+
+export async function getServerSideProps({ req }) {
+    const host = req.headers.host;
+    const canonicalUrl = host.includes('.in')
+        ? 'https://www.dozzy.in/farmhouse-rentals-in-uppal'
+        : 'https://www.dozzy.com/farmhouse-rentals-in-uppal';
+
+    return {
+        props: {
+            canonicalUrl: canonicalUrl,
+        }
+    };
+}

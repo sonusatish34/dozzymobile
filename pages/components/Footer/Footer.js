@@ -7,21 +7,21 @@ import gplay from '../../images/ppp.png'
 import appstore from '../../images/ooo.svg'
 import LinkCall from '../LinkCall';
 const Footer = () => {
+    let areas = ['Farmhouse Rentals around Ameerpet', 'Farmhouse Rentals around Ecil', 'Farmhouse Rentals around Gachibowli', 'Farmhouse Rentals around Kukatpally', 'Farmhouse Rentals around Lb Nagar', 'Farmhouse Rentals around Secunderabad', 'Farmhouse Rentals around Shadnagar', 'Farmhouse Rentals around Shamshabad', 'Farmhouse Rentals around Uppal']
     return (
         <>
-            <div className='xl:px-24 lg:px-24 xl:py-20 lg:py-12 px-4 py-4'>
+            <div className='xl:px-20 lg:px-24 xl:py-20 lg:py-12 px-4 py-4'>
                 <div className={` flex py-5 justify-center text-white bg-[#556ee6] rounded-md items-center`}>
-                    <div className=' xl:text-left xl:text-base text-xs font-semibold'>
+                    <div className=' xl:text-left xl:text-base  text-xs font-semibold'>
                         <ul className='xl:gap-x-16 lg:gap-x-2 lg:gap-y-5 gap-y-4 grid justify-center pl-4 lg:grid-cols-3 grid-cols-1 py-7 capitalize'>
-                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-ameerpet'}>Farmhouse Rentals around Ameerpet</Link></li>
-                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-ecil'}>Farmhouse Rentals around Ecil</Link></li>
-                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-gachibowli'}>Farmhouse Rentals around Gachibowli</Link></li>
-                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-kukatpally'}>Farmhouse Rentals around Kukatpally</Link></li>
-                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-lb-nagar'}>Farmhouse Rentals around Lb Nagar</Link></li>
-                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-secunderabad'}>Farmhouse Rentals around Secunderabad</Link></li>
-                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-shadnagar'}>Farmhouse Rentals around Shadnagar</Link></li>
-                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-shamshabad'}>Farmhouse Rentals around Shamshabad</Link></li>
-                            <li className='hover:scale-95'><Link href={'/farmhouse-rentals-in-uppal'}>Farmhouse Rentals around Uppal</Link></li>
+                            {areas.map((item, index) => (
+                                <li key={index} className="relative group">
+                                    <Link href={`/${item.replace(/\s+/g, '-').replace('around', 'in').toLowerCase()}`}>
+                                        <p className=" cursor-pointer inline-block relative">{item}<span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-500 group-hover:w-full"></span>
+                                        </p>
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
@@ -96,7 +96,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className='bg-black py-1 lg:px-20 text-center text-white lg:text-lg text-[10px]'>
+                <div className='bg-black py-1 lg:px-20 text-center text-white lg:text-lg text-[9px]'>
                     <p>Copyright © 2025 Dozzy Services Private Limited | All Rights Reserved.</p>
                 </div>
             </div>

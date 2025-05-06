@@ -28,7 +28,7 @@ const ComponentName = (props) => {
                                         alt="apple"
                                         className="lg:w-40 lg:h-14 w-28 h-11 lg:hover:scale-105"
                                         src={apple}
-                                        priority={true}
+                                        loading='lazy'
                                     />
                                 </Link>
                                 <Link href="https://play.google.com/store/apps/details?id=com.dozzy_customer">
@@ -38,7 +38,7 @@ const ComponentName = (props) => {
                                         alt="google"
                                         className="lg:w-48 lg:h-20 w-32 h-16 lg:hover:scale-105"
                                         src={google}
-                                        priority={true}
+                                        loading='lazy'
                                     />
                                 </Link>
                             </div>
@@ -50,7 +50,7 @@ const ComponentName = (props) => {
                                 height={1000}
                                 width={1000}
                                 className='xl:w-[450px] lg:scale-150 lg:w-[350px] w-[300px] relative xl:right-36 lg:right-16 top-3'
-                                priority
+                                loading='lazy'
                             />
                         </div>
                     </div>
@@ -60,7 +60,6 @@ const ComponentName = (props) => {
                 <h3 className='font-bold lg:text-3xl text-xl pb-4'>Contact Details</h3>
                 {/* <p className='pt-1 flex flex-col gap-y-2'> <span></span></p> */}
                 <div className='flex lg:flex-row flex-col lg:gap-x-4 gap-y-4'>
-
                     <Link className='xl:text-3xl lg:text-xl font-bold text-base flex items-center gap-1 lg:gap-2 lg:pt-2 border-2 p-2 rounded-md w-fit ' href="tel:9666655973" target='_blank'><span><FiPhoneCall className='size-4 lg:size-6 text-blue-500' /></span>
                         <span>96666-559-73</span></Link>
                     <Link className='xl:text-3xl lg:text-xl font-bold text-base flex items-center gap-1 lg:gap-2 lg:pt-2 border-2 p-2 rounded-md w-fit' href={`https://api.whatsapp.com/send/?phone=919666655973&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0`} target='_blank'><span><FaWhatsapp className='size-4 lg:size-8 text-green-600' /></span>

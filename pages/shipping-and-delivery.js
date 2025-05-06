@@ -11,7 +11,7 @@ export default function TermsAndConditions() {
 
             <div className="min-h-screen bg-gray-100 py-8 px-4 text-black text">
                 <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-                    <h1 className="lg:text-3xl text-xl font-bold text-center text-[#556ee6] mb-6">Shipping And Delivery</h1>
+                    <p className="lg:text-3xl text-xl font-bold text-center text-[#556ee6] mb-6">Shipping And Delivery</p>
 
                     <p className="text-sm lg:text-lg mb-4  md:text-left">
                         Please review our Shipping and Delivery policies carefully before making your farmhouse booking.

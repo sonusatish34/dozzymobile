@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import kukatpally from './images/places/kukatpally.webp'
-function Kukatpally() {
+function Kukatpally({canonicalUrl}) {
     return (
         <div className='bg-white'>
             <Head>
@@ -12,9 +12,10 @@ function Kukatpally() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta property="og:title" content="No Deposit & Unlimited Members - Farmhouse for Rent Near Kukatpally" />
                 <meta property="og:description" content="Explore farmhouse rentals near Kukatpally for a peaceful retreat with modern amenities, perfect for family and group getaways." />
+                <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
-                <p className='font-bold text-xl lg:text-3xl py-2'>Farmhouses for Rent Near Kukatpally</p>
+                <h1 className='font-bold text-xl lg:text-3xl py-2'>Farmhouses for Rent Near Kukatpally</h1>
                 <div>
                     <Image
                         src={kukatpally}
@@ -45,3 +46,15 @@ function Kukatpally() {
 }
 
 export default Kukatpally;
+export async function getServerSideProps({ req }) {
+    const host = req.headers.host;
+    const canonicalUrl = host.includes('.in')
+        ? 'https://www.dozzy.in/farmhouse-rentals-in-kukatpally'
+        : 'https://www.dozzy.com/farmhouse-rentals-in-kukatpally';
+
+    return {
+        props: {
+            canonicalUrl: canonicalUrl,
+        }
+    };
+}

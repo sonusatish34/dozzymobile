@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import customData from './components/kk.json';
@@ -19,81 +18,40 @@ import { GiBarbecue } from "react-icons/gi";
 import { IoIosBonfire } from "react-icons/io";
 import { MdOutlineSportsVolleyball } from "react-icons/md";
 import { FaIndianRupeeSign } from "react-icons/fa6";
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import LinkCall from './components/LinkCall';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-const CarDetails = ({ canonicalUrl, approvedProperties }) => {
+const CarDetails = ({ canonicalUrl, selectedAtt, farmproduct }) => {
 
-  const router = useRouter();
-  const [caritem, setCarItem] = useState('')
-  const { farmproduct } = router.query;
   const mdfyFarmProduct = farmproduct;
 
   const [loading, setLoading] = useState(true);
-  const [fmDetail, setFmDetail] = useState(null);
 
   useEffect(() => {
-    async function fetchCarDetails() {
-      try {
-        const response = await fetch(`https://api.dozzy.com/customer/approved_properties?lat=17.387140&long=78.491684&program_id=1&property_capacity=1000`);
-        const requestOptions = {
-          method: "GET",
-          redirect: "follow"
-        };
-        const items = await response.json();
-
-        const cars = items?.data?.results;
-        const car = cars?.find(i => i?.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-') === mdfyFarmProduct);
-        // setCarItem(car);
-        // item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')
-        setFmDetail(car)
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
+    if (selectedAtt) {
+      setLoading(false)
     }
+  }, [selectedAtt]);
 
-    if (farmproduct) {
-      fetchCarDetails();
-    }
-  }, [farmproduct]);
-
-  const getOrderedImages = (attributes) => {
-    const imageMap = {};
-    attributes?.forEach((attr) => {
-      imageMap[attr.attribute_name] = attr.attribute_value;
-    });
-
-    return [
-      imageMap["farmhouse_front_view"],
-      imageMap["building_outside_pic_1"],
-      imageMap["swimming_pool_pic_1"],
-      imageMap["bedroom_1_0"],
-      imageMap["garden_pic_1"]
-    ].filter(imageSrc => imageSrc);
-  };
   function capitalizeFirstLetter(input) {
     return input
       .split(' ')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join(' ');
   }
- 
+
   return (
     <div className='bg-white text-black mont-text'>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Private Farmhouse for Rent in Hyderabad</title>
+        <title>Private Farmhouse Rental @ 6K/Day - Cheapest FarmStay Near U</title>
         <meta name="robots" content="index, follow" />
         <meta name="keywords" content="farmhouses in Hyderabad, cheapest farmhouse rentals, farmhouses near me, farmhouse rentals, top farmhouses in Hyderabad, private farmhouses for rent, rent a farmhouse, farmhouses for celebrations" />
-        <meta name="description" content="Top Rated Farmhouses in Hyderabad for Weddings, Haldhi, Mehndi, Parties and More. Enjoy Scenic Venues with Beautiful Setups for your Special Celebrations." />
+        <meta name="description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends – Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="Private Farmhouse for Rent in Hyderabad" />
-        <meta name="og:description" content="Top Rated Farmhouses in Hyderabad for Weddings, Haldhi, Mehndi, Parties and More. Enjoy Scenic Venues with Beautiful Setups for your Special Celebrations." />
+        <meta property="og:title" content="Private Farmhouse Rental @ 6K/Day - Cheapest FarmStay Near U" />
+        <meta name="og:description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends – Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
         <link rel="canonical" href={canonicalUrl} />
 
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-04YJBDK2VX"></script>
@@ -123,7 +81,7 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
+              window.dataLayer = window.dataLayer || []
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'AW-16698821101');
@@ -201,8 +159,7 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
           />
         </noscript>
         <div className='flex flex-col md:flex-row md:mt-2 lg:mt-2 lg:gap-16  p-2 border-2 border-[#556EE6] rounded-md'>
-
-          <div className="relative md:w-2/3 xl:w-[525px] lg:w-[424px] rounded-md  w-full p-1 lg:h-[534px]  mxs:h-[455px] h-[400px]  overflow-hidden sliderarrows">
+          <div className="relative md:w-2/3 xl:w-[525px] lg:w-[424px] rounded-md  w-full p-1 xl:h-[534px] lg:h-[434px]  mxs:h-[455px] h-[400px]  overflow-hidden sliderarrows">
             <Slider
               dots={false}
               infinite={true}
@@ -213,41 +170,41 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
               // autoplay={true}
               responsive={[
                 {
-                    breakpoint: 1024, // for tablets and above
-                    settings: {
-                        slidesToShow: 1,  // Shows 2 slides on medium screens
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: true
-                    }
+                  breakpoint: 1024, // for tablets and above
+                  settings: {
+                    slidesToShow: 1,  // Shows 2 slides on medium screens
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                  }
                 },
                 {
-                    breakpoint: 768, // for smaller tablets and below
-                    settings: {
-                        slidesToShow: 1,  // Shows 1 slide on smaller screens
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: true,
-                    }
+                  breakpoint: 768, // for smaller tablets and below
+                  settings: {
+                    slidesToShow: 1,  // Shows 1 slide on smaller screens
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true,
+                  }
                 },
                 {
-                    breakpoint: 480, // for mobile phones
-                    settings: {
-                        slidesToShow: 1,  // Shows 1 slide on mobile screens
-                        slidesToScroll: 1,
-                        infinite: true,
-                        dots: true,
-                        arrows: false
-                    }
+                  breakpoint: 480, // for mobile phones
+                  settings: {
+                    slidesToShow: 1,  // Shows 1 slide on mobile screens
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true,
+                    arrows: false
+                  }
                 }
-            ]}
+              ]}
               swipeToSlide={true}
               className="relative lg:rounded-md sliderclass"
             >
-              {getOrderedImages(fmDetail?.images).map((imageSrc, index) => (
+              {(selectedAtt?.images)?.map((imageSrc, index) => (
                 imageSrc && (
                   <div key={index}>
-                    <Image className='object-cover object-center lg:h-[534px] h-[355px] mxs:h-[455px]' height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc} />
+                    <Image className='object-cover object-center xl:h-[534px] lg:h-[434px] h-[355px] mxs:h-[455px]' height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc} />
                   </div>
                 )
               ))}
@@ -255,8 +212,11 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
           </div>
           <div className='flex flex-col xl:gap-14 lg:gap-6 gap-4 xl:pt-10 pt-2'>
             <div>
-              <div className='p-1 font-bold  text-xl xl:text-3xl lg:text-xl lg: capitalize'>{fmDetail?.property_name ? capitalizeFirstLetter(fmDetail?.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase()) : null} Farm House ({fmDetail?.no_of_bedrooms} BHK) <p className='text-blue-600 pt-3'>₹ {fmDetail?.property_price}/day</p>
-                <p className='text-blue-600 opacity-70 text-sm pl-1 pt-2'>₹{fmDetail?.weekend_price}/day <span className='text-black'>(Fri-Sun)</span></p>
+              <div className='p-1 font-bold  text-xl xl:text-3xl lg:text-xl lg: capitalize'>
+                <h1>{selectedAtt?.property_name ? capitalizeFirstLetter(selectedAtt?.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase()) : null} Farm House ({selectedAtt?.no_of_bedrooms} BHK)
+                </h1>
+                <p className='text-blue-600 pt-3'>₹ {selectedAtt?.property_price}/day</p>
+                <p className='text-blue-600 opacity-70 text-sm pl-1 pt-2'>₹{selectedAtt?.weekend_price}/day <span className='text-black'>(Fri-Sat)</span></p>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4 lg:flex lg:flex-col  text-xs font-semibold lg:text-base xs: lg:w-full">
@@ -285,10 +245,7 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
               </div>
             </div>
           </div>
-
-          {/* Rest of your component */}
         </div>
-
         <div className='overview pt-10 px-5 lg:px-0'>
           <h2 className='font-bold text-2xl lg:text-3xl border-l-4 pl-2 border-red-900 mb-4  '>Our Amenities</h2>
           <ul className='my-2 flex-wrap pb-4 grid grid-cols-2 gap-y-3 md:flex lg:w-[83%] xl:w-[60%] justify-center lg:justify-normal'>
@@ -317,7 +274,7 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
               <p className='font text-xs lg:text-base text-center '>Private Kitchen</p>
             </li>
             <li className='w-36 lg:w-36 w- flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
-              <GiBarbecue size={30} className={`text-${caritem?.vehicle_color}-400 lg:size-10`} />
+              <GiBarbecue size={30} className={` lg:size-10`} />
               <p className='font text-xs lg:text-base text-center'>Barbeque</p>
             </li>
             <li className='w-36 lg:w-36 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
@@ -337,7 +294,7 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
         <div className='px-5 lg:px-0'>
           <p className='font-bold text-2xl lg:text-3xl border-l-4 pl-2 border-red-900 md:my-6 my-2 '>Property Rules</p>
           <div className='flex flex-wrap flex-col'>
-            <ul className='p-4 text-sm font-normaltext-[14px] lg:text-lg leading-6 font-poppins'>
+            <ul className='p-4 text-sm font-normaltext-[14px] lg:text-lg leading-6 '>
               <li className='list-disc'><p>Check in after 1pm | Check Out before 12pm </p></li>
               <li className='list-disc'><p>Alcohol Consumption Is Allowed</p></li>
               <li className='list-disc'><p>Pets are allowed </p></li>
@@ -378,12 +335,11 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
         </div>
         <div className='px-5 lg:px-0 pt-2'>
           <h2 className='font-bold text-2xl lg:text-3xl border-l-4 pl-2 border-red-900 md:my-6 my-2' >Description</h2>
-          <p className='font-normal p-1 text-[14px] lg:text-lg leading-6 font-poppins pb-8 lg:w-[50%]'>
-            {customData[mdfyFarmProduct?.toLowerCase()]?.desc ? customData[mdfyFarmProduct?.toLowerCase()].desc : ` ${fmDetail?.property_name && capitalizeFirstLetter(fmDetail?.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())} offers a tranquil escape just outside the city, nestled in the heart of nature. This peaceful sanctuary is the perfect destination for those seeking a quiet retreat away from the hustle and bustle. Whether you're a solo traveler, a couple, or a group, ${fmDetail?.property_name && capitalizeFirstLetter(fmDetail?.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())} provides a serene environment to relax, unwind, and recharge.`}
+          <p className='font-normal p-1 text-[14px] lg:text-lg leading-6  pb-8 lg:w-[50%]'>
+            {customData[selectedAtt?.property_name.trim().replaceAll(/ /g, '-').toLowerCase()]?.desc ? customData[selectedAtt?.property_name.trim().replaceAll(/ /g, '-').toLowerCase()]?.desc : ` ${selectedAtt?.property_name && capitalizeFirstLetter(selectedAtt?.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())} offers a tranquil escape just outside the city, nestled in the heart of nature. This peaceful sanctuary is the perfect destination for those seeking a quiet retreat away from the hustle and bustle. Whether you're a solo traveler, a couple, or a group, ${selectedAtt?.property_name && capitalizeFirstLetter(selectedAtt?.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())} provides a serene environment to relax, unwind, and recharge.`}
           </p>
-          <p className='font-normal p-1 text-[14px] lg:text-lg leading-6 font-poppins pb-8 lg:w-[50%]'>
-            {/* {customData[mdfyFarmProduct?.toLowerCase()]?.subdesc} */}
-            {`The expansive outdoor area allows guests to enjoy leisurely walks through lush greenery, partake in outdoor activities, or simply bask in the calm ambiance of the surroundings. Inside, the farmhouse is designed for comfort, featuring cozy, air-conditioned rooms with double beds, a flat-screen TV, a mini-fridge, and generous storage space, ensuring a cozy and relaxing stay. ${fmDetail?.property_name && capitalizeFirstLetter(fmDetail?.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())} is the ideal location for anyone wanting to reconnect with nature and experience peaceful relaxation.`}
+          <p className='font-normal p-1 text-[14px] lg:text-lg leading-6  pb-8 lg:w-[50%]'>
+            {customData[selectedAtt?.property_name.replaceAll(/ /g, '-').trim().toLowerCase()]?.subdesc ? customData[selectedAtt?.property_name.replaceAll(/ /g, '-').trim().toLowerCase()]?.subdesc : `The expansive outdoor area allows guests to enjoy leisurely walks through lush greenery, partake in outdoor activities, or simply bask in the calm ambiance of the surroundings. Inside, the farmhouse is designed for comfort, featuring cozy, air-conditioned rooms with double beds, a flat-screen TV, a mini-fridge, and generous storage space, ensuring a cozy and relaxing stay. ${selectedAtt?.property_name && capitalizeFirstLetter(selectedAtt?.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())} is the ideal location for anyone wanting to reconnect with nature and experience peaceful relaxation.`}
           </p>
         </div>
         {loading && <div className="text-center py-4">
@@ -391,7 +347,6 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
             <div className="spinner-border animate-spin border-t-4 border-blue-500 border-solid rounded-full w-16 h-16"></div>
           </div>
         </div>}
-
       </div>
     </div>
   );
@@ -400,37 +355,59 @@ const CarDetails = ({ canonicalUrl, approvedProperties }) => {
 export default CarDetails;
 
 
-export async function getServerSideProps({ req, query }) {
-  const { farmproduct } = query;
+export async function getServerSideProps({ req, query, params }) {
+  const farmproduct = params.farmproduct;
 
   const host = req.headers.host;
   const canonicalUrl = host.includes('.in')
     ? `https://www.dozzy.in/${farmproduct}`
     : `https://www.dozzy.com/${farmproduct}`;
+
   const requestOptions = {
     method: "GET",
     redirect: "follow"
   };
 
   try {
-    // Fetching the approved properties data
     const response = await fetch("https://api.dozzy.com/customer/approved_properties?lat=17.387140&long=78.491684&program_id=1&property_capacity=1000", requestOptions);
     const result = await response.json();
+    const getOrderedImages = (attributes) => {
+      const imageMap = {};
+      attributes?.forEach((attr) => {
+        imageMap[attr.attribute_name] = attr.attribute_value;
+      });
 
-    // Return both data objects as props
+      return [
+        imageMap["farmhouse_front_view"],
+        imageMap["building_outside_pic_1"],
+        imageMap["swimming_pool_pic_1"],
+        imageMap["bedroom_1_0"],
+        imageMap["garden_pic_1"]
+      ].filter(imageSrc => imageSrc);
+    };
+    const cars = result?.data?.results;
+    const car = cars?.find(i => i?.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-') === farmproduct);
+    const selectedAtt = {
+      property_name: car?.property_name,
+      property_price: car?.property_price,
+      weekend_price: car?.weekend_price,
+      no_of_bedrooms: car?.no_of_bedrooms,
+      images: getOrderedImages(car?.images)
+    }
     return {
       props: {
-        approvedProperties: result,
-        canonicalUrl: canonicalUrl
+        canonicalUrl: canonicalUrl,
+        selectedAtt: selectedAtt || null // Set the car object or null if not found
       }
     };
   } catch (error) {
     console.error(error);
-    // Handle the error if the fetches fail, return an empty array or appropriate fallback
     return {
       props: {
         approvedProperties: null,
-        canonicalUrl
+        canonicalUrl,
+        car: null,
+        farmproduct: farmproduct
       }
     };
   }

@@ -10,7 +10,6 @@ import { fireDb } from "../../../public/firebase";
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { MdExplore } from "react-icons/md";
 import Footer from "../../components/Footer/Footer";
-import Head from "next/head";
 
 const BlogLayout = ({
     canonicalUrl,
@@ -21,9 +20,8 @@ const BlogLayout = ({
 }) => {
     const [cList, setCList] = useState();
     useEffect(() => {
-        const fetchCatAndPosts = async () => {
+        const fetchCat = async () => {
             try {
-                // Fetch categories
                 const catQuerySnapshot = await getDocs(
                     collection(fireDb, "catgfordozzy")
                 );
@@ -53,7 +51,7 @@ const BlogLayout = ({
             }
         };
 
-        fetchCatAndPosts();
+        fetchCat();
     }, []);
 
     const [search, setSearch] = useState("");
@@ -121,7 +119,7 @@ const BlogLayout = ({
                 <div className="flex flex-col lg:flex-row lg:items-center xl:gap-24 lg:gap-20 gap-2">
                     <div className="flex justify-between px-4 mxs:px-6 py-3 lg:py-4 lg:items-center border-8 border-blue-100 lg:border-none">
                         <Link href={`/blog`} className="">
-                        <p className=" text-[#556ee6] capitalize font-bold text-xl  lg:text-5xl  text-blue-00">Dozzy</p>
+                            <p className=" text-[#556ee6] capitalize font-bold text-xl  lg:text-5xl  text-blue-00">Dozzy</p>
                         </Link>
                         <div className="flex items-center">
                             <p className="relative left-8">
@@ -142,7 +140,7 @@ const BlogLayout = ({
                             href={`/blog/explore-topics`}
                             className={`text-base py-1 lg:bg-[#556ee6] lg:rounded-3xl `}
                         >
-                           <div className=' lg:flex  items-center space-x-2 '>
+                            <div className=' lg:flex  items-center space-x-2 '>
                                 <span className='w-fit rounded-full lg:pl-1'><MdExplore className='size-6 text-black lg:text-white' /></span>
                                 <span className=" hidden lg:block text-sm text-white lg:pr-2 ">Explore Topics</span>
                             </div>
@@ -159,7 +157,7 @@ const BlogLayout = ({
                                             key={`category-${i}`}
                                             href={`/blog/${cat.name.toLowerCase()}${recommended ? "/recommended" : ""
                                                 }`}
-                                                className={`p-[5px] capitalize font-medium bg-[#556ee6]  text-[12px] lg:text-xs sm:text-xs  rounded-3xl lg:rounded-3xl lg:py-1.5 ${cat.name.toLowerCase() === catg?.toLowerCase() ? 'border-2 border-yellow-500 text-yellow-500' : 'text-white'}`}    
+                                            className={`p-[5px] capitalize font-medium bg-[#556ee6]  text-[12px] lg:text-xs sm:text-xs  rounded-3xl lg:rounded-3xl lg:py-1.5 ${cat.name.toLowerCase() === catg?.toLowerCase() ? 'border-2 border-yellow-500 text-yellow-500' : 'text-white'}`}
                                         >
                                             {cat.name.toLowerCase()}
                                         </Link>
@@ -171,7 +169,7 @@ const BlogLayout = ({
             </div>
             <main>{children}</main>
             <div>
-           <Footer forblog={true} />
+                <Footer forblog={true} />
             </div>
         </div>
     );

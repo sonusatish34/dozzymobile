@@ -3,18 +3,19 @@ import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
 import ameerpet from './images/places/ameerpet.webp'
-function Ameerpet() {
+function Ameerpet({ canonicalUrl }) {
     return (
         <div className='bg-white'>
             <Head>
-                <title>  No Deposit & Unlimited Members - Private Farmhouse for Rent Near Ameerpet</title>
-                <meta name="description" content="No Deposit & Unlimited Members - Private Farmhouse for Rent Near Ameerpet" />
+                <title>No Deposit & Unlimited Members - Private Farmhouse for Rent Near Ameerpet</title>
+                <meta name="description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends - Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
+                <meta name="og:description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends - Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
+                <link rel="canonical" href={canonicalUrl} />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta property="og:title" content="No Deposit & Unlimited Members - Private Farmhouse for Rent Near Ameerpet" />
-                <meta property="og:description" content="No Deposit & Unlimited Members - Private Farmhouse for Rent Near Ameerpet" />
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
-                <p className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near Ameerpet</p>
+                <h1 className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near Ameerpet</h1>
                 <div>
                     <Image
                         src={ameerpet}
@@ -22,6 +23,7 @@ function Ameerpet() {
                         width={2000}
                         className='py-3 object-cover w-full'
                         alt="Private Farmhouse for Rent Near Ameerpet"
+                        loading='lazy'
                     />
                 </div>
                 <div>
@@ -51,3 +53,19 @@ function Ameerpet() {
 }
 
 export default Ameerpet;
+
+export async function getServerSideProps({ req }) {
+
+    const host = req.headers.host;
+    const canonicalUrl = host.includes('.in')
+        ? 'https://www.dozzy.in/farmhouse-rentals-in-ameerpet'
+        : 'https://www.dozzy.com/farmhouse-rentals-in-ameerpet';
+
+    return {
+        props: {
+            canonicalUrl: canonicalUrl,
+        }
+    };
+
+
+}

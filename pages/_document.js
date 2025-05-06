@@ -13,6 +13,26 @@ export default function Document() {
         <link rel="icon" sizes="192x192" href="/web-app-manifest-192x192.png" />
         <link rel="icon" sizes="512x512" href="/web-app-manifest-512x512.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        <meta name="keyphrases" content="Affordable farmhouse rentals with swimming pools and gardens,Luxury and budget-friendly farmhouse stays for a relaxing escape,Private farmhouses for rent with scenic views and modern amenities,Top-rated farmhouses in Hyderabad for luxury stays" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              "name": "Dozzy App - Private Luxury Farmhouse Rental",
+              "description": "Top Rated Farmhouses in Hyderabad for Weddings, Haldhi, Mehndi, Parties and More. Enjoy Scenic Venues with Beautiful Setups for your Special Celebrations.",
+              "url": "https://www.dozzy.com/",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "bestRating": "5",
+                "ratingValue": "4.8",
+                "ratingCount": "465"
+              }
+            }),
+          }}
+        />
+
       </Head>
       <body>
         <Main />

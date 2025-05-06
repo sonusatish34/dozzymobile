@@ -8,18 +8,15 @@ import { FaRegComment } from "react-icons/fa";
 import Image from 'next/image';
 import Link from "next/link";
 import { BiCategory } from "react-icons/bi";
-import { CgProfile } from "react-icons/cg";
 import { IoTimeOutline } from "react-icons/io5";
-import { RiRectangleFill } from "react-icons/ri";
 import BlogLayout from '../blogcomponents/BlogLayout';
 import { MdExpandMore } from "react-icons/md";
 import Loading from '@/pages/components/Loading';
 import Head from 'next/head';
 import { IoMdVolumeHigh, IoMdVolumeOff } from "react-icons/io";
-function SinglePost({ canonicalUrl }) {
+function SinglePost({ canonicalUrl, postDisplay }) {
   const router = useRouter();
   const { slug } = router.query;
-  const [postDisplay, setPostDisplay] = useState(null);
   const [postlist, setPostlist] = useState([]);
   const [cat, setCat] = useState('');
   const [commentShow, setCommentShow] = useState(false);
@@ -32,7 +29,6 @@ function SinglePost({ canonicalUrl }) {
     const getVoices = () => {
       const voices = window.speechSynthesis.getVoices();
 
-      // Priority 1: Exact match for a common English voice name
       let selectedVoice = voices.find(v =>
         v.name.toLowerCase().includes('google') || // Common on Android
         v.name.toLowerCase().includes('microsoft') || // Common on Windows
@@ -104,7 +100,7 @@ function SinglePost({ canonicalUrl }) {
     window.speechSynthesis.speak(newUtterance);
     setUtterance(newUtterance);
   };
-  
+
   // States for likes and comments
   const [likesCount, setLikesCount] = useState(0);
   const [comments, setComments] = useState([]);
@@ -126,7 +122,6 @@ function SinglePost({ canonicalUrl }) {
         if (!querySnapshot.empty) {
           const postDoc = querySnapshot.docs[0];
           const postData = postDoc.data();
-          setPostDisplay(postData);
           setLikesCount(postData.likes || 0); // Set the likes count
           setComments(postData.comments || []); // Set the comments array
           setCat(postData?.categoryname); // Set the category
@@ -233,20 +228,19 @@ function SinglePost({ canonicalUrl }) {
   return (
     <div>
 
-      {loading ? <Loading /> : <BlogLayout>
+      {<BlogLayout>
         <section className="section">
           <Head>
-            <title> {postDisplay?.title}</title>
+            <title>{String(postDisplay?.title || 'Dozzy Blog')}</title>
             <meta name="description" content={postDisplay?.description} />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta property="og:title" content={postDisplay?.description} />
             <meta property="og:description" content={postDisplay?.description} />
-
             <link rel="canonical" href={canonicalUrl} />
           </Head>
           <div className='flex flex-col lg:px-0 py-2 lg:py-2 text-black'>
             <div className='xl:mx-96 lg:mx-56 mx-6 lg:px-0'>
-              <p className='lg:text-[40px] lg:leading-normal text-2xl font-bold lg:py-4 py-2 helvetica-font tracking-tight'>{postDisplay?.title}</p>
+              <h1 className='lg:text-[40px] lg:leading-normal text-2xl font-bold lg:py-4 py-2 helvetica-font tracking-tight'>{postDisplay?.title}</h1>
               <p className='helvetica-font text-[#6B6B6B] text-base lg:text-xl lg:pb-6 py-2 lg:py-4'>{postDisplay?.description}</p>
             </div>
             <div className='xl:mx-24 lg:mx-16 px-1 lg:px-0 py-3 lg:py-6'>
@@ -283,9 +277,8 @@ function SinglePost({ canonicalUrl }) {
                   )}
                 </button>
               </div>
-              {/* Rest of your component */}
               <ul className="py-2 flex  items-center justify-start gap-x-8 text-xs lg:text-base xl:mx-96 lg:mx-56 mx-6 ">
-                <li className="flex items-center gap-5"><span>{<p>{StaticData(postDisplay?.time.seconds)}</p>}</span>
+                <li className="flex items-center gap-5"><span>{<p>{StaticData(Math.floor(new Date(postDisplay?.time).getTime() / 1000))}</p>}</span>
                   <p>{postDisplay?.date.slice(0, 12)}</p>
                 </li>
               </ul>
@@ -346,7 +339,6 @@ function SinglePost({ canonicalUrl }) {
                 </div>
               </div>
             )}
-
             <div className="pt-4 xl:mx-96 lg:mx-56 mx-6 lg:px-0">
               <p className="text-xl font-semibold">Related Posts</p>
               <div className=" lg:grid-cols-2 grid grid-cols-2 lg:gap-x-8 lg:gap-y-20 gap-6 pt-6  lg:pt-6">
@@ -369,14 +361,12 @@ function SinglePost({ canonicalUrl }) {
                         {post?.title && post?.title.slice(0, 50)}
                       </Link>
                     </p>
-
                     <p className="text-left text-xs h-16 lg:block hidden  text-[#6B6B6B]">
                       {post?.description && post?.description.slice(0, 150)}...
                     </p>
                     <p className="text-left text-[10px] mxs:text-xs  h-14 block lg:hidden text-[#6B6B6B]">
                       {post?.description && post?.description.slice(0, 50)}...
                     </p>
-
                     <ul className=" pt-2 lg:pt-4 flex flex-wrap items-center space-x-4 text-xs">
                       <li className="flex items-center gap-1">
                         <BiCategory className="text-blue-400" />
@@ -386,13 +376,11 @@ function SinglePost({ canonicalUrl }) {
                             : postDisplay?.categoryname}
                         </span>
                       </li>
-
                       <li className="hidden lg:flex items-center gap-1">
                         <span><IoTimeOutline className="text-blue-400" /></span>
                         <span>{<p>{postDisplay?.date.slice(0, 12)}</p>}</span>
                       </li>
                     </ul>
-
                   </div>
                 )) : <p>No related posts found</p>}
               </div>
@@ -424,13 +412,11 @@ export async function getServerSideProps({ req, params }) {
 
     const q = query(collection(fireDb, "blogPost"), where("slug", "==", slug));
     const querySnapshot = await getDocs(q);
-
     if (querySnapshot.empty) {
       return {
         notFound: true,
       };
     }
-
 
     const postData = querySnapshot.docs[0].data();
 
@@ -438,7 +424,7 @@ export async function getServerSideProps({ req, params }) {
       ...postData,
       time: postData.time?.toDate().toISOString(),
     };
-  
+
 
     const canonicalUrl = host.includes('.in')
       ? `https://www.dozzy.in/blog/posts/${(postDisplay.slug)}`

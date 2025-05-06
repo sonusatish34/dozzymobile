@@ -28,7 +28,6 @@
 .helvetica-font {
   font-family: 'HVFont', sans-serif;
 }
-
 .georgia-font {
   font-family: 'georgia', sans-serif;
 }
@@ -252,5 +251,10 @@ body {
     font-size: 15px !important;
 
   }
+}
 
+.slick-dots 
+{
+  z-index: 50;
+  bottom: 22px !important;
 }

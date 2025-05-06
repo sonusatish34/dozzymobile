@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
 import ecil from './images/places/ecil.webp'
-function ECIL() {
+function ECIL({ canonicalUrl }) {
     return (
         <div className='bg-white'>
             <Head>
@@ -12,9 +12,10 @@ function ECIL() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta property="og:title" content=" No Deposit & Unlimited Members - Private Farmhouse for Rent Near ECIL" />
                 <meta property="og:description" content="Explore farmhouse rentals near ECIL for a peaceful getaway with family and friends." />
+                <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
-                <p className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near ECIL</p>
+                <h1 className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near ECIL</h1>
                 <div>
                     <Image
                         src={ecil}
@@ -50,3 +51,17 @@ function ECIL() {
 }
 
 export default ECIL;
+export async function getServerSideProps({ req }) {
+    const host = req.headers.host;
+    const canonicalUrl = host.includes('.in')
+        ? 'https://www.dozzy.in/farmhouse-rentals-in-ecil'
+        : 'https://www.dozzy.com/farmhouse-rentals-in-ecil';
+
+    return {
+        props: {
+            canonicalUrl: canonicalUrl,
+        }
+    };
+
+
+}

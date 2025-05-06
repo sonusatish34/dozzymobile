@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
 import shadnagar from './images/places/shadnagar.webp'
-function Shadnagar() {
+function Shadnagar({canonicalUrl}) {
     return (
         <div className='bg-white'>
             <Head>
@@ -12,9 +12,10 @@ function Shadnagar() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta property="og:title" content=" No Deposit & Unlimited Members - Farmhouse for Rent Around Shadnagar" />
                 <meta property="og:description" content="Discover farmhouse rentals around Shadnagar for a perfect getaway with family and friends, offering modern amenities and serene settings." />
+                <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div className='text-black lg:px-20 lg:pb-16 px-4 leading-9 lg:leading-10 pt-10 lg:pt-16'>
-                <p className='font-bold text-xl lg:text-3xl py-2'>Farmhouse for Rent Around Shadnagar</p>
+                <h1 className='font-bold text-xl lg:text-3xl py-2'>Farmhouse for Rent Around Shadnagar</h1>
                 <div>
                     <Image
                         src={shadnagar}
@@ -45,3 +46,16 @@ function Shadnagar() {
 }
 
 export default Shadnagar;
+
+export async function getServerSideProps({ req }) {
+    const host = req.headers.host;
+    const canonicalUrl = host.includes('.in')
+        ? 'https://www.dozzy.in/farmhouse-rentals-in-shadnagar'
+        : 'https://www.dozzy.com/farmhouse-rentals-in-shadnagar';
+
+    return {
+        props: {
+            canonicalUrl: canonicalUrl,
+        }
+    };
+}

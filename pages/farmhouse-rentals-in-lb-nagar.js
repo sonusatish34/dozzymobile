@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
 import lbnagar from './images/places/lbnagar.webp'
-function LBNagar() {
+function LBNagar({canonicalUrl}) {
     return (
         <div className='bg-white'>
             <Head>
@@ -12,9 +12,10 @@ function LBNagar() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta property="og:title" content="Farmhouses for Rent Near LB Nagar - Weekend Getaways" />
                 <meta property="og:description" content="Explore luxurious farmhouses near LB Nagar for a relaxing weekend getaway with modern amenities, perfect for family and private events." />
+                <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
-                <p className='font-bold text-xl lg:text-3xl py-2'>Farmhouses for Rent Near LB Nagar</p>
+                <h1 className='font-bold text-xl lg:text-3xl py-2'>Farmhouses for Rent Near LB Nagar</h1>
                 <div>
                     <Image
                         src={lbnagar}
@@ -43,3 +44,16 @@ function LBNagar() {
 }
 
 export default LBNagar;
+
+export async function getServerSideProps({ req }) {
+    const host = req.headers.host;
+    const canonicalUrl = host.includes('.in')
+        ? 'https://www.dozzy.in/farmhouse-rentals-in-lbnagar'
+        : 'https://www.dozzy.com/farmhouse-rentals-in-lbnagar';
+
+    return {
+        props: {
+            canonicalUrl: canonicalUrl,
+        }
+    };
+}

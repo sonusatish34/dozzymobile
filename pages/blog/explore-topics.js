@@ -33,13 +33,13 @@ const ComponentName = ({ canonicalUrl }) => {
         <BlogLayout>
             <Head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <title>Private Farmhouse for Rent in Hyderabad</title>
+                <title>Private Farmhouse Rental @ 6K/Day - Cheapest FarmStay Near U</title>
                 <meta name="robots" content="index, follow" />
                 <meta name="keywords" content="farmhouses in Hyderabad, cheapest farmhouse rentals, farmhouses near me, farmhouse rentals, top farmhouses in Hyderabad, private farmhouses for rent, rent a farmhouse, farmhouses for celebrations" />
-                <meta name="description" content="Top Rated Farmhouses in Hyderabad for Weddings, Haldhi, Mehndi, Parties and More. Enjoy Scenic Venues with Beautiful Setups for your Special Celebrations." />
+                <meta name="description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends – Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta property="og:title" content="Private Farmhouse for Rent in Hyderabad" />
-                <meta name="og:description" content="Top Rated Farmhouses in Hyderabad for Weddings, Haldhi, Mehndi, Parties and More. Enjoy Scenic Venues with Beautiful Setups for your Special Celebrations." />
+                <meta property="og:title" content="Private Farmhouse Rental @ 6K/Day - Cheapest FarmStay Near U" />
+                <meta name="og:description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends – Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
 
                 <link rel="canonical" href={canonicalUrl} />
             </Head>

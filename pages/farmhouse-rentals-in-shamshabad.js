@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Head from 'next/head';
 import shamshabad from './images/places/shamshabad2.webp';
 
-function ShamshabadFarmhouses() {
+function ShamshabadFarmhouses({ canonicalUrl }) {
     return (
         <div className='bg-white'>
             <Head>
@@ -13,9 +13,10 @@ function ShamshabadFarmhouses() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta property="og:title" content="Premium Farmhouses for Rent Near Shamshabad - Ideal for Family and Business Getaways" />
                 <meta property="og:description" content="Explore premium farmhouses near Shamshabad for a perfect stay with family, friends, or business trips." />
+                <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
-                <p className='font-bold text-xl lg:text-3xl py-2'>Farmhouses Near Shamshabad</p>
+                <h1 className='font-bold text-xl lg:text-3xl py-2'>Farmhouses Near Shamshabad</h1>
                 <div>
                     <Image
                         src={shamshabad}
@@ -50,3 +51,17 @@ function ShamshabadFarmhouses() {
 }
 
 export default ShamshabadFarmhouses;
+
+export async function getServerSideProps({ req }) {
+    const host = req.headers.host;
+    const canonicalUrl = host.includes('.in')
+        ? 'https://www.dozzy.in/farmhouse-rentals-in-shamshabad'
+        : 'https://www.dozzy.com/farmhouse-rentals-in-shamshabad';
+
+    return {
+        props: {
+            canonicalUrl: canonicalUrl,
+        }
+    };
+}
+

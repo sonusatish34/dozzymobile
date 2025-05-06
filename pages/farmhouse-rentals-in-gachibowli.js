@@ -3,18 +3,20 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
 import gac from './images/places/gachibowli.webp'
-function Gachibowli() {
+function Gachibowli({canonicalUrl}) {
     return (
         <div className='bg-white'>
             <Head>
                 <title> No Deposit & Unlimited Members - Private Farmhouse for Rent Near Gachibowli</title>
-                <meta name="description" content="No Deposit & Unlimited Members - Private Farmhouse for Rent Near Gachibowli" />
+                <meta name="description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends - Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
+                <meta name="og:description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends - Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
+                <link rel="canonical" href="https://www.dozzy.com/farmhouse-rentals-in-gachibowli" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta property="og:title" content=" No Deposit & Unlimited Members - Private Farmhouse for Rent Near Gachibowli" />
-                <meta property="og:description" content="No Deposit & Unlimited Members - Private Farmhouse for Rent Near Gachibowli" />
+                <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
-                <p className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near Gachibowli</p>
+                <h1 className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near Gachibowli</h1>
                 <div>
                     <Image
                         src={gac}
@@ -47,3 +49,17 @@ function Gachibowli() {
 }
 
 export default Gachibowli;
+export async function getServerSideProps({ req }) {
+    const host = req.headers.host;
+    const canonicalUrl = host.includes('.in')
+        ? 'https://www.dozzy.in/farmhouse-rentals-in-gachibowli'
+        : 'https://www.dozzy.com/farmhouse-rentals-in-gachibowli';
+
+    return {
+        props: {
+            canonicalUrl: canonicalUrl,
+        }
+    };
+
+
+}

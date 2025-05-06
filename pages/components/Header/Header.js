@@ -31,7 +31,7 @@ const Header = (locname) => {
   }, [isOpen]);
 
   return (
-    
+
     <div className="font-bold  text-lg px-5 md:px-12 lg:px-20 py-4 flex justify-between lg:items-center border-b-2 border-gray-200">
       <Link href="/">
         <p className="text-3xl lg:text-5xl text-[#556EE6]">Dozzy</p>
@@ -58,23 +58,30 @@ const Header = (locname) => {
           </div>
         </div>
       </div>
-      <div className='lg:hidden block pt-2 '>
+      <div className='lg:hidden block pt-2'>
         <button
           ref={buttonRef}
           className="top-[2.5rem] right-5 z-40 text-[#556ee6] flex items-center"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
-          <svg className="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path fillRule="evenodd" clipRule="evenodd" d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z" />
-          </svg>
+          {!isOpen ? (
+            <svg className="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path fillRule="evenodd" clipRule="evenodd" d="M4 6h16v2H4V6zm0 5h16v2H4v-2zm0 5h16v2H4v-2z" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path fillRule="evenodd" clipRule="evenodd" d="M18.707 5.293a1 1 0 0 0-1.414 0L12 9.586 6.707 4.293a1 1 0 1 0-1.414 1.414L10.586 11l-5.293 5.293a1 1 0 0 0 1.414 1.414L12 12.414l5.293 5.293a1 1 0 0 0 1.414-1.414L13.414 11l5.293-5.293a1 1 0 0 0 0-1.414z" />
+            </svg>
+          )}
         </button>
       </div>
       <nav
         ref={menuRef}
-        className={`w-11/12 top-[68px] border border-gray-300 font absolute bg-white rounded-b-md p-2 pt-6 lg:pr-16 left-8 z-50 transition-transform duration-300 ease-in-out ${isOpen ? 'block' : 'hidden'}`}
+        className={`w-11/12 top-[68px] right-[1px] border border-gray-300 font absolute bg-white rounded-b-md p-2 pt-6 lg:pr-16 z-50 transition-transform duration-500 ease-out ${isOpen ? 'block' : 'hidden'}`}
         style={{
           transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
+          left: isOpen ? 'auto' : '100%',
         }}
       >
         <Link href={'/'}>

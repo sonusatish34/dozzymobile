@@ -15,7 +15,7 @@ const CareGuests = () => {
     <div className="lg:px-20 py-4">
       <div className="">
         <div className="">
-          <p className="font-semibold pb-4 px-4 md:text-2xl lg:text-4xl lg:py-8 font-poppins">
+          <p className="font-semibold pb-4 px-4 md:text-2xl lg:text-4xl lg:py-8 ">
             How We Care About Our Guests
           </p>
           <div className="bg-white rounded-md">

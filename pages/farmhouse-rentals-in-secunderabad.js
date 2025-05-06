@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image';
 import Head from 'next/head';
 import secunderabad from './images/places/secunderabad.webp'
-function Secunderabad() {
+function Secunderabad({canonicalUrl}) {
     return (
         <div className='bg-white'>
             <Head>
@@ -11,9 +11,10 @@ function Secunderabad() {
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta property="og:title" content=" No Deposit & Unlimited Members - Private Farmhouse for Rent Near Secunderabad" />
                 <meta property="og:description" content="Explore farmhouse rentals near Secunderabad for a peaceful and relaxing getaway with family and friends." />
+                <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
-                <p className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near Secunderabad</p>
+                <h1 className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near Secunderabad</h1>
                 <div>
                     <Image
                         src={secunderabad}
@@ -46,3 +47,16 @@ function Secunderabad() {
 }
 
 export default Secunderabad;
+
+export async function getServerSideProps({ req }) {
+    const host = req.headers.host;
+    const canonicalUrl = host.includes('.in')
+        ? 'https://www.dozzy.in/farmhouse-rentals-in-secunderabad'
+        : 'https://www.dozzy.com/farmhouse-rentals-in-secunderabad';
+
+    return {
+        props: {
+            canonicalUrl: canonicalUrl,
+        }
+    };
+}
