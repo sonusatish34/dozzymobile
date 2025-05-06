@@ -21,25 +21,31 @@ const FarmProductLPage = ({ count, FHList }) => {
     const sliderRef = useRef(null);
 
     useEffect(() => {
-        const sliderNode = sliderRef.current?.innerSlider?.list;
+        const slider = sliderRef.current;
 
         const handleTouchStart = () => {
-            sliderRef.current?.slickPause();
+            slider?.slickPause?.();
         };
 
         const handleTouchEnd = () => {
-            sliderRef.current?.slickPlay();
+            slider?.slickPlay?.();
         };
 
-        if (sliderNode) {
-            sliderNode.addEventListener("touchstart", handleTouchStart);
-            sliderNode.addEventListener("touchend", handleTouchEnd);
-        }
+        // Wait for slider DOM to mount
+        const interval = setInterval(() => {
+            const trackNode = slider?.innerSlider?.list;
+            if (trackNode) {
+                trackNode.addEventListener("touchstart", handleTouchStart, { passive: true });
+                trackNode.addEventListener("touchend", handleTouchEnd, { passive: true });
+                clearInterval(interval);
+            }
+        }, 100);
 
         return () => {
-            if (sliderNode) {
-                sliderNode.removeEventListener("touchstart", handleTouchStart);
-                sliderNode.removeEventListener("touchend", handleTouchEnd);
+            const trackNode = slider?.innerSlider?.list;
+            if (trackNode) {
+                trackNode.removeEventListener("touchstart", handleTouchStart);
+                trackNode.removeEventListener("touchend", handleTouchEnd);
             }
         };
     }, []);
@@ -61,6 +67,8 @@ const FarmProductLPage = ({ count, FHList }) => {
         pauseOnHover: true,
         speed: 1000,
         autoplaySpeed: 1500,
+        autoplaySpeed: 3000,
+        cssEase: "linear",
         responsive: [
             {
                 breakpoint: 1440,
@@ -164,7 +172,7 @@ const FarmProductLPage = ({ count, FHList }) => {
     return (
         <>
             <div>
-                {groupByPrice && typeof groupByPrice === 'object' &&  Object?.keys(groupByPrice)
+                {groupByPrice && typeof groupByPrice === 'object' && Object?.keys(groupByPrice)
                     .sort((a, b) => a - b)
                     ?.map((priceKey) => (
                         <div
