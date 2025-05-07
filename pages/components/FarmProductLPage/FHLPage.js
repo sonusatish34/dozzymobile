@@ -9,6 +9,8 @@ import dzyqr from '../../images/dzyqr.png'
 import { IoIosBed } from "react-icons/io";
 import { FaAppStore } from "react-icons/fa";
 import Slider from 'react-slick';
+import PopUp from "../Popup";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { BiLogoPlayStore } from "react-icons/bi";
@@ -37,13 +39,14 @@ const FarmProductLPage = ({ count, FHList }) => {
     const TimeCard = ({ price, hrs, checkin, checkout }) => {
         return (
             <div className="flex justify-between font-normal text-xs ">
-                <div className="flex flex-col gap-y-2 border-2 border-gray-300 rounded-lg p-1">
+                <div className="flex flex-col gap-y-2 border-2 border-[#F5F5F5] rounded-lg p-1">
                     <div><p className="underline tracking-wide text-xs mxs:text-sm text-[#556EE6]">{price} / {hrs} hrs</p></div>
-                    <div className="flex items-center text-center gap-x-1 text-[7px] mxs:text-[9px]">
+                    <div className="flex items-center text-center lg:gap-x-1 text-[6px] mxs:text-[8px]">
                         <ul>
                             <li>{checkin}</li>
                             <li>check - in</li>
                         </ul>
+                        <ul><li className="text-[#F5F5F5]">|</li></ul>
                         <ul >
                             <li className="borde=">{checkout}</li>
                             <li>check - out</li>
@@ -99,7 +102,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                     href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
                                 >
                                     <Image
-                                        className="rounded-t-lg xl:h-[410px] lg:h-[370px] h-[395px] mxs:h-[400px] object-cover"
+                                        className="rounded-t-lg xl:h-[410px] lg:h-[370px] h-[395px] mxs:h-[400px] object-cover  cursor-pointer"
                                         src={item?.images[0]}
                                         alt={"postDisplay?.cialt"}
                                         width={2000}
@@ -109,7 +112,6 @@ const FarmProductLPage = ({ count, FHList }) => {
                                 <div className="px- flex flex-col justify-center  gap-4">
                                     <div className="flex items-baseline justify-between px-2 py-2">
                                         <div>
-
                                             <Link
                                                 className="text-[#556EE6] xl:text-2xl lg:text-lg text-base font-semibold uppercase" href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
                                             >
@@ -222,7 +224,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                 </Link>
             </div>
 
-
+           <PopUp/>
         </div>
     );
 

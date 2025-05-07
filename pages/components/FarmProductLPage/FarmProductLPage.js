@@ -203,8 +203,8 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                                     </p>
 
                                                                 </div>
-                                                               
-                                                            
+
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -288,13 +288,12 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                         </p>
 
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
                                         </div>
 
                                     </React.Fragment>
-
 
                                 ))}
                         </div>
