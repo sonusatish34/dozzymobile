@@ -153,7 +153,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                                         {(item.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())}
                                                                     </Link>
                                                                     <Link onClick={(e) => LinkCall(e, `/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`)} href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}>
-                                                                        <p className="text-gray-900 text-xs lg:text-md opacity-75 font-Montserrat">Book in Dozzy App ( {item.no_of_bedrooms} BHK )</p>
+                                                                        <p className="text-gray-900 text-xs lg:text-md opacity-75 font-Montserrat">Book in Dozzy App (<span className="font-bold text-black">{item.no_of_bedrooms} BHK</span>  )</p>
                                                                     </Link>
                                                                 </div>
                                                                 <div>
@@ -203,49 +203,8 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                                     </p>
 
                                                                 </div>
-                                                                <div onClick={() => { setShowDown(true) }} className="flex  justify-center items-center cursor-pointer text-black py-4 text-lg font-semibold">
-                                                                    <p className="bg-gradient-to-r from-green-600 via-[#556ee6] to-indigo-400 text-transparent bg-clip-text animate-gradient border-[1px] border-[#5566ee] p-2 rounded-md lg:block hidden">
-                                                                        Download Dozzy App
-                                                                    </p>
-                                                                </div>
-                                                                {showDown && (
-                                                                    <div >
-                                                                        <div className='text-black fixed inset-0 backdrop-blur-0 bg-[#1f1f1f] bg-opacity-5 z-50  h-'>
-                                                                            <div className='flex justify-center items-center '>
-                                                                                <div className='bg-white absolute top-20 h-[500px] lg:h-[300px] transition-all duration-300 ease-in-out p-8 rounded-lg shadow-md max-w-lg lg:w-[800px] w-[500px]'>
-                                                                                    <button
-                                                                                        onClick={() => {
-                                                                                            setShowDown(false)
-                                                                                        }}
-                                                                                        className='relative lg:left-96 rounded-full bg-white lg:bottom-20 text-black py-2 px-4 text-xl border-2 border-gray-300 w-10 h-10'
-                                                                                    >
-                                                                                        <span className="relative bottom-1 right-[1px] ">x</span>
-                                                                                    </button>
-                                                                                    <div className="flex gap-3">
-                                                                                        <div>
-                                                                                            <h2 className="text-base font-semibold text-gray-900">
-                                                                                                Download the Dozzy App and Book Your Preferred Farmhouse
-                                                                                            </h2>
-                                                                                            <ul className="mt-2 text-gray-600">
-                                                                                                <li>Scan the QR code to get the app from the Play Store or App Store.</li>
-                                                                                                <li className="flex gap-x-3 pt-3"><FaAppStore className="text-black" size={30} /> <BiLogoPlayStore className="text-black" size={30} /></li>
-                                                                                            </ul>
-
-                                                                                        </div>
-
-                                                                                        <Image
-                                                                                            src={dzyqr}
-                                                                                            height={1000}
-                                                                                            width={1000}
-                                                                                            alt='dozzy farmhouse logo'
-                                                                                            className='w-full h-44 object-contain'
-                                                                                        />
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                )}
+                                                               
+                                                            
                                                             </div>
                                                         </div>
                                                     </div>
@@ -279,7 +238,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                             {(item.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())}
                                                         </Link>
                                                         <Link onClick={(e) => LinkCall(e, `/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`)} href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}>
-                                                            <p className="text-gray-900 text-xs lg:text-md opacity-75 font-Montserrat">Book in Dozzy App ( {item.no_of_bedrooms} BHK )</p>
+                                                            <p className="text-gray-900 text-xs lg:text-md opacity-75 font-Montserrat">Book in Dozzy App (<span className="font-bold text-black">{item.no_of_bedrooms} BHK</span>  )</p>
                                                         </Link>
                                                     </div>
                                                     <div>
@@ -329,50 +288,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                         </p>
 
                                                     </div>
-                                                    <div onClick={() => { setShowDown(true) }} className="flex  justify-center items-center cursor-pointer text-black py-4 text-lg font-semibold">
-                                                        <p className="bg-gradient-to-r from-green-600 via-[#556ee6] to-indigo-400 text-transparent bg-clip-text animate-gradient border-[1px] border-[#5566ee] p-2 rounded-md lg:block hidden">
-                                                            Download Dozzy App
-                                                        </p>
-                                                    </div>
-                                                    {showDown && (
-                                                        <div >
-                                                            <div className='text-black fixed inset-0 backdrop-blur-0 bg-[#1f1f1f] bg-opacity-5 z-50  h-'>
-                                                                <div className='flex justify-center items-center '>
-                                                                    <div className='bg-white absolute top-20 h-[500px] lg:h-[300px] transition-all duration-300 ease-in-out p-8 rounded-lg shadow-md max-w-lg lg:w-[800px] w-[500px]'>
-                                                                        <button
-                                                                            onClick={() => {
-                                                                                setShowDown(false)
-                                                                            }}
-                                                                            className='relative lg:left-96 rounded-full bg-white lg:bottom-20 text-black py-2 px-4 text-xl border-2 border-gray-300 w-10 h-10'
-                                                                        >
-                                                                            <span className="relative bottom-1 right-[1px] ">x</span>
-                                                                        </button>
-                                                                        <div className="flex gap-3">
-                                                                            <div>
-                                                                                <h2 className="text-base font-semibold text-gray-900">
-                                                                                    Download the Dozzy App and Book Your Preferred Farmhouse
-                                                                                </h2>
-                                                                                <ul className="mt-2 text-gray-600">
-                                                                                    <li>Scan the QR code to get the app from the Play Store or App Store.</li>
-                                                                                    <li className="flex gap-x-3 pt-3"><FaAppStore className="text-black" size={30} /> <BiLogoPlayStore className="text-black" size={30} /></li>
-                                                                                </ul>
-
-                                                                            </div>
-
-                                                                            <Image
-                                                                                src={dzyqr}
-                                                                                height={1000}
-                                                                                width={1000}
-                                                                                alt='dozzy farmhouse logo'
-                                                                                className='w-full h-44 object-contain'
-                                                                            />
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    )}
+                                                    
                                                 </div>
                                             </div>
                                         </div>
