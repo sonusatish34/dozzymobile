@@ -38,21 +38,24 @@ const FarmStarts = () => {
                     </div>
                 </div>
             </div>
+            <div className='pt-10'>
+                <p className="lg:flex hidden text-4xl font-bold ">Offers And Discounts</p>
             <div className='lg:flex-row flex flex-col gap-10 justify-center lg:px-10'>
-                <Image
-                    className="h-fit w-full"
-                    src={'/offers/1rpdozzy.webp'}
-                    alt={"postDisplay?.cialt"}
-                    width={1000}
-                    height={1000}
-                />
-                <Image
-                    className="h-fit w-full"
-                    src={'/offers/newuserdozzy.webp'}
-                    alt={"postDisplay?.cialt"}
-                    width={1000}
-                    height={1000}
-                />
+                    <Image
+                        className="h-fit w-full"
+                        src={'/offers/1rpdozzy.webp'}
+                        alt={"postDisplay?.cialt"}
+                        width={1000}
+                        height={1000}
+                    />
+                    <Image
+                        className="h-fit w-full"
+                        src={'/offers/newuserdozzy.webp'}
+                        alt={"postDisplay?.cialt"}
+                        width={1000}
+                        height={1000}
+                    />
+                </div>
             </div>
         </div>
     )

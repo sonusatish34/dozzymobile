@@ -63,7 +63,7 @@ const FarmProductLPage = ({ count, FHList }) => {
         return (
             <div className="flex justify-between font-normal text-xs ">
                 <div className="flex flex-col gap-y-2 border-2 border-[#F5F5F5] rounded-lg p-1 mxs:p-2">
-                    <div><p className="underline tracking-wide text-xs mxs:text-sm text-[#556EE6]">{price} / {hrs} hrs</p></div>
+                    <div><p className="underline tracking-wide text-xs mxs:text-sm text-[#556EE6] ">{price} / {hrs} hrs</p></div>
                     <div className="flex items-center text-center lg:gap-x-1 gap-x-1 text-[6px] mxs:text-[7px]">
                         <ul className="capitalize">
                             <li>{checkin}</li>
