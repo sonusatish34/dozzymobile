@@ -42,12 +42,12 @@ const FarmProductLPage = ({ count, FHList }) => {
                 <div className="flex flex-col gap-y-2 border-2 border-[#F5F5F5] rounded-lg p-1">
                     <div><p className="underline tracking-wide text-xs mxs:text-sm text-[#556EE6]">{price} / {hrs} hrs</p></div>
                     <div className="flex items-center text-center lg:gap-x-1 text-[6px] mxs:text-[8px]">
-                        <ul>
+                        <ul className="capitalize">
                             <li>{checkin}</li>
                             <li>check - in</li>
                         </ul>
-                        <ul><li className="text-[#F5F5F5]">|</li></ul>
-                        <ul >
+                        <ul><li className="text-[#F5F5F5] text-base">|</li></ul>
+                        <ul>
                             <li className="borde=">{checkout}</li>
                             <li>check - out</li>
                         </ul>
@@ -92,10 +92,10 @@ const FarmProductLPage = ({ count, FHList }) => {
                 </p>
             </div>
             <div>
-                <div className="flex flex-wrap xl:gap-x-12 xl:gap-y-12 md:gap-x-8 md:gap-y-8 gap-y-8 lg:items-start justify-center  lg:px-20 items-center">
+                <div className="flex flex-wrap xl:gap-x-12 xl:gap-y-12 md:gap-x-8 md:gap-y-8 gap-y-8 lg:items-start justify-center  lg:px-20 items-center px-1">
                     {sortedData?.slice(0, count ? sortedData?.length : mobileC ? 10 : 12).map((item, index) => (
                         <React.Fragment >
-                            <div className="bg-red-2 rounded-lg shadow-lg overflow-hidden flex justify-center flex-col xl:w-[360px] lg:w-[260px] w-[100%]  md:w-80 h-[680px] rounded-t-lg ">
+                            <div className="bg-red-2 rounded-lg overflow-hidden flex justify-center flex-col xl:w-[360px] lg:w-[260px] w-[100%]  md:w-80 h-[680px] rounded-t-lg ">
                                 <div
                                     key={index}
                                     onClick={(e) => LinkCall(e, `/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`)}
@@ -113,7 +113,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                     <div className="flex items-baseline justify-between px-2 py-2">
                                         <div>
                                             <Link
-                                                className="text-[#556EE6] xl:text-2xl lg:text-lg text-base font-semibold uppercase" href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
+                                                className="text-[#556EE6] xl:text-xl lg:text-lg text-base font-semibold uppercase" href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
                                             >
                                                 {(item.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())}
                                             </Link>

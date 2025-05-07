@@ -215,89 +215,98 @@ const FarmProductLPage = ({ count, FHList }) => {
                                 </div> :
                                 groupByPrice[priceKey].map((item, index) => (
                                     <React.Fragment >
-                                        <div className="bg-red-2 rounded-lg shadow-lg  flex justify-center flex-col xl:w-[360px] lg:w-[260px] w-[100%] px-1 md:w-80 h-[680px] rounded-t-lg ">
-                                            <div
-                                                key={index}
-                                                onClick={(e) => LinkCall(e, `/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`)}
-                                                href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
-                                            >
-                                                <Image
-                                                    className="rounded-t-lg xl:h-[410px] lg:h-[370px] h-[395px] mxs:h-[400px] object-cover"
-                                                    src={item?.images[0]}
-                                                    alt={"postDisplay?.cialt"}
-                                                    width={2000}
-                                                    height={2000}
-                                                />
-                                            </div>
-                                            <div className="px- flex flex-col justify-center  gap-4">
-                                                <div className="flex items-baseline justify-between px-2 py-2">
-                                                    <div>
-                                                        <Link
-                                                            className="text-[#556EE6] xl:text-2xl lg:text-lg text-base font-semibold uppercase" href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
+                                                    <div className="bg-red-2 rounded-lg  overflow-hidden flex justify-center flex-col xl:w-[360px] lg:w-[260px] w-[100%] px-1 md:w-80 h-[680px] rounded-t-lg ">
+                                                        <div
+                                                            key={index}
+                                                            onClick={(e) => LinkCall(e, `/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`)}
+                                                            href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
                                                         >
-                                                            {(item.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())}
-                                                        </Link>
-                                                        <Link onClick={(e) => LinkCall(e, `/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`)} href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}>
-                                                            <p className="text-gray-900 text-xs lg:text-md opacity-75 font-Montserrat">Book in Dozzy App (<span className="font-bold text-black">{item.no_of_bedrooms} BHK</span>  )</p>
-                                                        </Link>
-                                                    </div>
-                                                    <div>
-                                                        <div className="flex flex-col gap-2 text-[10px] items-center pt-2">
-                                                            <p><span className="text-blue-500">500</span> Added in Dozzy Wallet</p>
-                                                            <p className="text-black">Use 500 for First Booking</p>
+                                                            <Image
+                                                                className="rounded-t-lg xl:h-[410px] lg:h-[370px] h-[395px] mxs:h-[400px] object-cover"
+                                                                src={item?.images[0]}
+                                                                alt={"postDisplay?.cialt"}
+                                                                width={2000}
+                                                                height={2000}
+                                                            />
+                                                        </div>
+                                                        <div className="px- flex flex-col justify-center  gap-4">
+                                                            <div className="flex items-baseline justify-between px-2 py-2">
+                                                                <div>
+
+                                                                    <Link
+                                                                        className="text-[#556EE6] xl:text-2xl lg:text-lg text-base font-semibold uppercase" href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
+                                                                    >
+                                                                        {(item.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())}
+                                                                    </Link>
+                                                                    <Link onClick={(e) => LinkCall(e, `/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`)} href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}>
+                                                                        <p className="text-gray-900 text-xs lg:text-md opacity-75 font-Montserrat">Book in Dozzy App (<span className="font-bold text-black">{item.no_of_bedrooms} BHK</span>  )</p>
+                                                                    </Link>
+                                                                </div>
+                                                                <div>
+                                                                    <div className="flex flex-col gap-2 text-[10px] items-center pt-2">
+                                                                        <p><span className="text-blue-500">500</span> Added in Dozzy Wallet</p>
+                                                                        <p className="text-black">Use 500 for First Booking</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div className="flex justify-between px-2">
+                                                                <TimeCard price={item.customer_night_prices} hrs={'11'} checkin={'9am'} checkout={'8pm'} />
+                                                                <TimeCard price={item.customer_night_prices} hrs={'11'} checkin={'9pm'} checkout={'8am'} />
+                                                                <TimeCard price={item.property_price} hrs={'24'} checkin={'12pm'} checkout={'10am'} />
+
+                                                            </div>
+
+                                                            <div className="flex flex-col justify-between  text-white">
+                                                                <ul className="flex justify-center gap-x-1 w-full px-3 pb-4">
+                                                                    <li className="bg-[#74C184] w-full py-3 px-2  text-center rounded-md ">
+                                                                        {" "}
+                                                                        <Link
+                                                                            href={`https://api.whatsapp.com/send/?phone=919666655973&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0`}
+                                                                            target="_blank"
+                                                                        >
+                                                                            <p className=" flex gap-1 lg:text-sm text-xs justify-center items-center">
+                                                                                <span>
+                                                                                    <FaWhatsapp size={20} />
+                                                                                </span>{" "}
+                                                                                <span>Whatsapp Us</span>
+                                                                            </p>
+                                                                        </Link>
+                                                                    </li>
+                                                                    <li className="bg-[#556EE6] w-full py-3 px-2 rounded-md ">
+                                                                        <Link href={`tel:9666655973`} target="_blank">
+                                                                            <p className=" flex gap-1 lg:text-sm text-xs justify-center items-center">
+                                                                                <span>
+                                                                                    <BiPhoneCall size={20} />
+                                                                                </span>{" "}
+                                                                                <span>Call Us</span>
+                                                                            </p>
+                                                                        </Link>
+                                                                    </li>
+                                                                </ul>
+                                                                <div onClick={handleStoreRedirect} className="flex lg:hidden justify-center items-center cursor-pointer text-white text-lg font- bg-[#102E50] py-2 rounded-b-lg ">
+                                                                    <p className="text-[11px]">
+                                                                        To View More Farm houses Download Dozzy App
+                                                                    </p>
+
+                                                                </div>
+
+
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div className="flex justify-between px-2">
-                                                    <TimeCard price={item.customer_night_prices} hrs={'11'} checkin={'9am'} checkout={'8pm'} />
-                                                    <TimeCard price={item.customer_night_prices} hrs={'11'} checkin={'9pm'} checkout={'8am'} />
-                                                    <TimeCard price={item.property_price} hrs={'24'} checkin={'12pm'} checkout={'10am'} />
-
-                                                </div>
-
-                                                <div className="flex flex-col justify-between  text-white">
-                                                    <ul className="flex justify-center gap-x-1 w-full px-3 pb-4">
-                                                        <li className="bg-[#74C184] w-full py-3 px-2  text-center rounded-md ">
-                                                            {" "}
-                                                            <Link
-                                                                href={`https://api.whatsapp.com/send/?phone=919666655973&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0`}
-                                                                target="_blank"
-                                                            >
-                                                                <p className=" flex gap-1 lg:text-sm text-xs justify-center items-center">
-                                                                    <span>
-                                                                        <FaWhatsapp size={20} />
-                                                                    </span>{" "}
-                                                                    <span>Whatsapp Us</span>
-                                                                </p>
-                                                            </Link>
-                                                        </li>
-                                                        <li className="bg-[#556EE6] w-full py-3 px-2 rounded-md ">
-                                                            <Link href={`tel:9666655973`} target="_blank">
-                                                                <p className=" flex gap-1 lg:text-sm text-xs justify-center items-center">
-                                                                    <span>
-                                                                        <BiPhoneCall size={20} />
-                                                                    </span>{" "}
-                                                                    <span>Call Us</span>
-                                                                </p>
-                                                            </Link>
-                                                        </li>
-                                                    </ul>
-                                                    <div onClick={handleStoreRedirect} className="flex lg:hidden justify-center items-center cursor-pointer text-white text-lg font- bg-[#102E50] py-2 rounded-b-lg ">
-                                                        <p className="text-[11px]">
-                                                            To View More Farm houses Download Dozzy App
-                                                        </p>
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </React.Fragment>
-
+                                                </React.Fragment>
                                 ))}
                         </div>
                     ))}
+                <div className={`${count?.length ? 'hidden' : 'block'} text-center py-4 lg:px-2 px-10 flex justify-center items-center`}>
+                    <Link onClick={(e) => LinkCall(e, "/explore-all-farmhouses-in-hyderabad")}
+                        href="/explore-all-farmhouses-in-hyderabad" className="flex flex-col items-center spinner-border text-lg lg:text-2xl font-bold text-[#556ee6] w-full lg:w-96 py-8 rounded-full capitalize">
+                        <p
+                            className=""
+                        >View all farm houses</p>
+                        <RiArrowDownWideLine className="animate-pulse text-black" size={40} />
+                    </Link>
+                </div>
                 <PopUp />
             </div>
         </>

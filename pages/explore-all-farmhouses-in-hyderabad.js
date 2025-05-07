@@ -1,5 +1,6 @@
 import React from 'react'
 import FarmProductLPage from './components/FarmProductLPage/FarmProductLPage'
+import FHLPage from './components/FarmProductLPage/FHLPage'
 import Head from 'next/head';
 function exploreallfarmhouses({ canonicalUrl, filteredFHS }) {
   return (
@@ -109,7 +110,7 @@ function exploreallfarmhouses({ canonicalUrl, filteredFHS }) {
         </noscript>
         {/* End Meta Pixel Code */}
       </Head>
-      <FarmProductLPage count='all' FHList={filteredFHS} />
+      <FHLPage count='all' FHList={filteredFHS} />
     </div>
   )
 }
@@ -133,10 +134,6 @@ export async function getServerSideProps({ req }) {
 
     return [
       imageMap["farmhouse_front_view"],
-      imageMap["building_outside_pic_1"],
-      imageMap["swimming_pool_pic_1"],
-      imageMap["bedroom_1_0"],
-      imageMap["garden_pic_1"]
     ];
   };
 
@@ -149,6 +146,7 @@ export async function getServerSideProps({ req }) {
       property_price: car.property_price,
       weekend_price: car.weekend_price,
       no_of_bedrooms: car.no_of_bedrooms,
+      customer_night_prices: car.customer_night_prices,
       images: getOrderedImages(car.images)
     }));
     return {
