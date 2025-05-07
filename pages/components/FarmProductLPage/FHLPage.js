@@ -6,15 +6,10 @@ import { useState } from "react";
 import { BiPhoneCall } from "react-icons/bi";
 import { FaWhatsapp } from "react-icons/fa";
 import dzyqr from '../../images/dzyqr.png'
-import { IoIosBed } from "react-icons/io";
 import { FaAppStore } from "react-icons/fa";
-import Slider from 'react-slick';
 import PopUp from "../Popup";
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { BiLogoPlayStore } from "react-icons/bi";
 import { RiArrowDownWideLine } from "react-icons/ri";
+import { BiLogoPlayStore } from "react-icons/bi";
 
 
 const FarmProductLPage = ({ count, FHList }) => {
@@ -30,12 +25,6 @@ const FarmProductLPage = ({ count, FHList }) => {
         }
     }, [])
 
-    function capitalizeFirstLetter(input) {
-        return input
-            .split(' ') // Split the string into words
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize the first letter of each word
-            .join(' '); // Join the words back together with spaces
-    }
     const TimeCard = ({ price, hrs, checkin, checkout }) => {
         return (
             <div className="flex justify-between font-normal text-xs ">
@@ -56,27 +45,6 @@ const FarmProductLPage = ({ count, FHList }) => {
             </div>
         )
     }
-
-    const handleStoreRedirect = () => {
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            // Redirect to App Store if iOS
-            window.open(
-                "https://apps.apple.com/in/app/dozzy-farmhouse-rental/id6670319530",
-                "_blank"
-            );
-        } else if (/android/i.test(userAgent)) {
-            // Redirect to Play Store if Android
-            window.open(
-                "https://play.google.com/store/apps/details?id=com.dozzy_customer",
-                "_blank"
-            );
-        } else {
-            // Optional: Provide a message for non-mobile devices
-            alert("App is available only on mobile devices.");
-        }
-    };
 
     const [showDown, setShowDown] = useState(false)
 
@@ -224,7 +192,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                 </Link>
             </div>
 
-           <PopUp/>
+            <PopUp />
         </div>
     );
 

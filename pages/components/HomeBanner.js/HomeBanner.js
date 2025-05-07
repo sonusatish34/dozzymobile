@@ -9,18 +9,12 @@ import { TbDiscount } from "react-icons/tb";
 import { MdSportsCricket } from "react-icons/md";
 import { TbKayak } from "react-icons/tb";
 import { BiCameraMovie } from "react-icons/bi";
-import { MdOutlineSportsVolleyball } from "react-icons/md";
 import { FaSwimmingPool } from "react-icons/fa";
-import { GiPartyPopper } from "react-icons/gi";
 import { MdOutlineFestival } from "react-icons/md";
 import { BsMusicPlayerFill } from "react-icons/bs";
 import { SiPrivateinternetaccess } from "react-icons/si";
 import { HiUserGroup } from "react-icons/hi";
 import { IoMdPhotos } from "react-icons/io";
-
-
-
-import { GiPartyHat } from "react-icons/gi";
 
 const IconCard = ({ Icon, text }) => (
     <div className="flex items-center gap-1 p-2 bg-[#556ee6] xl:text-base lg:text-xs text-sm border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[220px] w-full">

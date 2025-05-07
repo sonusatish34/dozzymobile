@@ -120,7 +120,6 @@ export default function Home({ canonicalUrl, filteredFHs }) {
       </Head>
       <div className="lg:block hidden"><FHLPage FHList={filteredFHs} /></div>
       <div className="lg:hidden block"><FarmProductLPage FHList={filteredFHs} /></div>
-
       <HomeBanner />
       <FarmStarts />
       <CareGuests />
@@ -152,21 +151,7 @@ export async function getServerSideProps({ req }) {
       imageMap["farmhouse_front_view"],
     ];
   };
-  const getOrderedImagesAll = (attributes) => {
-    const imageMap = {};
-    attributes.forEach((attr) => {
-      imageMap[attr.attribute_name] = attr.attribute_value;
-    });
-
-    return [
-      imageMap["farmhouse_front_view"],
-      imageMap["swimming_pool_pic_1"],
-      imageMap["building_outside_pic_1"],
-      imageMap["bedroom_1_0"],
-      imageMap["garden_pic_1"]
-    ];
-  };
-
+ 
   try {
     const response = await fetch("https://api.dozzy.com/customer/approved_properties?lat=0.0&long=0.0&program_id=1&property_capacity=1000", requestOptions);
     const result = await response.json();
@@ -178,7 +163,6 @@ export async function getServerSideProps({ req }) {
       no_of_bedrooms: car.no_of_bedrooms,
       customer_night_prices: car.customer_night_prices,
       images: getOrderedImages(car.images),
-      allimages: getOrderedImagesAll(car.images)
     }));
     return {
       props: {

@@ -1,5 +1,4 @@
 import React from 'react'
-import FarmProductLPage from './components/FarmProductLPage/FarmProductLPage'
 import FHLPage from './components/FarmProductLPage/FHLPage'
 import Head from 'next/head';
 function exploreallfarmhouses({ canonicalUrl, filteredFHS }) {

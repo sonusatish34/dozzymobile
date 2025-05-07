@@ -4,7 +4,6 @@ import { MdOutlineCancel } from 'react-icons/md'
 
 const PopUp = props => {
   const [isVisible, setIsVisible] = useState(false)
-  const [isVisible1ruppe, setIsVisible1ruppe] = useState(false)
 
   useEffect(() => {
     const timer = setTimeout(() => {
