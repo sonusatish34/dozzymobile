@@ -62,14 +62,15 @@ const FarmProductLPage = ({ count, FHList }) => {
     const TimeCard = ({ price, hrs, checkin, checkout }) => {
         return (
             <div className="flex justify-between font-normal text-xs ">
-                <div className="flex flex-col gap-y-2 border-2 border-gray-300 rounded-lg p-1">
+                <div className="flex flex-col gap-y-2 border-2 border-[#F5F5F5] rounded-lg p-1 mxs:p-2">
                     <div><p className="underline tracking-wide text-xs mxs:text-sm text-[#556EE6]">{price} / {hrs} hrs</p></div>
-                    <div className="flex items-center text-center gap-x-1 text-[7px] mxs:text-[9px]">
-                        <ul>
+                    <div className="flex items-center text-center lg:gap-x-1 gap-x-1 text-[6px] mxs:text-[7px]">
+                        <ul className="capitalize">
                             <li>{checkin}</li>
                             <li>check - in</li>
                         </ul>
-                        <ul >
+                        <ul><li className="text-[#F5F5F5] text-base">|</li></ul>
+                        <ul>
                             <li className="borde=">{checkout}</li>
                             <li>check - out</li>
                         </ul>
