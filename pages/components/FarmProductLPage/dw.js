@@ -74,67 +74,17 @@ const FarmProductLPage = ({ count, FHList }) => {
               <React.Fragment key={index}>
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col xl:w-[360px] lg:w-[260px] w-[97%] md:w-80 h-3/4">
                   <div className="relative rounded- overflow-hidden cursor-pointer sliderarrows">
-                    <Slider
-                      infinite={true}
-                      speed={500}
-                      slidesToShow={1}
-                      slidesToScroll={1}
-                      arrows={true}
-                      dots={true}
-                      swipeToSlide={true}
-                      className="lg:rounded-md"
-                      lazyLoad="ondemand"
-                      responsive={[
-                        {
-                          breakpoint: 1340, // for tablets and above
-                          settings: {
-                            slidesToShow: 1, // Shows 2 slides on medium screens
-                            slidesToScroll: 1,
-                            infinite: true,
-                            dots: true,
-                          },
-                        },
-                        {
-                          breakpoint: 1024, // for tablets and above
-                          settings: {
-                            slidesToShow: 1, // Shows 2 slides on medium screens
-                            slidesToScroll: 1,
-                            infinite: true,
-                            dots: true,
-                          },
-                        },
-                        {
-                          breakpoint: 768, // for smaller tablets and below
-                          settings: {
-                            slidesToShow: 1, // Shows 1 slide on smaller screens
-                            slidesToScroll: 1,
-                            infinite: true,
-                            dots: true,
-                          },
-                        },
-                        {
-                          breakpoint: 480, // for mobile phones
-                          settings: {
-                            slidesToShow: 1, // Shows 1 slide on mobile screens
-                            slidesToScroll: 1,
-                            infinite: true,
-                            dots: true,
-                            arrows: false,
-                          },
-                        },
-                      ]}
-                    >
-                      <Image
-                        className="xl:h-[450px] lg:h-[370px] h-[400px] mxs:h-[450px]"
-                        height={600}
-                        width={400}
-                        alt={"Farm Houses In Hyderabad"}
-                        src={"imageSrc"}
-                        priority={index == 0 ? true : false}
-                        loading={index == 0 ? "eager" : "lazy"}
-                        sizes="(max-width: 200px) 100vw, 50vw"
-                      />
-                    </Slider>
+                    <Image
+                      className="xl:h-[450px] lg:h-[370px] h-[400px] mxs:h-[450px]"
+                      height={600}
+                      width={400}
+                      alt={"Farm Houses In Hyderabad"}
+                      src={"imageSrc"}
+                      priority={index == 0 ? true : false}
+                      loading={index == 0 ? "eager" : "lazy"}
+                      sizes="(max-width: 200px) 100vw, 50vw"
+                    />
+
                   </div>
                   <div className="px- flex flex-col justify-center  gap-4">
                     <div className="flex items-baseline justify-between px-2">
@@ -323,9 +273,8 @@ const FarmProductLPage = ({ count, FHList }) => {
         </div>
       </div>
       <div
-        className={`${
-          count?.length ? "hidden" : "block"
-        } text-center py-4 lg:px-2 px-10 flex justify-center items-center`}
+        className={`${count?.length ? "hidden" : "block"
+          } text-center py-4 lg:px-2 px-10 flex justify-center items-center`}
       >
         <Link
           onClick={(e) => LinkCall(e, "/explore-all-farmhouses-in-hyderabad")}
