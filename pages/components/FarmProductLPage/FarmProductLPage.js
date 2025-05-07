@@ -52,7 +52,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                 <div className="flex flex-col gap-y-2 border-2 border-[#F5F5F5] rounded-lg p-1 mxs:p-2">
                     <div><p className="underline tracking-wide text-xs mxs:text-sm text-[#556EE6] ">{price} / {hrs} hrs</p></div>
                     <div className="flex items-center text-center lg:gap-x-1 gap-x-1 text-[6px] mxs:text-[7px]">
-                        <ul className="capitalize">
+                        <ul key={'9'} className="capitalize">
                             <li>{checkin}</li>
                             <li>check - in</li>
                         </ul>
@@ -84,7 +84,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                             <Image
                                                 className="h-fit"
                                                 src={'/offers/1rpdozzy.webp'}
-                                                alt={"postDisplay?.cialt"}
+                                                alt={"Dozzy App For Farmhouse Booking"}
                                                 width={1000}
                                                 height={1000}
                                             />
@@ -95,7 +95,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                             <Image
                                                 className="h-fit"
                                                 src={'/offers/newuserdozzy.webp'}
-                                                alt={"postDisplay?.cialt"}
+                                                alt={"Dozzy App For Farmhouse Booking"}
                                                 width={1000}
                                                 height={1000}
                                             />
@@ -126,7 +126,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                             <Image
                                                                 className="rounded-t-lg xl:h-[410px] lg:h-[370px] h-[395px] mxs:h-[400px] object-cover"
                                                                 src={item?.images[0]}
-                                                                alt={"postDisplay?.cialt"}
+                                                                alt={"Dozzy App For Farmhouse Booking"}
                                                                 width={2000}
                                                                 height={2000}
                                                             />
@@ -152,9 +152,9 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                                 </div>
                                                             </div>
                                                             <div className="flex justify-between px-2">
-                                                                <TimeCard price={item.customer_night_prices} hrs={'11'} checkin={'9am'} checkout={'8pm'} />
-                                                                <TimeCard price={item.customer_night_prices} hrs={'11'} checkin={'9pm'} checkout={'8am'} />
-                                                                <TimeCard price={item.property_price} hrs={'24'} checkin={'12pm'} checkout={'10am'} />
+                                                                <TimeCard key={'1'} price={item.customer_night_prices} hrs={'11'} checkin={'9am'} checkout={'8pm'} />
+                                                                <TimeCard key={'2'} price={item.customer_night_prices} hrs={'11'} checkin={'9pm'} checkout={'8am'} />
+                                                                <TimeCard key={'3'} price={item.property_price} hrs={'24'} checkin={'12pm'} checkout={'10am'} />
 
                                                             </div>
 
@@ -202,7 +202,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                     </Swiper>
                                 </div> :
                                 groupByPrice[priceKey].map((item, index) => (
-                                    <React.Fragment >
+                                    <React.Fragment key={index} >
                                         <div className="bg-red-2 rounded-lg  overflow-hidden flex justify-center flex-col xl:w-[360px] lg:w-[260px] w-[100%] px-1 md:w-80 h-[680px] rounded-t-lg ">
                                             <div
                                                 key={index}
@@ -212,7 +212,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                 <Image
                                                     className="rounded-t-lg xl:h-[410px] lg:h-[370px] h-[395px] mxs:h-[400px] object-cover"
                                                     src={item?.images[0]}
-                                                    alt={"postDisplay?.cialt"}
+                                                    alt={"Dozzy App For Farmhouse Booking"}
                                                     width={2000}
                                                     height={2000}
                                                 />

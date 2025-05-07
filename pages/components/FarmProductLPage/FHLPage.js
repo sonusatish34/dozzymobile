@@ -62,7 +62,7 @@ const FarmProductLPage = ({ count, FHList }) => {
             <div>
                 <div className="flex flex-wrap xl:gap-x-12 xl:gap-y-12 md:gap-x-8 md:gap-y-8 gap-y-8 lg:items-start justify-center  lg:px-20 items-center px-1">
                     {sortedData?.slice(0, count ? sortedData?.length : mobileC ? 10 : 12).map((item, index) => (
-                        <React.Fragment >
+                        <React.Fragment key={index} >
                             <div className="bg-red-2 rounded-lg overflow-hidden flex justify-center flex-col xl:w-[360px] lg:w-[260px] w-[100%]  md:w-80 h-[680px] rounded-t-lg ">
                                 <div
                                     key={index}
@@ -72,7 +72,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                     <Image
                                         className="rounded-t-lg xl:h-[410px] lg:h-[370px] h-[395px] mxs:h-[400px] object-cover  cursor-pointer"
                                         src={item?.images[0]}
-                                        alt={"postDisplay?.cialt"}
+                                        alt={"Dozzy App For Farmhouse Booking"}
                                         width={2000}
                                         height={2000}
                                     />
