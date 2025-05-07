@@ -117,7 +117,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                         modules={[Autoplay]}
                                         loop={true}
                                         autoplay={{
-                                            delay: 2000,
+                                            delay: 208800,
                                             disableOnInteraction: false,
                                             pauseOnMouseEnter: true,
                                         }}
@@ -129,14 +129,14 @@ const FarmProductLPage = ({ count, FHList }) => {
                                         {groupByPrice[priceKey].map((item, index) => (
                                             <SwiperSlide key={index}>
                                                 <React.Fragment >
-                                                    <div className="bg-red-2 rounded-lg shadow-lg overflow-hidden flex justify-center flex-col xl:w-[360px] lg:w-[260px] w-[100%] px-1 md:w-80 h-[680px] ">
+                                                    <div className="bg-red-2 rounded-lg shadow-lg overflow-hidden flex justify-center flex-col xl:w-[360px] lg:w-[260px] w-[100%] px-1 md:w-80 h-[680px] rounded-t-lg ">
                                                         <div
                                                             key={index}
                                                             onClick={(e) => LinkCall(e, `/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`)}
                                                             href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
                                                         >
                                                             <Image
-                                                                className="xl:h-[410px] lg:h-[370px] h-[395px] mxs:h-[400px] object-cover"
+                                                                className="rounded-t-lg xl:h-[410px] lg:h-[370px] h-[395px] mxs:h-[400px] object-cover"
                                                                 src={item?.images[0]}
                                                                 alt={"postDisplay?.cialt"}
                                                                 width={2000}
@@ -258,14 +258,14 @@ const FarmProductLPage = ({ count, FHList }) => {
                                 </div> :
                                 groupByPrice[priceKey].map((item, index) => (
                                     <React.Fragment >
-                                                    <div className="bg-red-2 rounded-lg shadow-lg overflow-hidden flex justify-center flex-col xl:w-[360px] lg:w-[260px] w-[100%] px-1 md:w-80 h-[680px] ">
+                                                    <div className="bg-red-2 rounded-lg shadow-lg  flex justify-center flex-col xl:w-[360px] lg:w-[260px] w-[100%] px-1 md:w-80 h-[680px] rounded-t-lg ">
                                                         <div
                                                             key={index}
                                                             onClick={(e) => LinkCall(e, `/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`)}
                                                             href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
                                                         >
                                                             <Image
-                                                                className="xl:h-[410px] lg:h-[370px] h-[395px] mxs:h-[400px] object-cover"
+                                                                className="rounded-t-lg xl:h-[410px] lg:h-[370px] h-[395px] mxs:h-[400px] object-cover"
                                                                 src={item?.images[0]}
                                                                 alt={"postDisplay?.cialt"}
                                                                 width={2000}
@@ -295,7 +295,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                             <div className="flex justify-between px-2">
                                                                 <TimeCard price={item.customer_night_prices} hrs={'11'} checkin={'9am'} checkout={'8pm'} />
                                                                 <TimeCard price={item.customer_night_prices} hrs={'11'} checkin={'9pm'} checkout={'8am'} />
-                                                                <TimeCard price={item.property_price} hrs={'11'} checkin={'12pm'} checkout={'10am'} />
+                                                                <TimeCard price={item.property_price} hrs={'24'} checkin={'12pm'} checkout={'10am'} />
 
                                                             </div>
 
