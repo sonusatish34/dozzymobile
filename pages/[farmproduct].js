@@ -22,12 +22,6 @@ import LinkCall from './components/LinkCall';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay} from "swiper/modules";
-import { Navigation ,EffectFade } from "swiper/css/bundle";
-import 'swiper/css';
-
-
 const CarDetails = ({ canonicalUrl, selectedAtt, farmproduct }) => {
 
   const mdfyFarmProduct = farmproduct;
@@ -166,27 +160,55 @@ const CarDetails = ({ canonicalUrl, selectedAtt, farmproduct }) => {
         </noscript>
         <div className='flex flex-col md:flex-row md:mt-2 lg:mt-2 lg:gap-16  p-2 border-2 border-[#556EE6] rounded-md'>
           <div className="relative md:w-2/3 xl:w-[525px] lg:w-[424px] rounded-md  w-full p-1 xl:h-[534px] lg:h-[434px]  mxs:h-[455px] h-[400px]  overflow-hidden sliderarrows">
-            <Swiper
-                            modules={[Autoplay,Navigation,EffectFade ]}
-                            loop={true}
-                            autoplay={{
-                                delay: 2000,
-                                disableOnInteraction: false,
-                                pauseOnMouseEnter: true,
-                            }}
-                            slidesPerView={1}
-                            onTouchStart={(swiper) => swiper.autoplay.stop()}
-                            onTouchEnd={(swiper) => swiper.autoplay.start()}
-                            style={{ maxWidth: "800px", margin: "auto" }}
-                        >
+            <Slider
+              dots={false}
+              infinite={true}
+              speed={500}
+              slidesToShow={1}
+              slidesToScroll={1}
+              arrows={true}
+              // autoplay={true}
+              responsive={[
+                {
+                  breakpoint: 1024, // for tablets and above
+                  settings: {
+                    slidesToShow: 1,  // Shows 2 slides on medium screens
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                  }
+                },
+                {
+                  breakpoint: 768, // for smaller tablets and below
+                  settings: {
+                    slidesToShow: 1,  // Shows 1 slide on smaller screens
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true,
+                  }
+                },
+                {
+                  breakpoint: 480, // for mobile phones
+                  settings: {
+                    slidesToShow: 1,  // Shows 1 slide on mobile screens
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true,
+                    arrows: false
+                  }
+                }
+              ]}
+              swipeToSlide={true}
+              className="relative lg:rounded-md sliderclass"
+            >
               {(selectedAtt?.images)?.map((imageSrc, index) => (
                 imageSrc && (
-                  <SwiperSlide key={index}>
+                  <div key={index}>
                     <Image className='object-cover object-center xl:h-[534px] lg:h-[434px] h-[355px] mxs:h-[455px]' height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc} />
-                  </SwiperSlide>
+                  </div>
                 )
               ))}
-            </Swiper>
+            </Slider>
           </div>
           <div className='flex flex-col xl:gap-14 lg:gap-6 gap-4 xl:pt-10 pt-2'>
             <div>

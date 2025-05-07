@@ -38,7 +38,7 @@ const FarmStarts = () => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className='lg:flex-row flex flex-col gap-10 justify-center lg:px-10'>
                 <Image
                     className="h-fit w-full"
                     src={'/offers/1rpdozzy.webp'}

@@ -120,7 +120,7 @@ export default function Home({ canonicalUrl, filteredFHs }) {
       </Head>
       <div className="lg:block hidden"><FHLPage FHList={filteredFHs} /></div>
       <div className="lg:hidden block"><FarmProductLPage FHList={filteredFHs} /></div>
-      
+
       <HomeBanner />
       <FarmStarts />
       <CareGuests />
@@ -159,7 +159,6 @@ export async function getServerSideProps({ req }) {
     });
 
     return [
-      
       imageMap["farmhouse_front_view"],
       imageMap["swimming_pool_pic_1"],
       imageMap["building_outside_pic_1"],
