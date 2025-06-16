@@ -7,11 +7,11 @@ function Kukatpally({canonicalUrl}) {
     return (
         <div className='bg-white'>
             <Head>
-                <title> No Deposit & Unlimited Members - Farmhouse for Rent Near Kukatpally</title>
-                <meta name="description" content="Explore farmhouse rentals near Kukatpally for a peaceful retreat with modern amenities, perfect for family and group getaways." />
+                <title> Farmhouses for Rent Near Kukatpally</title>
+                <meta name="description" content="Escape the city and relax in a farmhouse near Kukatpally complete with modern amenities, nature views and the comfort you deserve." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta property="og:title" content="No Deposit & Unlimited Members - Farmhouse for Rent Near Kukatpally" />
-                <meta property="og:description" content="Explore farmhouse rentals near Kukatpally for a peaceful retreat with modern amenities, perfect for family and group getaways." />
+                <meta property="og:title" content="Farmhouses for Rent Near Kukatpally" />
+                <meta property="og:description" content="Escape the city and relax in a farmhouse near Kukatpally complete with modern amenities, nature views and the comfort you deserve." />
                 <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>

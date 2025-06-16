@@ -55,7 +55,7 @@ const PopUp = props => {
 
           >
             <Image
-              src={"/offers/newuserdozzy.webp"}
+              src={"/offers/newuserdozzy2.webp"}
               alt={` for rent`}
               width={525}
               height={634}

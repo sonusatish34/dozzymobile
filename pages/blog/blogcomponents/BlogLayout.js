@@ -12,7 +12,6 @@ import { MdExplore } from "react-icons/md";
 import Footer from "../../components/Footer/Footer";
 
 const BlogLayout = ({
-    canonicalUrl,
     recommended,
     children,
     catg,
@@ -115,11 +114,17 @@ const BlogLayout = ({
 
     return (
         <div>
-            <div className="xl:px-14 lg:px-10  py-1 lg:border-8 lg:border-blue-100 ">
+            <div className="xl:px-14 lg:px-10 lg:border-8 lg:border-blue-100 ">
                 <div className="flex flex-col lg:flex-row lg:items-center xl:gap-24 lg:gap-20 gap-2">
                     <div className="flex justify-between px-4 mxs:px-6 py-3 lg:py-4 lg:items-center border-8 border-blue-100 lg:border-none">
                         <Link href={`/blog`} className="">
-                            <p className=" text-[#556ee6] capitalize font-bold text-xl  lg:text-5xl  text-blue-00">Dozzy</p>
+                            <Image
+                                className="h-10 w-40 lg:scale-105 scale-75 "
+                                src={"/Dozzy123.webp"}
+                                alt={"Dozzy App For Farmhouse Booking"}
+                                width={1000}
+                                height={1000}
+                            />
                         </Link>
                         <div className="flex items-center">
                             <p className="relative left-8">

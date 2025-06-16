@@ -425,6 +425,11 @@ export async function getServerSideProps({ req, params }) {
       time: postData.time?.toDate().toISOString(),
     };
 
+    if (postDisplay?.blogfor !== 'Dozzy') {
+      return {
+        notFound: true, // This will render the 404 page
+      };
+    }
 
     const canonicalUrl = host.includes('.in')
       ? `https://www.dozzy.in/blog/posts/${(postDisplay.slug)}`

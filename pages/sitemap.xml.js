@@ -1,138 +1,121 @@
+// pages/sitemap.xml.js
 
 import { fireDb } from '@/public/firebase';
 import { getDocs, collection, query, where } from 'firebase/firestore';
-import { useEffect, useState } from 'react';
+
 const fetchCatAndPosts = async () => {
-
-    try {
-        const postsQueryNew = query(collection(fireDb, "blogPost"),
-            where("blog_state", "==", "active"),
-            where("blogfor", "==", "Dozzy")
-        );
-        const postsQuerySnapshotNew = await getDocs(postsQueryNew);
-        const postsnew = postsQuerySnapshotNew.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        return postsnew
-    } catch (err) {
-        console.error(err);
-    } finally {
-
-    }
+  try {
+    const postsQueryNew = query(
+      collection(fireDb, 'blogPost'),
+      where('blog_state', '==', 'active'),
+      where('blogfor', '==', 'Dozzy')
+    );
+    const postsQuerySnapshotNew = await getDocs(postsQueryNew);
+    return postsQuerySnapshotNew.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
 };
-function generateSiteMap(FHList, cars) {
-    return `
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-        <url>
-            <loc>https://www.dozzy.com</loc>
-            <changefreq>monthly</changefreq>
-            <priority>1</priority>
-        </url>
-        <url>
-            <loc>https://www.dozzy.com/blog</loc>
-            <changefreq>monthly</changefreq>
-            <priority>0.9</priority>
-        </url>
-        <url>
-            <loc>https://www.dozzy.com/privacy-policy</loc>
-            <changefreq>monthly</changefreq>
-            <priority>0.9</priority>
-        </url>
-       ${FHList?.map((item) => {
-        return `
-        <url>
-            <loc>${`https://www.dozzy.com/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').trim().replaceAll(/ /g, '-')}`}</loc>
-            <lastmod>${new Date().toISOString()}</lastmod>
-            <changefreq>weekly</changefreq>
-            <priority>0.9</priority>
-        </url>`;
 
-    }).join(' ')}
-        <url>
-            <loc>https://www.dozzy.com/farmhouse-rentals-in-ameerpet</loc>
-            <changefreq>monthly</changefreq>
-            <priority>0.9</priority>
-        </url>
-        <url>
-            <loc>https://www.dozzy.com/farmhouse-rentals-in-ecil</loc>
-            <changefreq>monthly</changefreq>
-            <priority>0.9</priority>
-        </url>
-        <url>
-            <loc>https://www.dozzy.com/farmhouse-rentals-in-gachibowli</loc>
-            <changefreq>monthly</changefreq>
-            <priority>0.9</priority>
-        </url>
-        <url>
-            <loc>https://www.dozzy.com/farmhouse-rentals-in-kukatpally</loc>
-            <changefreq>monthly</changefreq>
-            <priority>0.9</priority>
-        </url>
-        <url>
-            <loc>https://www.dozzy.com/farmhouse-rentals-in-lb-nagar</loc>
-            <changefreq>monthly</changefreq>
-            <priority>0.9</priority>
-        </url>
-        <url>
-            <loc>https://www.dozzy.com/farmhouse-rentals-in-secunderabad</loc>
-            <changefreq>monthly</changefreq>
-            <priority>0.9</priority>
-        </url>
-        <url>
-            <loc>https://www.dozzy.com/farmhouse-rentals-in-shadnagar</loc>
-            <changefreq>monthly</changefreq>
-            <priority>0.9</priority>
-        </url>
-        <url>
-            <loc>https://www.dozzy.com/farmhouse-rentals-in-uppal</loc>
-            <changefreq>monthly</changefreq>
-            <priority>0.9</priority>
-        </url>
-            ${cars?.map((item) => {
-        return `
-                <url>
-                    <loc>${`https://www.dozzy.com/blog/posts/${item?.slug}`}</loc>
-                    <lastmod>${new Date().toISOString()}</lastmod>
-                    <changefreq>weekly</changefreq>
-                    <priority>0.9</priority>
-                </url>
-               `;
-    })
-            .join(' ')}
-     </urlset>
-   `;
+function escapeXML(str = '') {
+  return str.replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&apos;');
 }
 
-function SiteMap() {
-    // This will be handled by getServerSideProps, no need for content in the component itself
+function generateSiteMap(FHList, cars) {
+  const staticUrls = `
+    <url>
+      <loc>https://www.dozzy.com</loc>
+      <changefreq>monthly</changefreq>
+      <priority>1</priority>
+    </url>
+    <url>
+      <loc>https://www.dozzy.com/blog</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+    </url>
+    <url>
+      <loc>https://www.dozzy.com/privacy-policy</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+    </url>
+  `;
+
+  const FHUrls = FHList?.map(item => {
+    const slug = escapeXML(
+      item.property_name
+        ?.toLowerCase()
+        .replace(/_/g, ' ')
+        .replace(/\d+/g, ' ')
+        .trim()
+        .replace(/\s+/g, '-')
+    );
+    return `
+      <url>
+        <loc>https://www.dozzy.com/${slug}</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+      </url>
+    `;
+  }).join('\n');
+
+  const blogUrls = cars?.map(item => {
+    return `
+      <url>
+        <loc>https://www.dozzy.com/blog/posts/${escapeXML(item?.slug)}</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+      </url>
+    `;
+  }).join('\n');
+
+  const locationUrls = [
+    'ameerpet', 'ecil', 'gachibowli', 'kukatpally', 'lb-nagar',
+    'secunderabad', 'shadnagar', 'uppal'
+  ].map(loc => `
+    <url>
+      <loc>https://www.dozzy.com/farmhouse-rentals-in-${loc}</loc>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+    </url>
+  `).join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${staticUrls}
+${FHUrls}
+${locationUrls}
+${blogUrls}
+</urlset>`;
 }
 
 export async function getServerSideProps({ res, req }) {
-    // Fetch the car data
-    const cars = await fetchCatAndPosts(); // Fetching posts using the fixed function
+  const cars = await fetchCatAndPosts();
 
-    const host = req.headers.host;
+  const response = await fetch(
+    'https://api.dozzy.com/customer/approved_properties?lat=17&long=78&program_id=1&property_capacity=1000'
+  );
+  const data = await response.json();
+  const FHList = data?.data?.results || [];
 
-    // const response = await fetch(EXTERNAL_DATA_URL);
-    const response = await fetch("https://api.dozzy.com/customer/approved_properties?lat=0.0&long=0.0&program_id=1&property_capacity=1000");
-    const items = await response.json();
-    // const cars = ['book-a-rental-car-in-hyderabad','sedan-cars-for-rent-in-hyderabad','cars-rental-services-in-hyderabad'];
-    const FHList = items?.data?.results;
+  const sitemap = generateSiteMap(FHList, cars);
 
-    const sitemap = generateSiteMap(FHList, cars)
+  res.setHeader('Content-Type', 'text/xml');
+  res.write(sitemap);
+  res.end();
 
-    // Generate the XML sitemap
-
-    // Set the response header for XML
-    res.setHeader('Content-Type', 'text/xml');
-
-    // Write the generated sitemap to the response
-    res.write(sitemap);
-    res.end();
-
-    return {
-        props: {}, // No page props are needed for the sitemap
-    };
+  return {
+    props: {},
+  };
 }
 
-export default SiteMap;
-
-
+export default function SiteMap() {
+  // This component will not render anything on the client side
+  return null;
+}

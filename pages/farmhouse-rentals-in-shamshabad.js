@@ -8,11 +8,11 @@ function ShamshabadFarmhouses({ canonicalUrl }) {
     return (
         <div className='bg-white'>
             <Head>
-                <title>Premium Farmhouses for Rent Near Shamshabad - Ideal for Family and Business Getaways</title>
-                <meta name="description" content="Explore premium farmhouses near Shamshabad for a perfect stay with family, friends, or business trips." />
+                <title>Farmhouse Rentals Near Shamshabad</title>
+                <meta name="description" content="Stay close to the airport and nature at a farmhouse near Shamshabad offering BBQ space AC rooms and peaceful surroundings." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta property="og:title" content="Premium Farmhouses for Rent Near Shamshabad - Ideal for Family and Business Getaways" />
-                <meta property="og:description" content="Explore premium farmhouses near Shamshabad for a perfect stay with family, friends, or business trips." />
+                <meta property="og:title" content="Farmhouse Rentals Near Shamshabad" />
+                <meta property="og:description" content="Stay close to the airport and nature at a farmhouse near Shamshabad offering BBQ space AC rooms and peaceful surroundings." />
                 <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>

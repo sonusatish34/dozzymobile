@@ -7,11 +7,11 @@ function ECIL({ canonicalUrl }) {
     return (
         <div className='bg-white'>
             <Head>
-                <title> No Deposit & Unlimited Members - Private Farmhouse for Rent Near ECIL</title>
-                <meta name="description" content="Explore farmhouse rentals near ECIL for a peaceful getaway with family and friends." />
+                <title>Private Farmhouse to Rent Near ECIL</title>
+                <meta name="description" content="Unwind in nature at a farmhouse near ECIL with modern amenities ideal for family outings, group getaways or quiet retreats." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta property="og:title" content=" No Deposit & Unlimited Members - Private Farmhouse for Rent Near ECIL" />
-                <meta property="og:description" content="Explore farmhouse rentals near ECIL for a peaceful getaway with family and friends." />
+                <meta property="og:title" content="Private Farmhouse to Rent Near ECIL" />
+                <meta property="og:description" content="Unwind in nature at a farmhouse near ECIL with modern amenities ideal for family outings, group getaways or quiet retreats." />
                 <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>

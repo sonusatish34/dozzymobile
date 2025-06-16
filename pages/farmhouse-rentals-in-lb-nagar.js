@@ -7,11 +7,11 @@ function LBNagar({canonicalUrl}) {
     return (
         <div className='bg-white'>
             <Head>
-                <title>Farmhouses for Rent Near LB Nagar - Weekend Getaways</title>
-                <meta name="description" content="Explore luxurious farmhouses near LB Nagar for a relaxing weekend getaway with modern amenities, perfect for family and private events." />
+                <title>LB Nagar Farmhouses for Events</title>
+                <meta name="description" content="Discover luxury farm stays near LB Nagar just a short drive away offering comfort space and scenic beauty for any celebration." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta property="og:title" content="Farmhouses for Rent Near LB Nagar - Weekend Getaways" />
-                <meta property="og:description" content="Explore luxurious farmhouses near LB Nagar for a relaxing weekend getaway with modern amenities, perfect for family and private events." />
+                <meta property="og:title" content="LB Nagar Farmhouses for Events" />
+                <meta property="og:description" content="Discover luxury farm stays near LB Nagar just a short drive away offering comfort space and scenic beauty for any celebration." />
                 <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>

@@ -77,7 +77,7 @@ function exploreallfarmhouses({ canonicalUrl, filteredFHS }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `gtag('config', 'AW-16797121033/PPdfCKqh7_AZEIn0vsk-', {
-                          'phone_conversion_number': '96666-559-73'
+                          'phone_conversion_number': '9111-9111-62'
                               });`,
           }}
         />
@@ -138,7 +138,7 @@ export async function getServerSideProps({ req }) {
 
   try {
     // Fetching the approved properties data
-    const response = await fetch("https://api.dozzy.com/customer/approved_properties?lat=0.0&long=0.0&program_id=1&property_capacity=1000", requestOptions);
+    const response = await fetch("https://api.dozzy.com/customer/approved_properties?lat=17&long=78&program_id=1&property_capacity=1000", requestOptions);
     const result = await response.json();
     const filteredFHS = result.data.results?.map(car => ({
       property_name: car.property_name,

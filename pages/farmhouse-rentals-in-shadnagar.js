@@ -7,11 +7,11 @@ function Shadnagar({canonicalUrl}) {
     return (
         <div className='bg-white'>
             <Head>
-                <title> No Deposit & Unlimited Members - Farmhouse for Rent Around Shadnagar</title>
-                <meta name="description" content="Discover farmhouse rentals around Shadnagar for a perfect getaway with family and friends, offering modern amenities and serene settings." />
+                <title>Affordable Farmhouse Around Shadnagar</title>
+                <meta name="description" content="Relax and recharge at a peaceful farmhouse near Shadnagar perfect for family getaways group events or weekend retreats in nature." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta property="og:title" content=" No Deposit & Unlimited Members - Farmhouse for Rent Around Shadnagar" />
-                <meta property="og:description" content="Discover farmhouse rentals around Shadnagar for a perfect getaway with family and friends, offering modern amenities and serene settings." />
+                <meta property="og:title" content="Affordable Farmhouse Around Shadnagar" />
+                <meta property="og:description" content="Relax and recharge at a peaceful farmhouse near Shadnagar perfect for family getaways group events or weekend retreats in nature." />
                 <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div className='text-black lg:px-20 lg:pb-16 px-4 leading-9 lg:leading-10 pt-10 lg:pt-16'>

@@ -7,12 +7,12 @@ function Ameerpet({ canonicalUrl }) {
     return (
         <div className='bg-white'>
             <Head>
-                <title>No Deposit & Unlimited Members - Private Farmhouse for Rent Near Ameerpet</title>
-                <meta name="description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends - Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
-                <meta name="og:description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends - Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
+                <title>Budget Friendly Farmhouse Near Ameerpet</title>
+                <meta name="description" content="Recharge at a private farmhouse for rent near Ameerpet perfect for students and professionals seeking a relaxing weekend away from the city" />
+                <meta name="og:description" content="Recharge at a private farmhouse for rent near Ameerpet perfect for students and professionals seeking a relaxing weekend away from the city" />
                 <link rel="canonical" href={canonicalUrl} />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta property="og:title" content="No Deposit & Unlimited Members - Private Farmhouse for Rent Near Ameerpet" />
+                <meta property="og:title" content="Budget Friendly Farmhouse Near Ameerpet" />
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
                 <h1 className='font-bold text-xl lg:text-3xl py-2'>Private Farmhouse for Rent Near Ameerpet</h1>

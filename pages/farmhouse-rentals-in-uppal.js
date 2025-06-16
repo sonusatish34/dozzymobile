@@ -7,11 +7,11 @@ function Uppal({ canonicalUrl }) {
     return (
         <div className='bg-white'>
             <Head>
-                <title> No Deposit & Unlimited Members - Private Farmhouse for Rent Near Uppal</title>
-                <meta name="description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends - Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
-                <meta name="og:description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends - Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
+                <title> Beautiful Farmhouses for Rent Near Uppal</title>
+                <meta name="description" content="Farmhouse rental near Uppal offers a cozy nature-filled escape with all the comforts needed for a memorable family or group outing." />
+                <meta name="og:description" content="Farmhouse rental near Uppal offers a cozy nature-filled escape with all the comforts needed for a memorable family or group outing." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta property="og:title" content=" No Deposit & Unlimited Members - Private Farmhouse for Rent Near Uppal" />
+                <meta property="og:title" content=" Beautiful Farmhouses for Rent Near Uppal" />
                 <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>
@@ -24,8 +24,6 @@ function Uppal({ canonicalUrl }) {
                         className='py-3 object-cover w-full'
                         alt="Private Farmhouse for Rent Near Uppal"
                     />
-                </div>
-                <div>
                 </div>
                 <p>Uppal, a prominent neighborhood in Hyderabad, is well known for its connectivity, educational institutions, and proximity to several key areas in the city. It's a hub for families, students, and professionals alike.</p>
                 <p className='font-bold text-lg py-2'>Why Uppal?</p>

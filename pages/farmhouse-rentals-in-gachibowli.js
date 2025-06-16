@@ -7,12 +7,12 @@ function Gachibowli({canonicalUrl}) {
     return (
         <div className='bg-white'>
             <Head>
-                <title> No Deposit & Unlimited Members - Private Farmhouse for Rent Near Gachibowli</title>
-                <meta name="description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends - Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
-                <meta name="og:description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends - Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
+                <title>Luxury Farmhouse for Rent Near Gachibowli</title>
+                <meta name="description" content="Enjoy luxury and tranquility at farmhouse rentals near Gachibowli just minutes from the city yet far from the noise and stress." />
+                <meta name="og:description" content="Enjoy luxury and tranquility at farmhouse rentals near Gachibowli just minutes from the city yet far from the noise and stress." />
                 <link rel="canonical" href="https://www.dozzy.com/farmhouse-rentals-in-gachibowli" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta property="og:title" content=" No Deposit & Unlimited Members - Private Farmhouse for Rent Near Gachibowli" />
+                <meta property="og:title" content="Luxury Farmhouse for Rent Near Gachibowli" />
                 <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>

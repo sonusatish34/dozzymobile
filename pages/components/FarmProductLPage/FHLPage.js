@@ -27,17 +27,17 @@ const FarmProductLPage = ({ count, FHList }) => {
 
     const TimeCard = ({ price, hrs, checkin, checkout }) => {
         return (
-            <div className="flex justify-between font-normal text-xs ">
+            <div className="flex justify-between font-normal text-xs text-black">
                 <div className="flex flex-col gap-y-2 border-2 border-[#F5F5F5] rounded-lg p-1">
                     <div><p className="underline tracking-wide text-xs mxs:text-sm text-[#556EE6]">{price} / {hrs} hrs</p></div>
-                    <div className="flex items-center text-center lg:gap-x-1 text-[6px] mxs:text-[8px]">
-                        <ul className="capitalize">
+                    <div className="flex capitalize items-center text-center lg:gap-x-1 text-[6px] mxs:text-[8px]">
+                        <ul className="">
                             <li>{checkin}</li>
                             <li>check - in</li>
                         </ul>
                         <ul><li className="text-[#F5F5F5] text-base">|</li></ul>
                         <ul>
-                            <li className="borde=">{checkout}</li>
+                            <li className="">{checkout}</li>
                             <li>check - out</li>
                         </ul>
                     </div>
@@ -90,7 +90,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                             </Link>
                                         </div>
                                         <div>
-                                            <div className="flex flex-col gap-2 text-[10px] items-center pt-2">
+                                            <div className="flex flex-col gap-2 text-black text-[10px] items-center pt-2">
                                                 <p><span className="text-blue-500">500</span> Added in Dozzy Wallet</p>
                                                 <p className="text-black">Use 500 for First Booking</p>
                                             </div>
@@ -99,7 +99,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                     <div className="flex justify-between px-2">
                                         <TimeCard price={item.customer_night_prices} hrs={'11'} checkin={'9am'} checkout={'8pm'} />
                                         <TimeCard price={item.customer_night_prices} hrs={'11'} checkin={'9pm'} checkout={'8am'} />
-                                        <TimeCard price={item.property_price} hrs={'24'} checkin={'12pm'} checkout={'10am'} />
+                                        <TimeCard price={item.property_price} hrs={'22'} checkin={'12pm'} checkout={'10am'} />
 
                                     </div>
 
@@ -108,7 +108,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                             <li className="bg-[#74C184] w-full py-3 px-2  text-center rounded-md ">
                                                 {" "}
                                                 <Link
-                                                    href={`https://api.whatsapp.com/send/?phone=919666655973&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0`}
+                                                    href={`https://api.whatsapp.com/send/?phone=919111911162&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0`}
                                                     target="_blank"
                                                 >
                                                     <p className=" flex gap-1 lg:text-sm text-xs justify-center items-center">
@@ -120,7 +120,7 @@ const FarmProductLPage = ({ count, FHList }) => {
                                                 </Link>
                                             </li>
                                             <li className="bg-[#556EE6] w-full py-3 px-2 rounded-md ">
-                                                <Link href={`tel:9666655973`} target="_blank">
+                                                <Link href={`tel:9111911162`} target="_blank">
                                                     <p className=" flex gap-1 lg:text-sm text-xs justify-center items-center">
                                                         <span>
                                                             <BiPhoneCall size={20} />

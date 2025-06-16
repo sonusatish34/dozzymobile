@@ -61,10 +61,10 @@ const ComponentName = (props) => {
                 {/* <p className='pt-1 flex flex-col gap-y-2'> <span></span></p> */}
                 <div className='flex lg:flex-row flex-col lg:gap-x-4 gap-y-4'>
 
-                    <Link className='xl:text-3xl lg:text-xl font-bold text-base flex items-center gap-1 lg:gap-2 lg:pt-2 border-2 p-2 rounded-md w-fit ' href="tel:9666655973" target='_blank'><span><FiPhoneCall className='size-4 lg:size-6 text-blue-500' /></span>
-                        <span>96666-559-73</span></Link>
-                    <Link className='xl:text-3xl lg:text-xl font-bold text-base flex items-center gap-1 lg:gap-2 lg:pt-2 border-2 p-2 rounded-md w-fit' href={`https://api.whatsapp.com/send/?phone=919666655973&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0`} target='_blank'><span><FaWhatsapp className='size-4 lg:size-8 text-green-600' /></span>
-                        <span>96666-559-73</span></Link>
+                    <Link className='xl:text-3xl lg:text-xl font-bold text-base flex items-center gap-1 lg:gap-2 lg:pt-2 border-2 p-2 rounded-md w-fit ' href="tel:9111911162" target='_blank'><span><FiPhoneCall className='size-4 lg:size-6 text-blue-500' /></span>
+                        <span>9111-9111-62</span></Link>
+                    <Link className='xl:text-3xl lg:text-xl font-bold text-base flex items-center gap-1 lg:gap-2 lg:pt-2 border-2 p-2 rounded-md w-fit' href={`https://api.whatsapp.com/send/?phone=919111911162&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0`} target='_blank'><span><FaWhatsapp className='size-4 lg:size-8 text-green-600' /></span>
+                        <span>9111-9111-62</span></Link>
                 </div>
             </div>
         </div>

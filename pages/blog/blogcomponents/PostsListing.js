@@ -128,7 +128,7 @@ const PostsListing = ({ data, catg }) => {
           } grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8  xl:mt-2 lg:mt-6 lg:px-0 pt-10`}
       >
         {data?.length > 0 ? (
-          data.slice(2, 8).map((post, i) => (
+          data.slice(8, 14).map((post, i) => (
             <div key={`key-${i}`}>
               <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="lg:px-0  w-full">
                 <p
@@ -167,10 +167,10 @@ const PostsListing = ({ data, catg }) => {
                     {post?.title && post?.title.slice(0, 115)}..
                   </span>
                 </p>
-                <p className="text-left text-[#6B6B6B] text-xs pt-1 tracking-normal leading-5 lowercase lg:hidden block xl:h-24 lg:h-32">
-                  {post?.description.slice(0, 50)}...
+                <p className="text-left text-[#6B6B6B] text-xs pt-1 tracking-normal leading-5 lowercase lg:hidden block h-14 xl:h-24 lg:h-32">
+                  {post?.description.slice(0, 56)}...
                 </p>
-                <p className="text-left text-[#6B6B6B] text-base pt-1 tracking-normal leading-6  lg:block hidden xl:h-28 lg:h-32">
+                <p className="text-left text-[#6B6B6B] text-base pt-1 tracking-normal leading-6 lg:block hidden xl:h-28 lg:h-32">
                   {post?.description.slice(0, 150)}...
                 </p>
 

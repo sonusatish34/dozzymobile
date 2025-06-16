@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { FiPhoneCall } from "react-icons/fi";
 import LinkCall from '../LinkCall';
 import { useState, useEffect, useRef } from 'react';
-
+import Image from 'next/image';
 const Header = (locname) => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
@@ -32,9 +32,15 @@ const Header = (locname) => {
 
   return (
 
-    <div className="font-bold  text-lg px-5 md:px-12 lg:px-20 py-4 flex justify-between lg:items-center border-b-2 border-gray-200">
+    <div className="font-bold  text-lg pr-5 md:px-12 lg:px-20 py-4 flex justify-between lg:items-center border-b-2 border-gray-200">
       <Link href="/">
-        <p className="text-3xl lg:text-5xl text-[#556EE6]">Dozzy</p>
+        <Image
+          className="h-12 w-40 lg:scale-110 scale-75"
+          src={"/Dozzy123.webp"}
+          alt={"Dozzy App For Farmhouse Booking"}
+          width={1000}
+          height={1000}
+        />
       </Link>
       <div className='lg:w-fit text-black lg:mt-2 xl:pl-56'>
         <div className={`${isOpen ? "hidden" : 'block'} hidden lg:block`}>
@@ -50,11 +56,11 @@ const Header = (locname) => {
         <div className={`${isOpen ? "hidden" : 'block'} hidden lg:block py-2 text-black`}>
           <p className="lg:text-3xl text-sm text-[#556EE6]">For Booking help</p>
           <div
-            onClick={(e) => LinkCall(e, "tel:9666655973")}
+            onClick={(e) => LinkCall(e, "tel:9111911162")}
             className="lg:text-3xl lg:pt-2 pt-1 font-bold text-sm flex items-center gap-1 lg:gap-2 cursor-pointer"
           >
             <FiPhoneCall className="size-3 lg:size-6" />
-            96666-559-73
+            9111-9111-62
           </div>
         </div>
       </div>
@@ -78,17 +84,23 @@ const Header = (locname) => {
       </div>
       <nav
         ref={menuRef}
-        className={`w-11/12 top-[68px] right-[1px] border border-gray-300 font absolute bg-white rounded-b-md p-2 pt-6 lg:pr-16 z-50 transition-transform duration-500 ease-out ${isOpen ? 'block' : 'hidden'}`}
+        className={`w-11/12 h-2/3 top-[80px] right-[1px] border border-gray-300 font absolute bg-white rounded-b-md p-2 pt-6 lg:pr-16 z-50 transition-transform duration-500 ease-out ${isOpen ? 'block' : 'hidden'}`}
         style={{
           transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
           left: isOpen ? 'auto' : '100%',
         }}
       >
         <Link href={'/'}>
-          <div className='flex gap-3 cursor-pointer items-center pl-4 pb-2'>
+          <div className='flex gap-3 cursor-pointer items-center pb-2'>
             <div className='w-48 text-black 2xl:w-full lg:w-96 lg:mt-2'>
               <p className='text-xl font-bold'>
-                <span className='text-[#556ee6]'>Dozzy</span>
+                <Image
+                  className="h-16 w-full lg:scale-125 scale-75 "
+                  src={"/Dozzy123.webp"}
+                  alt={"Dozzy App For Farmhouse Booking"}
+                  width={1000}
+                  height={1000}
+                />
               </p>
             </div>
           </div>
@@ -105,8 +117,8 @@ const Header = (locname) => {
             <ul>
               <li className="font-bold text-2xl text-black">
                 <Link
-                  onClick={(e) => LinkCall(e, "tel:9666655973")}
-                  href="tel:9666655973" target='_blank'>96666-559-73</Link>
+                  onClick={(e) => LinkCall(e, "tel:9111911162")}
+                  href="tel:9111911162" target='_blank'>9111-9111-62</Link>
               </li>
             </ul>
           </div>

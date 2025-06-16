@@ -2,15 +2,15 @@ import React from 'react'
 import Image from 'next/image';
 import Head from 'next/head';
 import secunderabad from './images/places/secunderabad.webp'
-function Secunderabad({canonicalUrl}) {
+function Secunderabad({ canonicalUrl }) {
     return (
         <div className='bg-white'>
             <Head>
-                <title> No Deposit & Unlimited Members - Private Farmhouse for Rent Near Secunderabad</title>
-                <meta name="description" content="Explore farmhouse rentals near Secunderabad for a peaceful and relaxing getaway with family and friends." />
+                <title> Farmhouses with pool Near Secunderabad</title>
+                <meta name="description" content="Unwind at a farmhouse near Secunderabad where scenic views, modern amenities and cozy stays make every getaway memorable." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta property="og:title" content=" No Deposit & Unlimited Members - Private Farmhouse for Rent Near Secunderabad" />
-                <meta property="og:description" content="Explore farmhouse rentals near Secunderabad for a peaceful and relaxing getaway with family and friends." />
+                <meta property="og:title" content=" Farmhouses with pool Near Secunderabad" />
+                <meta property="og:description" content="Unwind at a farmhouse near Secunderabad where scenic views, modern amenities and cozy stays make every getaway memorable." />
                 <link rel="canonical" href={canonicalUrl} />
             </Head>
             <div className='text-black lg:px-20 px-4 leading-9 lg:leading-10 pt-4 lg:pt-16'>

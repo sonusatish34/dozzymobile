@@ -15,9 +15,12 @@ import { BsMusicPlayerFill } from "react-icons/bs";
 import { SiPrivateinternetaccess } from "react-icons/si";
 import { HiUserGroup } from "react-icons/hi";
 import { IoMdPhotos } from "react-icons/io";
+import { FaHouse } from "react-icons/fa6";
+import { FaHouseSignal } from "react-icons/fa6";
+import { GiSpookyHouse } from "react-icons/gi";
 
 const IconCard = ({ Icon, text }) => (
-    <div className="flex items-center gap-1 p-2 bg-[#556ee6] xl:text-base lg:text-xs text-sm border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[220px] w-full">
+    <div className="flex items-center gap-1 p-2 bg-[#556ee6] xl:text-sm lg:text-xs text-xs border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[220px] w-full">
         <Icon className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
         <p className="ml-2">{text}</p>
     </div>
@@ -77,6 +80,17 @@ const ImageChange = (({ locname }) => {
                                     <IconCard Icon={RiMoneyRupeeCircleFill} text="No Deposit Required" />
                                     <IconCard Icon={HiUserGroup} text="Unlimited Persons Allowed" />
                                     <IconCard Icon={IoMdPhotos} text="Check Real Photos & Book" />
+                                    {/* <IconCard Icon={FaHouse} text="Basic Farm House Under 6000" />
+                                    <IconCard Icon={FaHouseSignal} text="Premium Farm House Under 10000" />
+                                    <IconCard Icon={GiSpookyHouse} text="Luxury Farm House Under 20000" /> */}
+                                    <div className="flex items-center gap-1 p-2 bg-[#556ee6] xl:text-base lg:text-xs text-xs border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[220px] w-full lg:hidden">
+                                        <GiSpookyHouse className="bg-white text-black lg:rounded-full rounded-md p-1" size={40} />
+                                        <ul className="ml-2 flex flex-col gap-y-1">
+                                            <li>Basic Farm House Under 6000</li>
+                                            <li>Premium Farm House Under 10000</li>
+                                            <li>Luxury Farm House Under 20000</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>

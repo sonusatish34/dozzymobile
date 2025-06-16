@@ -200,9 +200,16 @@ const CategoryPage = ({ canonicalUrl }) => {
 export default CategoryPage;
 export async function getServerSideProps(context) {
     const { req, params } = context; // Extract `params` if using dynamic routes
-
     const host = req.headers.host || 'localhost';
-    const category = params?.category || 'default-category'; // Example fallback for category
+    const category = params?.category || 'party'; // Example fallback for category
+    const catQuerySnapshot = await getDocs(collection(fireDb, "catgfordozzy"));
+    const categoriesData = catQuerySnapshot.docs.map(doc => doc.data().name.toLowerCase());
+
+    if (!categoriesData.includes(category.toLowerCase())) {
+        return {
+            notFound: true, // This will render the 404 page
+        };
+    }
 
     const canonicalUrl = host.includes('.in')
         ? `https://www.dozzy.in/blog/${category}`
