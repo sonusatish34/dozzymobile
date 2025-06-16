@@ -120,7 +120,7 @@ export default function Home({ canonicalUrl, filteredFHs }) {
       </Head>
       <div className="lg:block hidden"><FHLPage FHList={filteredFHs} /></div>
       <div className="lg:hidden block"><FarmProductLPage FHList={filteredFHs} /></div>
-      <HomeBanner />
+      {/* <HomeBanner /> */}
       <FarmStarts />
       <CareGuests />
       {loading && <div className="text-center py-4">
