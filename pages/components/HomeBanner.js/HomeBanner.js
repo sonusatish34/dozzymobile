@@ -128,82 +128,88 @@ import { FaHouseSignal } from "react-icons/fa6";
 import { GiSpookyHouse } from "react-icons/gi";
 
 const IconCard = ({ Icon, text }) => (
-  <div className="flex items-center gap-1 p-2 bg-[#556ee6] border border-black text-white rounded-lg transition-transform hover:scale-105 w-full max-w-[330px]">
-    <Icon className="bg-white text-black rounded-full p-1 min-w-[40px]" size={40} />
-    <p className="ml-2 text-sm">{text}</p>
-  </div>
+    <div className="flex items-center gap-1 p-2 bg-[#556ee6] border border-black text-white rounded-lg transition-transform lg:hover:scale-105 w-full max-w-[330px] min-h-[60px]">
+        <Icon className="bg-white text-black rounded-full p-1 min-w-[40px]" size={40} />
+        <p className="ml-2 text-sm">{text}</p>
+    </div>
 );
 
 const ImageChange = memo(({ locname }) => {
-  return (
-    <div className="py-6 px-2 bg-white">
-      <div className="flex flex-col lg:flex-row-reverse items-center justify-center lg:px-10 xl:px-20">
-        <Image
-          src={homebanner}
-          alt="Dozzy app"
-          width={450}
-          height={450}
-          className="relative top-3 xl:right-36 lg:right-16"
-          priority
-          sizes="(max-width: 768px) 300px, (max-width: 1200px) 350px, 450px"
-        />
-        <div className="text-black font-medium lg:pt-10 pt-4 text-center lg:text-left lg:pl-6">
-          <h1 className="text-2xl xl:text-3xl font-bold max-w-xl mx-auto lg:mx-0">
-            Farm House for Rent In Hyderabad
-          </h1>
-          <h3 className="pt-4 text-lg xl:text-2xl font-semibold max-w-xl mx-auto lg:mx-0">
-            Download Dozzy App to Check Available Farm Houses & Book
-          </h3>
-          <div className="pt-4 flex flex-col items-center lg:items-start gap-4">
-            <div className="flex gap-4 flex-wrap justify-center lg:justify-start">
-              <Link href="https://apps.apple.com/in/app/dozzy-farmhouse-rental/id6670319530">
+    return (
+        <div className="py-6 px-2 bg-white">
+            <div className="flex flex-col lg:flex-row-reverse items-center justify-center lg:px-10 xl:px-20">
                 <Image
-                  src={apple}
-                  alt="Download on Apple"
-                  width={160}
-                  height={56}
-                  className="hover:scale-105 transition-transform"
-                  priority
+                    src={homebanner}
+                    alt="Dozzy app"
+                    width={450}
+                    height={450}
+                    className="relative top-3 xl:right-36 lg:right-16"
+                    priority
+                    sizes="(max-width: 768px) 300px, (max-width: 1200px) 350px, 450px"
                 />
-              </Link>
-              <Link href="https://play.google.com/store/apps/details?id=com.dozzy_customer">
-                <Image
-                  src={google}
-                  alt="Download on Google Play"
-                  width={192}
-                  height={64}
-                  className="hover:scale-105 transition-transform"
-                  priority
-                />
-              </Link>
+                <div className="text-black font-medium lg:pt-10 pt-4 text-center lg:text-left lg:pl-6">
+                    <h1 className="xl:text-3xl lg:text-2xl text-xl text-center lg:text-left font-bold lg:w-2/3 min-h-[3rem]">
+                        Farm House for Rent In Hyderabad
+                    </h1>
+
+                    <h3 className="pt-4 xl:text-2xl lg:text-xl text-lg text-center lg:text-left font-semibold lg:w-2/3 min-h-[3rem]">
+                        Download Dozzy App to Check Available Farm Houses & Book
+                    </h3>
+
+                    <div className="pt-4 flex flex-col items-center lg:items-start gap-4">
+                        <div className="flex gap-4 flex-wrap justify-center lg:justify-start">
+                            <Link href="https://apps.apple.com/in/app/dozzy-farmhouse-rental/id6670319530">
+                                <Image
+                                    height={56}
+                                    width={160}
+                                    alt="apple"
+                                    className="lg:w-40 lg:h-14 w-28 h-11 lg:hover:scale-105"
+                                    src={apple}
+                                    loading="lazy"
+
+                                />
+
+                            </Link>
+                            <Link href="https://play.google.com/store/apps/details?id=com.dozzy_customer">
+                                <Image
+                                    height={56}
+                                    width={160}
+                                    alt="googlr"
+                                    className="lg:w-40 lg:h-14 w-28 h-11 lg:hover:scale-105"
+                                    src={google}
+                                    loading="lazy"
+
+                                />
+
+                            </Link>
+                        </div>
+                        <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                            <IconCard Icon={TbDiscount} text="Cheapest Farm house Near U" />
+                            <IconCard Icon={MdOutlineFestival} text="For Parties, Marriages & Events" />
+                            <IconCard Icon={RiMoneyRupeeCircleFill} text="Farm House Under ₹10,000" />
+                            <IconCard Icon={FaSwimmingPool} text="Private Swimming Pool" />
+                            <IconCard Icon={BiCameraMovie} text="Private Theater" />
+                            <IconCard Icon={BsMusicPlayerFill} text="Party Music System" />
+                            <IconCard Icon={SiPrivateinternetaccess} text="Full Privacy for Couples & Friends" />
+                            <IconCard Icon={MdSportsCricket} text="Box Cricket" />
+                            <IconCard Icon={TbKayak} text="Kayaking in Pool" />
+                            <IconCard Icon={RiMoneyRupeeCircleFill} text="No Deposit Required" />
+                            <IconCard Icon={HiUserGroup} text="Unlimited Persons Allowed" />
+                            <IconCard Icon={IoMdPhotos} text="Check Real Photos & Book" />
+                            <div className="flex items-start gap-2 p-2 bg-[#556ee6] text-white border border-black rounded-md w-full max-w-[330px] lg:hidden">
+                                <GiSpookyHouse className="bg-white text-black rounded-fill p-1" size={40} />
+                                <ul className="text-sm leading-5 text-left">
+                                    <li>Basic Farm House Under ₹6000</li>
+                                    <li>Premium Farm House Under ₹10,000</li>
+                                    <li>Luxury Farm House Under ₹20,000</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-              <IconCard Icon={TbDiscount} text="Cheapest Farm house Near U" />
-              <IconCard Icon={MdOutlineFestival} text="For Parties, Marriages & Events" />
-              <IconCard Icon={RiMoneyRupeeCircleFill} text="Farm House Under ₹10,000" />
-              <IconCard Icon={FaSwimmingPool} text="Private Swimming Pool" />
-              <IconCard Icon={BiCameraMovie} text="Private Theater" />
-              <IconCard Icon={BsMusicPlayerFill} text="Party Music System" />
-              <IconCard Icon={SiPrivateinternetaccess} text="Full Privacy for Couples & Friends" />
-              <IconCard Icon={MdSportsCricket} text="Box Cricket" />
-              <IconCard Icon={TbKayak} text="Kayaking in Pool" />
-              <IconCard Icon={RiMoneyRupeeCircleFill} text="No Deposit Required" />
-              <IconCard Icon={HiUserGroup} text="Unlimited Persons Allowed" />
-              <IconCard Icon={IoMdPhotos} text="Check Real Photos & Book" />
-              <div className="flex items-start gap-2 p-2 bg-[#556ee6] text-white border border-black rounded-md w-full max-w-[330px] lg:hidden">
-                <GiSpookyHouse className="bg-white text-black rounded-fill p-1" size={40} />
-                <ul className="text-sm leading-5 text-left">
-                  <li>Basic Farm House Under ₹6000</li>
-                  <li>Premium Farm House Under ₹10,000</li>
-                  <li>Luxury Farm House Under ₹20,000</li>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 });
 
 export default ImageChange;
