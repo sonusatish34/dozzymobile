@@ -1,0 +1,14 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+
+# Block access to admin and private areas (if you have any)
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /api/
+
+# Sitemaps
+Sitemap: https://www.dozzy.com/sitemap.xml

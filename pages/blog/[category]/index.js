@@ -7,16 +7,12 @@ import BlogLayout from '../blogcomponents/BlogLayout';
 import { MdOutlineExplore } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
 import Link from 'next/link';
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Loading from '@/pages/components/Loading';
 import { MdExpandMore } from "react-icons/md";
 import { MdExplore } from "react-icons/md";
 import Head from 'next/head';
 import RandomPosts from '../blogcomponents/RandomPosts';
 const CategoryPage = ({ canonicalUrl }) => {
-    const [categories, setCategories] = useState([]);
     const [postlist, setPostlist] = useState([]);
     const [randomPostlist, setRandomPostlist] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
@@ -26,60 +22,6 @@ const CategoryPage = ({ canonicalUrl }) => {
     const [error, setError] = useState(null); // State to manage errors
     const router = useRouter();
     const { category } = router.query;
-
-    const settings = {
-        className: "center",
-        infinite: true,
-        speed: 500,
-        arrows: true,
-        responsive: [
-            {
-                breakpoint: 2000,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 4,
-                },
-            },
-            {
-                breakpoint: 1120,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 770,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 425,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                },
-            },
-            {
-                breakpoint: 370,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                },
-            },
-            {
-                breakpoint: 320,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    infinite: true,
-                },
-            },
-        ],
-    };
-
     // Fetch categories and posts with try-catch and loader management
     useEffect(() => {
         const fetchCatAndPosts = async () => {

@@ -1,201 +1,243 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import LinkCall from "../LinkCall";
-import { useState } from "react";
-import { BiPhoneCall } from "react-icons/bi";
-import { FaWhatsapp } from "react-icons/fa";
-import dzyqr from '../../images/dzyqr.png'
-import { FaAppStore } from "react-icons/fa";
-import PopUp from "../Popup";
 import { RiArrowDownWideLine } from "react-icons/ri";
-import { BiLogoPlayStore } from "react-icons/bi";
+import Image from "next/image";
+import { FaChevronDown } from "react-icons/fa";
+import { CiCircleRemove } from "react-icons/ci";
+import Cardfragment from "./CardFragment";
+import { useRouter } from "next/router";
+const FarmProductLPage = ({ count, FHList, place }) => {
+  const [mobileC, setMobileC] = useState(false);
+  const [showDrop, setShowDrop] = useState(false);
+  const [placeNow, setPlaceNow] = useState(place ? place : 'Hyderabad');
+  const dropdownRef = useRef(null); // Create a ref for the dropdown
 
-
-const FarmProductLPage = ({ count, FHList }) => {
-    const sortedData = FHList?.sort(
-        (a, b) => a.property_price - b.property_price
-    );
-
-    const [mobileC, setMobileC] = useState(false)
-    useEffect(() => {
-
-        if (window.innerWidth < 700) {
-            setMobileC(true);
-        }
-    }, [])
-
-    const TimeCard = ({ price, hrs, checkin, checkout }) => {
-        return (
-            <div className="flex justify-between font-normal text-xs text-black">
-                <div className="flex flex-col gap-y-2 border-2 border-[#F5F5F5] rounded-lg p-1">
-                    <div><p className="underline tracking-wide text-xs mxs:text-sm text-[#556EE6]">{price} / {hrs} hrs</p></div>
-                    <div className="flex capitalize items-center text-center lg:gap-x-1 text-[6px] mxs:text-[8px]">
-                        <ul className="">
-                            <li>{checkin}</li>
-                            <li>check - in</li>
-                        </ul>
-                        <ul><li className="text-[#F5F5F5] text-base">|</li></ul>
-                        <ul>
-                            <li className="">{checkout}</li>
-                            <li>check - out</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        )
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedBHK, setSelectedBHK] = useState('');
+  const [priceRange, setPriceRange] = useState('');
+  const [sortOrder, setSortOrder] = useState('asc');
+  const router = useRouter();
+  useEffect(() => {
+    if (window.innerWidth < 700) {
+      setMobileC(true);
     }
+  }, []);
 
-    const [showDown, setShowDown] = useState(false)
+  useEffect(() => {
+    const savedScroll = sessionStorage.getItem('farmhouse_scroll');
+    if (savedScroll) {
+      window.scrollTo(0, parseInt(savedScroll));
+      sessionStorage.removeItem('farmhouse_scroll'); // optional
+    }
+  }, []);
 
-    return (
-        <div>
-            <div className="text-sm pl-4 py-4 md:px-20 lg:py-16 text-black">
+  // Close dropdown when clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDrop(false);
+      }
+    };
 
-                <p className="font-semibold text-base mxs:text-lg lg:text-5xl font-poppins">
-                    Top Farm Houses In Hyderabad
-                </p>
-                <p className="md:py-4 py-1 text-sm mxs:text-base lg:text-2xl lg:pb-4 mont-text pt-1">
-                    Get Very Low prices Compared To Others
-                </p>
-            </div>
-            <div>
-                <div className="flex flex-wrap xl:gap-x-12 xl:gap-y-12 md:gap-x-8 md:gap-y-8 gap-y-8 lg:items-start justify-center  lg:px-20 items-center px-1">
-                    {sortedData?.slice(0, count ? sortedData?.length : mobileC ? 10 : 12).map((item, index) => (
-                        <React.Fragment key={index} >
-                            <div className="bg-red-2 rounded-lg overflow-hidden flex justify-center flex-col xl:w-[360px] lg:w-[260px] w-[100%]  md:w-80 h-[680px] rounded-t-lg ">
-                                <div
-                                    key={index}
-                                    onClick={(e) => LinkCall(e, `/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`)}
-                                    href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
-                                >
-                                    <Image
-                                        className="rounded-t-lg xl:h-[410px] lg:h-[370px] h-[395px] mxs:h-[400px] object-cover  cursor-pointer"
-                                        src={item?.images[0]}
-                                        alt={"Dozzy App For Farmhouse Booking"}
-                                        width={2000}
-                                        height={2000}
-                                    />
-                                </div>
-                                <div className="px- flex flex-col justify-center  gap-4">
-                                    <div className="flex items-baseline justify-between px-2 py-2">
-                                        <div>
-                                            <Link
-                                                className="text-[#556EE6] xl:text-xl lg:text-lg text-base font-semibold uppercase" href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}
-                                            >
-                                                {(item.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())}
-                                            </Link>
-                                            <Link onClick={(e) => LinkCall(e, `/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`)} href={`/${item.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-')}`}>
-                                                <p className="text-gray-900 text-xs lg:text-md opacity-75 font-Montserrat">Book in Dozzy App (<span className="font-bold text-black">{item.no_of_bedrooms} BHK</span>  )</p>
-                                            </Link>
-                                        </div>
-                                        <div>
-                                            <div className="flex flex-col gap-2 text-black text-[10px] items-center pt-2">
-                                                <p><span className="text-blue-500">500</span> Added in Dozzy Wallet</p>
-                                                <p className="text-black">Use 500 for First Booking</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="flex justify-between px-2">
-                                        <TimeCard price={item.customer_night_prices} hrs={'11'} checkin={'9am'} checkout={'8pm'} />
-                                        <TimeCard price={item.customer_night_prices} hrs={'11'} checkin={'9pm'} checkout={'8am'} />
-                                        <TimeCard price={item.property_price} hrs={'22'} checkin={'12pm'} checkout={'10am'} />
+    // Add event listener for outside click
+    document.addEventListener("mousedown", handleClickOutside);
 
-                                    </div>
+    // Cleanup the event listener on component unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
-                                    <div className="flex flex-col justify-between  text-white">
-                                        <ul className="flex justify-center gap-x-1 w-full px-3 pb-4">
-                                            <li className="bg-[#74C184] w-full py-3 px-2  text-center rounded-md ">
-                                                {" "}
-                                                <Link
-                                                    href={`https://api.whatsapp.com/send/?phone=919111911162&text=Hi+I+am+looking+for+farmhouse+booking&type=phone_number&app_absent=0`}
-                                                    target="_blank"
-                                                >
-                                                    <p className=" flex gap-1 lg:text-sm text-xs justify-center items-center">
-                                                        <span>
-                                                            <FaWhatsapp size={20} />
-                                                        </span>{" "}
-                                                        <span>Whatsapp Us</span>
-                                                    </p>
-                                                </Link>
-                                            </li>
-                                            <li className="bg-[#556EE6] w-full py-3 px-2 rounded-md ">
-                                                <Link href={`tel:9111911162`} target="_blank">
-                                                    <p className=" flex gap-1 lg:text-sm text-xs justify-center items-center">
-                                                        <span>
-                                                            <BiPhoneCall size={20} />
-                                                        </span>{" "}
-                                                        <span>Call Us</span>
-                                                    </p>
-                                                </Link>
-                                            </li>
-                                        </ul>
-                                        <div onClick={() => { setShowDown(true) }} className="flex justify-center items-center cursor-pointer text-white text-lg font- bg-[#102E50] py-2 rounded-b-lg ">
-                                            <p className="text-[11px]">
-                                                To View More Farm houses Download Dozzy App
-                                            </p>
+  const handleSelect = (city) => {
+    setPlaceNow(city);
+    setShowDrop(false);
+  };
 
-                                        </div>
+  const sortedData = FHList?.sort((a, b) => a.property_price - b.property_price);
 
-                                        {showDown && (
-                                            <div >
-                                                <div className='text-black fixed inset-0 backdrop-blur-0 bg-[#1f1f1f] bg-opacity-5 z-50  h-'>
-                                                    <div className='flex justify-center items-center '>
-                                                        <div className='bg-white absolute top-20 h-[500px] lg:h-[300px] transition-all duration-300 ease-in-out p-8 rounded-lg shadow-md max-w-lg lg:w-[800px] w-[500px]'>
-                                                            <button
-                                                                onClick={() => {
-                                                                    setShowDown(false)
-                                                                }}
-                                                                className='relative lg:left-96 rounded-full bg-white lg:bottom-20 text-black py-2 px-4 text-xl border-2 border-gray-300 w-10 h-10'
-                                                            >
-                                                                <span className="relative bottom-1 right-[1px] ">x</span>
-                                                            </button>
-                                                            <div className="flex gap-3">
-                                                                <div>
-                                                                    <h2 className="text-base font-semibold text-gray-900">
-                                                                        Download the Dozzy App and Book Your Preferred Farmhouse
-                                                                    </h2>
-                                                                    <ul className="mt-2 text-gray-600">
-                                                                        <li>Scan the QR code to get the app from the Play Store or App Store.</li>
-                                                                        <li className="flex gap-x-3 pt-3"><FaAppStore className="text-black" size={30} /> <BiLogoPlayStore className="text-black" size={30} /></li>
-                                                                    </ul>
+  const filteredData = sortedData
+    ?.filter((item) =>
+      item.property_name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    ?.filter((item) => {
+      if (!selectedBHK) return true;
+      return `${item.no_of_bedrooms}` === selectedBHK;
+    })
+    ?.filter((item) => {
+      if (!priceRange) return true;
+      const price = item.property_price;
+      const [min, max] = priceRange.split('-').map(Number);
+      return price >= min * 1000 && price <= max * 1000;
+    })
+    ?.sort((a, b) => {
+      return sortOrder === 'asc'
+        ? a.property_price - b.property_price
+        : b.property_price - a.property_price;
+    });
 
-                                                                </div>
+  const clearFilters = () => {
+    setSearchTerm("");
+    setSelectedBHK("");
+    setPriceRange("");
+    setSortOrder("asc");
+    router.replace(router.pathname, undefined, { shallow: true });
+  };
 
-                                                                <Image
-                                                                    src={dzyqr}
-                                                                    height={1000}
-                                                                    width={1000}
-                                                                    alt='dozzy farmhouse logo'
-                                                                    className='w-full h-44 object-contain'
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        </React.Fragment>
-                    ))}
-                </div>
-            </div>
-            <div className={`${count?.length ? 'hidden' : 'block'} text-center py-4 lg:px-2 px-10 flex justify-center items-center`}>
-                <Link onClick={(e) => LinkCall(e, "/explore-all-farmhouses-in-hyderabad")}
-                    href="/explore-all-farmhouses-in-hyderabad" className="flex flex-col items-center spinner-border text-lg lg:text-2xl font-bold text-[#556ee6] w-full lg:w-96 py-8 rounded-full capitalize">
-                    <p
-                        className=""
-                    >View all farm houses</p>
-                    <RiArrowDownWideLine className="animate-pulse text-black" size={40} />
-                </Link>
-            </div>
+  const updateQueryParams = (key, value) => {
+    const query = { ...router.query };
+    if (value) {
+      query[key] = value;
+    } else {
+      delete query[key];
+    }
+    router.replace({
+      pathname: router.pathname,
+      query,
+    }, undefined, { shallow: true });
+  };
+  useEffect(() => {
+    if (router.query.bhk) setSelectedBHK(router.query.bhk);
+    if (router.query.price) setPriceRange(router.query.price);
+    if (router.query.sort) setSortOrder(router.query.sort);
+    if (router.query.search) setSearchTerm(router.query.search);
+  }, [router.query]);
+  return (
+    <div>
+      {/* Heading */}
+      <div className="text-sm pl-4 py-4 md:px-20 lg:py-10 text-black">
+        <h2 className="font-semibold text-lg mxs:text-xl lg:text-5xl flex items-center gap-x-2 relative">
+          <span>Top FarmHouses In</span>
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setShowDrop(!showDrop)}
+              className="flex items-center gap-1 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 font-semibold capitalize lg:h-16"
+            >
+              {placeNow}
+              <FaChevronDown size={40} className="text-indigo-500" />
+            </button>
+            {showDrop && (
+              <div className="absolute left-0 mt-2 w-40 lg:w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-10 z-20">
+                <ul className="py-2 text-sm lg:text-xl text-gray-700">
+                  <li className="w-full">
+                    <Link
+                      href="/"
+                      onClick={() => handleSelect("Hyderabad")}
+                      className="block w-full px-4 py-2 hover:bg-pink-100 hover:text-indigo-700 transition-all duration-150"
+                    >
+                      Hyderabad
+                    </Link>
+                  </li>
+                  <li className="w-full">
+                    <Link
+                      href="/bangalore"
+                      onClick={() => handleSelect("Bangalore")}
+                      className="block w-full px-4 py-2 hover:bg-pink-100 hover:text-indigo-700 transition-all duration-150"
+                    >
+                      Bangalore
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+        </h2>
 
-            <PopUp />
-        </div>
-    );
+        <p className="mt-4 text-gray-700 lg:text-2xl">Get Very Low prices Compared To Others</p>
+      </div>
 
+      <div className="w-full xl:pl-36 lg:pl-28 py-4 lg:py-10 px-4 flex flex-wrap gap-4 justify- text-black">
+        <input
+          type="text"
+          placeholder="Search Farmhouse"
+          className="px-4 py-3 border-2 border-gray-300 rounded-md text-sm w-full xl:max-w-lg lg:max-w-sm h-12"
+          value={searchTerm}
+          onChange={(e) => {
+            const value = e.target.value;
+            setSearchTerm(value);
+            updateQueryParams('search', value);
+          }}
+        />
+        <select
+          className="px-4 py-2 border border-gray-300 rounded-md text-sm h-12"
+          value={selectedBHK}
+          onChange={(e) => {
+            const value = e.target.value;
+            setSelectedBHK(value);
+            updateQueryParams('bhk', value);
+          }}
+
+        >
+          <option value="">All BHK</option>
+          <option value="1">1 BHK</option>
+          <option value="2">2 BHK</option>
+          <option value="3">3 BHK</option>
+          <option value="4">4 BHK</option>
+          <option value="5">5 BHK</option>
+          <option value="6">6 BHK</option>
+          <option value="7">7 BHK</option>
+        </select>
+        <select
+          className="px-4 py- border border-gray-300 rounded-md text-sm h-12"
+          value={priceRange}
+          onChange={(e) => {
+            const value = e.target.value;
+            setPriceRange(value);
+            updateQueryParams('price', value);
+          }}
+        >
+          <option value="">All Prices</option>
+          <option value="6-8">6K - 8K</option>
+          <option value="8-10">8K - 10K</option>
+          <option value="10-12">10K - 12K</option>
+          <option value="12-14">12K - 14K</option>
+          <option value="14-18">14K - 18K</option>
+        </select>
+        <select
+          className="px-4 py-2 border border-gray-300 rounded-md text-sm h-12"
+          value={sortOrder}
+          onChange={(e) => {
+            const value = e.target.value;
+            setSortOrder(value);
+            updateQueryParams('sort', value);
+          }}
+        >
+          <option value="asc">Sort: Low to High</option>
+          <option value="desc">Sort: High to Low</option>
+        </select>
+        <button
+          onClick={clearFilters}
+          className="px-4 py-2 border border-gray-300 lg:hover:bg-red-300 rounded-md text-sm flex gap-x-1 justify-center items-center h-12"
+        >
+          <span>Clear All Filters</span>  <span><CiCircleRemove size={20} color="red" /></span>
+        </button>
+      </div>
+
+      {/* Farmhouse Cards */}
+      <div className="flex flex-wrap xl:gap-x-12 xl:gap-y-12 md:gap-x-8 md:gap-y-8 gap-y-8 lg:items-start justify-center xl:px-20 items-center  px-1">
+        {filteredData?.slice(
+          0,
+          searchTerm || selectedBHK || priceRange ? filteredData?.length : (count ? filteredData?.length : mobileC ? 10 : 12)
+        ).map((item, index) => (
+          <Cardfragment key={item.id || item.property_id || index} item={item} index={index} place={place} />
+        ))}
+      </div>
+
+      {(filteredData?.length < 1) && (
+        <p className="text-lg font-semibold text-red-500 text-center py-8 flex flex-col gap-y-4 justify-center items-center">
+          <span><Image alt="famhouses for rent" width={100} height={100} src={'/notfound.webp'} /></span>
+          <span>Sorry! No Farmhouses</span>
+        </p>
+      )}
+
+      {/* View All */}
+      <div className={`${count?.length ? 'hidden' : 'block'} text-center cuso py-4 lg:px-2 px-10 flex justify-center items-center`}>
+        <Link href={`${place == 'hyderabad' ? '' : place}/explore-all-farmhouses-in-${place?.toLowerCase() || 'hyderabad'}`} className="flex flex-col items-center spinner-border text-lg lg:text-2xl font-bold text-[#556ee6] w-full lg:w-96 py-8 rounded-full capitalize">
+          <p>View all farm houses</p>
+          <RiArrowDownWideLine className="animate-pulse text-black" size={40} />
+        </Link>
+      </div>
+    </div>
+  );
 };
 
 export default FarmProductLPage;

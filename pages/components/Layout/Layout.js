@@ -1,36 +1,34 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import Header from '../Header/Header'; // Adjust path if needed
-import Footer from '../Footer/Footer'; // Adjust path if needed
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import { Poppins } from "next/font/google";
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], // Only the weights you need
+  display: "swap",
+});
 
 const Layout = ({ children }) => {
-    const router = useRouter();
+  const router = useRouter();
+  const path = router.pathname;
+  
+  // Define routes where header/footer should be hidden
+  const noHeaderFooterRoutes = [
+    '/blog',
+    '/blog/[slug]',
+    // Add more routes or patterns here as needed
+  ];
 
-    // Define routes to exclude the layout
-    const excludedRoutes = ['/blog'];
+  const hideHeaderFooter = path.includes('blog');
 
-    // Check if the current route is excluded
-    if (router.pathname.startsWith('/blog')) {
-        return <>{children}</>;
-    }
-
-    return (
-        <>
-            <noscript>
-                <iframe
-                    src="https://www.googletagmanager.com/ns.html?id=GTM-NFJZZ34X"
-                    height="0"
-                    width="0"
-                    style={{ display: 'none', visibility: 'hidden' }}
-                />
-            </noscript>
-            <div className="flex flex-col min-h-screen">
-                <Header />
-                <main className="flex-grow bg-white">{children}</main>
-                <Footer />
-            </div>
-        </>
-    );
+  return (
+    <div className={`flex flex-col min-h-screen ${poppins.className}`}>
+      {!hideHeaderFooter && <Header />}
+      <main className="flex-grow bg-white">{children}</main>
+      {!hideHeaderFooter && <Footer />}
+    </div>
+  );
 };
 
 export default Layout;

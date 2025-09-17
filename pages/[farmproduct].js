@@ -1,32 +1,33 @@
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
-import customData from './components/kk.json';
+import { useState, useEffect, useRef } from 'react';
 import { BiPhoneCall } from "react-icons/bi";
 import Link from 'next/link';
 import { FaWhatsapp } from "react-icons/fa";
 import Head from 'next/head';
-import { FaPeopleLine } from "react-icons/fa6";
 import { HiCurrencyRupee } from "react-icons/hi2";
 import { FaSwimmingPool } from "react-icons/fa";
 import { TbAirConditioning } from "react-icons/tb";
 import { IoWifi } from "react-icons/io5";
 import { GiBatteryPack } from "react-icons/gi";
-import { MdOutlineWaterDamage } from "react-icons/md";
 import { BiCameraMovie } from "react-icons/bi";
-import { FaKitchenSet } from "react-icons/fa6";
-import { GiBarbecue } from "react-icons/gi";
 import { IoIosBonfire } from "react-icons/io";
 import { MdOutlineSportsVolleyball } from "react-icons/md";
+import { CgSmartHomeBoiler } from "react-icons/cg";
+import { IoIosArrowDroprightCircle, IoIosArrowDropleftCircle } from "react-icons/io";
+import { BiFridge } from "react-icons/bi";
+
 import { SiPrivateinternetaccess } from "react-icons/si";
 import { FaIndianRupeeSign } from "react-icons/fa6";
 import { IoMdPhotos } from "react-icons/io";
 import LinkCall from './components/LinkCall';
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-const CarDetails = ({ canonicalUrl, selectedAtt, farmproduct }) => {
+import { IoIosTv } from "react-icons/io";
 
-  const mdfyFarmProduct = farmproduct;
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import 'swiper/css';
+import 'swiper/css/navigation';
+const CarDetails = ({ canonicalUrl, selectedAtt, farmproduct, propertyId }) => {
 
   const [loading, setLoading] = useState(true);
 
@@ -42,27 +43,30 @@ const CarDetails = ({ canonicalUrl, selectedAtt, farmproduct }) => {
       .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join(' ');
   }
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
 
   const TimeCard = ({ price, hrs, checkin, checkout }) => {
     return (
-      <div className="flex justify-between font-normal text-xs ">
-        <div className="flex flex-col gap-y-2 border-2 border-[#F5F5F5] rounded-lg p-1 mxs:p-2">
-          <div><p className="underline text-center tracking-wide text-xs mxs:text-sm text-[#556EE6] ">{price} / {hrs} hrs</p></div>
-          <div className="flex items-center capitalize text-center lg:gap-x-1 gap-x-1 text-[6px]  lg:text-[8px] xl:lg:text-xs">
-            <ul key={'9'} className="">
-              <li>{checkin}</li>
-              <li>check - in</li>
+      <div className="flex justify-between font-normal text-xs">
+        <div className="flex flex-col gap-y-2 border-2 border-[#F5F5F5] rounded-lg p-1 mxs:p-2 shadow-md">
+          <div><p className="tracking-normal text-xs mxs:text-sm lg:text-lg text-[#556EE6] font-semibold ">{price} / {hrs} hrs</p></div>
+          <div className="flex flex-col capitalize text-center lg:gap-y-1 gap-y-1 text-[7px] mxs:text-[9px] lg:text-xs">
+            <ul key={'9'} className="flex gap-x-1">
+              <li className="w-16 mxs:w-14 lg:w-20 text-left">check - in</li>
+              <li className="font-semibold">{checkin}</li>
             </ul>
-            <ul><li className="text-[#F5F5F5] text-base">|</li></ul>
-            <ul>
-              <li className="borde=">{checkout}</li>
-              <li>check - out</li>
+            {/* <ul><li className="text-[#F5F5F5] text-base">|</li></ul> */}
+            <ul className="flex gap-x-1">
+              <li className="w-16 mxs:w-14 lg:w-20 text-left">check - out</li>
+              <li className="font-semibold">{checkout}</li>
             </ul>
           </div>
         </div>
       </div>
     )
   }
+  const allowedAmenities = ['Swimming pool', 'Geyser', 'AC', 'Wifi', 'Inverter', 'Projector', 'Bonfire', 'Kids Play Area', 'TV', 'Fridge'];
 
   return (
     <div className='bg-white text-black mont-text'>
@@ -77,64 +81,6 @@ const CarDetails = ({ canonicalUrl, selectedAtt, farmproduct }) => {
         <meta name="og:description" content="1 Day Free Farmhouse @ New User - Full Privacy for Couples & Friends – Private Swimming Pool - Box Cricket - Cycling - Private Theater - Kayaking" />
         <link rel="canonical" href={canonicalUrl} />
 
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-04YJBDK2VX"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-                         window.dataLayer = window.dataLayer || [];
-                         function gtag(){dataLayer.push(arguments);}
-                         gtag('js', new Date());
-                         gtag('config', 'G-04YJBDK2VX');
-                        `,
-          }}
-        />
-
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){
-                w[l]=w[l]||[]; 
-                w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-                var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),
-                dl=l!='dataLayer'?'&l='+l:'';
-                j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-                f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-NFJZZ34X');`,
-          }}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `gtag('config', 'AW-16797121033/PPdfCKqh7_AZEIn0vsk-', {
-                         'phone_conversion_number': '9111-9111-62'
-                         });`,
-          }}
-        />
-        {/* Meta Pixel Code */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              !function(f,b,e,v,n,t,s)
-              {if(f.fbq)return;n=f.fbq=function(){n.callMethod ?
-              n.callMethod.apply(n, arguments) : n.queue.push(arguments)};
-              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-              n.queue=[];t=b.createElement(e);t.async=!0;
-              t.src=v;s=b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t,s)}(window, document,'script',
-              'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '951887287035030');
-              fbq('track', 'PageView');
-            `,
-          }}
-        />
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=951887287035030&ev=PageView&noscript=1"
-          />
-        </noscript>
-        {/* End Meta Pixel Code */}
       </Head>
       <div className=' lg:px-2 lg:mx-16 xl:mx-16 lg:p-4  px-2 py-2'>
         <noscript>
@@ -146,66 +92,85 @@ const CarDetails = ({ canonicalUrl, selectedAtt, farmproduct }) => {
           />
         </noscript>
         <div className='flex flex-col md:flex-row md:mt-2 lg:mt-2 xl:gap-16 lg:gap-3  p-2 border-2 border-[#556EE6] rounded-t-md'>
-          <div className="relative md:w-2/3 xl:w-[525px] lg:w-[424px] rounded-t-md  w-full p-1 xl:h-[534px] lg:h-[434px]  mxs:h-[455px] h-[400px]  overflow-hidden sliderarrows ">
-            <Slider
-              dots={false}
-              infinite={true}
-              speed={500}
-              slidesToShow={1}
-              slidesToScroll={1}
-              arrows={true}
-              // autoplay={true}
-              responsive={[
-                {
-                  breakpoint: 1024, // for tablets and above
-                  settings: {
-                    slidesToShow: 1,  // Shows 2 slides on medium screens
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                  }
-                },
-                {
-                  breakpoint: 768, // for smaller tablets and below
-                  settings: {
-                    slidesToShow: 1,  // Shows 1 slide on smaller screens
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true,
-                  }
-                },
-                {
-                  breakpoint: 480, // for mobile phones
-                  settings: {
-                    slidesToShow: 1,  // Shows 1 slide on mobile screens
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true,
-                    arrows: false
-                  }
-                }
-              ]}
-              swipeToSlide={true}
-              className="relative lg:rounded-md sliderclass"
+          <div className="relative md:w-2/3 xl:w-[525px] lg:w-[424px] rounded-t-md  w-full p-1 xl:h-[534px] lg:h-[434px]  mxs:h-[455px] h-[372px] z-20  overflow-hidden  ">
+            <div className="absolute top- flex h-full lg:hover:bg-black/40  left-1  z-30">
+              <button ref={prevRef} className="swiper-custom-prev">
+                <IoIosArrowDropleftCircle className='size-5 lg:size-7' color='white' />
+              </button>
+            </div>
+            <div className="absolute top- flex h-full lg:hover:bg-black/40  right-1  z-30 ">
+              <button ref={nextRef} className="swiper-custom-next ">
+                <IoIosArrowDroprightCircle className='size-5 lg:size-7 ' color='white' />
+              </button>
+            </div>
+            <Swiper
+              modules={[Autoplay, Navigation]}
+              loop={true}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              slidesPerView={1}
+              navigation={{
+                prevEl: prevRef.current,
+                nextEl: nextRef.current,
+              }}
+              onBeforeInit={(swiper) => {
+                swiper.params.navigation.prevEl = prevRef.current;
+                swiper.params.navigation.nextEl = nextRef.current;
+              }}
+              style={{ maxWidth: '800px', margin: 'auto' }}
             >
-              {(selectedAtt?.images)?.map((imageSrc, index) => (
-                imageSrc && (
-                  <div key={index}>
-                    <Image className='object-cover rounded-t-md object-center xl:h-[534px] lg:h-[434px] h-[355px] mxs:h-[455px]' height={1000} width={1000} alt={"Farm Houses In Hyderabad"} src={imageSrc} />
-                  </div>
-                )
-              ))}
-            </Slider>
+              {(selectedAtt?.images || []).map((imageSrc, index) =>
+                (imageSrc?.attribute_value && !imageSrc?.attribute_name.includes('kitchen')) ? (
+                  <SwiperSlide key={index}>
+                    <Image
+                      className="object-cover rounded-t-md object-center xl:h-[534px] lg:h-[434px] h-[355px] mxs:h-[455px]"
+                      height={1000}
+                      width={1000}
+                      alt="Farm Houses In Hyderabad"
+                      src={imageSrc.attribute_value}
+                    />
+                  </SwiperSlide>
+                ) : null
+              )}
+
+            </Swiper>
+
+
           </div>
           <div className='flex flex-col xl:gap-8  lg:gap-4 gap-4 xl:pt-10 pt-2'>
             <div>
               <div className='p-1 font-bold  text-xl xl:text-3xl lg:text-xl lg: capitalize'>
-                <h1>{selectedAtt?.property_name ? capitalizeFirstLetter(selectedAtt?.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase()) : null} ({selectedAtt?.no_of_bedrooms} BHK)
+                <h1>
+                  Dozzy {Array.isArray(selectedAtt?.property_details) && selectedAtt.property_details.length > 0 ? selectedAtt.property_details[0]?.property_id : 'N/A'}{' '}
+                  {selectedAtt?.property_name ? capitalizeFirstLetter(selectedAtt.property_name.replaceAll(/_/g, " ").trim().toLowerCase()) : ''}
+                  ({selectedAtt?.no_of_bedrooms || 'N/A'} BHK)
                 </h1>
-                <div className="flex lg:gap-x-3 justify-between lg:justify-normal pt-4">
-                  <TimeCard key={'1'} price={selectedAtt?.customer_night_prices} hrs={'11'} checkin={'9am'} checkout={'8pm'} />
-                  <TimeCard key={'2'} price={selectedAtt?.customer_night_prices} hrs={'11'} checkin={'9pm'} checkout={'8am'} />
-                  <TimeCard key={'3'} price={selectedAtt?.property_price} hrs={'22'} checkin={'12pm'} checkout={'10am'} />
+
+                <div className="flex lg:gap-x-6 justify-between lg:justify-normal pt-4">
+                  <TimeCard
+                    key={'1'}
+                    price={Array.isArray(selectedAtt?.property_details) && selectedAtt.property_details.length > 0 ? selectedAtt.property_details[0]?.customer_night_prices : 'N/A'}
+                    hrs={'11'}
+                    checkin={'9am'}
+                    checkout={'8pm'}
+                  />
+                  <TimeCard
+                    key={'1'}
+                    price={Array.isArray(selectedAtt?.property_details) && selectedAtt.property_details.length > 0 ? selectedAtt.property_details[0]?.customer_night_prices : 'N/A'}
+                    hrs={'11'}
+                    checkin={'9am'}
+                    checkout={'8pm'}
+                  />
+                  <TimeCard
+                    key={'2'}
+                    price={Array.isArray(selectedAtt?.property_details) && selectedAtt.property_details.length > 0 ? selectedAtt.property_details[0]?.property_price : 'N/A'}
+                    hrs={'22'}
+                    checkin={'12pm'}
+                    checkout={'10am'}
+                  />
                 </div>
               </div>
             </div>
@@ -213,7 +178,7 @@ const CarDetails = ({ canonicalUrl, selectedAtt, farmproduct }) => {
               <p className="text-xl font-bold bg-gradient-to-r from-[#556ee6] via-orange-500 to-yellow-500 bg-clip-text text-transparent">
                 Add People
               </p>
-              <p className='pt-1 text-sm lg:text-base'>Upto <span className='font-bold text-sm'>{selectedAtt?.property_capacity}</span> People is Free, After that <span className='text-[#556ee6] font-bold'>400</span>/Person Extra</p>
+              <p className='pt-1 text-sm lg:text-base'>Upto <span className='font-bold text-sm'>{selectedAtt?.property_details[0]?.property_capacity}</span> People is Free, After that <span className='text-[#556ee6] font-bold'>400</span>/Person Extra</p>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4   text-sm font-semibold lg:text-base xs: lg:w-full">
               <div className="flex items-center gap-1 p-2 xl:text-sm lg:text-xs text-sm border-[1px] border-black lg:rounded-full rounded-md lg:hover:scale-105 xl:w-[330px] lg:w-[220px] w-full">
@@ -252,47 +217,83 @@ const CarDetails = ({ canonicalUrl, selectedAtt, farmproduct }) => {
         </div>
         <div className='overview pt-10 px-5 lg:px-0'>
           <h2 className='font-bold text-2xl lg:text-3xl border-l-4 pl-2 border-red-900 mb-4  '>Our Amenities</h2>
-          <ul className='my-2 flex-wrap pb-4 grid grid-cols-2 gap-y-3 md:flex lg:w-[83%] xl:w-[60%] justify-center lg:justify-normal'>
-            <li className='w-36 md:w-28 lg:w-36 flex flex-col justify-center gap-2 items-center border-[1px] border-gray-100 py-2   '>
-              <FaSwimmingPool size={30} className='text-green-700 lg:size-10' />
-              <p className='font text-xs lg:text-base text-center '>Swimming Pool</p>
-            </li>
-            <li className='w-36 lg:w-36 w- flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
-              <TbAirConditioning size={30} className='text-blue-700 lg:size-10' />
-              <p className='font text-xs lg:text-base text-center'>Air Conditioner</p>
-            </li>
-            <li className='w-36 lg:w-36 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
-              <IoWifi size={20} className='text-amber-900 lg:size-10' />
-              <p className='font text-xs lg:text-base text-center'>Wifi Connection</p>
-            </li>
-            <li className='w-36 lg:w-36 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
-              <GiBatteryPack size={30} className='text-orange-500 lg:size-10' />
-              <p className='font text-xs lg:text-base text-center'>Power Backup</p>
-            </li>
-            <li className='w-36 lg:w-36 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
-              <MdOutlineWaterDamage size={30} className='text-yellow-500 lg:size-10' />
-              <p className='font text-xs lg:text-base text-center'>Water Purifier + Gyser</p>
-            </li>
-            <li className='w-36 lg:w-36 flex flex-col justify-center gap-2 items-center border-[1px] border-gray-100 py-2   '>
-              <FaKitchenSet size={30} className='text-gray-600 lg:size-10' />
-              <p className='font text-xs lg:text-base text-center '>Private Kitchen</p>
-            </li>
-            <li className='w-36 lg:w-36 w- flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
-              <GiBarbecue size={30} className={` lg:size-10`} />
-              <p className='font text-xs lg:text-base text-center'>Barbeque</p>
-            </li>
-            <li className='w-36 lg:w-36 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
-              <IoIosBonfire size={30} className='text-orange-700 lg:size-10' />
-              <p className='font text-xs lg:text-base text-center'>Bonfire</p>
-            </li>
-            <li className='w-36 lg:w-36 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
-              <BiCameraMovie size={30} className='text-black lg:size-10' />
-              <p className='font text-xs lg:text-base text-center'>Tv / Projector</p>
-            </li>
-            <li className='w-36 lg:w-36 flex flex-col justify-center items-center gap-2 border-[1px] border-gray-100 py-2   '>
-              <MdOutlineSportsVolleyball size={30} className='text-purple-500 lg:size-10' />
-              <p className='font text-xs lg:text-base text-center'>In & Out-Door Games</p>
-            </li>
+          <ul className="my-2 pb-4 grid grid-cols-2 gap-y-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 lg:w-[83%] xl:w-[60%]">
+            {selectedAtt?.amenities
+              ?.filter(
+                item =>
+                  allowedAmenities.includes(item.attribute_name) &&
+                  item.attribute_value >= 1
+              )
+              ?.map((item, ind) => (
+                <li key={ind} className="flex flex-col justify-center items-center gap-2 border border-gray-100 py-2 w-36 md:w-28 lg:w-36 lg:h-32 h-24 mx-auto">
+                  {item.attribute_name === "Swimming pool" && (
+                    <>
+                      <FaSwimmingPool size={30} className="text-green-700 lg:size-10" />
+                      <span className="text-xs lg:text-base text-center">
+                        Swimming Pool
+                      </span>
+                    </>
+                  )}
+                  {item.attribute_name === "Geyser" && (
+                    <>
+                      <CgSmartHomeBoiler size={30} className="text-blue-700 lg:size-10" />
+                      <span className="text-xs lg:text-base text-center">Geyser</span>
+                    </>
+                  )}
+                  {item.attribute_name === "AC" && (
+                    <>
+                      <TbAirConditioning size={30} className="text-red-700 lg:size-10" />
+                      <span className="text-xs lg:text-base text-center">AC</span>
+                    </>
+                  )}
+                  {item.attribute_name === "Wifi" && (
+                    <>
+                      <IoWifi size={30} className="text-black lg:size-10" />
+                      <span className="text-xs lg:text-base text-center">Wifi</span>
+                    </>
+                  )}
+                  {item.attribute_name === "Inverter" && (
+                    <>
+                      <GiBatteryPack size={30} className="text-pink-600 lg:size-10" />
+                      <span className="text-xs lg:text-base text-center">Inverter</span>
+                    </>
+                  )}
+                  {item.attribute_name === "Projector" && (
+                    <>
+                      <BiCameraMovie size={30} className="text-blue-700 lg:size-10" />
+                      <span className="text-xs lg:text-base text-center">Projector</span>
+                    </>
+                  )}
+                  {item.attribute_name === "Bonfire" && (
+                    <>
+                      <IoIosBonfire size={30} className="text-orange-700 lg:size-10" />
+                      <span className="text-xs lg:text-base text-center">Bonfire</span>
+                    </>
+                  )}
+                  {item.attribute_name === "Kids Play Area" && (
+                    <>
+                      <MdOutlineSportsVolleyball size={30} className="text-purple-700 lg:size-10" />
+                      <span className="text-xs lg:text-base text-center">In/Out Door Games</span>
+                    </>
+                  )}
+                  {item.attribute_name === "TV" && (
+                    <>
+                      <IoIosTv size={30} className="text-black lg:size-10" />
+                      <span className="text-xs lg:text-base text-center">Tv</span>
+                    </>
+                  )}
+                  {item.attribute_name === "Fridge" && (
+                    <>
+                      <BiFridge size={30} className="text-blue-700 lg:size-10" />
+                      <span className="text-xs lg:text-base text-center">Fridge</span>
+                    </>
+                  )}
+
+                  {/* Add more icons/conditions here if needed */}
+                </li>
+
+              ))}
+
           </ul>
         </div>
         <div className='px-5 lg:px-0'>
@@ -310,19 +311,19 @@ const CarDetails = ({ canonicalUrl, selectedAtt, farmproduct }) => {
               <li className='list-disc'><p>Drugs/Hookah Not Allowed </p></li>
             </ul>
             <div className='flex items-center lg:py-5 py-3 '>
-              <p className='font-bold text-sm lg:text-lg border-l-4 pl-2 border-red-900 '>Additional Charges</p>
+              <p className='font-bold text-2xl lg:text-lg border-l-4 pl-2 border-red-900 '>Additional Charges</p>
             </div>
           </div>
           <div className="w-full  text-black border border-black lg:w-[265px] font-semibold lg:text-[14px] text-xs ">
             <div className="flex justify-between border-b border-black p-[10px] lg:p-2  ">
               <span className=" border-black px-2 ">Self Cooking Access</span>
               <span className=" border-black px-2  lg:px-[10px] border-r-2"></span>
-              <p className=" border-black px-3  lg:px-4 flex items-center "><span> <FaIndianRupeeSign className="text-black" /> </span> <span>500</span></p>
+              <p className=" border-black px-3  lg:px-4 flex items-center "><span> <FaIndianRupeeSign className="text-black" /> </span> <span>{selectedAtt?.addons.find(addon => addon.attribute_name === "addon_Kitchen")?.attribute_value}</span></p>
             </div>
             <div className="flex justify-between border-b border-black p-[10px] lg:p-2  ">
               <span className=" border-black px-2 ">Barbecue Setup</span>
               <span className=" border-black px-[21px] lg:px-[24.5px]  border-r-2"></span>
-              <p className=" border-black px-3  lg:px-4 flex items-center "><span> <FaIndianRupeeSign className="text-black" /> </span> <span>500</span></p>
+              <p className=" border-black px-3  lg:px-4 flex items-center "><span> <FaIndianRupeeSign className="text-black" /> </span> <span>{selectedAtt?.addons.find(addon => addon.attribute_name === "addon_Bonfire")?.attribute_value}</span></p>
             </div>
             <div className="flex justify-between border-b border-black p-[10px] lg:p-2  ">
               <span className=" border-black px-2 w-18 ">Cleaning Charges</span>
@@ -332,25 +333,21 @@ const CarDetails = ({ canonicalUrl, selectedAtt, farmproduct }) => {
             <div className="flex justify-between border-b border-black p-[10px] lg:p-2   ">
               <span className=" border-black px-2 ">Extra Per Person</span>
               <span className=" border-black px-[20.5px] lg:px-[24px] border-r-2"></span>
-              <p className=" border-black px-3  lg:px-4 flex items-center "><span> <FaIndianRupeeSign className="text-black" /> </span> <span>400</span></p>
+              <p className=" border-black px-3  lg:px-4 flex items-center "><span> <FaIndianRupeeSign className="text-black" /> </span> <span>{selectedAtt?.addons.find(addon => addon.attribute_name === "addon_extra_person")?.attribute_value}</span></p>
             </div>
           </div>
         </div>
-        <div className='px-5 lg:px-0 pt-2'>
+        <div className='px-5 lg:px-0 pt-6'>
           <h2 className='font-bold text-2xl lg:text-3xl border-l-4 pl-2 border-red-900 md:my-6 my-2' >Description</h2>
-          <p className='font-normal p-1 text-[14px] lg:text-lg leading-6  pb-8 lg:w-[50%]'>
-            {customData[selectedAtt?.property_name.trim().replaceAll(/ /g, '-').toLowerCase()]?.desc ? customData[selectedAtt?.property_name.trim().replaceAll(/ /g, '-').toLowerCase()]?.desc : ` ${selectedAtt?.property_name && capitalizeFirstLetter(selectedAtt?.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())} offers a tranquil escape just outside the city, nestled in the heart of nature. This peaceful sanctuary is the perfect destination for those seeking a quiet retreat away from the hustle and bustle. Whether you're a solo traveler, a couple, or a group, ${selectedAtt?.property_name && capitalizeFirstLetter(selectedAtt?.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())} provides a serene environment to relax, unwind, and recharge.`}
+          <p className='font-normal p-1 text-[14px] lg:text-lg leading-6  pb-3 lg:w-[50%]'>
+            Dozzy Farmhouses offer a peaceful escape from the city's hustle, set across scenic natural locations just beyond the urban edge. Whether you're traveling solo, as a couple, or with a group, each farmhouse provides a serene and comfortable environment designed for relaxation. With expansive green spaces and tranquil surroundings, guests can enjoy leisurely walks, outdoor activities, or simply unwind in nature’s calm embrace.
           </p>
           <p className='font-normal p-1 text-[14px] lg:text-lg leading-6  pb-8 lg:w-[50%]'>
-            {customData[selectedAtt?.property_name.replaceAll(/ /g, '-').trim().toLowerCase()]?.subdesc ? customData[selectedAtt?.property_name.replaceAll(/ /g, '-').trim().toLowerCase()]?.subdesc : `The expansive outdoor area allows guests to enjoy leisurely walks through lush greenery, partake in outdoor activities, or simply bask in the calm ambiance of the surroundings. Inside, the farmhouse is designed for comfort, featuring cozy, air-conditioned rooms with double beds, a flat-screen TV, a mini-fridge, and generous storage space, ensuring a cozy and relaxing stay. ${selectedAtt?.property_name && capitalizeFirstLetter(selectedAtt?.property_name.replaceAll(/_/g, " ").replace(/\d+/g, ' ').replaceAll('Dozzy', '').trim().toLowerCase())} is the ideal location for anyone wanting to reconnect with nature and experience peaceful relaxation.`}
+            Inside, every farmhouse is thoughtfully equipped with cozy, air-conditioned rooms featuring double beds, flat-screen TVs, mini-fridges, and ample storage for a restful stay. Whether you're planning a weekend getaway or an extended retreat, Dozzy Farmhouses are the perfect place to disconnect, recharge, and reconnect with nature.
           </p>
         </div>
-        {loading && <div className="text-center py-4">
-          <div className="fixed inset-0 bg-white flex items-center justify-center z-50 opacity-90">
-            <div className="spinner-border animate-spin border-t-4 border-blue-500 border-solid rounded-full w-16 h-16"></div>
-          </div>
-        </div>}
       </div>
+
     </div>
   );
 };
@@ -359,8 +356,8 @@ export default CarDetails;
 
 
 export async function getServerSideProps({ req, query, params }) {
-  const farmproduct = params.farmproduct;
-
+  const { farmproduct } = params;
+  const propertyId = farmproduct?.split('-').pop();
   const host = req.headers.host;
   const canonicalUrl = host.includes('.in')
     ? `https://www.dozzy.in/${farmproduct}`
@@ -372,48 +369,19 @@ export async function getServerSideProps({ req, query, params }) {
   };
 
   try {
-    const response = await fetch("https://api.dozzy.com/customer/approved_properties?lat=17&long=78&program_id=1&property_capacity=1000", requestOptions);
+    const response = await fetch(`https://api.dozzy.com/site/property-data?property_id=${propertyId}`, requestOptions);
     const result = await response.json();
-    const getOrderedImages = (attributes) => {
-      const imageMap = {};
-      attributes?.forEach((attr) => {
-        imageMap[attr.attribute_name] = attr.attribute_value;
-      });
+    const cars = result?.data || [];
+    const selectedAtt = cars
 
-      return [
-        imageMap["farmhouse_front_view"],
-        imageMap["building_outside_pic_1"],
-        imageMap["swimming_pool_pic_1"],
-        imageMap["bedroom_1_0"],
-        imageMap["garden_pic_1"]
-      ].filter(imageSrc => imageSrc);
-    };
-    const cars = result?.data?.results;
-    const car = cars?.find(i => i?.property_name.toLowerCase().replaceAll(/_/g, " ").replace(/\d+/g, ' ').replace('dozzy', '').trim().replaceAll(/ /g, '-') === farmproduct);
-    const selectedAtt = {
-      property_name: car?.property_name,
-      property_price: car?.property_price,
-      weekend_price: car?.weekend_price,
-      no_of_bedrooms: car?.no_of_bedrooms,
-      property_capacity: car?.property_capacity,
-      customer_night_prices: car?.customer_night_prices,
-      images: getOrderedImages(car?.images)
-    }
     return {
       props: {
-        canonicalUrl: canonicalUrl,
-        selectedAtt: selectedAtt || null // Set the car object or null if not found
+        canonicalUrl,
+        propertyId: propertyId,
+        selectedAtt: selectedAtt
       }
     };
   } catch (error) {
-    console.error(error);
-    return {
-      props: {
-        approvedProperties: null,
-        canonicalUrl,
-        car: null,
-        farmproduct: farmproduct
-      }
-    };
+    console.error('Error in getServerSideProps:', error);
   }
 }

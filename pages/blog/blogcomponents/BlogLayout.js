@@ -1,17 +1,22 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { CiSearch } from "react-icons/ci";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 import { fireDb } from "../../../public/firebase";
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { MdExplore } from "react-icons/md";
 import Footer from "../../components/Footer/Footer";
-
+import { useRouter } from "next/router";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import { IoIosArrowDropleftCircle } from "react-icons/io";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 const BlogLayout = ({
+
     recommended,
     children,
     catg,
@@ -54,72 +59,37 @@ const BlogLayout = ({
     }, []);
 
     const [search, setSearch] = useState("");
-
+    const prevRef = useRef(null);
+    const nextRef = useRef(null);
+    const swiperRef = useRef(null);
     const handleSearch = (e) => {
         setSearch(e?.target?.value);
         onSearch(e?.target?.value); // Pass the search query to CategoryPage
     };
-    const settings = {
-        className: "center",
-        infinite: true,
-        speed: 500,
-        arrows: true,
-        responsive: [
-            {
-                breakpoint: 2000,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 1120,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 770,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 425,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                },
-            },
-            {
-                breakpoint: 370,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 320,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                },
-            },
-        ],
-    };
+    useEffect(() => {
+        if (
+            swiperRef.current &&
+            swiperRef.current.params &&
+            prevRef.current &&
+            nextRef.current
+        ) {
+            swiperRef.current.params.navigation.prevEl = prevRef.current;
+            swiperRef.current.params.navigation.nextEl = nextRef.current;
+            swiperRef.current.navigation.init();
+            swiperRef.current.navigation.update();
+        }
+    }, [cList]);
+
+    const router = useRouter()
 
     return (
         <div>
             <div className="xl:px-14 lg:px-10 lg:border-8 lg:border-blue-100 ">
                 <div className="flex flex-col lg:flex-row lg:items-center xl:gap-24 lg:gap-20 gap-2">
                     <div className="flex justify-between px-4 mxs:px-6 py-3 lg:py-4 lg:items-center border-8 border-blue-100 lg:border-none">
-                        <Link href={`/blog`} className="">
+                        <Link href={`${router.asPath.includes('bangalore') ? '/bangalore' : ''}/blog`} className="">
                             <Image
-                                className="h-10 w-40 lg:scale-105 scale-75 "
+                                className="h-12 w-40 lg:scale-105 scale-75 "
                                 src={"/Dozzy123.webp"}
                                 alt={"Dozzy App For Farmhouse Booking"}
                                 width={1000}
@@ -142,7 +112,7 @@ const BlogLayout = ({
                     </div>
                     <div className="flex lg:gap-20 gap-[30px] items-center px-2 pt-1 border-t-[1p] ">
                         <Link
-                            href={`/blog/explore-topics`}
+                            href={`${router.asPath.includes('bangalore') ? '/bangalore' : ''}/blog/explore-topics`}
                             className={`text-base py-1 lg:bg-[#556ee6] lg:rounded-3xl `}
                         >
                             <div className=' lg:flex  items-center space-x-2 '>
@@ -150,31 +120,63 @@ const BlogLayout = ({
                                 <span className=" hidden lg:block text-sm text-white lg:pr-2 ">Explore Topics</span>
                             </div>
                         </Link>
-                        <div className='xl:w-[500px] lg:w-[250px] w-[215px] sm:w-64 mxs:w-60 text-center'>
-                            <Slider
-                                key={JSON.stringify(cList)}
-                                {...settings}
-                                className="blog-carousal"
+                        <div className="relative flex items-center justify-center xl:w-[350px] lg:w-[255px] w-72 mxs:w-80">
+                            {/* Custom buttons */}
+                            <button
+                                ref={prevRef}
+                                className="z-10 mx-2"
+                            >
+                                <IoIosArrowDropleftCircle color="black" className="size-6" />
+                            </button>
+
+                            {/* Swiper */}
+                            <Swiper
+                                modules={[Navigation]}
+                                spaceBetween={10}
+                                slidesPerView={3}
+                                onSwiper={(swiper) => (swiperRef.current = swiper)}
+                                breakpoints={{
+                                    2000: { slidesPerView: 2 },
+                                    1120: { slidesPerView: 2 },
+                                    770: { slidesPerView: 2 },
+                                    425: { slidesPerView: 2 },
+                                    370: { slidesPerView: 2 },
+                                    320: { slidesPerView: 1 },
+                                }}
+                                loop={true}
+                                navigation={false}
                             >
                                 {cList?.length > 0 &&
                                     cList.map((cat, i) => (
-                                        <Link
-                                            key={`category-${i}`}
-                                            href={`/blog/${cat.name.toLowerCase()}${recommended ? "/recommended" : ""
-                                                }`}
-                                            className={`p-[5px] capitalize font-medium bg-[#556ee6]  text-[12px] lg:text-xs sm:text-xs  rounded-3xl lg:rounded-3xl lg:py-1.5 ${cat.name.toLowerCase() === catg?.toLowerCase() ? 'border-2 border-yellow-500 text-yellow-500' : 'text-white'}`}
-                                        >
-                                            {cat.name.toLowerCase()}
-                                        </Link>
+                                        <SwiperSlide key={`category-${i}`}>
+                                            <Link
+                                                href={`${router.asPath.includes('bangalore') ? '/bangalore' : ''}/blog/${cat.name.toLowerCase()}${recommended ? "/recommended" : ""
+                                                    }`}
+                                                className={`flex justify-center items-center w-[100px] p-1 capitalize font-medium bg-[#1859c9] text-xs lg:text-xs rounded-3xl ${cat.name.toLowerCase() === catg?.toLowerCase()
+                                                    ? "border-2 border-yellow-500 text-yellow-500"
+                                                    : "text-white"
+                                                    }`}
+                                            >
+                                                {cat.name.toLowerCase()}
+                                            </Link>
+                                        </SwiperSlide>
                                     ))}
-                            </Slider>
+                            </Swiper>
+
+                            {/* Custom buttons */}
+                            <button
+                                ref={nextRef}
+                                className="z-10 mx-2"
+                            >
+                                <IoIosArrowDroprightCircle color="black" className="size-6" />
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
             <main>{children}</main>
             <div>
-                <Footer forblog={true} />
+                <Footer />
             </div>
         </div>
     );

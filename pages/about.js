@@ -1,9 +1,20 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
+import Head from 'next/head';
 const HomeBanner = dynamic(() => import('./components/HomeBanner.js/HomeBanner'));
-const ComponentName = (props) => {
+const ComponentName = ({canonicalUrl}) => {
     return (
         <div>
+            <Head>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <title>Dozzy Trusted Farmhouse Rentals & Retreat</title>
+                <meta name="robots" content="index, follow" />
+                <meta name="description" content="Dozzy helps people find nice farm houses where they can play, have fun with family, enjoy parties, or rest in a peaceful place." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta property="og:title" content="Dozzy Trusted Farmhouse Rentals & Retreat" />
+                <meta name="og:description" content="Dozzy helps people find nice farm houses where they can play, have fun with family, enjoy parties, or rest in a peaceful place." />
+                <link rel="canonical" href={canonicalUrl} />
+            </Head>
             <div className='text-black bg-white pt-7 px-2 py-2'>
                 <div className='bg-white text-black lg:text-lg text-sm lg:leading-9 leading-7 lg:pt-2 pt-'>
                     <p className='font-bold lg:text-4xl text-3xl py-4 lg:px-16 px-2'>Welcome to Dozzy Farmhouse - Your Ultimate Place for Nature-Inspired Premium Stays</p>
@@ -100,3 +111,17 @@ const ComponentName = (props) => {
 };
 
 export default ComponentName;
+export async function getServerSideProps({ req, query, params }) {
+
+    const host = req.headers.host;
+    const canonicalUrl = host.includes('.in')
+        ? `https://www.dozzy.in/about`
+        : `https://www.dozzy.com/about`;
+
+    return {
+        props: {
+            canonicalUrl,
+        }
+    };
+
+}

@@ -37,9 +37,7 @@
 .kievitot-font {
   font-family: 'kievitot', sans-serif;
 }
-body {
-  font-family: "Poppins", sans-serif;
-}
+
 
 @tailwind base;
 @tailwind components;
@@ -114,26 +112,6 @@ body {
 .carousel .slide {
   background: white !important;
 }
-.imgcrsl .carousel .slide img {
-  object-fit: cover !important;
-  width: 100% !important;
-  height: 100% !important;
-}
-
-.imgcrsl .carousel .slider-wrapper.axis-horizontal .slide {
-  height: 400px;
-}
-
-.crsldetails .carousel .slider-wrapper.axis-horizontal .slide img {
-  height: 420px;
-  object-fit: cover;
-}
-
-@media screen and (min-width: 1024px) {
-    .crsldetails .carousel .slider-wrapper.axis-horizontal .slide img  {
-      height: 520px;
-  }
-  }
 .grotesk-text {
   font-family: "Space Grotesk", sans-serif;
 }
@@ -192,18 +170,7 @@ body {
 .animate-fadeIn {
   animation: fadeIn 0.5s forwards; /* Adjust the duration as needed */
 }
-.blog-carousal .slick-track
-{
-  /* background-color: red; */
-  display: flex;
-  gap:8px
-}
-.blog-carousal  .slick-arrow::before {
-  color: black;
-  background-color: white;
-  display: flex;
-  align-items: center;
-}
+
 
 @keyframes gradient-animation {
   10% {
@@ -218,43 +185,69 @@ body {
   background-size: 200% 100%;
   animation: gradient-animation 5s ease infinite;
 }
-.sliderarrows .slick-prev
-{
-  left: 1px !important;
-  z-index: 10 !important;
-  /* background-color: black !important; */
-  height: 100% !important;
-  
-}
-.sliderarrows .slick-next
-{
-  right: 1px !important;
-  z-index: 10 !important;
-  height: 100% !important;
-}
-.sliderarrows .slick-arrow:hover
-{
-  opacity: 0.3 !important;
-  background-color: black !important;
-}
 
-@media screen and (min-width: 1000px) {
-  .sliderarrows .slick-prev::before
-  {
-    /* color: black !important; */
-    font-size: 15px !important;
 
+
+@keyframes gradient {
+  0% {
+    background-position: 100% 0%;
   }
-  .sliderarrows .slick-next::before
-  {
-    /* color: black !important; */
-    font-size: 15px !important;
-
+  100% {
+    background-position: -100% 0%;
   }
 }
 
-.slick-dots 
+.animate-gradient {
+  animation: gradient 3s linear infinite;
+  background-size: 200% 100%;
+}
+
+.ql-editor ul {
+  list-style-type: disc !important;
+  padding-left: 25px !important;
+}
+
+.ql-editor ol {
+  list-style-type: decimal !important;
+  padding-left: 25px !important;
+}
+.ql-editor li {
+  list-style-type: disc !important;
+  padding-left: 5px !important;
+  padding-bottom: 2px;
+}
+
+.capitalize-first-letter::first-letter {
+  text-transform: capitalize;
+}
+/* Style all tables */
+.sun-editor table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* Style table cells */
+.sun-editor table td {
+  border: 1px solid #000; /* black border */
+  padding: 8px; /* optional spacing inside cells */
+}
+
+/* Optional: style table headers or divs inside cells */
+.sun-editor table td div {
+  /* You can add text alignment, font styling, etc. */
+}
+.blogContent a {
+  color: blue;
+  text-decoration: none;
+}
+.blogContent blockquote {
+  border-left:solid 4px #ccc;
+  padding-left: 8px;
+  margin-left: 40px;
+}
+
+.swiper-wrapper
 {
-  z-index: 50;
-  bottom: 22px !important;
+  display: flex;
+  align-items: center;
 }

@@ -284,8 +284,12 @@ function SinglePost({ canonicalUrl, postDisplay }) {
               </ul>
             </div>
             <div
-              className="text-[#242424] lg:text-justify text-base lg:text-[20px] leading-8 lg:leading-9 lg:tracking-wide pt-4 pb-4 px-1 lg:px-0  rounded-lg georgia-font xl:mx-96 lg:mx-56 mx-6"
+              className="text-[#242424] lg:text-justify text-base lg:text-[20px] leading-8 lg:leading-9 lg:tracking-wide pt-4 pb-4 px-1 lg:px-0  rounded-lg georgia-font xl:mx-96 lg:mx-56 mx-6 ql-editor blogContent sun-editor"
               dangerouslySetInnerHTML={{ __html: postDisplay?.content }}
+            />
+            <div
+              className="text-[#242424] lg:text-justify text-base lg:text-[20px] leading-8 lg:leading-9 lg:tracking-wide pt-4 pb-4 px-1 lg:px-0  rounded-lg georgia-font xl:mx-96 lg:mx-56 mx-6 sun-editor blogContent"
+              dangerouslySetInnerHTML={{ __html: postDisplay?.contentTable }}
             />
             <div className='flex gap-8 py-4 border-t-2 border-b-2 xl:mx-96 lg:mx-56 mx-6 px-4 lg:px-0' >
               <p className='flex gap-2'>
@@ -371,20 +375,19 @@ function SinglePost({ canonicalUrl, postDisplay }) {
                       <li className="flex items-center gap-1">
                         <BiCategory className="text-blue-400" />
                         <span>
-                          {Array.isArray(postDisplay?.categoryname)
-                            ? postDisplay.categoryname.join(", ")
-                            : postDisplay?.categoryname}
+                          {Array.isArray(post?.categoryname)
+                            ? post.categoryname.join(", ")
+                            : post?.categoryname}
                         </span>
                       </li>
                       <li className="hidden lg:flex items-center gap-1">
                         <span><IoTimeOutline className="text-blue-400" /></span>
-                        <span>{<p>{postDisplay?.date.slice(0, 12)}</p>}</span>
+                        <span>{<p>{post?.date.slice(0, 12)}</p>}</span>
                       </li>
                     </ul>
                   </div>
                 )) : <p>No related posts found</p>}
               </div>
-
             </div>
             <div className=" py-6 lg:mt-12 flex flex-row xl:mx-96 lg:mx-56 mx-1.5 px-4 lg:px-0 text-white">
               <Link href={`/blog/${cat ? cat[0] + '/' : ''}recommended`} className="flex  space-x-2">

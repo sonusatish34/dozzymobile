@@ -1,21 +1,25 @@
 import Head from 'next/head';
 
-export default function TermsAndConditions() {
+export default function TermsAndConditions({ canonicalUrl }) {
     return (
         <>
+
             <Head>
-                <title>Shipping And Delivery</title>
-                <meta name="description" content="Terms and Conditions for our website" />
-                <link rel="icon" href="/favicon.ico" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <title>How Dozzy Delivers Farmhouse Stays to You</title>
+                <meta name="robots" content="index, follow" />
+                <meta name="description" content="We make it easy to book and get your farmhouse. Everything is quick and simple, so you can relax and have fun on your trip." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta property="og:title" content="How Dozzy Delivers Farmhouse Stays to You" />
+                <meta name="og:description" content="We make it easy to book and get your farmhouse. Everything is quick and simple, so you can relax and have fun on your trip." />
+                <link rel="canonical" href={canonicalUrl} />
             </Head>
 
             <div className="min-h-screen bg-gray-100 py-8 px-4 text-black text">
                 <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
                     <p className="lg:text-3xl text-xl font-bold text-center text-[#556ee6] mb-6">Shipping And Delivery</p>
-
                     <p className="text-sm lg:text-lg mb-4  md:text-left">
                         Please review our Shipping and Delivery policies carefully before making your farmhouse booking.
-
                     </p>
 
                     <div className="space-y-4">
@@ -65,3 +69,17 @@ export default function TermsAndConditions() {
         </>
     );
 }
+
+export async function getServerSideProps({ req, query, params }) {
+
+    const host = req.headers.host;
+    const canonicalUrl = host.includes('.in')
+        ? `https://www.dozzy.in/shipping-and-delivery`
+        : `https://www.dozzy.com/shipping-and-delivery`;
+
+    return {
+        props: {
+            canonicalUrl: canonicalUrl,
+        }
+    };
+} 

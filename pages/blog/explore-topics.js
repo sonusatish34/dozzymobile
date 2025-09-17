@@ -1,11 +1,7 @@
 import React, { Component, useEffect, useState } from "react";
-import Slider from "react-slick";
-// import React, { useEffect, useState } from 'react';
 import BlogLayout from './blogcomponents/BlogLayout';
 import { getDocs, collection } from 'firebase/firestore';
 import { fireDb } from '../../public/firebase';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Link from 'next/link';
 import Head from "next/head";
 
@@ -53,14 +49,6 @@ const ComponentName = ({ canonicalUrl }) => {
 
                     </div>
 
-
-                    {/* <div className="lg:w-[600px] w-44 mxs:w-60 lg:text-base mxs:text-sm text-sm   py-4 lg:py-2">
-                        <Slider  {...settings} className="blog-carousal  ">
-                            {cList?.length && cList.map((category, i) => (
-                                <p className=' text-center capitalize font-medium text-black text-sm lg:text-base rounded-3xl p-[2px] lg:p-[1px] bg-gray-200 lg:rounded-3xl   '>{category.name}</p>
-                            ))}
-                        </Slider>
-                    </div> */}
                 </div>
                 <div className="justify-items-center  ">
 

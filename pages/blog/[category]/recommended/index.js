@@ -14,10 +14,7 @@ import Image from 'next/image';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import StaticData from '../../../images/StaticData';
 import Loading from '@/pages/components/Loading';
-import Slider from "react-slick";
-// import React, { useEffect, useState } from 'react';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 import Head from 'next/head';
 
 const ComponentName = ({ canonicalUrl }) => {
@@ -33,73 +30,6 @@ const ComponentName = ({ canonicalUrl }) => {
     const [cList, setCList] = useState();
 
 
-
-    const settings = {
-        className: "center",
-        // centerMode: true,
-        infinite: true,
-        // centerPadding: "60px",
-        // slidesToShow: 6,
-        speed: 500,
-        arrows: true,
-        responsive: [
-            {
-                breakpoint: 2000, // Largest breakpoint first
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                    infinite: true,
-                },
-            },
-            {
-                breakpoint: 1020,
-                settings: {
-                    slidesToShow: 4,
-                    slidesToScroll: 1,
-                    infinite: true,
-                },
-            },
-
-            {
-                breakpoint: 770,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 2,
-                    infinite: true,
-                },
-            },
-
-
-            {
-                breakpoint: 475,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    slidesToScroll: 3,
-                    infinite: true,
-                },
-            },
-
-            {
-                breakpoint: 370,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                },
-            },
-
-            {
-                breakpoint: 320, // Smallest breakpoint last
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2,
-                    infinite: true,
-                },
-            },
-        ],
-
-    };
 
 
 
@@ -127,7 +57,8 @@ const ComponentName = ({ canonicalUrl }) => {
                 if (category) {
                     const postsQuery = query(collection(fireDb, "blogPost"),
                         where("categoryname", "array-contains", category),
-                        where("blog_state", "==", "active")
+                        where("blog_state", "==", "active"),
+                        where("blogfor", "==", "Dozzy"),
                     );
                     const postsQuerySnapshot = await getDocs(postsQuery);
                     const posts = postsQuerySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
@@ -196,23 +127,7 @@ const ComponentName = ({ canonicalUrl }) => {
                             Recommended stories in "{category}"
                         </p>
 
-                        {/* Subheading */}
-                        {/* <p className="text-lg font-semibold ">More Topics To Explore</p> */}
-
-                        {/* <div className='xl:w-[400px] lg:w-[300px] w-44 mxs:w-60  text-center '>
-                            <Slider key={JSON.stringify(cList)} {...settings} className="blog-carousal">
-                                {cList?.length > 0 &&
-                                    cList.map((cat, i) => (
-                                        <Link
-                                            key={`category-${i}`}
-                                            href={`/blog/${cat.name.toLowerCase()}/recommended`}
-                                            className={`capitalize font-medium text-white text-[14px] lg:text-base bg-[#556ee6] rounded-3xl lg:rounded-3xl ${cat.name.toLowerCase() === category?.toLowerCase() ? 'border-2 border-yellow-500 text-yellow-500 rounded-3xl' : ''}`}
-                                        >
-                                            {cat.name.toLowerCase()}
-                                        </Link>
-                                    ))}
-                            </Slider>
-                        </div> */}
+                    
                     </div>
                 </div>
 
@@ -234,14 +149,14 @@ const ComponentName = ({ canonicalUrl }) => {
                                                     .replace(/ /g, "-")}`}
                                                 className="block"
                                             >
-                                                {post?.title?.slice(0, 40)}..
+                                                {post?.title}
                                             </Link>
                                         </h5>
                                         <p className="text-gray-600 text-sm lg:text-base lg:hidden block">
                                             {post?.description?.slice(0, 50)}...
                                         </p>
                                         <p className="text-gray-600 text-sm lg:text-base hidden lg:block">
-                                            {post?.description?.slice(0, 100)}...
+                                            {post?.description?.slice(0, 110)}..
                                         </p>
 
                                         {/* <ul className="mt-3 flex items-center text-xs text-gray-500 space-x-4">

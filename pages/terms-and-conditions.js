@@ -1,12 +1,16 @@
 import Head from 'next/head';
-
-export default function TermsAndConditions() {
+export default function TermsAndConditions({canonicalUrl}) {
     return (
         <>
             <Head>
-                <title>Terms and Conditions</title>
-                <meta name="description" content="Terms and Conditions for our website" />
-                <link rel="icon" href="/favicon.ico" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <title>Dozzy Farmhouse Booking Terms & Guidelines.</title>
+                <meta name="robots" content="index, follow" />
+                <meta name="description" content="See all terms and conditions for renting a farmhouse on Dozzy—transparent, fair, and easy to understand." />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta property="og:title" content="Dozzy Farmhouse Booking Terms & Guidelines." />
+                <meta name="og:description" content="See all terms and conditions for renting a farmhouse on Dozzy—transparent, fair, and easy to understand." />
+                <link rel="canonical" href={canonicalUrl} />
             </Head>
 
             <div className="min-h-screen bg-gray-100 py-8 px-4 text-black text">
@@ -64,3 +68,17 @@ export default function TermsAndConditions() {
         </>
     );
 }
+export async function getServerSideProps({ req, query, params }) {
+
+    const host = req.headers.host;
+    const canonicalUrl = host.includes('.in')
+        ? `https://www.dozzy.in/terms-and-conditions`
+        : `https://www.dozzy.com/terms-and-conditions`;
+
+    return {
+        props: {
+            canonicalUrl: canonicalUrl,
+        }
+    };
+}
+

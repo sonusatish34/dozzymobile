@@ -8,7 +8,7 @@ import { FaRegComment } from "react-icons/fa";
 import { GrLike } from "react-icons/gr";
 import StaticData from "@/pages/images/StaticData";
 
-const PostsListing = ({ data, catg }) => {
+const PostsListing = ({ data, catg ,loc}) => {
   function ParseP(htmlContent) {
     if (typeof window !== 'undefined') {
       const parser = new DOMParser();
@@ -42,7 +42,7 @@ const PostsListing = ({ data, catg }) => {
             <div key={`key-${i}`}>
               <Link
 
-                href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`}
+                href={`${loc?`/${loc}`:''}/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`}
                 className="w-full lg:h-[450px]  xl:h-[610px] h-auto flex flex-col gap-y-1 lg:px-0"
               >
                 <p
@@ -130,7 +130,7 @@ const PostsListing = ({ data, catg }) => {
         {data?.length > 0 ? (
           data.slice(8, 14).map((post, i) => (
             <div key={`key-${i}`}>
-              <Link href={`/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="lg:px-0  w-full">
+              <Link href={`${loc?`/${loc}`:''}/blog/posts/${post.slug.toLowerCase().replace(/ /g, "-")}`} className="lg:px-0  w-full">
                 <p
                   className="block hover:text-[#556ee6] font-bold text-lg xl:text-2xl text-left tracking-normal"
                 >

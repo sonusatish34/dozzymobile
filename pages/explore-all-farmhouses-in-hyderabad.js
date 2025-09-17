@@ -2,6 +2,7 @@ import React from 'react'
 import FHLPage from './components/FarmProductLPage/FHLPage'
 import Head from 'next/head';
 function exploreallfarmhouses({ canonicalUrl, filteredFHS }) {
+
   return (
     <div className='pb-6'>
       <Head>
@@ -12,155 +13,98 @@ function exploreallfarmhouses({ canonicalUrl, filteredFHS }) {
         <meta property="og:title" content="No Deposit & Unlimited Guests - Dozzy Farmhouse Rentals" />
         <meta property="og:description" content="Enjoy the great outdoors with No deposit, Unlimited Guests, and luxurious farmhouse rentals. Perfect for relaxation, parties, and weddings. Book now and enjoy your privacy in nature's luxury. " />
         <link rel="canonical" href={canonicalUrl} />
-
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-04YJBDK2VX"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-                         window.dataLayer = window.dataLayer || [];
-                         function gtag(){dataLayer.push(arguments);}
-                         gtag('js', new Date());
-                         gtag('config', 'G-04YJBDK2VX');
-                        `,
-          }}
-        />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16698821101"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'AW-16698821101');
-            `,
-          }}
-        />
-
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16698821101"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-16698821101');
-              function gtag_report_conversion(url) {
-                var callback = function () {
-                  if (typeof(url) != 'undefined') {
-                    window.location = url;
-                  }
-                };
-                gtag('event', 'conversion', {
-                  'send_to': 'AW-16698821101/AchICOTCyOsZEO2Tz5o-',
-                  'value': 1.0,
-                  'currency': 'INR',
-                  'event_callback': callback
-                });
-                return false;
-              }
-            `,
-          }}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(w,d,s,l,i){
-                w[l]=w[l]||[]; 
-                w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-                var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),
-                dl=l!='dataLayer'?'&l='+l:'';
-                j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-                f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-NFJZZ34X');`,
-          }}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `gtag('config', 'AW-16797121033/PPdfCKqh7_AZEIn0vsk-', {
-                          'phone_conversion_number': '9111-9111-62'
-                              });`,
-          }}
-        />
-
-        {/* Meta Pixel Code */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              !function(f,b,e,v,n,t,s)
-              {if(f.fbq)return;n=f.fbq=function(){n.callMethod ?
-              n.callMethod.apply(n, arguments) : n.queue.push(arguments)};
-              if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-              n.queue=[];t=b.createElement(e);t.async=!0;
-              t.src=v;s=b.getElementsByTagName(e)[0];
-              s.parentNode.insertBefore(t,s)}(window, document,'script',
-              'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '951887287035030');
-              fbq('track', 'PageView');
-            `,
-          }}
-        />
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=951887287035030&ev=PageView&noscript=1"
-          />
-        </noscript>
-        {/* End Meta Pixel Code */}
       </Head>
-      <FHLPage count='all' FHList={filteredFHS} />
+      <FHLPage place={'hyderabad'} count='all' FHList={filteredFHS} />
     </div>
   )
 }
 
 export default exploreallfarmhouses;
-
 export async function getServerSideProps({ req }) {
   const host = req.headers.host;
   const canonicalUrl = host.includes('.in')
-    ? 'https://www.dozzy.in/explore-all-farmhouses-in-hyderabad'
-    : 'https://www.dozzy.com/explore-all-farmhouses-in-hyderabad';
+    ? 'https://www.dozzy.in'
+    : 'https://www.dozzy.com';
+
   const requestOptions = {
     method: "GET",
     redirect: "follow"
   };
-  const getOrderedImages = (attributes) => {
-    const imageMap = {};
-    attributes.forEach((attr) => {
-      imageMap[attr.attribute_name] = attr.attribute_value;
-    });
 
-    return [
-      imageMap["farmhouse_front_view"],
-    ];
-  };
+  const moinbadlistkey = [
+    "popular-farm-house-moinabad", "farm-house-for-rent-at-moinabad",
+    "moinabad-farm-house-price-list", "hyderabad-moinabad-farmhouse",
+    "farm-house-moinabad", "farmhouse-in-moinabad"
+  ];
+
+  const farmhouseKeywords = [
+    "cheap-farmhouse-for-rent-in-hyderabad", "farm-stay", "hillview-farmstay", "farm-cottages",
+    "farmhouse-in-hyderabad", "farm-accommodation", "farmhouse-with-pool",
+    "cheap-farm-house-for-rent", "farmhouse-for-rent-in-hyderabad", "luxury-farm-stay",
+    "family-farm-stay", "pet-friendly-farm-stays", "farm-stay-hyderabad",
+    "farm-stays-around-hyderabad", "farm-house-swimming-pool", "farmhouse-for-lease",
+    "farmhouse-for-daily-rent", "rural-farm-houses-for-rent", "3-bedroom-farm-house-for-rent",
+    "farm-stays-in-hyderabad", "farm-stays-near-me", "farm-house-for-rent-in-hyderabad",
+    "farm-house-for-parties", "modern-farmhouse-pool", "farm-house-to-rent-near-me",
+    "2-bedroom-farm-house-for-rent", "farm-house-near-me-for-rent", "farm-house-for-hire",
+    "farm-house-for-one-day-rent", "farm-house-for-rent-for-a-day",
+    "farmhouse-with-swimming-pool-near-me", "farmhouse-for-couples",
+    "farmhouse-with-swimming-pool-for-rent", "farm-house-for-daily-rent",
+    "farm-house-for-event", "swimming-pool-farm-house", "pool-farm-house",
+    "entire-farm-house-for-rent", "best-farmhouse-with-pool", "farmstays-in-hyderabad",
+    "farmhouse-with-big-swimming-pool", "farmstays-near-hyderabad",
+    "small-farmhouse-with-pool", "small-farm-house-with-swimming-pool",
+    "farmhouse-vacation-rental-near-me", "best-private-places-for-lovers-in-hyderabad",
+    "farm-house-for-functions", "near-farm-house-with-swimming-pool",
+    "farmhouse-for-night-stay-in-hyderabad", "private-farm-house-for-rent-in-hyderabad",
+    "farm-house-for-haldi", "farm-house-for-haldi-function", "hideout-farmstay-hyderabad-price"
+  ];
 
   try {
-    // Fetching the approved properties data
-    const response = await fetch("https://api.dozzy.com/customer/approved_properties?lat=17&long=78&program_id=1&property_capacity=1000", requestOptions);
+    const response = await fetch(
+      "https://api.dozzy.com/site/properties?property_region=Hyderabad",
+      requestOptions
+    );
     const result = await response.json();
-    const filteredFHS = result.data.results?.map(car => ({
-      property_name: car.property_name,
-      property_price: car.property_price,
-      weekend_price: car.weekend_price,
-      no_of_bedrooms: car.no_of_bedrooms,
-      customer_night_prices: car.customer_night_prices,
-      images: getOrderedImages(car.images)
-    }));
+
+    const filteredFHS = result.data.map(car => {
+      let keyword;
+
+      if (car.area_name?.toLowerCase() === "moinabad") {
+        const index = Math.floor(Math.random() * moinbadlistkey.length);
+        keyword = moinbadlistkey[index];
+      } else {
+        const index = Math.floor(Math.random() * farmhouseKeywords.length);
+        keyword = farmhouseKeywords[index];
+      }
+
+      return {
+        property_price: car.property_price,
+        no_of_bedrooms: car.no_of_bedrooms,
+        customer_night_prices: car.customer_night_prices,
+        images: car?.duplicate_farmhouse_front_view ? car?.duplicate_farmhouse_front_view : car?.farmhouse_front_view,
+        link: `/${keyword}-${car.property_id}`,
+        area_name: car.area_name,
+        property_name: `Dozzy ${car.property_id}`
+      };
+    });
+
+    const onlymoin = filteredFHS.filter(item => item.area_name?.toLowerCase() === "moinabad");
+
     return {
       props: {
         canonicalUrl: canonicalUrl,
-        filteredFHS: filteredFHS
+        filteredFHS,
+        onlymoin
       }
     };
   } catch (error) {
     console.error(error);
-    // Handle the error if the fetches fail, return an empty array or appropriate fallback
     return {
       props: {
-        approvedProperties: null,
+        approvedProperties: null
       }
     };
   }
 }
+

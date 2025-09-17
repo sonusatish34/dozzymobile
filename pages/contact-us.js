@@ -11,7 +11,7 @@ import { FiPhoneCall } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa6';
 import { ImLocation2 } from 'react-icons/im';
 
-const ComponentName = ({ filteredFHs }) => {
+const ComponentName = ({ filteredFHs,error  }) => {
   useEffect(() => {
     // Disable right-click
     const disableContextMenu = (e) => e.preventDefault();
@@ -117,21 +117,31 @@ const ComponentName = ({ filteredFHs }) => {
 
         <div className="py-10">
           <h3 className="font-bold lg:text-3xl text-xl pb-4">Farm Houses</h3>
-          {filteredFHs.map((fh, ind) => (
-            <ul key={ind} className="flex flex-col border-b-2 py-3 gap-y-2 lg:text-xl text-sm">
-              <li className="font-semibold">
-                <span className="capitalize">{fh.property_name?.toLowerCase()}</span>
-              </li>
-              <li className="flex gap-x-2">
-               <span><ImLocation2 className='lg:size-10 size-6' color="orange" /></span> 
-                <span>{fh.property_location}</span>
-              </li>
-              <li className="flex gap-x-2">
-                <span>Area: {fh.area_name}</span>
-              </li>
-            </ul>
-          ))}
+
+          {error ? (
+            <p className="text-red-600 font-semibold text-lg">{error}</p>
+          ) : (
+            filteredFHs?.length > 0 ? (
+              filteredFHs.map((fh, ind) => (
+                <ul key={ind} className="flex flex-col border-b-2 py-3 gap-y-2 lg:text-xl text-sm">
+                  <li className="font-semibold">
+                    <span className="capitalize">{fh.property_name?.toLowerCase()}</span>
+                  </li>
+                  <li className="flex gap-x-2">
+                    <span><ImLocation2 className='lg:size-10 size-6' color="orange" /></span>
+                    <span>{fh.property_location}</span>
+                  </li>
+                  <li className="flex gap-x-2">
+                    <span>Area: {fh.area_name}</span>
+                  </li>
+                </ul>
+              ))
+            ) : (
+              <p>No farm houses available at the moment.</p>
+            )
+          )}
         </div>
+
       </div>
     </div>
   );
@@ -155,14 +165,22 @@ export async function getServerSideProps({ req }) {
       'https://api.dozzy.com/customer/approved_properties?lat=17&long=78&program_id=1&property_capacity=1000',
       requestOptions
     );
-    const result = await response.json();
 
+    if (!response.ok) {
+      const errorBody = await response.json();
+      console.error('API Error:', errorBody);
+      return {
+        props: {
+          canonicalUrl,
+          filteredFHs: [],
+          error: errorBody?.detail || 'An unexpected error occurred.',
+        },
+      };
+    }
+
+    const result = await response.json();
     const filteredFHs = result?.data?.results?.map((car) => ({
       property_name: car.property_name,
-      property_price: car.property_price,
-      weekend_price: car.weekend_price,
-      no_of_bedrooms: car.no_of_bedrooms,
-      customer_night_prices: car.customer_night_prices,
       property_location: car.property_location,
       area_name: car.area_name,
     }));
@@ -171,14 +189,18 @@ export async function getServerSideProps({ req }) {
       props: {
         canonicalUrl,
         filteredFHs,
+        error: null,
       },
     };
   } catch (error) {
-    console.error(error);
+    console.error('Network Error:', error);
     return {
       props: {
+        canonicalUrl,
         filteredFHs: [],
+        error: 'Failed to fetch data from API.',
       },
     };
   }
 }
+

@@ -5,10 +5,13 @@ import { FiPhoneCall } from "react-icons/fi";
 import LinkCall from '../LinkCall';
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+
 const Header = (locname) => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
+  const router = useRouter();
 
   const handleClickOutside = (event) => {
     if (
@@ -18,6 +21,19 @@ const Header = (locname) => {
       setIsOpen(false);
     }
   };
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setIsOpen(false);
+    };
+
+    router.events.on('routeChangeStart', handleRouteChange);
+
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, []);
+
 
   useEffect(() => {
     if (isOpen) {
@@ -33,7 +49,7 @@ const Header = (locname) => {
   return (
 
     <div className="font-bold  text-lg pr-5 md:px-12 lg:px-20 py-4 flex justify-between lg:items-center border-b-2 border-gray-200">
-      <Link href="/">
+      <Link href={`${router.pathname.includes('bangalore') ? '/bangalore' : '/'}`}>
         <Image
           className="h-12 w-40 lg:scale-110 scale-75"
           src={"/Dozzy123.webp"}
@@ -46,9 +62,9 @@ const Header = (locname) => {
         <div className={`${isOpen ? "hidden" : 'block'} hidden lg:block`}>
           <ul className='font-semibold xl:text-lg lg:text-base flex gap-8 xl:gap-12'>
             <li><Link className='hover:text-blue-400 hover:underline' href={`${locname?.length ? `/${locname}` : '/'}`}>Home</Link></li>
-            <li><Link target='_blank' className='hover:text-blue-400 hover:underline' href={`${locname?.length ? `/blog` : 'blog'}`}>Blog</Link></li>
-            <li><Link className='hover:text-blue-400 hover:underline' href="/about">About Us</Link></li>
-            <li><Link className='hover:text-blue-400 hover:underline' href="/contact-us">Contact Us</Link></li>
+            <li><Link className='hover:text-blue-400 hover:underline' href={`${router.pathname.includes('bangalore') ? '/bangalore' : ''}/blog`}>Blog</Link></li>
+            <li><Link className='hover:text-blue-400 hover:underline' href={`${router.pathname.includes('bangalore') ? '/bangalore' : ''}/about`}>About Us</Link></li>
+            <li><Link className='hover:text-blue-400 hover:underline' href={`${router.pathname.includes('bangalore') ? '/bangalore' : ''}/contact-us`}>Contact Us</Link></li>
           </ul>
         </div>
       </div>
@@ -84,9 +100,9 @@ const Header = (locname) => {
       </div>
       <nav
         ref={menuRef}
-        className={`w-11/12 h-2/3 top-[80px] right-[1px] border border-gray-300 font absolute bg-white rounded-b-md p-2 pt-6 lg:pr-16 z-50 transition-transform duration-500 ease-out ${isOpen ? 'block' : 'hidden'}`}
+        className={`w-11/12 h-3/4 top-[80px] right-[1px] border border-gray-300 font absolute bg-white rounded-b-md p-2 pt-6 lg:pr-16 z-50 transition-transform duration-1000  flex flex-col gap-y-1 ease-out ${isOpen ? 'block' : 'hidden'}`}
         style={{
-          transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
+          // transform: isOpen ? 'translateX(0)' : 'translateX(-100%)',
           left: isOpen ? 'auto' : '100%',
         }}
       >
@@ -95,7 +111,7 @@ const Header = (locname) => {
             <div className='w-48 text-black 2xl:w-full lg:w-96 lg:mt-2'>
               <p className='text-xl font-bold'>
                 <Image
-                  className="h-16 w-full lg:scale-125 scale-75 "
+                  className="h-12 w-36 lg:scale-125 scale-75 "
                   src={"/Dozzy123.webp"}
                   alt={"Dozzy App For Farmhouse Booking"}
                   width={1000}
@@ -105,11 +121,11 @@ const Header = (locname) => {
             </div>
           </div>
         </Link>
-        <ul className="pl-6 pt-1 pb-1 border-t-2 border-gray-200 font-semibold flex flex-col gap-2 items-start text-black">
-          <li className="w-32 text-start"><Link href={'/'}>Home</Link></li>
-          <li className="w-32 text-start"><Link href={'/contact-us'}>Contact Us</Link></li>
-          <li className="w-32 text-start"><Link href={'/about'}>About Us</Link></li>
-          <li className="w-32 text-start"><Link href={'/blog'} target='_blank'>Blog</Link></li>
+        <ul className='font-semibold xl:text-lg lg:text-base flex flex-col gap-2 pl-6 xl:gap-12 text-black border-t-2 py-2'>
+          <li><Link className='hover:text-blue-400 hover:underline' href={`${locname?.length ? `/${locname}` : '/'}`}>Home</Link></li>
+          <li><Link target='_blank' className='hover:text-blue-400 hover:underline'  href={`${router.pathname.includes('bangalore') ? '/bangalore' : ''}/blog`}>Blog</Link></li>
+          <li><Link className='hover:text-blue-400 hover:underline' href={`${router.pathname.includes('bangalore') ? '/bangalore' : ''}/about`}>About Us</Link></li>
+          <li><Link className='hover:text-blue-400 hover:underline' href={`${router.pathname.includes('bangalore') ? '/bangalore' : ''}/contact-us`}>Contact Us</Link></li>
         </ul>
         <div className="flex flex-col border-t-2 text-blue-500 border-gray-200 text-left gap-2 pl-6 pt-4 justify-center">
           <p className=' lg:text-3xl text-xl text-[#556EE6]'>For Booking Help Call</p>
@@ -119,6 +135,21 @@ const Header = (locname) => {
                 <Link
                   onClick={(e) => LinkCall(e, "tel:9111911162")}
                   href="tel:9111911162" target='_blank'>9111-9111-62</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="flex flex-col border-t-2 text-blue-500 border-gray-200 text-left gap-2 pl-6 pt-4 justify-center">
+          <p className=' lg:text-3xl text-xl text-[#556EE6]'>Branches</p>
+          <div className="flex items-center">
+            <ul className='flex flex-col gap-y-2'>
+              <li className="font-bold text-xl text-black">
+                <Link
+                  href="/">Hyderabad</Link>
+              </li>
+              <li className="font-bold text-xl text-black">
+                <Link
+                  href="/bangalore">Bangalore</Link>
               </li>
             </ul>
           </div>
