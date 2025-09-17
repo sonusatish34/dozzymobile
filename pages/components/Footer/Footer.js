@@ -38,7 +38,7 @@ const Footer = ({ place, forblog }) => {
     // ${router.pathname.includes('bangalore') ? '/bangalore' :''}
     return (
         <>
-            <div className={`xl:px-20 lg:px-20 xl:py-20 lg:py-12 px-4 py-4 ${(forblog || router.pathname.includes('bangalore')) ? 'hidden' : ''} `}>
+            <div className={`px-4 py-4 lg:px-16 ${(forblog || router.pathname.includes('bangalore')) ? 'hidden' : ''} `}>
                 <div className={` flex py-5 px-2 justify-center text-white bg-[#556ee6] rounded-md items-center`}>
                     <div className=' xl:text-left xl:text-sm lg:text-xs mxs:text-sm  text-xs font-semibold'>
                         <ul className='xl:gap-x-16  lg:gap-x-2 lg:gap-y-5 gap-y-4 grid justify-center pl-2 lg:grid-cols-3 grid-cols-1 py-7 capitalize'>

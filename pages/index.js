@@ -96,12 +96,12 @@ export default function Home({ canonicalUrl, filteredFHS }) {
         </Suspense>
       </div>
 
-      {/* HomeBanner with reserved space */}
-      <div className="w-full min-h-[400px]">
+      {/* HomeBanner with reserved space */} 
+        <div className="w-full min-h-[400px]">
         <Suspense fallback={<div className={skeletonStyle} />}>
           <HomeBanner />
         </Suspense>
-      </div>
+      </div> 
 
       {/* FarmStarts */}
       <div className="w-full min-h-[400px]">
@@ -111,12 +111,10 @@ export default function Home({ canonicalUrl, filteredFHS }) {
       </div>
 
       {/* FAQ Section */}
-      <div className="bg-white rounded xl:py-12 lg:px-14 xl:px-14 p-2">
-        <p className="uppercase p-2 mb-4 text-center text-black font-bold xl:text-2xl">
-          Frequently asked questions
-        </p>
+      <Suspense fallback={<div className="min-h-[500px] animate-pulse bg-gray-200"></div>}>
         <FAQComponent />
-      </div>
+      </Suspense>
+
 
       {/* CareGuests */}
       <div className="w-full min-h-[300px]">
@@ -126,7 +124,7 @@ export default function Home({ canonicalUrl, filteredFHS }) {
       </div>
 
       <PopUp />
-      
+
     </div>
   );
 }
@@ -192,7 +190,7 @@ export async function getServerSideProps({ req }) {
         property_price: car.property_price,
         no_of_bedrooms: car.no_of_bedrooms,
         customer_night_prices: car.customer_night_prices,
-        images:car?.duplicate_farmhouse_front_view? car?.duplicate_farmhouse_front_view: car?.farmhouse_front_view,
+        images: car?.duplicate_farmhouse_front_view ? car?.duplicate_farmhouse_front_view : car?.farmhouse_front_view,
         link: `/${keyword}-${car.property_id}`,
         area_name: car.area_name,
         property_name: `Dozzy ${car.property_id}`

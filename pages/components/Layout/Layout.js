@@ -12,7 +12,7 @@ const poppins = Poppins({
 const Layout = ({ children }) => {
   const router = useRouter();
   const path = router.pathname;
-  
+
   // Define routes where header/footer should be hidden
   const noHeaderFooterRoutes = [
     '/blog',
@@ -25,8 +25,8 @@ const Layout = ({ children }) => {
   return (
     <div className={`flex flex-col min-h-screen ${poppins.className}`}>
       {!hideHeaderFooter && <Header />}
-      <main className="flex-grow bg-white">{children}</main>
-      {!hideHeaderFooter && <Footer />}
+      <main className="lg:px-16">{children}</main>
+      {!hideHeaderFooter && <div ><Footer /></div>}
     </div>
   );
 };

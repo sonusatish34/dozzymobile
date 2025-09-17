@@ -25,5 +25,13 @@
   "devDependencies": {
     "postcss": "^8",
     "tailwindcss": "^3.4.1"
-  }
+  },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions",
+    "Safari >= 13",
+    "Edge >= 90",
+    "not IE 11",
+    "not dead"
+  ]
 }

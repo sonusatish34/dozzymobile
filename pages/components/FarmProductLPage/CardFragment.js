@@ -47,8 +47,10 @@ const CardFragment = ({ item }) => {
               : '/fallback.jpg' // Make sure this image exists in your /public folder
           }
           alt={`Farmhouse ${safeDisplayName} Image`}
-          width={2000}
-          height={2000}
+          width={533}
+          height={400}
+          sizes="(max-width: 768px) 100vw, 533px"
+          quality={10}
           fetchPriority="high"
           loading="eager"
         />

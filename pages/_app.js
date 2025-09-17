@@ -6,12 +6,7 @@ import Layout from './components/Layout/Layout';
 import PageLoader from "./components/PageLoader";
 import BackToTop from "./components/BackToTop";
 import Script from 'next/script';
-import { Poppins } from "next/font/google";
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"], // Only the weights you need
-  display: "swap",
-});
+
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false);
@@ -132,7 +127,7 @@ function MyApp({ Component, pageProps }) {
 
       {loading && <PageLoader />}
       {/* <Component {...pageProps} /> */}
-      <div className={poppins.className}>
+      <div >
         <Component {...pageProps} />
       </div>
       <BackToTop />

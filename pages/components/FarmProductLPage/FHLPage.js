@@ -104,7 +104,7 @@ const FarmProductLPage = ({ count, FHList, place }) => {
   return (
     <div>
       {/* Heading */}
-      <div className="text-sm pl-4 py-4 md:px-20 lg:py-10 text-black">
+      <div className="text-sm  text-black">
         <h2 className="font-semibold text-lg mxs:text-xl lg:text-5xl flex items-center gap-x-2 relative">
           <span>Top FarmHouses In</span>
           <div className="relative" ref={dropdownRef}>
@@ -145,7 +145,7 @@ const FarmProductLPage = ({ count, FHList, place }) => {
         <p className="mt-4 text-gray-700 lg:text-2xl">Get Very Low prices Compared To Others</p>
       </div>
 
-      <div className="w-full xl:pl-36 lg:pl-28 py-4 lg:py-10 px-4 flex flex-wrap gap-4 justify- text-black">
+      <div className="w-full  py-4 lg:py-10 px-4 flex flex-wrap gap-4 justify- text-black">
         <input
           type="text"
           placeholder="Search Farmhouse"
@@ -213,7 +213,7 @@ const FarmProductLPage = ({ count, FHList, place }) => {
       </div>
 
       {/* Farmhouse Cards */}
-      <div className="flex flex-wrap xl:gap-x-12 xl:gap-y-12 md:gap-x-8 md:gap-y-8 gap-y-8 lg:items-start justify-center xl:px-20 items-center  px-1">
+      <div className="flex flex-wrap xl:gap-x-12 xl:gap-y-12 md:gap-x-8 md:gap-y-8 gap-y-8 lg:items-start justify-center items-center  px-1">
         {filteredData?.slice(
           0,
           searchTerm || selectedBHK || priceRange ? filteredData?.length : (count ? filteredData?.length : mobileC ? 10 : 12)

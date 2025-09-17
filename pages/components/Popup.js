@@ -57,7 +57,7 @@ const PopUp = () => {
               width={525}
               height={634}
               className='lg:w-[525px] lg:h-[634px] h-[450px] mxs:h-[520px] object-cover rounded-md'
-              priority
+              fetchPriority='high'
               onClick={() => { handleStoreRedirect() }}
             />
 
@@ -90,6 +90,8 @@ const PopUp = () => {
                       alt={`Hyderabad`}
                       width={525}
                       height={634}
+                      fetchPriority='high'
+                      loading='eager'
                       className='w-24 h-28'
                       onClick={() => setIsVisibleLoc(false)}
                     />
@@ -100,6 +102,8 @@ const PopUp = () => {
                   <Link href={'/bangalore'} className='flex flex-col gap-y-2 border-2 p-2 rounded-md shadow-md'>
                     <Image
                       src={"/bangalorelogo2.webp"}
+                       fetchPriority='high'
+                      loading='eager'
                       alt={`Bangalore`}
                       width={525}
                       height={634}
